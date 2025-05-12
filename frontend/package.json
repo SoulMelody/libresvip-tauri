@@ -1,0 +1,48 @@
+{
+  "name": "libresvip-tauri",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.tsx",
+  "module": "src/index.tsx",
+  "scripts": {
+    "dev": "bun --hot src/index.tsx",
+    "build": "bun build ./src/index.html --outdir=../libresvip_tauri/dist --target=browser --minify --production --env='BUN_PUBLIC_*'",
+    "start": "NODE_ENV=production bun src/index.tsx",
+    "generate": "pydantic2ts --module ../libresvip_tauri/__init__.py --output src/ApiTypes.ts"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@fluentui/react-icons": "^2.0.300",
+    "@mui/material": "^6.4.11",
+    "@rjsf/mui": "^5.24.10",
+    "@rjsf/validator-ajv8": "^5.24.10",
+    "@szhsin/react-menu": "^4.4.0",
+    "@tauri-apps/api": "^2.5.0",
+    "@tauri-apps/plugin-clipboard-manager": "^2.2.2",
+    "@tauri-apps/plugin-dialog": "^2.2.1",
+    "@tauri-apps/plugin-opener": "^2.2.6",
+    "ajv-i18n": "^4.2.0",
+    "i18next": "^25.1.2",
+    "i18next-browser-languagedetector": "^8.1.0",
+    "material-ui-popup-state": "^5.3.6",
+    "nanoid": "^5.1.5",
+    "rc-input-number": "^9.5.0",
+    "react": "^19",
+    "react-dom": "^19",
+    "react-hotkeys-hook": "^5.0.1",
+    "react-i18next": "^15.5.1",
+    "react-router": "^7.6.0",
+    "tauri-plugin-pytauri-api": "^0.5.0",
+    "zustand": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "i18next-conv": "^15.1.1",
+    "json-schema-to-typescript": "^15.0.4",
+    "npm-check-updates": "^18.0.1",
+    "typescript": "^5.8.3"
+  }
+}

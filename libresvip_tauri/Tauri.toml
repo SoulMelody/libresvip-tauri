@@ -1,0 +1,23 @@
+"$schema" = "https://schema.tauri.app/config/2"
+productName = "libresvip-tauri"
+version = "0.1.0"
+identifier = "org.soulmelody.libresvip"
+
+[build]
+frontendDist = "./dist"
+
+[app]
+withGlobalTauri = true
+
+[[app.windows]]
+title = "LibreSVIP"
+width = 800
+minWidth = 520
+minHeight = 600
+decorations = false
+devtools = true
+
+[bundle]
+icon = [
+    "icons/icon.ico",
+]

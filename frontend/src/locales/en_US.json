@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "converter": "Converter",
+    "settings": "Settings",
+    "about": "About",
+    "next": "Next",
+    "back": "Back"
+  },
+  "window": {
+    "maximize": "Maximize",
+    "minimize": "Minimize",
+    "restore": "Restore",
+    "close": "Close",
+    "switch_theme": "Switch theme",
+    "switch_language": "Switch language",
+    "task_list": "Task list",
+    "no_task": "No task",
+    "menu": "Menu",
+    "system_theme": "System",
+    "light_theme": "Light",
+    "dark_theme": "Dark",
+    "about": "About",
+    "version": "Version",
+    "author": "Author"
+  },
+  "converter": {
+    "import_projects": "Import projects",
+    "export_config": "Export configuration",
+    "options": "Options",
+    "export_files": "Export",
+    "direct": "Direct",
+    "merge": "Merge",
+    "split": "Split",
+    "input_format": "Import format",
+    "output_format": "Export format",
+    "conflict_policy": "Conflict policy",
+    "output_directory": "Output directory",
+    "reveal_file_on_finish": "Reveal file on finish",
+    "overwrite": "Overwrite",
+    "rename": "Rename",
+    "skip": "Skip",
+    "prompt": "Prompt",
+    "drag_and_drop_files_here": "Drag and drop files here or click to select",
+    "conversion_mode": "Conversion mode",
+    "max_track_count": "Maximum track count",
+    "input_options": "Input options",
+    "output_options": "Output options",
+    "middleware_options": "Middleware options",
+    "add": "Add",
+    "clear": "Clear"
+  },
+  "middleware": {
+    "pitch_shift": {
+      "name": "Pitch shift"
+    },
+    "project_zoom": {
+      "name": "Project zoom"
+    },
+    "pronounciation_conversion": {
+      "name": "Pronounciation conversion"
+    },
+    "remove_short_silences": {
+      "name": "Remove short silences"
+    },
+    "replace_lyric": {
+      "name": "Replace lyrics"
+    }
+  },
+  "plugin": {
+    "acep": {
+      "name": "ACE Studio",
+      "author": "yqzhishen",
+      "file_format": "ACE Studio project File",
+      "description": "Conversion Plugin for ACE Studio project file"
+    },
+    "ass": {
+      "name": "ASS",
+      "author": "SoulMelody",
+      "file_format": "Advanced SubStation Alpha subtitle file",
+      "description": "Generator plugin for ASS subtitle file"
+    }
+  }
+}

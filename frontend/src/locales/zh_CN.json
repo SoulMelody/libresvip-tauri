@@ -1,0 +1,69 @@
+{
+  "nav": {
+    "converter": "转换器",
+    "settings": "设置",
+    "about": "关于",
+    "next": "下一步",
+    "back": "上一步"
+  },
+  "window": {
+    "maximize": "最大化",
+    "minimize": "最小化",
+    "restore": "恢复",
+    "close": "关闭",
+    "switch_theme": "切换主题",
+    "switch_language": "切换语言",
+    "task_list": "任务列表",
+    "no_task": "任务列表为空",
+    "menu": "菜单",
+    "system_theme": "系统",
+    "light_theme": "浅色",
+    "dark_theme": "深色",
+    "about": "关于",
+    "version": "版本",
+    "author": "作者"
+  },
+  "converter": {
+    "import_projects": "导入工程",
+    "export_config": "导出设置",
+    "options": "选项",
+    "export_files": "导出",
+    "direct": "常规模式",
+    "merge": "演唱轨合并模式",
+    "split": "演唱轨拆分模式",
+    "input_format": "导入格式",
+    "output_format": "导出格式",
+    "conflict_policy": "冲突策略",
+    "output_directory": "导出路径",
+    "reveal_file_on_finish": "导出完成后自动打开所在文件夹",
+    "overwrite": "覆盖",
+    "rename": "重命名",
+    "skip": "跳过",
+    "prompt": "提示",
+    "drag_and_drop_files_here": "拖拽或单击导入文件",
+    "conversion_mode": "转换模式",
+    "max_track_count": "最大轨道数",
+    "input_options": "输入选项",
+    "output_options": "输出选项",
+    "middleware_options": "中间环节处理选项",
+    "add": "添加",
+    "clear": "清除"
+  },
+  "middleware": {
+    "pitch_shift": {
+      "name": "音高变调"
+    },
+    "project_zoom": {
+      "name": "工程缩放"
+    },
+    "pronounciation_conversion": {
+      "name": "歌词发音转换"
+    },
+    "remove_short_silences": {
+      "name": "移除短的无声间隙"
+    },
+    "replace_lyric": {
+      "name": "替换歌词"
+    }
+  }
+}

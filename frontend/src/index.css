@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.szh-menu {
+  padding: 0 !important;
+}
+
+.szh-menu__item {
+  color: rgba(18, 18, 18, 0.87);
+  background-color: rgba(255, 255, 255, 0.87);
+}
+
+.szh-menu-container--theme-dark .szh-menu__item {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: rgba(18, 18, 18, 0.87);
+}
