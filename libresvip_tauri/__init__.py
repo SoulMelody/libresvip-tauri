@@ -22,8 +22,6 @@ from pytauri import (
     Commands,
 )
 from pytauri import AppHandle, Emitter
-from pytauri.ipc import Channel, JavaScriptChannelId
-from pytauri.webview import WebviewWindow
 from pytauri_wheel.lib import builder_factory, context_factory
 from typing_extensions import override
 from upath import UPath

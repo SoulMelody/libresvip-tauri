@@ -67,6 +67,7 @@ import { path } from '@tauri-apps/api';
 import { listen } from "@tauri-apps/api/event";
 import { getCurrentWebview } from "@tauri-apps/api/webview";
 import { open } from '@tauri-apps/plugin-dialog';
+import { writeText } from '@tauri-apps/plugin-clipboard-manager';
 import { revealItemInDir } from '@tauri-apps/plugin-opener';
 import { pyInvoke } from 'tauri-plugin-pytauri-api';
 import { useSettingStore } from './store/SettingStore';
@@ -85,6 +86,7 @@ import {
   Route,
   Routes,
 } from 'react-router';
+import { useState } from 'react';
 
 interface ListItemLinkProps extends ListItemProps {
   to: string;
@@ -117,7 +119,6 @@ export function App(props: Props) {
     inputFormat,
     outputFormat,
     conversionMode,
-    outputDirectory,
     revealFileOnFinish,
     loadInputFormatSchema,
     loadOutputFormatSchema,
@@ -250,16 +251,21 @@ export function App(props: Props) {
 
   const { t } = useTranslation();
 
-  const ErrorDialog = (
+  interface ErrorDialogProps {
     popupId: string,
     errorMessage: string
-  ) => {
+  }
+
+  const ErrorDialog = (props: ErrorDialogProps) => {
+    const [clicked, setClicked] = useState<boolean>(false);
+    const { popupId, errorMessage } = props;
     const popupState = usePopupState({ variant: 'dialog', popupId: popupId })
     return (
       <Box>
         <IconButton {...bindTrigger(popupState)}>
-          <ErrorCircle24Regular/>
-          {t('window.about')}
+          <ErrorCircle24Regular style={{
+            color: 'red',
+          }}/>
         </IconButton>
         <Dialog
           {...bindDialog(popupState)}
@@ -281,8 +287,21 @@ export function App(props: Props) {
           </DialogContent>
           <DialogActions>
             <Button onClick={
+              () => {
+                writeText(errorMessage);
+                setClicked(true);
+                setTimeout(() => {
+                  setClicked(false);
+                }, 1000);
+              }
+            }>
+              {clicked ? t('window.copied') : t('window.copy')}
+            </Button>
+            <Button onClick={
               () => popupState.close()
-            }>OK</Button>
+            }>
+              {t('window.close')}
+            </Button>
           </DialogActions>
         </Dialog>
       </Box>
@@ -552,6 +571,14 @@ export function App(props: Props) {
                                         ml: 'auto',
                                       }
                                     }/>
+                                  )
+                                }
+                                {
+                                  task.error && (
+                                    <ErrorDialog
+                                      popupId={`error-dialog-${task.id}`}
+                                      errorMessage={task.error}
+                                    />
                                   )
                                 }
                                 <IconButton onClick={
