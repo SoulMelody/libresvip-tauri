@@ -34,9 +34,11 @@ import {
   DialogContent,
   DialogContentText,
   DialogActions,
+  TextareaAutosize
 } from "@mui/material";
 import { createAppTheme } from './Theme';
 import {
+  Alert24Regular,
   ArrowSync20Regular,
   BinRecycle24Regular,
   BrightnessHighFilled,
@@ -270,19 +272,26 @@ export function App(props: Props) {
         <Dialog
           {...bindDialog(popupState)}
         >
-          <DialogTitle id="about-dialog-title" variant="h4" sx={{
+          <DialogTitle id="error-dialog-title" variant="h4" sx={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             flexGrow: 1,
           }}>
-            {"LibreSVIP"}
+            {t('window.error')}
           </DialogTitle>
           <DialogContent>
-            <DialogContentText id="about-dialog-description">
-              <Typography variant="body1" sx={{ p: 2 }}>
-                {errorMessage}
-              </Typography>
+            <DialogContentText id="error-dialog-description">
+              <TextareaAutosize
+                minRows={3}
+                maxRows={30}
+                value={errorMessage}
+                readOnly
+                style={{
+                  width: '100%',
+                  resize: 'none',
+                }}
+              />
             </DialogContentText>
           </DialogContent>
           <DialogActions>
@@ -307,6 +316,70 @@ export function App(props: Props) {
       </Box>
     )
   };
+
+  interface WarningDialogProps {
+    popupId: string,
+    warningMessage: string
+  }
+
+  const WarningDialog = (props: WarningDialogProps) => {
+    const [clicked, setClicked] = useState<boolean>(false);
+    const { popupId, warningMessage } = props;
+    const popupState = usePopupState({ variant: 'dialog', popupId: popupId })
+    return (
+      <Box>
+        <IconButton {...bindTrigger(popupState)}>
+          <Alert24Regular style={{
+            color:'orange',
+          }}/>
+        </IconButton>
+        <Dialog
+          {...bindDialog(popupState)}
+        >
+          <DialogTitle id="warning-dialog-title" variant="h4" sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexGrow: 1,
+          }}>
+            {t('window.warning')}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="warning-dialog-description">
+              <TextareaAutosize
+                minRows={3}
+                maxRows={30}
+                value={warningMessage}
+                readOnly
+                style={{
+                  width: '100%',
+                  resize: 'none',
+                }}
+              />
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={
+              () => {
+                writeText(warningMessage);
+                setClicked(true);
+                setTimeout(() => {
+                  setClicked(false);
+                }, 1000);
+              } 
+            }>
+              {clicked? t('window.copied') : t('window.copy')}
+            </Button>
+            <Button onClick={
+              () => popupState.close()
+            }>
+              {t('window.close')}
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </Box>
+    )
+  }
 
   const navItemNames: { [key: string]: string } = {
     '/': 'nav.converter',
@@ -578,6 +651,14 @@ export function App(props: Props) {
                                     <ErrorDialog
                                       popupId={`error-dialog-${task.id}`}
                                       errorMessage={task.error}
+                                    />
+                                  )
+                                }
+                                {
+                                  task.warning && (
+                                    <WarningDialog
+                                      popupId={`warning-dialog-${task.id}`}
+                                      warningMessage={task.warning}
                                     />
                                   )
                                 }

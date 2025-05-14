@@ -93,10 +93,11 @@ converter = Converter()
 
 @commands.command()
 async def start_conversion(body: BatchConvertOptions, app_handle: AppHandle) -> Empty:
-    from libresvip.core.config import Language, settings
+    from libresvip.extension.manager import get_translation
+    from libresvip.utils import translation
 
     converter.convert_options = body
-    settings.language = Language.from_locale(body.language)
+    translation.singleton_translation = get_translation(lang=body.language)
 
     if len(converter.convert_options.conversion_tasks):
         if converter.convert_options.mode == "merge":
