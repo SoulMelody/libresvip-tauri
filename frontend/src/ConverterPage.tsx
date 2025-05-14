@@ -25,6 +25,7 @@ import {
   TextField,
   FormControlLabel,
   Backdrop,
+  Button,
 } from '@mui/material';
 import {
   ArrowLeft20Filled,
@@ -40,6 +41,7 @@ import {
   ArrowUpload32Regular,
   ArrowEnter20Regular,
   ArrowExit20Regular,
+  ArrowReset24Regular,
   Wand20Regular,
 } from '@fluentui/react-icons';
 import { getCurrentWebview } from "@tauri-apps/api/webview";
@@ -80,6 +82,7 @@ export const ConverterPage = () => {
     handleBack,
     addConversionTasks,
     setOptionTab,
+    setActiveStep,
     setSelectedMiddlewares,
     setMiddlewareFormData,
     resetFinishedCount,
@@ -811,14 +814,29 @@ export const ConverterPage = () => {
             );
           case 3:
             let busy = finishedCount < (conversionMode === "merge" ? 1 : conversionTasks.length);
-            return (
-              <Backdrop open={busy} sx={{
+            return busy ? (
+              <Backdrop open={true} sx={{
                 color: (theme) => theme.palette.common.white,
                 zIndex: (theme) => theme.zIndex.drawer + 1,
                 inset: "52px 0px 0px 0px",
               }}>
                 <CircularProgress color="inherit" />
               </Backdrop>
+            ) : (
+              <Box sx={{
+                width: "100%",
+                height: "calc(100vh - 160px)",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}>
+                <Button startIcon={<ArrowReset24Regular/>} onClick={() => {
+                  setActiveStep(0);
+                }} variant="contained">
+                  {t('converter.reset')}
+                </Button>
+              </Box>
             );
         }
       })()}

@@ -197,7 +197,7 @@ export function App(props: Props) {
     };
 
     const unsubConversionTasks = useConverterStore.subscribe((state) => state.conversionTasks, (conversionTasks, prevConversionTasks) => {
-      if (conversionTasks.length === 0 && conversionTasks !== prevConversionTasks) {
+      if ((conversionTasks.length === 0 && conversionTasks !== prevConversionTasks) || (conversionTasks.length > prevConversionTasks.length)) {
         setActiveStep(0);
       }
     });
