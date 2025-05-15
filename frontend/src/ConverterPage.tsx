@@ -54,13 +54,13 @@ import { useTranslation } from 'react-i18next';
 import { path } from '@tauri-apps/api';
 import { parsePath } from './Utils';
 import InputNumber from 'rc-input-number';
+import 'rc-input-number/assets/index.css';
 import Form from '@rjsf/mui';
-import { DescriptionFieldProps, FieldTemplateProps, RegistryWidgetsType, RJSFSchema, WidgetProps, descriptionId, getTemplate, labelValue, getUiOptions } from '@rjsf/utils';
+import { DescriptionFieldProps, FieldTemplateProps, RegistryWidgetsType, WidgetProps, descriptionId, getTemplate, labelValue, getUiOptions } from '@rjsf/utils';
 import { customizeValidator } from '@rjsf/validator-ajv8';
 import localizer from 'ajv-i18n';
 import i18n from './i18n';
 import { nanoid } from 'nanoid';
-import 'rc-input-number/assets/index.css';
 import HoverPopover from 'material-ui-popup-state/HoverPopover';
 import PopupState, { bindHover, bindPopover, bindTrigger } from 'material-ui-popup-state';
 import { pyInvoke } from 'tauri-plugin-pytauri-api';
@@ -311,8 +311,9 @@ export const ConverterPage = () => {
           }
           let parsed = await parsePath(file)
           let detectedInputFormat = parsed.ext.toLowerCase() in pluginInfos ? parsed.ext.toLowerCase() : inputFormat;
-          if (detectedInputFormat === null)
+          if (detectedInputFormat === null) {
             continue;
+          }
           let task: ConversionTask = {
             id: nanoid(),
             inputPath: file,
@@ -462,8 +463,9 @@ export const ConverterPage = () => {
                         p: 2, display: "inline",
                       }}>{t('converter.max_track_count')}</Typography>
                       <InputNumber value={maxTrackCount} min={1} step={1} required={true} changeOnWheel={true} onChange={(e) => {
-                        if (e!== null)
-                          setMaxTrackCount(e)}
+                        if (e!== null) {
+                          setMaxTrackCount(e)
+                        }}
                       }/>
                     </Box>
                   )

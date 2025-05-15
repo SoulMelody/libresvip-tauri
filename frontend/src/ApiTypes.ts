@@ -26,6 +26,7 @@ export interface BatchConvertOptions {
       [k: string]: unknown;
     };
   };
+  outputDir: string;
 }
 export interface ConversionTask {
   id: string;
@@ -38,7 +39,6 @@ export interface ConversionTask {
   error?: string | null;
   warning?: string | null;
   outputPath?: string | null;
-  outputDir: string;
 }
 export interface Empty {}
 export interface MoveFileParams {

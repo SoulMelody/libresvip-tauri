@@ -163,7 +163,7 @@ export function App(props: Props) {
           })
         } else {
           showMessage(
-            t("conversion_failed"),
+            t("converter.conversion_failed"),
             'error'
           );
           increaseFinishedCount();
@@ -548,8 +548,9 @@ export function App(props: Props) {
                                 }
                                 let parsed = await parsePath(file);
                                 let detectedInputFormat = parsed.ext.toLowerCase() in pluginInfos ? parsed.ext.toLowerCase() : inputFormat;
-                                if (detectedInputFormat === null)
+                                if (detectedInputFormat === null) {
                                   continue;
+                                }
                                 let task: ConversionTask = {
                                   id: nanoid(),
                                   inputPath: file,

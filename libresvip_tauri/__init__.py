@@ -152,64 +152,63 @@ def convert_task(
                 raise ValueError(
                     f"Plugin {input_plugin.identifier} or {output_plugin.identifier} is not supported"
                 )
-            else:
-                input_option = input_option_class(**converter.convert_options.input_options)
-                if converter.convert_options.mode == "merge" and sub_tasks:
-                    child_projects = [
-                        input_plugin.plugin_object.load(
-                            Path(input_path),
-                            input_option,
-                        )
-                        for input_path in more_itertools.value_chain(task.input_path, [
-                            sub_task.input_path
-                            for sub_task in sub_tasks
-                        ])
-                    ]
-                    project = Project.merge_projects(child_projects)
-                else:
-                    project = input_plugin.plugin_object.load(
-                        Path(task.input_path),
+            input_option = input_option_class(**converter.convert_options.input_options)
+            if converter.convert_options.mode == "merge" and sub_tasks:
+                child_projects = [
+                    input_plugin.plugin_object.load(
+                        Path(input_path),
                         input_option,
                     )
-                for middleware_abbr in converter.convert_options.selected_middlewares:
-                    middleware = middleware_manager.plugin_registry[middleware_abbr]
-                    if middleware.plugin_object is not None and hasattr(
-                        middleware.plugin_object, "process"
-                    ) and (
-                        middleware_option_class := get_type_hints(
-                            middleware.plugin_object.process
-                        ).get(
-                            "options",
-                        )
-                    ):
-                        middleware_option = converter.convert_options.middleware_options[
-                            middleware_abbr
-                        ]
-                        project = middleware.plugin_object.process(
-                            project,
-                            middleware_option_class.model_validate(
-                                middleware_option,
-                                from_attributes=True,
-                            ),
-                        )
-                output_option = output_option_class(**converter.convert_options.output_options)
-                if converter.convert_options.mode == "split":
-                    task.tmp_path.mkdir(parents=True, exist_ok=True)
-                    for i, child_project in enumerate(
-                        project.split_tracks(converter.convert_options.max_track_count)
-                    ):
-                        output_plugin.plugin_object.dump(
-                            task.tmp_path
-                            / f"{i + 1:0=2d}.{converter.convert_options.output_format}",
-                            child_project,
-                            output_option,
-                        )
-                else:
-                    output_plugin.plugin_object.dump(
-                        task.tmp_path,
+                    for input_path in more_itertools.value_chain(task.input_path, [
+                        sub_task.input_path
+                        for sub_task in sub_tasks
+                    ])
+                ]
+                project = Project.merge_projects(child_projects)
+            else:
+                project = input_plugin.plugin_object.load(
+                    Path(task.input_path),
+                    input_option,
+                )
+            for middleware_abbr in converter.convert_options.selected_middlewares:
+                middleware = middleware_manager.plugin_registry[middleware_abbr]
+                if middleware.plugin_object is not None and hasattr(
+                    middleware.plugin_object, "process"
+                ) and (
+                    middleware_option_class := get_type_hints(
+                        middleware.plugin_object.process
+                    ).get(
+                        "options",
+                    )
+                ):
+                    middleware_option = converter.convert_options.middleware_options[
+                        middleware_abbr
+                    ]
+                    project = middleware.plugin_object.process(
                         project,
+                        middleware_option_class.model_validate(
+                            middleware_option,
+                            from_attributes=True,
+                        ),
+                    )
+            output_option = output_option_class(**converter.convert_options.output_options)
+            if converter.convert_options.mode == "split":
+                task.tmp_path.mkdir(parents=True, exist_ok=True)
+                for i, child_project in enumerate(
+                    project.split_tracks(converter.convert_options.max_track_count)
+                ):
+                    output_plugin.plugin_object.dump(
+                        task.tmp_path
+                        / f"{i + 1:0=2d}.{converter.convert_options.output_format}",
+                        child_project,
                         output_option,
                     )
+            else:
+                output_plugin.plugin_object.dump(
+                    task.tmp_path,
+                    project,
+                    output_option,
+                )
         if w.output:
             task.warning = w.output
     except Exception:

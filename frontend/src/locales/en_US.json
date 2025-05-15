@@ -4,7 +4,8 @@
     "settings": "Settings",
     "about": "About",
     "next": "Next",
-    "back": "Back"
+    "back": "Back",
+    "start": "Start"
   },
   "window": {
     "maximize": "Maximize",
@@ -21,7 +22,12 @@
     "dark_theme": "Dark",
     "about": "About",
     "version": "Version",
-    "author": "Author"
+    "author": "Author",
+    "author_name": "SoulMelody",
+    "author_profile": "Author's profile",
+    "repo_url": "Repository link",
+    "about_line_1": "LibreSVIP is an open-sourced, liberal and extensionable framework that can convert your singing synthesis projects between different file formats.",
+    "about_line_2": "All people should have the right and freedom to choose. That's why we're committed to giving you a second chance to keep your creations free from the constraints of platforms and coterie."
   },
   "converter": {
     "import_projects": "Import projects",
@@ -47,7 +53,9 @@
     "output_options": "Output options",
     "middleware_options": "Middleware options",
     "add": "Add",
-    "clear": "Clear"
+    "clear": "Clear",
+    "all_files": "All files",
+    "reset": "Reset"
   },
   "middleware": {
     "pitch_shift": {
@@ -73,11 +81,221 @@
       "file_format": "ACE Studio project File",
       "description": "Conversion Plugin for ACE Studio project file"
     },
+    "aisp": {
+      "name": "AISingers",
+      "author": "SoulMelody",
+      "file_format": "AISingers Studio project file",
+      "description": "Conversion plugin for AISingers Studio project file"
+    },
     "ass": {
       "name": "ASS",
       "author": "SoulMelody",
       "file_format": "Advanced SubStation Alpha subtitle file",
       "description": "Generator plugin for ASS subtitle file"
+    },
+    "ccs": {
+      "name": "CeVIO",
+      "author": "Sder Colin",
+      "file_format": "CeVIO Creative Studio Project file",
+      "description": "Conversion plugin for CeVIO Creative Studio project file"
+    },
+    "ds": {
+      "name": "DiffSinger",
+      "author": "SoulMelody",
+      "file_format": "DiffSinger parameters file",
+      "description": "DiffSinger plugin."
+    },
+    "dv": {
+      "name": "DeepVocal",
+      "author": "Oxygen Dioxide",
+      "file_format": "DeepVocal project file",
+      "description": "Conversion plugin for dv file"
+    },
+    "gj": {
+      "name": "gjgj",
+      "author": "FlutyDeer",
+      "file_format": "Gejigeji project file",
+      "description": "Conversion plugin for Gejigeji project file.\nOnly Gejigeji v2.0 spec is supported."
+    },
+    "json": {
+      "name": "JsonSvip",
+      "author": "yqzhishen",
+      "file_format": "OpenSVIP file",
+      "description": "Conversion plugin for OpenSVIP Model, which is based on json"
+    },
+    "lrc": {
+      "name": "LRC",
+      "author": "SoulMelody",
+      "file_format": "LRC lyric file",
+      "description": "Generator plugin for LRC lyric file"
+    },
+    "mid": {
+      "name": "MIDI",
+      "author": "SoulMelody",
+      "file_format": "Standard MIDI file (SMF)",
+      "description": "Conversion plugin for MIDI file"
+    },
+    "mtp": {
+      "name": "Muta",
+      "author": "SoulMelody",
+      "file_format": "Muta project file",
+      "description": "Conversion plugin for mtp file"
+    },
+    "musicxml": {
+      "name": "MusicXML",
+      "author": "Sder Colin",
+      "file_format": "MusicXML file",
+      "description": "Conversion plugin for MusicXML Score file"
+    },
+    "nn": {
+      "name": "NIAONiao",
+      "author": "SoulMelody",
+      "file_format": "NIAONiao Virtual Singer project file",
+      "description": "Conversion plugin for NIAONiao project file"
+    },
+    "ppsf": {
+      "name": "Ppsf",
+      "author": "SoulMelody",
+      "file_format": "Piapro Studio Song file",
+      "description": "Conversion plugin for Piapro Studio project file"
+    },
+    "ps_project": {
+      "name": "PocketSinger",
+      "author": "SoulMelody",
+      "file_format": "Pocket Singer Project file",
+      "description": "Conversion plugin for Pocket Singer project file"
+    },
+    "s5p": {
+      "name": "SynthV Editor",
+      "author": "Sder Colin",
+      "file_format": "Synthesizer V Editor project file",
+      "description": "Conversion plugin for Synthesizer V Editor project file"
+    },
+    "srt": {
+      "name": "SRT",
+      "author": "SoulMelody",
+      "file_format": "SubRip subtitle file",
+      "description": "Generator plugin for SRT subtitle file"
+    },
+    "svg": {
+      "name": "Svg",
+      "author": "CrSjimo",
+      "file_format": "Scalable Vector Graphics",
+      "description": "Generate graphics containing notes and pitch curve in SVG format. Only the first or specified singing track will be imported."
+    },
+    "svip": {
+      "name": "BinSvip",
+      "author": "yqzhishen",
+      "file_format": "X Studio project file",
+      "description": "Conversion plugin for the original .svip binary file format"
+    },
+    "svip3": {
+      "name": "Svip3",
+      "author": "FlutyDeer",
+      "file_format": "Netease Cloud Music XStudio project file",
+      "description": "Conversion plugin for Netease Cloud Music XStudio project file"
+    },
+    "svp": {
+      "name": "SynthV Studio",
+      "author": "yqzhishen",
+      "file_format": "Synthesizer V Studio project file",
+      "description": "Conversion plugin for Synthesizer V Studio project file, it supports reading and writing of all parameters including notes, lyrics, parameter curve, note attributes, note group, and instant pitch mode.\nNotes: Importing a project file with overlapping notes is undefined behavior that can lead to unforeseen exceptions."
+    },
+    "tlp": {
+      "name": "TuneLab",
+      "author": "LiuYunPlayer",
+      "file_format": "TuneLab project file",
+      "description": "Conversion plugin for TuneLab project file"
+    },
+    "tsmsln": {
+      "name": "TSMSln",
+      "author": "SoulMelody",
+      "file_format": "Techno-Speech Mobile Solution file",
+      "description": "Conversion plugin for VoiSona Mobile project file"
+    },
+    "tssln": {
+      "name": "TSSln",
+      "author": "SoulMelody",
+      "file_format": "Techno-Speech Solution file",
+      "description": "Conversion plugin for VoiSona project file (Only versions 1.8.0 and later are supported)"
+    },
+    "ufdata": {
+      "name": "UFData",
+      "author": "Sder Colin",
+      "file_format": "UtaFormatix3 data format",
+      "description": "Conversion plugin for UFData format"
+    },
+    "ust": {
+      "name": "Ust",
+      "author": "Sder Colin",
+      "file_format": "UTAU Sequence Text",
+      "description": "Conversion plugin for UST file format"
+    },
+    "ustx": {
+      "name": "Ustx",
+      "author": "Oxygen Dioxide",
+      "file_format": "OpenUtau project file",
+      "description": "Conversion plugin for Ustx file format"
+    },
+    "vfp": {
+      "name": "VOX Factory",
+      "author": "SoulMelody",
+      "file_format": "VOX Factory Project File",
+      "description": "Conversion plugin for VOX Factory Project File"
+    },
+    "vog": {
+      "name": "Vogen",
+      "author": "SoulMelody",
+      "file_format": "Vogen project file",
+      "description": "Conversion plugin for Vogen project file"
+    },
+    "vpr": {
+      "name": "Vpr",
+      "author": "SoulMelody",
+      "file_format": "New Vocaloid Project file",
+      "description": "Conversion plugin for New Vocaloid project file"
+    },
+    "vshp": {
+      "name": "VocalShifter",
+      "author": "SoulMelody",
+      "file_format": "VocalShifter project file",
+      "description": "Conversion plugin for VocalShifter project file"
+    },
+    "vspx": {
+      "name": "VocalSharp",
+      "author": "SoulMelody",
+      "file_format": "VocalSharp project file",
+      "description": "Conversion plugin for VocalSharp project file"
+    },
+    "vsq": {
+      "name": "Vsq",
+      "author": "Selio Jiang",
+      "file_format": "Vocaloid 2 Sequence file",
+      "description": "Conversion plugin for Vocaloid 2 Sequence file"
+    },
+    "vsqx": {
+      "name": "Vsqx",
+      "author": "Sder Colin",
+      "file_format": "Vocaloid Sequence XML file",
+      "description": "Conversion plugin for Vocaloid Sequence XML file"
+    },
+    "vvproj": {
+      "name": "VVProj",
+      "author": "SoulMelody",
+      "file_format": "VOICEVOX Project file",
+      "description": "Conversion plugin for VOICEVOX Project file"
+    },
+    "vxf": {
+      "name": "VX-β",
+      "author": "SoulMelody",
+      "file_format": "VX-β project file",
+      "description": "Conversion plugin for VX-β project file"
+    },
+    "y77": {
+      "name": "Y77",
+      "author": "SoulMelody",
+      "file_format": "Yuan77 project file",
+      "description": "Conversion plugin for Yuan77 project file"
     }
   }
 }

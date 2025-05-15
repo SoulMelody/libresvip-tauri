@@ -33,33 +33,33 @@ export const AboutPage = () => {
       <Box>
         <Typography id="about-dialog-description">
             <Box sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexGrow: 1,
-            flexWrap: 'wrap',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexGrow: 1,
+              flexWrap: 'wrap',
             }}>
             <small>
               {t('window.version')}: {appVersion}
             </small>
             </Box>
             <Box sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexGrow: 1,
-            flexWrap: 'wrap',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexGrow: 1,
+              flexWrap: 'wrap',
             }}>
             <small>
-              {t('window.author')}: SoulMelody
+              {t('window.author')}: {t('window.author_name')}
             </small>
             </Box>
             <Box sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-evenly',
-            flexGrow: 1,
-            flexWrap: 'wrap',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-evenly',
+              flexGrow: 1,
+              flexWrap: 'wrap',
             }}>
             <Button
               startIcon={<PersonAccounts20Regular/>}
@@ -68,7 +68,7 @@ export const AboutPage = () => {
               target="_blank"
               variant="contained"
             >
-              Author's profile
+              {t('window.author_profile')}
             </Button>
             <Button
               startIcon={<CodePyRectangle16Regular/>}
@@ -77,14 +77,14 @@ export const AboutPage = () => {
               target="_blank"
               variant="contained"
             >
-              Repository link
+              {t('window.repo_url')}
             </Button>
             </Box>
             <Box>
-              LibreSVIP is an open-sourced, liberal and extensionable framework that can convert your singing synthesis projects between different file formats.
+              {t('window.about_line_1')}
             </Box>
             <Box>
-              All people should have the right and freedom to choose. That's why we're committed to giving you a second chance to keep your creations free from the constraints of platforms and coterie.
+              {t('window.about_line_2')}
             </Box>
         </Typography>
       </Box>
