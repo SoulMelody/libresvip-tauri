@@ -421,6 +421,7 @@ export const ConverterPage = () => {
                   selectedMiddlewares: selectedMiddlewares,
                   middlewareOptions: middlewareFormDatas,
                   outputDir: outputDirectory,
+                  conflictPolicy: conflictPolicy,
                 });
                 resetFinishedCount();
               }}>

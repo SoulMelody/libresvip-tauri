@@ -68,14 +68,14 @@ import { ConverterPage } from "./ConverterPage";
 import { path } from '@tauri-apps/api';
 import { listen } from "@tauri-apps/api/event";
 import { getCurrentWebview } from "@tauri-apps/api/webview";
-import { open } from '@tauri-apps/plugin-dialog';
+import { ask, open } from '@tauri-apps/plugin-dialog';
 import { writeText } from '@tauri-apps/plugin-clipboard-manager';
 import { revealItemInDir } from '@tauri-apps/plugin-opener';
 import { pyInvoke } from 'tauri-plugin-pytauri-api';
 import { useSettingStore } from './store/SettingStore';
 import { useWindowStore } from './store/WindowStore';
 import { useConverterStore } from "./store/ConverterStore";
-import { ConversionTask } from './ApiTypes';
+import { ConversionTask, MoveCallbackParams } from './ApiTypes';
 import { parsePath, useMessage } from './Utils';
 import { Menu, MenuItem, MenuRadioGroup, SubMenu } from '@szhsin/react-menu';
 import { nanoid } from 'nanoid';
@@ -160,6 +160,7 @@ export function App(props: Props) {
         if (task.success !== false) {
           pyInvoke("move_file", {
             "id": task.id,
+            "forceOverwrite": false
           })
         } else {
           showMessage(
@@ -177,6 +178,40 @@ export function App(props: Props) {
         revealItemInDir(task.outputPath);
       }
       increaseFinishedCount();
+    })
+    const unlistenMoveCallback = listen('move_callback', async (event) => {
+      let payload = event.payload as MoveCallbackParams;
+      if (
+        payload.conflictPolicy === "skip"
+      ) {
+        updateConversionTask(payload.id, {
+          success: true,
+          warning: t("converter.skip_file"),
+        });
+        increaseFinishedCount();
+      } else {
+        let shouldOverwrite = await ask(
+          t("converter.overwrite_file"),
+          {
+            kind: "warning",
+            title: "LibreSVIP",
+            okLabel: t("converter.overwrite_file_ok"),
+            cancelLabel: t("converter.overwrite_file_cancel"),
+          }
+        );
+        if (shouldOverwrite) {
+          await pyInvoke("move_file", {
+            "id": payload.id,
+            "forceOverwrite": true
+          })
+        } else {
+          updateConversionTask(payload.id, {
+            success: true,
+            warning: t("converter.skip_file"),
+          });
+          increaseFinishedCount();
+        }
+      }
     })
 
     const getAppVersion = async () => {
@@ -242,6 +277,7 @@ export function App(props: Props) {
       document.removeEventListener('contextmenu', handleContextMenu);
       unlistenTaskProgress.then((unsub) => unsub());
       unlistenMoveResult.then((unsub) => unsub());
+      unlistenMoveCallback.then((unsub) => unsub());
       unsubConversionTasks();
       unsubInputFormat();
       unsubOutputFormat();
@@ -280,7 +316,9 @@ export function App(props: Props) {
           }}>
             {t('window.error')}
           </DialogTitle>
-          <DialogContent>
+          <DialogContent sx={{
+            overflowY: "hidden",
+          }}>
             <DialogContentText id="error-dialog-description">
               <TextareaAutosize
                 minRows={3}
@@ -344,7 +382,9 @@ export function App(props: Props) {
           }}>
             {t('window.warning')}
           </DialogTitle>
-          <DialogContent>
+          <DialogContent sx={{
+            overflowY: "hidden",
+          }}>
             <DialogContentText id="warning-dialog-description">
               <TextareaAutosize
                 minRows={3}

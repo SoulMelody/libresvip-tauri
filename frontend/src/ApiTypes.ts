@@ -27,6 +27,7 @@ export interface BatchConvertOptions {
     };
   };
   outputDir: string;
+  conflictPolicy: "overwrite" | "skip" | "rename" | "prompt";
 }
 export interface ConversionTask {
   id: string;
@@ -43,6 +44,12 @@ export interface ConversionTask {
 export interface Empty {}
 export interface MoveFileParams {
   id: string;
+  forceOverwrite: boolean;
+}
+
+export interface MoveCallbackParams {
+  id: string;
+  conflictPolicy: "skip" | "prompt";
 }
 export interface PluginInfo {
   identifier: string;

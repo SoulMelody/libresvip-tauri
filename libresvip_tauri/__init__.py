@@ -78,6 +78,9 @@ class BatchConvertOptions(BaseModel):
     selected_middlewares: list[str] = Field(alias="selectedMiddlewares")
     middleware_options: dict[str, dict[str, Any]] = Field(alias="middlewareOptions")
     output_dir: str = Field(alias="outputDir")
+    conflict_policy: Literal["rename", "overwrite", "skip", "prompt"] = Field(
+        alias="conflictPolicy"
+    )
 
 
 class Empty(BaseModel):
@@ -224,9 +227,16 @@ def convert_task(
 
 class MoveFileParams(BaseModel):
     id: str
+    force_overwrite: bool = Field(alias="forceOverwrite")
+
+
+class MoveCallbackParams(BaseModel):
+    id: str
+    conflict_policy: Literal["skip", "prompt"] = Field(
+        alias="conflictPolicy"
+    )
 
 JsonValueModel = RootModel[JsonValue]
-
 
 @commands.command()
 async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
@@ -251,7 +261,41 @@ async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
                     output_path = (
                         output_dir / f"{task.output_stem}.{converter.convert_options.output_format}"
                     )
-                    output_path.write_bytes(task.tmp_path.read_bytes())
+                    if output_path.exists():
+                        if body.force_overwrite or (
+                            converter.convert_options.conflict_policy == "overwrite"
+                        ):
+                            output_path.write_bytes(task.tmp_path.read_bytes())
+                        elif converter.convert_options.conflict_policy == "rename":
+                            output_path = (
+                                output_dir
+                                / f"{task.output_stem}_{task.id}.{converter.convert_options.output_format}"
+                            )
+                            output_path.write_bytes(task.tmp_path.read_bytes())
+                        elif converter.convert_options.conflict_policy == "prompt":
+                            callback_params = {
+                                "id": task.id,
+                                "conflictPolicy": converter.convert_options.conflict_policy,
+                            }
+                            Emitter.emit(
+                                app_handle,
+                                "move_callback",
+                                JsonValueModel(callback_params),
+                            )
+                            return Empty()
+                        else:
+                            callback_params = {
+                                "id": task.id,
+                                "conflictPolicy": converter.convert_options.conflict_policy,
+                            }
+                            Emitter.emit(
+                                app_handle,
+                                "move_callback",
+                                JsonValueModel(callback_params),
+                            )
+                            return Empty()
+                    else:
+                        output_path.write_bytes(task.tmp_path.read_bytes())
                     task.tmp_path.unlink()
                     task.output_path = str(output_path)
                 task.success = True
