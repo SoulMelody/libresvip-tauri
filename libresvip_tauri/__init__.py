@@ -252,7 +252,41 @@ async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
                         output_path = (
                             output_dir / f"{task.output_stem}_{child.name}"
                         )
-                        output_path.write_bytes(child.read_bytes())
+                        if output_path.exists():
+                            if body.force_overwrite or (
+                                converter.convert_options.conflict_policy == "overwrite"
+                            ):
+                                output_path.write_bytes(task.tmp_path.read_bytes())
+                            elif converter.convert_options.conflict_policy == "rename":
+                                output_path = (
+                                    output_dir
+                                    / f"{task.output_stem}_{child.name}_{task.id}.{converter.convert_options.output_format}"
+                                )
+                                output_path.write_bytes(task.tmp_path.read_bytes())
+                            elif converter.convert_options.conflict_policy == "prompt":
+                                callback_params = {
+                                    "id": task.id,
+                                    "conflictPolicy": converter.convert_options.conflict_policy,
+                                }
+                                Emitter.emit(
+                                    app_handle,
+                                    "move_callback",
+                                    JsonValueModel(callback_params),
+                                )
+                                return Empty()
+                            else:
+                                callback_params = {
+                                    "id": task.id,
+                                    "conflictPolicy": converter.convert_options.conflict_policy,
+                                }
+                                Emitter.emit(
+                                    app_handle,
+                                    "move_callback",
+                                    JsonValueModel(callback_params),
+                                )
+                                return Empty()
+                        else:
+                            output_path.write_bytes(child.read_bytes())
                         if task.output_path is None:
                             task.output_path = str(output_path)
                         child.unlink()

@@ -12,6 +12,8 @@
     "minimize": "Minimize",
     "restore": "Restore",
     "close": "Close",
+    "ok": "OK",
+    "cancel": "Cancel",
     "switch_theme": "Switch theme",
     "switch_language": "Switch language",
     "task_list": "Task list",

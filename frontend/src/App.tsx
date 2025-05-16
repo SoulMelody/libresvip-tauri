@@ -111,7 +111,7 @@ export function App(props: Props) {
     appVersion,
     isMaximized,
     toggledrawerOpen,
-    toggleMaximize,
+    setIsMaximized,
     setAppVersion,
   } = useWindowStore();
   const {
@@ -195,8 +195,8 @@ export function App(props: Props) {
           {
             kind: "warning",
             title: "LibreSVIP",
-            okLabel: t("converter.overwrite_file_ok"),
-            cancelLabel: t("converter.overwrite_file_cancel"),
+            okLabel: t("window.ok"),
+            cancelLabel: t("window.cancel"),
           }
         );
         if (shouldOverwrite) {
@@ -471,7 +471,7 @@ export function App(props: Props) {
   const handleMaximize = async () => {
     let webview = getCurrentWebview();
     await webview.window.toggleMaximize();
-    toggleMaximize();
+    setIsMaximized(await webview.window.isMaximized());
   };
   
   const handleMinimize = async () => {
