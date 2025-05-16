@@ -322,7 +322,7 @@ export function App(props: Props) {
             <DialogContentText id="error-dialog-description">
               <TextareaAutosize
                 minRows={3}
-                maxRows={30}
+                maxRows={20}
                 value={errorMessage}
                 readOnly
                 style={{
@@ -388,7 +388,7 @@ export function App(props: Props) {
             <DialogContentText id="warning-dialog-description">
               <TextareaAutosize
                 minRows={3}
-                maxRows={30}
+                maxRows={20}
                 value={warningMessage}
                 readOnly
                 style={{

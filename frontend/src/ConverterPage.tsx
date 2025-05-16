@@ -801,6 +801,14 @@ export const ConverterPage = () => {
                               <Typography sx={{
                                 display: 'inline',
                               }}>{t(`middleware.${identifier}.name`)}</Typography>
+                              <Tooltip
+                                title={t(`middleware.${identifier}.description`)}
+                                enterDelay={500}
+                              >
+                                <IconButton>
+                                  <QuestionCircle24Regular/>
+                                </IconButton>
+                              </Tooltip>
                               {
                                 selectedMiddlewares.includes(identifier) && (
                                   <MiddlewareOptionsForm identifier={`${identifier}`} />

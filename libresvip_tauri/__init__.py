@@ -241,6 +241,7 @@ JsonValueModel = RootModel[JsonValue]
 @commands.command()
 async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
     output_dir = Path(converter.convert_options.output_dir).absolute()
+    output_dir.mkdir(parents=True, exist_ok=True)
     if task := next(
         (each for each in converter.convert_options.conversion_tasks if each.id == body.id),
         None,

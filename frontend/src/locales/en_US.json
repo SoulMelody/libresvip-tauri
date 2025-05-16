@@ -14,6 +14,8 @@
     "close": "Close",
     "ok": "OK",
     "cancel": "Cancel",
+    "copy": "Copy",
+    "copied": "Copied",
     "switch_theme": "Switch theme",
     "switch_language": "Switch language",
     "task_list": "Task list",
@@ -64,16 +66,20 @@
       "name": "Pitch shift"
     },
     "project_zoom": {
-      "name": "Project zoom"
+      "name": "Project zoom",
+      "description": "Zoom in/out project"
     },
     "pronounciation_conversion": {
-      "name": "Pronounciation conversion"
+      "name": "Pronounciation conversion",
+      "description": "Convert lyrics to the specified pronounciation format"
     },
     "remove_short_silences": {
-      "name": "Remove short silences"
+      "name": "Remove short silences",
+      "description": "Fill short rests"
     },
     "replace_lyric": {
-      "name": "Replace lyrics"
+      "name": "Replace lyrics",
+      "description": "Replace lyrics using preset rules"
     }
   },
   "plugin": {
