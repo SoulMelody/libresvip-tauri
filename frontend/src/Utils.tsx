@@ -5,9 +5,16 @@ import { useState } from 'react';
 export const parsePath = async (filePath: string) => {
     const dir = await path.dirname(filePath);
     const name = await path.basename(filePath);
-    const ext = (await path.extname(filePath));
-    const stem = await path.basename(filePath, "." + ext);
-    return { dir, name, stem, ext };
+    try {
+        const ext = (await path.extname(filePath));
+        const stem = await path.basename(filePath, "." + ext);
+        return { dir, name, stem, ext };
+    } catch (error) {
+        const ext = "";
+        const stem = await path.basename(filePath);
+        return { dir, name, stem, ext };
+    }
+    
 }
 
 export const useMessage = () => {

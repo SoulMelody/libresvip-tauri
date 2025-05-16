@@ -303,9 +303,14 @@ export const ConverterPage = () => {
   useEffect(() => {
     const handleDragDrop = async (event: any) => {
       if (event.event === "tauri://drag-drop"){
-        const files = event.payload.paths; // 获取拖放的文件列表
+        const files = event.payload.paths;
         let addedFiles: ConversionTask[] = [];
         for (let file of files) {
+          if (
+            await pyInvoke("is_dir", { path: file })
+          ) {
+            continue;
+          }
           if (path.sep() === '\\') {
             file = file.replace(/\\/g, '/');
           }

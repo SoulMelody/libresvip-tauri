@@ -237,6 +237,16 @@ class MoveCallbackParams(BaseModel):
     )
 
 JsonValueModel = RootModel[JsonValue]
+BooleanModel = RootModel[bool]
+
+
+class PathModel(BaseModel):
+    path: str
+
+
+@commands.command()
+async def is_dir(body: PathModel) -> BooleanModel:
+    return BooleanModel(Path(body.path).is_dir())
 
 @commands.command()
 async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
