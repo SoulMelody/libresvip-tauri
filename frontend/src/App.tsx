@@ -108,10 +108,10 @@ export function App(props: Props) {
   const { windowProps } = props;
   const {
     drawerOpen,
-    isMaximized,
     appVersion,
+    isMaximized,
     toggledrawerOpen,
-    setIsMaximized,
+    toggleMaximize,
     setAppVersion,
   } = useWindowStore();
   const {
@@ -470,12 +470,8 @@ export function App(props: Props) {
   
   const handleMaximize = async () => {
     let webview = getCurrentWebview();
-    if (isMaximized) {
-      await webview.window.unmaximize(); 
-    } else {
-      await webview.window.maximize();
-    }
-    setIsMaximized(!isMaximized);
+    await webview.window.toggleMaximize();
+    toggleMaximize();
   };
   
   const handleMinimize = async () => {

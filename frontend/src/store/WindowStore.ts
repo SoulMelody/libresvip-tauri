@@ -6,7 +6,7 @@ interface WindowState {
   snackbarOpen: boolean;
   snackbarMessage: string;
   appVersion: string;
-  setIsMaximized: (maximized: boolean) => void;
+  toggleMaximize: () => void;
   setdrawerOpen: (open: boolean) => void;
   setAppVersion: (version: string) => void;
   toggledrawerOpen: () => void;
@@ -24,7 +24,7 @@ export const useWindowStore = create<WindowState>()(
     snackbarMessage: '',
     language: 'en_US',
     appVersion: '',
-    setIsMaximized: (maximized) => set({ isMaximized: maximized }),
+    toggleMaximize: () => set((state) => ({ isMaximized: !state.isMaximized })),
     setdrawerOpen: (open) => set({ drawerOpen: open }),
     setAppVersion: (version) => set({ appVersion: version }),
     toggledrawerOpen: () => set((state) => ({ drawerOpen: !state.drawerOpen })),
