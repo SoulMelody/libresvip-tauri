@@ -59,7 +59,8 @@
     "add": "Add",
     "clear": "Clear",
     "all_files": "All files",
-    "reset": "Reset"
+    "reset": "Reset",
+    "conversion_failed": "Conversion failed"
   },
   "middleware": {
     "pitch_shift": {

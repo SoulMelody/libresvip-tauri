@@ -64,6 +64,7 @@ import { nanoid } from 'nanoid';
 import HoverPopover from 'material-ui-popup-state/HoverPopover';
 import PopupState, { bindHover, bindPopover, bindTrigger } from 'material-ui-popup-state';
 import { pyInvoke } from 'tauri-plugin-pytauri-api';
+import { stat } from '@tauri-apps/plugin-fs';
 
 
 export const ConverterPage = () => {
@@ -306,8 +307,9 @@ export const ConverterPage = () => {
         const files = event.payload.paths;
         let addedFiles: ConversionTask[] = [];
         for (let file of files) {
+          let statResult = await stat(file);
           if (
-            await pyInvoke("is_dir", { path: file })
+            statResult.isDirectory
           ) {
             continue;
           }

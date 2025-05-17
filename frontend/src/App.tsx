@@ -34,7 +34,8 @@ import {
   DialogContent,
   DialogContentText,
   DialogActions,
-  TextareaAutosize
+  TextareaAutosize,
+  Icon
 } from "@mui/material";
 import { createAppTheme } from './Theme';
 import {
@@ -60,6 +61,8 @@ import {
   MoreHorizontalFilled,
   Color20Regular,
   WrenchScrewdriver24Regular,
+  Clipboard24Regular,
+  ClipboardCheckmark24Regular,
 } from '@fluentui/react-icons';
 import i18n from './i18n';
 import { useTranslation } from 'react-i18next';
@@ -318,6 +321,7 @@ export function App(props: Props) {
           </DialogTitle>
           <DialogContent sx={{
             overflowY: "hidden",
+            minWidth: "380px"
           }}>
             <DialogContentText id="error-dialog-description">
               <TextareaAutosize
@@ -341,6 +345,8 @@ export function App(props: Props) {
                   setClicked(false);
                 }, 1000);
               }
+            } startIcon={
+              clicked? <ClipboardCheckmark24Regular/> : <Clipboard24Regular/>
             }>
               {clicked ? t('window.copied') : t('window.copy')}
             </Button>
@@ -384,6 +390,7 @@ export function App(props: Props) {
           </DialogTitle>
           <DialogContent sx={{
             overflowY: "hidden",
+            minWidth: "380px"
           }}>
             <DialogContentText id="warning-dialog-description">
               <TextareaAutosize
@@ -406,7 +413,9 @@ export function App(props: Props) {
                 setTimeout(() => {
                   setClicked(false);
                 }, 1000);
-              } 
+              }
+            } startIcon={
+              clicked? <ClipboardCheckmark24Regular/> : <Clipboard24Regular/>
             }>
               {clicked? t('window.copied') : t('window.copy')}
             </Button>

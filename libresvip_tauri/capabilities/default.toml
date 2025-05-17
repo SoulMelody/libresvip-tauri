@@ -12,4 +12,5 @@ permissions = [
     "core:window:allow-minimize",
     "core:window:allow-close",
     "clipboard-manager:allow-write-text",
+    "fs:allow-stat"
 ]
