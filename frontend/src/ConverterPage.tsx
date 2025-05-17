@@ -500,9 +500,11 @@ export const ConverterPage = () => {
                 <PopupState variant="popover" popupId="input-format-info">
                   {(popupState) => (
                     <Box sx={{ display: 'inline-block' }}>
-                      <IconButton size="medium" sx={{ marginTop: "10px", outlineWidth: "1px", outlineColor: "#aaaaaa", outlineStyle: "solid" }} {...bindTrigger(popupState)}>
-                        <Info32Regular/>
-                      </IconButton>
+                      <Tooltip title={t('converter.view_plugin_info')} enterDelay={500}>
+                        <IconButton size="medium" sx={{ marginTop: "10px", outlineWidth: "1px", outlineColor: "#aaaaaa", outlineStyle: "solid" }} {...bindTrigger(popupState)}>
+                          <Info32Regular/>
+                        </IconButton>
+                      </Tooltip>
                       <Popover
                         {...bindPopover(popupState)}
                         anchorOrigin={{
@@ -644,9 +646,11 @@ export const ConverterPage = () => {
                   <PopupState variant="popover" popupId="input-format-info">
                     {(popupState) => (
                       <Box sx={{ display: 'inline-block' }}>
-                        <IconButton size="medium" sx={{ marginTop: "10px", outlineWidth: "1px", outlineColor: "#aaaaaa", outlineStyle: "solid" }} {...bindTrigger(popupState)}>
-                          <Info32Regular/>
-                        </IconButton>
+                        <Tooltip title={t('converter.view_plugin_info')} enterDelay={500}>
+                          <IconButton size="medium" sx={{ marginTop: "10px", outlineWidth: "1px", outlineColor: "#aaaaaa", outlineStyle: "solid" }} {...bindTrigger(popupState)}>
+                            <Info32Regular/>
+                          </IconButton>
+                        </Tooltip>
                         <Popover
                           {...bindPopover(popupState)}
                           anchorOrigin={{
@@ -699,26 +703,26 @@ export const ConverterPage = () => {
                   <FormControl sx={{ m: 1, minWidth: 300 }}>
                     <TextField id="output_directory" label={t('converter.output_directory')}
                       value={outputDirectory}
-                      onChange={(e) => {
-                        setOutputDirectory(e.target.value)
-                      }}
+                      disabled={true}
                     >
                     </TextField>
                   </FormControl>
-                  <IconButton size="medium" sx={{ marginTop: "10px", outlineWidth: "1px", outlineColor: "#aaaaaa", outlineStyle: "solid" }} onClick={
-                    async (event: React.MouseEvent<HTMLButtonElement>) => {
-                      const selected = await open({
-                        multiple: false,
-                        directory: true,
-                        defaultPath: outputDirectory,
-                      });
-                      if (selected) {
-                        setOutputDirectory(selected);
+                  <Tooltip title={t('converter.select_output_dir')} enterDelay={500}>
+                    <IconButton size="medium" sx={{ marginTop: "10px", outlineWidth: "1px", outlineColor: "#aaaaaa", outlineStyle: "solid" }} onClick={
+                      async (event: React.MouseEvent<HTMLButtonElement>) => {
+                        const selected = await open({
+                          multiple: false,
+                          directory: true,
+                          defaultPath: outputDirectory,
+                        });
+                        if (selected) {
+                          setOutputDirectory(selected);
+                        }
                       }
-                    }
-                  }>
-                    <Folder32Regular/>
-                  </IconButton>
+                    }>
+                      <Folder32Regular/>
+                    </IconButton>
+                  </Tooltip>
                 </Box>
                 <Box>
                   <FormControl sx={{ m: 1, minWidth: 300 }}>

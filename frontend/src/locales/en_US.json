@@ -62,11 +62,14 @@
     "clear": "Clear",
     "all_files": "All files",
     "reset": "Reset",
-    "conversion_failed": "Conversion failed"
+    "conversion_failed": "Conversion failed",
+    "view_plugin_info": "View plugin information",
+    "select_output_dir": "Select output directory"
   },
   "middleware": {
     "pitch_shift": {
-      "name": "Pitch shift"
+      "name": "Pitch shift",
+      "description": "Pitch shift"
     },
     "project_zoom": {
       "name": "Project zoom",
