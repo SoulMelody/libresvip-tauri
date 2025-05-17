@@ -4,13 +4,18 @@
     "settings": "设置",
     "about": "关于",
     "next": "下一步",
-    "back": "上一步"
+    "back": "上一步",
+    "start": "开始转换"
   },
   "window": {
     "maximize": "最大化",
     "minimize": "最小化",
     "restore": "恢复",
     "close": "关闭",
+    "ok": "确定",
+    "cancel": "取消",
+    "copy": "复制",
+    "copied": "已复制",
     "switch_theme": "切换主题",
     "switch_language": "切换语言",
     "task_list": "任务列表",
@@ -21,7 +26,12 @@
     "dark_theme": "深色",
     "about": "关于",
     "version": "版本",
-    "author": "作者"
+    "author": "作者",
+    "author_name": "岁月静好_初心不忘",
+    "author_profile": "作者主页",
+    "repo_url": "仓库地址",
+    "about_line_1": "LibreSVIP 是一个开源、自由、插件化的歌声合成工程文件中介与转换平台。",
+    "about_line_2": "所有人都应享有选择的权利和自由。因此，我们致力于为您带来第二次机会，使您的创作免受平台的制约与圈子的束缚。"
   },
   "converter": {
     "import_projects": "导入工程",
@@ -47,23 +57,254 @@
     "output_options": "输出选项",
     "middleware_options": "中间环节处理选项",
     "add": "添加",
-    "clear": "清除"
+    "clear": "清除",
+    "all_files": "所有文件",
+    "reset": "重置",
+    "conversion_failed": "转换失败"
   },
   "middleware": {
     "pitch_shift": {
       "name": "音高变调"
     },
     "project_zoom": {
-      "name": "工程缩放"
+      "name": "工程缩放",
+      "description": "缩放工程"
     },
     "pronounciation_conversion": {
-      "name": "歌词发音转换"
+      "name": "歌词发音转换",
+      "description": "将歌词转换为指定的发音格式"
     },
     "remove_short_silences": {
-      "name": "移除短的无声间隙"
+      "name": "移除短的无声间隙",
+      "description": "填充短休止符"
     },
     "replace_lyric": {
-      "name": "替换歌词"
+      "name": "替换歌词",
+      "description": "使用预设规则对歌词进行替换"
+    }
+  },
+  "plugin": {
+    "acep": {
+      "name": "ACE Studio",
+      "author": "YQ之神",
+      "file_format": "ACE Studio 工程文件",
+      "description": "ACE Studio 工程文件转换插件"
+    },
+    "aisp": {
+      "name": "AISingers",
+      "author": "岁月静好_初心不忘",
+      "file_format": "AISingers Studio 工程文件",
+      "description": "AISingers Studio 工程文件转换插件"
+    },
+    "ass": {
+      "name": "ASS",
+      "author": "岁月静好_初心不忘",
+      "file_format": "ASS字幕文件",
+      "description": "ASS 字幕格式生成插件"
+    },
+    "ccs": {
+      "name": "CeVIO",
+      "author": "科林",
+      "file_format": "CeVIO Creative Studio工程文件",
+      "description": "CeVIO Creative Studio工程文件转换插件"
+    },
+    "ds": {
+      "name": "DiffSinger",
+      "author": "岁月静好_初心不忘",
+      "file_format": "DiffSinger参数文件",
+      "description": "DiffSinger 参数格式转换插件。"
+    },
+    "dv": {
+      "name": "DeepVocal",
+      "author": "Oxygen Dioxide",
+      "file_format": "DeepVocal工程文件",
+      "description": "dv 格式转换插件"
+    },
+    "gj": {
+      "name": "gjgj",
+      "author": "笛鹿",
+      "file_format": "歌叽歌叽工程文件",
+      "description": "歌叽歌叽工程格式转换插件。\n仅支持歌叽歌叽2.0版本。"
+    },
+    "json": {
+      "name": "JsonSvip",
+      "author": "yqzhishen",
+      "file_format": "OpenSVIP 文件",
+      "description": "基于 OpenSVIP 模型定义的 JSON 格式转换插件"
+    },
+    "lrc": {
+      "name": "LRC",
+      "author": "岁月静好_初心不忘",
+      "file_format": "LRC 歌词文件",
+      "description": "LRC 歌词格式生成插件"
+    },
+    "mid": {
+      "name": "MIDI",
+      "author": "岁月静好_初心不忘",
+      "file_format": "标准MIDI文件",
+      "description": "MIDI文件转换插件"
+    },
+    "mtp": {
+      "name": "Muta",
+      "author": "岁月静好_初心不忘",
+      "file_format": "Muta工程文件",
+      "description": "mtp 格式转换插件"
+    },
+    "musicxml": {
+      "name": "MusicXML",
+      "author": "科林",
+      "file_format": "MusicXML 文件",
+      "description": "MusicXML 乐谱文件转换插件"
+    },
+    "nn": {
+      "name": "袅袅虚拟歌手",
+      "author": "岁月静好_初心不忘",
+      "file_format": "袅袅虚拟歌手工程文件",
+      "description": "袅袅工程格式转换插件"
+    },
+    "ppsf": {
+      "name": "Ppsf",
+      "author": "岁月静好_初心不忘",
+      "file_format": "Piapro Studio 工程文件",
+      "description": "Piapro Studio 工程文件转换插件"
+    },
+    "ps_project": {
+      "name": "PocketSinger",
+      "author": "岁月静好_初心不忘",
+      "file_format": "Pocket Singer 工程文件",
+      "description": "Pocket Singer 工程格式转换插件"
+    },
+    "s5p": {
+      "name": "SynthV Editor",
+      "author": "科林",
+      "file_format": "Synthesizer V Editor 工程文件",
+      "description": "Synthesizer V Editor 工程格式转换插件"
+    },
+    "srt": {
+      "name": "SRT",
+      "author": "岁月静好_初心不忘",
+      "file_format": "SubRip 字幕文件",
+      "description": "SRT 字幕格式生成插件"
+    },
+    "svg": {
+      "name": "Svg",
+      "author": "CrSjimo",
+      "file_format": "可缩放矢量图形",
+      "description": "生成 SVG 格式的可视化音符图形。本插件只生成导入工程首条或指定演唱轨的图形。"
+    },
+    "svip": {
+      "name": "BinSvip",
+      "author": "YQ之神",
+      "file_format": "X Studio 工程文件",
+      "description": "原始二进制 .svip 文件转换插件"
+    },
+    "svip3": {
+      "name": "Svip3",
+      "author": "笛鹿",
+      "file_format": "网易云音乐·X Studio 工程文件",
+      "description": "网易云音乐·X Studio 工程转换插件"
+    },
+    "svp": {
+      "name": "SynthV Studio",
+      "author": "YQ之神",
+      "file_format": "Synthesizer V Studio 工程文件",
+      "description": "Synthesizer V Studio 工程格式转换插件，支持包括曲谱、歌词、参数曲线、音符属性、音符组、即时音高模式在内所有数据的读取与写入。\n请注意：输入带有重叠音符的工程文件是未定义的行为，可能导致无法预料的异常。"
+    },
+    "tlp": {
+      "name": "TuneLab",
+      "author": "金刚小刘",
+      "file_format": "TuneLab工程文件",
+      "description": "TuneLab工程格式转换插件"
+    },
+    "tsmsln": {
+      "name": "TSMSln",
+      "author": "岁月静好_初心不忘",
+      "file_format": "Techno-Speech 移动版项目文件",
+      "description": "VoiSona 移动版工程文件转换插件"
+    },
+    "tssln": {
+      "name": "TSSln",
+      "author": "岁月静好_初心不忘",
+      "file_format": "Techno-Speech 项目文件",
+      "description": "VoiSona 工程文件转换插件 (仅支持1.8.0及以上版本保存的工程)"
+    },
+    "ufdata": {
+      "name": "UFData",
+      "author": "科林",
+      "file_format": "UtaFormatix3 数据格式",
+      "description": "UFData格式转换插件"
+    },
+    "ust": {
+      "name": "Ust",
+      "author": "科林",
+      "file_format": "UTAU 序列文本",
+      "description": "UST文件格式转换插件"
+    },
+    "ustx": {
+      "name": "Ustx",
+      "author": "Oxygen Dioxide",
+      "file_format": "OpenUtau 工程文件",
+      "description": "Ustx格式转换插件"
+    },
+    "vfp": {
+      "name": "VOX Factory",
+      "author": "岁月静好_初心不忘",
+      "file_format": "VOX Factory 工程文件",
+      "description": "VOX Factory 工程格式转换插件"
+    },
+    "vog": {
+      "name": "Vogen",
+      "author": "岁月静好_初心不忘",
+      "file_format": "Vogen 工程文件",
+      "description": "Vogen 工程格式转换插件"
+    },
+    "vpr": {
+      "name": "Vpr",
+      "author": "岁月静好_初心不忘",
+      "file_format": "新版Vocaloid工程格式",
+      "description": "新版Vocaloid工程格式转换插件"
+    },
+    "vshp": {
+      "name": "VocalShifter",
+      "author": "岁月静好_初心不忘",
+      "file_format": "VocalShifter 工程文件",
+      "description": "从 VoralShifter 工程文件导入参数"
+    },
+    "vspx": {
+      "name": "VocalSharp",
+      "author": "岁月静好_初心不忘",
+      "file_format": "VocalSharp 工程格式",
+      "description": "VocalSharp格式转换插件"
+    },
+    "vsq": {
+      "name": "Vsq",
+      "author": "Selio Jiang",
+      "file_format": "Vocaloid 2 序列文件",
+      "description": "Vocaloid 2 序列文件转换插件"
+    },
+    "vsqx": {
+      "name": "Vsqx",
+      "author": "科林",
+      "file_format": "Vocaloid XML序列文件",
+      "description": "Vocaloid XML序列格式转换插件"
+    },
+    "vvproj": {
+      "name": "VVProj",
+      "author": "岁月静好_初心不忘",
+      "file_format": "VOICEVOX 工程文件",
+      "description": "VOICEVOX 工程格式转换插件"
+    },
+    "vxf": {
+      "name": "VX-β",
+      "author": "岁月静好_初心不忘",
+      "file_format": "VX-β 工程文件",
+      "description": "VX-β 工程格式转换插件"
+    },
+    "y77": {
+      "name": "Y77",
+      "author": "笛鹿",
+      "file_format": "元七七工程文件",
+      "description": "元七七工程格式转换插件"
     }
   }
 }

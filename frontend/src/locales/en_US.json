@@ -5,7 +5,7 @@
     "about": "About",
     "next": "Next",
     "back": "Back",
-    "start": "Start"
+    "start": "Start conversion"
   },
   "window": {
     "maximize": "Maximize",
@@ -268,7 +268,7 @@
       "name": "VocalShifter",
       "author": "SoulMelody",
       "file_format": "VocalShifter project file",
-      "description": "Conversion plugin for VocalShifter project file"
+      "description": "Import parameters from VocalShifter project file"
     },
     "vspx": {
       "name": "VocalSharp",
@@ -302,7 +302,7 @@
     },
     "y77": {
       "name": "Y77",
-      "author": "SoulMelody",
+      "author": "FlutyDeer",
       "file_format": "Yuan77 project file",
       "description": "Conversion plugin for Yuan77 project file"
     }
