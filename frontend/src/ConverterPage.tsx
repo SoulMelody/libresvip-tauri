@@ -83,9 +83,8 @@ export const ConverterPage = () => {
     handleBack,
     addConversionTasks,
     setOptionTab,
-    setActiveStep,
+    clearConversionTasks,
     setSelectedMiddlewares,
-    setMiddlewareFormData,
     resetFinishedCount,
   } = useConverterStore();
   const {
@@ -97,8 +96,6 @@ export const ConverterPage = () => {
     outputFormatUiSchema,
     inputFormatFormData,
     outputFormatFormData,
-    setInputFormatFormData,
-    setOutputFormatFormData,
     outputDirectory,
     conversionMode,
     conflictPolicy,
@@ -112,6 +109,7 @@ export const ConverterPage = () => {
     setRevealFileOnFinish,
     setMaxTrackCount,
   } = useSettingStore();
+  const formRefs = {};
 
   const validator = customizeValidator({}, localizer[(
     (lang) => {
@@ -256,13 +254,17 @@ export const ConverterPage = () => {
   const InputOptionsForm = () => {
     return (
       <Form schema={inputFormatSchema} validator={validator}
-      uiSchema={inputFormatUiSchema} templates={{
-        DescriptionFieldTemplate: CustomDescriptionFieldTemplate,
-        FieldTemplate: CustomFieldTemplate
-      }} widgets={widgets} onChange={(e) => {
-        setInputFormatFormData(e.formData);
-      }}
-      formData={inputFormatFormData} liveValidate={true}/>
+        uiSchema={inputFormatUiSchema} templates={{
+          DescriptionFieldTemplate: CustomDescriptionFieldTemplate,
+          FieldTemplate: CustomFieldTemplate
+        }} widgets={widgets} onChange={(e) => {
+          formRefs['inputOptionsForm'].props.formData = e.formData;
+        }}
+        formData={inputFormatFormData} liveValidate={true} ref={(ref) => {
+          if (ref !== null) {
+            formRefs['inputOptionsForm'] = ref
+          }
+        }}/>
     );
   }
 
@@ -278,26 +280,36 @@ export const ConverterPage = () => {
     }
     return (
       <Form schema={schema.json_schema} validator={validator}
-      uiSchema={schema.ui_schema} templates={{
-        DescriptionFieldTemplate: CustomDescriptionFieldTemplate,
-        FieldTemplate: CustomFieldTemplate
-      }} widgets={widgets} onChange={(e) => {
-        setMiddlewareFormData(identifier, e.formData);
-      }}
-      formData={middlewareFormDatas[identifier]} liveValidate={true}/>
+        uiSchema={schema.ui_schema} templates={{
+          DescriptionFieldTemplate: CustomDescriptionFieldTemplate,
+          FieldTemplate: CustomFieldTemplate
+        }} widgets={widgets} onChange={(e) => {
+          if (formRefs[`middlewareOptions-${identifier}`] !== undefined){
+            formRefs[`middlewareOptions-${identifier}`].props.formData = e.formData;
+          }
+        }}
+        formData={middlewareFormDatas[identifier]} liveValidate={true} ref={(ref) => {
+          if (ref !== null) {
+            formRefs[`middlewareOptions-${identifier}`] = ref
+          }
+        }}/>
     );
   }
 
   const OutputOptionsForm = () => {
     return (
       <Form schema={outputFormatSchema} validator={validator}
-      uiSchema={outputFormatUiSchema} templates={{
-        DescriptionFieldTemplate: CustomDescriptionFieldTemplate,
-        FieldTemplate: CustomFieldTemplate
-      }} widgets={widgets} onChange={(e) => {
-        setOutputFormatFormData(e.formData);
-      }}
-      formData={outputFormatFormData} liveValidate={true}/>
+        uiSchema={outputFormatUiSchema} templates={{
+          DescriptionFieldTemplate: CustomDescriptionFieldTemplate,
+          FieldTemplate: CustomFieldTemplate
+        }} widgets={widgets} onChange={(e) => {
+          formRefs['outputOptionsForm'].props.formData = e.formData;
+        }}
+        formData={outputFormatFormData} liveValidate={true} ref={(ref) => {
+          if (ref !== null) {
+            formRefs['outputOptionsForm'] = ref
+          }
+        }}/>
     );
   }
 
@@ -372,7 +384,7 @@ export const ConverterPage = () => {
           </Step>
         </Stepper>
         {
-          activeStep !== 0 && activeStep !== 3 && (
+          activeStep !== 0 && (
             <Tooltip title={t('nav.back')} enterDelay={500}>
               <Fab sx={{
                 position: 'absolute',
@@ -416,6 +428,21 @@ export const ConverterPage = () => {
                 right: 20,
               }} onClick={() => {
                 handleNext();
+                let curInputFormatFormData = inputFormatFormData;
+                let curOutputFormatFormData = outputFormatFormData;
+                let curMiddlewareFormDatas = middlewareFormDatas;
+                for (let [identifier, formRef] of Object.entries(formRefs)) {
+                  if (!formRef.validateForm()) {
+                    return;
+                  } else if (identifier === 'inputOptionsForm') {
+                    curInputFormatFormData = formRef.props.formData;
+                  } else if (identifier === 'outputOptionsForm') {
+                    curOutputFormatFormData = formRef.props.formData;
+                  } else {
+                    let middlewareIdentifier = identifier.split('-')[1];
+                    curMiddlewareFormDatas[middlewareIdentifier] = formRef.props.formData;
+                  }
+                }
                 pyInvoke("start_conversion", {
                   inputFormat: inputFormat,
                   outputFormat: outputFormat,
@@ -423,10 +450,10 @@ export const ConverterPage = () => {
                   mode: conversionMode,
                   maxTrackCount: maxTrackCount,
                   conversionTasks: conversionTasks,
-                  inputOptions: inputFormatFormData,
-                  outputOptions: outputFormatFormData,
+                  inputOptions: curInputFormatFormData,
+                  outputOptions: curOutputFormatFormData,
                   selectedMiddlewares: selectedMiddlewares,
-                  middlewareOptions: middlewareFormDatas,
+                  middlewareOptions: curMiddlewareFormDatas,
                   outputDir: outputDirectory,
                   conflictPolicy: conflictPolicy,
                 });
@@ -854,7 +881,7 @@ export const ConverterPage = () => {
                 alignItems: "center",
               }}>
                 <Button startIcon={<ArrowReset24Regular/>} onClick={() => {
-                  setActiveStep(0);
+                  clearConversionTasks();
                 }} variant="contained">
                   {t('converter.reset')}
                 </Button>

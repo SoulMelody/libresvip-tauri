@@ -29,7 +29,6 @@ interface ConverterStore {
   setOptionTab: (tab: number) => void;
   setSelectedMiddlewares: (middlewares: string[]) => void;
   loadMiddlewareSchema: (id: string, language: string) => Promise<void>;
-  setMiddlewareFormData: (id: string, data: any) => void;
 }
 
 export const useConverterStore = create<ConverterStore>()(
@@ -78,14 +77,6 @@ export const useConverterStore = create<ConverterStore>()(
           }
         }))
       },
-      setMiddlewareFormData: (id, data) => {
-        set((state) => ({
-          middlewareFormDatas: {
-            ...state.middlewareFormDatas,
-            [id]: data
-          }
-        }))
-      }
     })
   )
 );
