@@ -7,7 +7,7 @@ identifier = "org.soulmelody.libresvip"
 frontendDist = "./dist"
 
 [app]
-withGlobalTauri = true
+withGlobalTauri = false
 
 [[app.windows]]
 title = "LibreSVIP"
@@ -15,7 +15,7 @@ width = 800
 minWidth = 520
 minHeight = 600
 decorations = false
-devtools = true
+devtools = false
 
 [bundle]
 icon = [

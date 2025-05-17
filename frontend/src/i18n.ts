@@ -6,7 +6,7 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    debug: true, // Set to true for development, false for production
+    debug: false, // Set to true for development, false for production
     interpolation: {
       escapeValue: false,
     },

@@ -16,6 +16,8 @@
     "cancel": "Cancel",
     "copy": "Copy",
     "copied": "Copied",
+    "error": "Error",
+    "warning": "Warning",
     "switch_theme": "Switch theme",
     "switch_language": "Switch language",
     "task_list": "Task list",
