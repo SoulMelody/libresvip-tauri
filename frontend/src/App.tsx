@@ -194,7 +194,9 @@ export function App(props: Props) {
         increaseFinishedCount();
       } else {
         let shouldOverwrite = await ask(
-          t("converter.overwrite_file"),
+          t("converter.overwrite_file", {
+            "file": payload.outputPath,
+          }),
           {
             kind: "warning",
             title: "LibreSVIP",

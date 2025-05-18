@@ -64,7 +64,9 @@
     "reset": "重置",
     "conversion_failed": "转换失败",
     "view_plugin_info": "查看插件信息",
-    "select_output_dir": "选择导出目录"
+    "select_output_dir": "选择导出目录",
+    "skip_file": "目标文件已存在，跳过",
+    "overwrite_file": "目标文件 {{file}} 已存在，要覆盖吗？"
   },
   "middleware": {
     "pitch_shift": {

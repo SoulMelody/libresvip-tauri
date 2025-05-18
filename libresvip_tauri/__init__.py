@@ -232,6 +232,7 @@ class MoveFileParams(BaseModel):
 
 class MoveCallbackParams(BaseModel):
     id: str
+    output_path: str = Field(alias="outputPath")
     conflict_policy: Literal["skip", "prompt"] = Field(
         alias="conflictPolicy"
     )
@@ -268,6 +269,7 @@ async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
                             elif converter.convert_options.conflict_policy == "prompt":
                                 callback_params = {
                                     "id": task.id,
+                                    "outputPath": str(output_path),
                                     "conflictPolicy": converter.convert_options.conflict_policy,
                                 }
                                 Emitter.emit(
@@ -279,6 +281,7 @@ async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
                             else:
                                 callback_params = {
                                     "id": task.id,
+                                    "outputPath": str(output_path),
                                     "conflictPolicy": converter.convert_options.conflict_policy,
                                 }
                                 Emitter.emit(
@@ -311,6 +314,7 @@ async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
                         elif converter.convert_options.conflict_policy == "prompt":
                             callback_params = {
                                 "id": task.id,
+                                "outputPath": str(output_path),
                                 "conflictPolicy": converter.convert_options.conflict_policy,
                             }
                             Emitter.emit(
@@ -322,6 +326,7 @@ async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
                         else:
                             callback_params = {
                                 "id": task.id,
+                                "outputPath": str(output_path),
                                 "conflictPolicy": converter.convert_options.conflict_policy,
                             }
                             Emitter.emit(

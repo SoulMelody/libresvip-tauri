@@ -49,6 +49,7 @@ export interface MoveFileParams {
 
 export interface MoveCallbackParams {
   id: string;
+  outputPath: string;
   conflictPolicy: "skip" | "prompt";
 }
 export interface PluginInfo {
