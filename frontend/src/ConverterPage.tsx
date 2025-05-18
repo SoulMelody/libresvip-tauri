@@ -878,7 +878,14 @@ export const ConverterPage = () => {
                 zIndex: (theme) => theme.zIndex.drawer + 1,
                 inset: "52px 0px 0px 0px",
               }}>
-                <CircularProgress color="inherit" />
+                <Box sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}>
+                  <CircularProgress color="inherit" />
+                  <Typography variant="body1" sx={{ p: 2 }}>{`${finishedCount} / ${conversionMode === "merge"? 1 : conversionTasks.length}`}</Typography>
+                </Box>
               </Backdrop>
             ) : (
               <Box sx={{
