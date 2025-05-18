@@ -314,7 +314,7 @@ export const ConverterPage = () => {
           if (
             tempFormDatas['outputOptionsForm'] !== undefined
           ) {
-            setMiddlewareFormData('outputOptionsForm', tempFormDatas['outputOptionsForm']);
+            setOutputFormatFormData(tempFormDatas['outputOptionsForm']);
           }
         }}
         formData={outputFormatFormData} liveValidate={true}/>
@@ -435,6 +435,22 @@ export const ConverterPage = () => {
                 bottom: 20,
                 right: 20,
               }} onClick={() => {
+                let curInputFormatFormData = inputFormatFormData;
+                let curOutputFormatFormData = outputFormatFormData;
+                let curMiddlewareFormDatas = middlewareFormDatas;
+                for (let [identifier, formData] of Object.entries(tempFormDatas)) {
+                  if (identifier === 'inputOptionsForm') {
+                    setInputFormatFormData(formData);
+                    curInputFormatFormData = formData;
+                  } else if (identifier === 'outputOptionsForm') {
+                    setOutputFormatFormData(formData);
+                    curOutputFormatFormData = formData;
+                  } else {
+                    let middlewareIdentifier = identifier.split('-')[1];
+                    setMiddlewareFormData(middlewareIdentifier, formData);
+                    curMiddlewareFormDatas[middlewareIdentifier] = formData;
+                  }
+                }
                 pyInvoke("start_conversion", {
                   inputFormat: inputFormat,
                   outputFormat: outputFormat,
@@ -442,10 +458,10 @@ export const ConverterPage = () => {
                   mode: conversionMode,
                   maxTrackCount: maxTrackCount,
                   conversionTasks: conversionTasks,
-                  inputOptions: inputFormatFormData,
-                  outputOptions: outputFormatFormData,
+                  inputOptions: curInputFormatFormData,
+                  outputOptions: curOutputFormatFormData,
                   selectedMiddlewares: selectedMiddlewares,
-                  middlewareOptions: middlewareFormDatas,
+                  middlewareOptions: curMiddlewareFormDatas,
                   outputDir: outputDirectory,
                   conflictPolicy: conflictPolicy,
                 });
