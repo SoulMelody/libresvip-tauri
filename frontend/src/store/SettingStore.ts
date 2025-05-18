@@ -35,6 +35,8 @@ interface SettingState {
   setRevealFileOnFinish: (reveal: boolean) => void;
   loadInputFormatSchema: (inputFormat: string, language: string) => Promise<void>;
   loadOutputFormatSchema: (outputFormat: string, language: string) => Promise<void>;
+  setInputFormatFormData: (formData: {[k: string]: any}) => void;
+  setOutputFormatFormData: (formData: {[k: string]: any}) => void;
 }
 
 export const useSettingStore = create<SettingState>()(
@@ -108,6 +110,8 @@ export const useSettingStore = create<SettingState>()(
 
           return { actualTheme: newTheme };
         }),
+      setInputFormatFormData: (formData) => set({ inputFormatFormData: formData }),
+      setOutputFormatFormData: (formData) => set({ outputFormatFormData: formData }),
     }),
     {
       name: 'setting-storage',

@@ -86,6 +86,7 @@ export const ConverterPage = () => {
     clearConversionTasks,
     setSelectedMiddlewares,
     resetFinishedCount,
+    setMiddlewareFormData,
   } = useConverterStore();
   const {
     inputFormat,
@@ -108,8 +109,10 @@ export const ConverterPage = () => {
     setConflictPolicy,
     setRevealFileOnFinish,
     setMaxTrackCount,
+    setInputFormatFormData,
+    setOutputFormatFormData,
   } = useSettingStore();
-  const formRefs = {};
+  const tempFormDatas: {[k: string]: {[k: string]: any}} = {};
 
   const validator = customizeValidator({}, localizer[(
     (lang) => {
@@ -258,13 +261,15 @@ export const ConverterPage = () => {
           DescriptionFieldTemplate: CustomDescriptionFieldTemplate,
           FieldTemplate: CustomFieldTemplate
         }} widgets={widgets} onChange={(e) => {
-          formRefs['inputOptionsForm'].props.formData = e.formData;
-        }}
-        formData={inputFormatFormData} liveValidate={true} ref={(ref) => {
-          if (ref !== null) {
-            formRefs['inputOptionsForm'] = ref
+          tempFormDatas['inputOptionsForm'] = e.formData;
+        }} onBlur={() => {
+          if (
+            tempFormDatas['inputOptionsForm']!== undefined
+          ) {
+            setInputFormatFormData(tempFormDatas['inputOptionsForm']);
           }
-        }}/>
+        }}
+        formData={inputFormatFormData} liveValidate={true}/>
     );
   }
 
@@ -278,21 +283,22 @@ export const ConverterPage = () => {
     if (schema === undefined) {
       return <Box/>;
     }
+  
     return (
       <Form schema={schema.json_schema} validator={validator}
         uiSchema={schema.ui_schema} templates={{
           DescriptionFieldTemplate: CustomDescriptionFieldTemplate,
           FieldTemplate: CustomFieldTemplate
         }} widgets={widgets} onChange={(e) => {
-          if (formRefs[`middlewareOptions-${identifier}`] !== undefined){
-            formRefs[`middlewareOptions-${identifier}`].props.formData = e.formData;
+          tempFormDatas[`middleware-${identifier}`] = e.formData;
+        }} onBlur={() => {
+          if (
+            tempFormDatas[`middleware-${identifier}`] !== undefined
+          ) {
+            setMiddlewareFormData(identifier, tempFormDatas[`middleware-${identifier}`]);
           }
         }}
-        formData={middlewareFormDatas[identifier]} liveValidate={true} ref={(ref) => {
-          if (ref !== null) {
-            formRefs[`middlewareOptions-${identifier}`] = ref
-          }
-        }}/>
+        formData={middlewareFormDatas[identifier]} liveValidate={true}/>
     );
   }
 
@@ -303,13 +309,15 @@ export const ConverterPage = () => {
           DescriptionFieldTemplate: CustomDescriptionFieldTemplate,
           FieldTemplate: CustomFieldTemplate
         }} widgets={widgets} onChange={(e) => {
-          formRefs['outputOptionsForm'].props.formData = e.formData;
-        }}
-        formData={outputFormatFormData} liveValidate={true} ref={(ref) => {
-          if (ref !== null) {
-            formRefs['outputOptionsForm'] = ref
+          tempFormDatas['outputOptionsForm'] = e.formData;
+        }} onBlur={() => {
+          if (
+            tempFormDatas['outputOptionsForm'] !== undefined
+          ) {
+            setMiddlewareFormData('outputOptionsForm', tempFormDatas['outputOptionsForm']);
           }
-        }}/>
+        }}
+        formData={outputFormatFormData} liveValidate={true}/>
     );
   }
 
@@ -427,22 +435,6 @@ export const ConverterPage = () => {
                 bottom: 20,
                 right: 20,
               }} onClick={() => {
-                handleNext();
-                let curInputFormatFormData = inputFormatFormData;
-                let curOutputFormatFormData = outputFormatFormData;
-                let curMiddlewareFormDatas = middlewareFormDatas;
-                for (let [identifier, formRef] of Object.entries(formRefs)) {
-                  if (!formRef.validateForm()) {
-                    return;
-                  } else if (identifier === 'inputOptionsForm') {
-                    curInputFormatFormData = formRef.props.formData;
-                  } else if (identifier === 'outputOptionsForm') {
-                    curOutputFormatFormData = formRef.props.formData;
-                  } else {
-                    let middlewareIdentifier = identifier.split('-')[1];
-                    curMiddlewareFormDatas[middlewareIdentifier] = formRef.props.formData;
-                  }
-                }
                 pyInvoke("start_conversion", {
                   inputFormat: inputFormat,
                   outputFormat: outputFormat,
@@ -450,13 +442,14 @@ export const ConverterPage = () => {
                   mode: conversionMode,
                   maxTrackCount: maxTrackCount,
                   conversionTasks: conversionTasks,
-                  inputOptions: curInputFormatFormData,
-                  outputOptions: curOutputFormatFormData,
+                  inputOptions: inputFormatFormData,
+                  outputOptions: outputFormatFormData,
                   selectedMiddlewares: selectedMiddlewares,
-                  middlewareOptions: curMiddlewareFormDatas,
+                  middlewareOptions: middlewareFormDatas,
                   outputDir: outputDirectory,
                   conflictPolicy: conflictPolicy,
                 });
+                handleNext();
                 resetFinishedCount();
               }}>
                 <Play20Filled />

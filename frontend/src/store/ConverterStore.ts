@@ -29,6 +29,7 @@ interface ConverterStore {
   setOptionTab: (tab: number) => void;
   setSelectedMiddlewares: (middlewares: string[]) => void;
   loadMiddlewareSchema: (id: string, language: string) => Promise<void>;
+  setMiddlewareFormData: (id: string, formData: {[k: string]: any}) => void;
 }
 
 export const useConverterStore = create<ConverterStore>()(
@@ -50,7 +51,7 @@ export const useConverterStore = create<ConverterStore>()(
       addConversionTasks: (tasks) => set((state) => ({ conversionTasks: [...state.conversionTasks, ...tasks] })),
       removeConversionTask: (id) => {
         set((state) => ({ conversionTasks: state.conversionTasks.filter((t) => t.id !== id) }))
-        let conversionTasks = get().conversionTasks;
+        let {conversionTasks} = get();
         if (conversionTasks.length === 0) {
           return null;
         }
@@ -77,6 +78,12 @@ export const useConverterStore = create<ConverterStore>()(
           }
         }))
       },
+      setMiddlewareFormData: (id, formData) => set((state) => ({
+        middlewareFormDatas: {
+          ...state.middlewareFormDatas,
+          [id]: formData
+        }
+      })),
     })
   )
 );

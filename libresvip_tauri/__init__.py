@@ -427,6 +427,9 @@ async def option_schema(body: PluginOption) -> SchemaConfig:
         schema_generator=partial(GettextGenerateJsonSchema, translator=translator),
     )
     json_schema.pop("title", None)
+    json_schema["required"] = list(
+        json_schema["properties"].keys()
+    )
     ui_schema = {
         "ui:submitButtonOptions": {
             "norender": True
