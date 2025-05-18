@@ -12,6 +12,22 @@ dependencies = [
 
 [dependency-groups]
 nodejs = [
-    "nodejs-wheel>=22.15.0",
+    "nodejs-wheel>=22.15.1",
     "pydantic-to-typescript>=2.0.0",
 ]
+packaging = [
+    "pyinstaller>=6.13.0",
+    "shellingham<2.0.0,>=1.5.4",
+]
+
+[tool.hatch.build.targets.sdist]
+ignore-vcs = true
+only-include = ["libresvip_tauri", "libresvip_tauri/dist"]
+
+[tool.hatch.build.targets.wheel]
+ignore-vcs = true
+packages = ["libresvip_tauri"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
