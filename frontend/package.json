@@ -4,6 +4,7 @@
   "type": "module",
   "main": "src/index.tsx",
   "module": "src/index.tsx",
+  "private": true,
   "scripts": {
     "dev": "bun --hot src/index.tsx",
     "build": "bun build ./src/index.html --outdir=../libresvip_tauri/dist --target=browser --minify --production --env='BUN_PUBLIC_*'",
