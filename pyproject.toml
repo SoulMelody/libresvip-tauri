@@ -12,7 +12,7 @@ dependencies = [
 
 [dependency-groups]
 nodejs = [
-    "nodejs-wheel>=22.15.1",
+    "nodejs-wheel>=22.16.0",
     "pydantic-to-typescript>=2.0.0",
 ]
 packaging = [
