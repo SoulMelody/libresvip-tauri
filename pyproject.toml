@@ -5,7 +5,7 @@ description = ""
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "libresvip[crypto,lxml,upath,zstd]>=1.11.0",
+    "libresvip[crypto,lxml,ruamel_yaml,upath,zstd]>=1.11.0",
     "pytauri>=0.5.0",
     "pytauri-wheel>=0.5.0",
 ]
@@ -22,7 +22,7 @@ packaging = [
 
 [tool.hatch.build.targets.sdist]
 ignore-vcs = true
-only-include = ["libresvip_tauri", "libresvip_tauri/dist"]
+only-include = ["libresvip_tauri"]
 
 [tool.hatch.build.targets.wheel]
 ignore-vcs = true

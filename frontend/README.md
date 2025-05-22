@@ -1,4 +1,4 @@
-# bun-react-template
+# libresvip-tauri
 
 To install dependencies:
 
