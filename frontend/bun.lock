@@ -19,7 +19,7 @@
         "@tauri-apps/plugin-fs": "^2.3.0",
         "@tauri-apps/plugin-opener": "^2.2.7",
         "ajv-i18n": "^4.2.0",
-        "i18next": "^25.2.0",
+        "i18next": "^25.2.1",
         "i18next-browser-languagedetector": "^8.1.0",
         "material-ui-popup-state": "^5.3.6",
         "nanoid": "^5.1.5",
@@ -28,7 +28,7 @@
         "react-dom": "^19",
         "react-hotkeys-hook": "^5.1.0",
         "react-i18next": "^15.5.2",
-        "react-router": "^7.6.0",
+        "react-router": "^7.6.1",
         "tauri-plugin-pytauri-api": "^0.5.0",
         "zustand": "^5.0.5",
       },
@@ -254,7 +254,7 @@
 
     "html-parse-stringify": ["html-parse-stringify@3.0.1", "https://registry.npmmirror.com/html-parse-stringify/-/html-parse-stringify-3.0.1.tgz", { "dependencies": { "void-elements": "3.1.0" } }, "sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg=="],
 
-    "i18next": ["i18next@25.2.0", "https://registry.npmmirror.com/i18next/-/i18next-25.2.0.tgz", { "dependencies": { "@babel/runtime": "^7.27.1" }, "peerDependencies": { "typescript": "^5" }, "optionalPeers": ["typescript"] }, "sha512-ERhJICsxkw1vE7G0lhCUYv4ZxdBEs03qblt1myJs94rYRK9loJF3xDj8mgQz3LmCyp0yYrNjbN/1/GWZTZDGCA=="],
+    "i18next": ["i18next@25.2.1", "https://registry.npmmirror.com/i18next/-/i18next-25.2.1.tgz", { "dependencies": { "@babel/runtime": "^7.27.1" }, "peerDependencies": { "typescript": "^5" }, "optionalPeers": ["typescript"] }, "sha512-+UoXK5wh+VlE1Zy5p6MjcvctHXAhRwQKCxiJD8noKZzIXmnAX8gdHX5fLPA3MEVxEN4vbZkQFy8N0LyD9tUqPw=="],
 
     "i18next-browser-languagedetector": ["i18next-browser-languagedetector@8.1.0", "https://registry.npmmirror.com/i18next-browser-languagedetector/-/i18next-browser-languagedetector-8.1.0.tgz", { "dependencies": { "@babel/runtime": "^7.23.2" } }, "sha512-mHZxNx1Lq09xt5kCauZ/4bsXOEA2pfpwSoU11/QTJB+pD94iONFwp+ohqi///PwiFvjFOxe1akYCdHyFo1ng5Q=="],
 
@@ -352,7 +352,7 @@
 
     "react-is": ["react-is@19.1.0", "https://registry.npmmirror.com/react-is/-/react-is-19.1.0.tgz", {}, "sha512-Oe56aUPnkHyyDxxkvqtd7KkdQP5uIUfHxd5XTb3wE9d/kRnZLmKbDB0GWk919tdQ+mxxPtG6EAs6RMT6i1qtHg=="],
 
-    "react-router": ["react-router@7.6.0", "https://registry.npmmirror.com/react-router/-/react-router-7.6.0.tgz", { "dependencies": { "cookie": "^1.0.1", "set-cookie-parser": "^2.6.0" }, "peerDependencies": { "react": ">=18", "react-dom": ">=18" }, "optionalPeers": ["react-dom"] }, "sha512-GGufuHIVCJDbnIAXP3P9Sxzq3UUsddG3rrI3ut1q6m0FI6vxVBF3JoPQ38+W/blslLH4a5Yutp8drkEpXoddGQ=="],
+    "react-router": ["react-router@7.6.1", "https://registry.npmmirror.com/react-router/-/react-router-7.6.1.tgz", { "dependencies": { "cookie": "^1.0.1", "set-cookie-parser": "^2.6.0" }, "peerDependencies": { "react": ">=18", "react-dom": ">=18" }, "optionalPeers": ["react-dom"] }, "sha512-hPJXXxHJZEsPFNVbtATH7+MMX43UDeOauz+EAU4cgqTn7ojdI9qQORqS8Z0qmDlL1TclO/6jLRYUEtbWidtdHQ=="],
 
     "react-transition-group": ["react-transition-group@4.4.5", "https://registry.npmmirror.com/react-transition-group/-/react-transition-group-4.4.5.tgz", { "dependencies": { "@babel/runtime": "^7.5.5", "dom-helpers": "^5.0.1", "loose-envify": "^1.4.0", "prop-types": "^15.6.2" }, "peerDependencies": { "react": ">=16.6.0", "react-dom": ">=16.6.0" } }, "sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g=="],
 
