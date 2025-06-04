@@ -479,9 +479,7 @@ def main() -> None:
             tauri_config = None
 
         app = builder_factory().build(
-            BuilderArgs(
-                context=context_factory(SRC_TAURI_DIR, tauri_config=tauri_config),
-                invoke_handler=commands.generate_handler(portal),
-            )
+            context=context_factory(SRC_TAURI_DIR, tauri_config=tauri_config),
+            invoke_handler=commands.generate_handler(portal),
         )
         app.run()
