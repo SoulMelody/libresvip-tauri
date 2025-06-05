@@ -29,7 +29,7 @@
         "react-hotkeys-hook": "^5.1.0",
         "react-i18next": "^15.5.2",
         "react-router": "^7.6.2",
-        "tauri-plugin-pytauri-api": "^0.5.0",
+        "tauri-plugin-pytauri-api": "^0.6.0",
         "zustand": "^5.0.5",
       },
       "devDependencies": {
@@ -386,7 +386,7 @@
 
     "supports-preserve-symlinks-flag": ["supports-preserve-symlinks-flag@1.0.0", "https://registry.npmmirror.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz", {}, "sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w=="],
 
-    "tauri-plugin-pytauri-api": ["tauri-plugin-pytauri-api@0.5.0", "https://registry.npmmirror.com/tauri-plugin-pytauri-api/-/tauri-plugin-pytauri-api-0.5.0.tgz", { "dependencies": { "@tauri-apps/api": "^2.5" } }, "sha512-CjUL1zFfPYMRaLjJ8c5QB2L7Wnh+1wtFRB3jGo9KnyYfpoP9gu+H0UFOCGM9ee+bVCm0aPHMbUTzkGoVM6ZgsQ=="],
+    "tauri-plugin-pytauri-api": ["tauri-plugin-pytauri-api@0.6.0", "https://registry.npmmirror.com/tauri-plugin-pytauri-api/-/tauri-plugin-pytauri-api-0.6.0.tgz", { "dependencies": { "@tauri-apps/api": "^2.5" } }, "sha512-Bc2Fk/OdQ17BWAqcBn15N/RD48tSMbCjbOED3tDs74Dmmv9M56LCDrD36F7oEAz6U4T8xi8nUiF/5tVDdnY0zg=="],
 
     "tinyglobby": ["tinyglobby@0.2.12", "https://registry.npmmirror.com/tinyglobby/-/tinyglobby-0.2.12.tgz", { "dependencies": { "fdir": "^6.4.3", "picomatch": "^4.0.2" } }, "sha512-qkf4trmKSIiMTs/E63cxH+ojC2unam7rJ0WrauAzpT3ECNTxGRMlaXxVbfxMUC/w0LaYk6jQ4y/nGR9uBO3tww=="],
 
