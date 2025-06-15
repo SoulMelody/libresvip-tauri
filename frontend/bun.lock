@@ -8,9 +8,9 @@
         "@emotion/styled": "^11.14.0",
         "@fluentui/react-icons": "^2.0.302",
         "@mui/material": "^7.1.1",
-        "@rjsf/core": "^6.0.0-beta.10",
+        "@rjsf/core": "^6.0.0-beta.11",
         "@rjsf/mui": "^6.0.0-beta.10",
-        "@rjsf/utils": "^6.0.0-beta.10",
+        "@rjsf/utils": "^6.0.0-beta.11",
         "@rjsf/validator-ajv8": "^6.0.0-beta.10",
         "@szhsin/react-menu": "^4.4.1",
         "@tauri-apps/api": "^2.5.0",
@@ -20,7 +20,7 @@
         "@tauri-apps/plugin-opener": "^2.2.7",
         "ajv-i18n": "^4.2.0",
         "i18next": "^25.2.1",
-        "i18next-browser-languagedetector": "^8.1.0",
+        "i18next-browser-languagedetector": "^8.2.0",
         "material-ui-popup-state": "^5.3.6",
         "nanoid": "^5.1.5",
         "rc-input-number": "^9.5.0",
@@ -134,11 +134,11 @@
 
     "@rc-component/mini-decimal": ["@rc-component/mini-decimal@1.1.0", "https://registry.npmmirror.com/@rc-component/mini-decimal/-/mini-decimal-1.1.0.tgz", { "dependencies": { "@babel/runtime": "^7.18.0" } }, "sha512-jS4E7T9Li2GuYwI6PyiVXmxTiM6b07rlD9Ge8uGZSCz3WlzcG5ZK7g5bbuKNeZ9pgUuPK/5guV781ujdVpm4HQ=="],
 
-    "@rjsf/core": ["@rjsf/core@6.0.0-beta.10", "https://registry.npmmirror.com/@rjsf/core/-/core-6.0.0-beta.10.tgz", { "dependencies": { "lodash": "^4.17.21", "lodash-es": "^4.17.21", "markdown-to-jsx": "^7.7.6", "nanoid": "^5.1.5", "prop-types": "^15.8.1" }, "peerDependencies": { "@rjsf/utils": "^6.0.0-beta", "react": ">=18" } }, "sha512-1I474uQoZL6K18zsyoaYhSaJa1Tx48Rrid0DXIqp7nqqNNdrD3B0AezUxNAETQDnTe2akYYbF1YTi7n43uNaiA=="],
+    "@rjsf/core": ["@rjsf/core@6.0.0-beta.11", "https://registry.npmmirror.com/@rjsf/core/-/core-6.0.0-beta.11.tgz", { "dependencies": { "lodash": "^4.17.21", "lodash-es": "^4.17.21", "markdown-to-jsx": "^7.7.6", "nanoid": "^5.1.5", "prop-types": "^15.8.1" }, "peerDependencies": { "@rjsf/utils": "^6.0.0-beta", "react": ">=18" } }, "sha512-tadVN0B7CjAzl2p3HDsZKR3V8iCIiQMncblfCYSK0PAh9RqIjigFp8ovrZ3UqkVIRRcD+tQ6Y+psY5yEB4GWqA=="],
 
     "@rjsf/mui": ["@rjsf/mui@6.0.0-beta.10", "https://registry.npmmirror.com/@rjsf/mui/-/mui-6.0.0-beta.10.tgz", { "peerDependencies": { "@emotion/react": "^11.7.0", "@emotion/styled": "^11.6.0", "@mui/icons-material": "^7.0.0", "@mui/material": "^7.0.0", "@rjsf/core": "^6.0.0-beta", "@rjsf/utils": "^6.0.0-beta", "react": ">=18" } }, "sha512-tafDbqKfoKV/5wNQYfqS4Hs95t9cmZCGCmNbU0Sxh7nM9+XwXuw7z0pjcc6njf0RUUdvPJIDo2hL6FXrj/sLKg=="],
 
-    "@rjsf/utils": ["@rjsf/utils@6.0.0-beta.10", "https://registry.npmmirror.com/@rjsf/utils/-/utils-6.0.0-beta.10.tgz", { "dependencies": { "fast-uri": "^3.0.6", "json-schema-merge-allof": "^0.8.1", "jsonpointer": "^5.0.1", "lodash": "^4.17.21", "lodash-es": "^4.17.21", "nanoid": "^5.1.5", "react-is": "^18.2.0" }, "peerDependencies": { "react": ">=18" } }, "sha512-FeY1e19vqmsYBp0FIAZjzMYzYtQt6diUAM1IEanrOYHs3X/vtymvNgq21fjzDTuOEzgsu2MIPZL66WxHtN1fDA=="],
+    "@rjsf/utils": ["@rjsf/utils@6.0.0-beta.11", "https://registry.npmmirror.com/@rjsf/utils/-/utils-6.0.0-beta.11.tgz", { "dependencies": { "fast-uri": "^3.0.6", "json-schema-merge-allof": "^0.8.1", "jsonpointer": "^5.0.1", "lodash": "^4.17.21", "lodash-es": "^4.17.21", "nanoid": "^5.1.5", "react-is": "^18.2.0" }, "peerDependencies": { "react": ">=18" } }, "sha512-tQeyacweXmquRjPcXCVS1pMFfhamFSoqpczNi0zEvMbx+mfu2b6CgoRKi2Hm8KgFEafdVBF+6HLqs+0FnYhRlQ=="],
 
     "@rjsf/validator-ajv8": ["@rjsf/validator-ajv8@6.0.0-beta.10", "https://registry.npmmirror.com/@rjsf/validator-ajv8/-/validator-ajv8-6.0.0-beta.10.tgz", { "dependencies": { "ajv": "^8.12.0", "ajv-formats": "^2.1.1", "lodash": "^4.17.21", "lodash-es": "^4.17.21" }, "peerDependencies": { "@rjsf/utils": "^6.0.0-beta" } }, "sha512-wgnbWYIT1M7IrFian18d9CpALkP6xQFD9Hn9xh0gQP+NDHm70hdSJCsvv/tw9zzqlAW3PLslbXd4EJ7Fk67K9w=="],
 
@@ -256,7 +256,7 @@
 
     "i18next": ["i18next@25.2.1", "https://registry.npmmirror.com/i18next/-/i18next-25.2.1.tgz", { "dependencies": { "@babel/runtime": "^7.27.1" }, "peerDependencies": { "typescript": "^5" }, "optionalPeers": ["typescript"] }, "sha512-+UoXK5wh+VlE1Zy5p6MjcvctHXAhRwQKCxiJD8noKZzIXmnAX8gdHX5fLPA3MEVxEN4vbZkQFy8N0LyD9tUqPw=="],
 
-    "i18next-browser-languagedetector": ["i18next-browser-languagedetector@8.1.0", "https://registry.npmmirror.com/i18next-browser-languagedetector/-/i18next-browser-languagedetector-8.1.0.tgz", { "dependencies": { "@babel/runtime": "^7.23.2" } }, "sha512-mHZxNx1Lq09xt5kCauZ/4bsXOEA2pfpwSoU11/QTJB+pD94iONFwp+ohqi///PwiFvjFOxe1akYCdHyFo1ng5Q=="],
+    "i18next-browser-languagedetector": ["i18next-browser-languagedetector@8.2.0", "https://registry.npmmirror.com/i18next-browser-languagedetector/-/i18next-browser-languagedetector-8.2.0.tgz", { "dependencies": { "@babel/runtime": "^7.23.2" } }, "sha512-P+3zEKLnOF0qmiesW383vsLdtQVyKtCNA9cjSoKCppTKPQVfKd2W8hbVo5ZhNJKDqeM7BOcvNoKJOjpHh4Js9g=="],
 
     "i18next-conv": ["i18next-conv@15.1.1", "https://registry.npmmirror.com/i18next-conv/-/i18next-conv-15.1.1.tgz", { "dependencies": { "@postalsys/gettext": "^4.0.0", "colorette": "^2.0.20", "commander": "^13.0.0", "gettext-converter": "^1.3.0", "gettext-parser": "^8.0.0", "p-from-callback": "^2.0.0" }, "bin": { "i18next-conv": "bin/index.js" } }, "sha512-PpI8/1jmxM/Sgfxof4SBp3MAIM1HYl/2RwXYBcloqtoOx0IxojMxDvjAiN7FhgVKPjZ0s/jdIP33JQmqCHG3Qg=="],
 
@@ -434,7 +434,7 @@
 
     "i18next/@babel/runtime": ["@babel/runtime@7.27.1", "https://registry.npmmirror.com/@babel/runtime/-/runtime-7.27.1.tgz", {}, "sha512-1x3D2xEk2fRo3PAhwQwu5UubzgiVWSXTBfWpVd2Mx2AzRqJuDJCsgaDVZ7HB5iGzDW1Hl1sWN2mFyKjmR9uAog=="],
 
-    "i18next-browser-languagedetector/@babel/runtime": ["@babel/runtime@7.27.0", "https://registry.npmmirror.com/@babel/runtime/-/runtime-7.27.0.tgz", { "dependencies": { "regenerator-runtime": "^0.14.0" } }, "sha512-VtPOkrdPHZsKc/clNqyi9WUA8TINkZ4cGk63UUE3u4pmB2k+ZMQRDuIOagv8UVd6j7k0T3+RRIb7beKTebNbcw=="],
+    "i18next-browser-languagedetector/@babel/runtime": ["@babel/runtime@7.27.1", "https://registry.npmmirror.com/@babel/runtime/-/runtime-7.27.1.tgz", {}, "sha512-1x3D2xEk2fRo3PAhwQwu5UubzgiVWSXTBfWpVd2Mx2AzRqJuDJCsgaDVZ7HB5iGzDW1Hl1sWN2mFyKjmR9uAog=="],
 
     "material-ui-popup-state/@babel/runtime": ["@babel/runtime@7.27.0", "https://registry.npmmirror.com/@babel/runtime/-/runtime-7.27.0.tgz", { "dependencies": { "regenerator-runtime": "^0.14.0" } }, "sha512-VtPOkrdPHZsKc/clNqyi9WUA8TINkZ4cGk63UUE3u4pmB2k+ZMQRDuIOagv8UVd6j7k0T3+RRIb7beKTebNbcw=="],
 
