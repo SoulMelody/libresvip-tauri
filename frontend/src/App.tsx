@@ -34,8 +34,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogActions,
-  TextareaAutosize,
-  Icon
+  TextareaAutosize
 } from "@mui/material";
 import { createAppTheme } from './Theme';
 import {
@@ -80,7 +79,7 @@ import { useWindowStore } from './store/WindowStore';
 import { useConverterStore } from "./store/ConverterStore";
 import { ConversionTask, MoveCallbackParams } from './ApiTypes';
 import { parsePath, useMessage } from './Utils';
-import { Menu, MenuItem, MenuRadioGroup, SubMenu } from '@szhsin/react-menu';
+import { ControlledMenu, MenuItem, MenuRadioGroup, SubMenu } from '@szhsin/react-menu';
 import { nanoid } from 'nanoid';
 import PopupState from 'material-ui-popup-state';
 import { bindTrigger, bindPopover, bindDialog, usePopupState } from 'material-ui-popup-state/hooks';
@@ -91,7 +90,8 @@ import {
   Route,
   Routes,
 } from 'react-router';
-import { useState } from 'react';
+import { useHotkeys } from 'react-hotkeys-hook';
+import { useRef, useState } from 'react';
 
 interface ListItemLinkProps extends ListItemProps {
   to: string;
@@ -293,6 +293,16 @@ export function App(props: Props) {
   const theme = createAppTheme(actualTheme);
 
   const { t } = useTranslation();
+
+  const menuRef = useRef(null);
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  useHotkeys('ctrl+m', () => setMenuOpen(!isMenuOpen), [isMenuOpen]);
+
+  const themeSubmenuRef = useRef(null);
+  useHotkeys('ctrl+t', () => themeSubmenuRef.current.openMenu());
+
+  const languageSubmenuRef = useRef(null);
+  useHotkeys('ctrl+l', () => languageSubmenuRef.current.openMenu());
 
   interface ErrorDialogProps {
     popupId: string,
@@ -748,24 +758,70 @@ export function App(props: Props) {
               </Box>
             )}
           </PopupState>
-          <Menu menuButton={({ open }) => (
-            <Tooltip title={t('window.menu')} enterDelay={500}>
-              <IconButton
-                color="inherit"
-                size="large"
-                disabled={open}
-              >
-                <MoreHorizontalFilled/>
+          <Tooltip title={
+            t('window.menu') + ' (Ctrl+M)'
+          } enterDelay={500}>
+            <IconButton
+              color="inherit"
+              size="large"
+              disabled={isMenuOpen}
+              ref={menuRef}
+              onClick={() => setMenuOpen(true)}
+            >
+              <MoreHorizontalFilled/>
             </IconButton>
-          </Tooltip>)} theming={actualTheme === 'dark' ? 'dark' : 'light'}>
+          </Tooltip>
+          <ControlledMenu
+            state={isMenuOpen ? 'open' : 'closed'} onClose={() => setMenuOpen(false)}
+            anchorRef={menuRef} theming={actualTheme === 'dark' ? 'dark' : 'light'}>
             <SubMenu label={
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <Color20Regular/>
                 <Typography>
                   {t('window.switch_theme')}
                 </Typography>
+                <Typography sx={{
+                  marginLeft: '10px',
+                  marginRight: '10px',
+                  fontSize: '12px',
+                  fontWeight: 'bold',
+                  bgcolor: 'background.default',
+                  borderRadius: '4px',
+                  padding: '4px',
+                  display: 'inline-block',
+                  height: '20px',
+                  textAlign: 'center',
+                  lineHeight: '20px',
+                  textTransform: 'uppercase',
+                  borderColor: 'text.primary',
+                  borderWidth: '1px',
+                  borderStyle: 'solid',
+                }}>
+                  Ctrl
+                </Typography>
+                <Typography>
+                  +
+                </Typography>
+                <Typography sx={{
+                  marginRight: '10px',
+                  fontSize: '12px',
+                  fontWeight: 'bold',
+                  bgcolor: 'background.default',
+                  borderRadius: '4px',
+                  padding: '4px',
+                  display: 'inline-block',
+                  height: '20px',
+                  textAlign: 'center',
+                  lineHeight: '20px',
+                  textTransform: 'uppercase',
+                  borderColor: 'text.primary',
+                  borderWidth: '1px',
+                  borderStyle: 'solid',
+                }}>
+                  T
+                </Typography>
               </Box>
-            }>
+            } instanceRef={themeSubmenuRef}>
               <MenuRadioGroup
                 value={darkMode}
                 onRadioChange={(e) => {
@@ -793,8 +849,48 @@ export function App(props: Props) {
                 <Typography>
                   {t('window.switch_language')}
                 </Typography>
+                <Typography sx={{
+                  marginLeft: '10px',
+                  marginRight: '10px',
+                  fontSize: '12px',
+                  fontWeight: 'bold',
+                  bgcolor: 'background.default',
+                  borderRadius: '4px',
+                  padding: '4px',
+                  display: 'inline-block',
+                  height: '20px',
+                  textAlign: 'center',
+                  lineHeight: '20px',
+                  textTransform: 'uppercase',
+                  borderColor: 'text.primary',
+                  borderWidth: '1px',
+                  borderStyle: 'solid',
+                }}>
+                  Ctrl
+                </Typography>
+                <Typography>
+                  +
+                </Typography>
+                <Typography sx={{
+                  marginRight: '10px',
+                  fontSize: '12px',
+                  fontWeight: 'bold',
+                  bgcolor: 'background.default',
+                  borderRadius: '4px',
+                  padding: '4px',
+                  display: 'inline-block',
+                  height: '20px',
+                  textAlign: 'center',
+                  lineHeight: '20px',
+                  textTransform: 'uppercase',
+                  borderColor: 'text.primary',
+                  borderWidth: '1px',
+                  borderStyle: 'solid',
+                }}>
+                  L
+                </Typography>
               </Box>
-            }>
+            } instanceRef={languageSubmenuRef}>
               <MenuRadioGroup
                 value={language}
                 onRadioChange={(e) => {
@@ -809,7 +905,7 @@ export function App(props: Props) {
                 </MenuItem>
               </MenuRadioGroup>
             </SubMenu>
-          </Menu>
+          </ControlledMenu>
           <Divider orientation="vertical" flexItem sx={{ marginLeft: '16px', marginRight: '16px' }}/>
           <Tooltip title={t('window.minimize')} enterDelay={500}>
             <IconButton
