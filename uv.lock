@@ -382,7 +382,7 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 nodejs = [
-    { name = "nodejs-wheel", specifier = ">=22.16.0" },
+    { name = "nodejs-wheel", specifier = ">=22.17.0" },
     { name = "pydantic-to-typescript", specifier = ">=2.0.0" },
 ]
 packaging = [
