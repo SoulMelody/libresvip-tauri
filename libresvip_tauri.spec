@@ -30,6 +30,7 @@ a = Analysis(
         copy_metadata("pytauri_wheel") + collect_data_files("xsdata") + collect_entry_point("xsdata.plugins.class_types")[0]
     ),
     hiddenimports=[
+        "backports.zstd",
         "bidict",
         "construct_typed",
         "Cryptodome.Util.Padding",

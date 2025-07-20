@@ -5,7 +5,7 @@ description = ""
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "libresvip[crypto,lxml,ruamel_yaml,upath,zstd]>=1.11.1",
+    "libresvip[crypto,lxml,ruamel_yaml,upath,zstd]>=1.11.2",
     "pytauri>=0.6.0",
     "pytauri-wheel>=0.6.0",
 ]
