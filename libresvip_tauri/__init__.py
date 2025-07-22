@@ -18,7 +18,6 @@ from pydantic._internal._core_utils import CoreSchemaOrField
 from pydantic.types import JsonValue
 from pydantic.json_schema import GenerateJsonSchema, JsonSchemaValue
 from pytauri import (
-    BuilderArgs,
     Commands,
 )
 from pytauri import AppHandle, Emitter
@@ -83,10 +82,6 @@ class BatchConvertOptions(BaseModel):
     )
 
 
-class Empty(BaseModel):
-    pass
-
-
 @dataclasses.dataclass
 class Converter:
     convert_options: BatchConvertOptions = dataclasses.field(init=False)
@@ -95,7 +90,7 @@ class Converter:
 converter = Converter()
 
 @commands.command()
-async def start_conversion(body: BatchConvertOptions, app_handle: AppHandle) -> Empty:
+async def start_conversion(body: BatchConvertOptions, app_handle: AppHandle) -> None:
     from libresvip.extension.manager import get_translation
     from libresvip.utils import translation
 
@@ -113,7 +108,7 @@ async def start_conversion(body: BatchConvertOptions, app_handle: AppHandle) -> 
         else:
             for task in converter.convert_options.conversion_tasks:
                 await to_thread.run_sync(convert_task, app_handle, task)
-    return Empty()
+    return
 
 
 def convert_task(
@@ -241,7 +236,7 @@ JsonValueModel = RootModel[JsonValue]
 BooleanModel = RootModel[bool]
 
 @commands.command()
-async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
+async def move_file(body: MoveFileParams, app_handle: AppHandle) -> None:
     output_dir = Path(converter.convert_options.output_dir).absolute()
     output_dir.mkdir(parents=True, exist_ok=True)
     if task := next(
@@ -277,7 +272,7 @@ async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
                                     "move_callback",
                                     JsonValueModel(callback_params),
                                 )
-                                return Empty()
+                                return
                             else:
                                 callback_params = {
                                     "id": task.id,
@@ -289,7 +284,7 @@ async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
                                     "move_callback",
                                     JsonValueModel(callback_params),
                                 )
-                                return Empty()
+                                return
                         else:
                             output_path.write_bytes(child.read_bytes())
                         if task.output_path is None:
@@ -322,7 +317,7 @@ async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
                                 "move_callback",
                                 JsonValueModel(callback_params),
                             )
-                            return Empty()
+                            return
                         else:
                             callback_params = {
                                 "id": task.id,
@@ -334,7 +329,7 @@ async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
                                 "move_callback",
                                 JsonValueModel(callback_params),
                             )
-                            return Empty()
+                            return
                     else:
                         output_path.write_bytes(task.tmp_path.read_bytes())
                     task.tmp_path.unlink()
@@ -348,7 +343,7 @@ async def move_file(body: MoveFileParams, app_handle: AppHandle) -> Empty:
                 "move_result",
                 JsonValueModel(task.model_dump(mode="json", by_alias=True, exclude={"tmp_path"})),
             )
-    return Empty()
+    return
 
 
 class PluginInfo(BaseModel):
@@ -377,12 +372,9 @@ def dump_plugin_infos() -> None:
     Path("plugin_infos.json").write_text(result.model_dump_json(), encoding="utf-8")
 
 
-VersionString = RootModel[str]
-
-
 @commands.command()
-async def app_version(body: Empty) -> VersionString:
-    return VersionString(version("libresvip"))
+async def app_version(body: dict) -> str:
+    return version("libresvip")
 
 
 class PluginOption(BaseModel):
