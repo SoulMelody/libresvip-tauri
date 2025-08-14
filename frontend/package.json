@@ -14,20 +14,20 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@fluentui/react-icons": "^2.0.306",
-    "@mui/material": "^7.2.0",
-    "@rjsf/core": "^6.0.0-beta.12",
-    "@rjsf/mui": "^6.0.0-beta.12",
-    "@rjsf/utils": "^6.0.0-beta.12",
-    "@rjsf/validator-ajv8": "^6.0.0-beta.12",
+    "@fluentui/react-icons": "^2.0.307",
+    "@mui/material": "^7.3.1",
+    "@rjsf/core": "^6.0.0-beta.13",
+    "@rjsf/mui": "^6.0.0-beta.13",
+    "@rjsf/utils": "^6.0.0-beta.13",
+    "@rjsf/validator-ajv8": "^6.0.0-beta.13",
     "@szhsin/react-menu": "^4.4.1",
-    "@tauri-apps/api": "^2.6.0",
+    "@tauri-apps/api": "^2.7.0",
     "@tauri-apps/plugin-clipboard-manager": "^2.3.0",
-    "@tauri-apps/plugin-dialog": "^2.3.0",
-    "@tauri-apps/plugin-fs": "^2.4.0",
+    "@tauri-apps/plugin-dialog": "^2.3.2",
+    "@tauri-apps/plugin-fs": "^2.4.1",
     "@tauri-apps/plugin-opener": "^2.4.0",
     "ajv-i18n": "^4.2.0",
-    "i18next": "^25.3.2",
+    "i18next": "^25.3.4",
     "i18next-browser-languagedetector": "^8.2.0",
     "material-ui-popup-state": "^5.3.6",
     "nanoid": "^5.1.5",
@@ -35,10 +35,10 @@
     "react": "^19",
     "react-dom": "^19",
     "react-hotkeys-hook": "^5.1.0",
-    "react-i18next": "^15.6.0",
-    "react-router": "^7.7.0",
-    "tauri-plugin-pytauri-api": "^0.6.0",
-    "zustand": "^5.0.6"
+    "react-i18next": "^15.6.1",
+    "react-router": "^7.8.0",
+    "tauri-plugin-pytauri-api": "^0.7.0",
+    "zustand": "^5.0.7"
   },
   "devDependencies": {
     "@types/bun": "latest",
@@ -46,7 +46,7 @@
     "@types/react-dom": "^19",
     "i18next-conv": "^15.1.1",
     "json-schema-to-typescript": "^15.0.4",
-    "npm-check-updates": "^18.0.1",
-    "typescript": "^5.8.3"
+    "npm-check-updates": "^18.0.2",
+    "typescript": "^5.9.2"
   }
 }

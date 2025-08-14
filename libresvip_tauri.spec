@@ -27,9 +27,10 @@ a = Analysis(
     binaries=[],
     datas=(
         collect_data_files("libresvip_tauri", excludes=[], includes=["**/*.toml", "**/*.ico", "**/*.png", "**/*.html", "**/*.js", "**/*.css"]) +
-        copy_metadata("pytauri_wheel") + collect_data_files("xsdata") + collect_entry_point("xsdata.plugins.class_types")[0]
+        copy_metadata("pytauri_wheel") + collect_data_files("jyutping") + collect_data_files("xsdata") + collect_entry_point("xsdata.plugins.class_types")[0]
     ),
     hiddenimports=[
+        "backports.zstd",
         "bidict",
         "construct_typed",
         "Cryptodome.Util.Padding",

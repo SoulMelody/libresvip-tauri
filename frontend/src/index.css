@@ -28,3 +28,7 @@ a:hover {
   color: rgba(255, 255, 255, 0.87);
   background-color: rgba(18, 18, 18, 0.87);
 }
+
+.szh-menu-container--theme-dark .szh-menu__item--hover {
+  background-color: rgba(50, 50, 50, 0.87);
+}
