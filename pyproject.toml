@@ -12,11 +12,11 @@ dependencies = [
 
 [dependency-groups]
 nodejs = [
-    "nodejs-wheel>=22.17.1",
+    "nodejs-wheel>=22.18.0",
     "pydantic-to-typescript>=2.0.0",
 ]
 packaging = [
-    "pyinstaller>=6.14.2",
+    "pyinstaller>=6.15.0",
     "shellingham<2.0.0,>=1.5.4",
 ]
 
