@@ -8,18 +8,18 @@
         "@emotion/styled": "^11.14.1",
         "@fluentui/react-icons": "^2.0.307",
         "@mui/material": "^7.3.1",
-        "@rjsf/core": "^6.0.0-beta.13",
-        "@rjsf/mui": "^6.0.0-beta.13",
-        "@rjsf/utils": "^6.0.0-beta.13",
-        "@rjsf/validator-ajv8": "^6.0.0-beta.13",
+        "@rjsf/core": "^6.0.0-beta.14",
+        "@rjsf/mui": "^6.0.0-beta.14",
+        "@rjsf/utils": "^6.0.0-beta.14",
+        "@rjsf/validator-ajv8": "^6.0.0-beta.14",
         "@szhsin/react-menu": "^4.4.1",
-        "@tauri-apps/api": "^2.7.0",
+        "@tauri-apps/api": "^2.8.0",
         "@tauri-apps/plugin-clipboard-manager": "^2.3.0",
         "@tauri-apps/plugin-dialog": "^2.3.2",
         "@tauri-apps/plugin-fs": "^2.4.1",
         "@tauri-apps/plugin-opener": "^2.4.0",
         "ajv-i18n": "^4.2.0",
-        "i18next": "^25.3.4",
+        "i18next": "^25.3.6",
         "i18next-browser-languagedetector": "^8.2.0",
         "material-ui-popup-state": "^5.3.6",
         "nanoid": "^5.1.5",
@@ -28,7 +28,7 @@
         "react-dom": "^19",
         "react-hotkeys-hook": "^5.1.0",
         "react-i18next": "^15.6.1",
-        "react-router": "^7.8.0",
+        "react-router": "^7.8.1",
         "tauri-plugin-pytauri-api": "^0.7.0",
         "zustand": "^5.0.7",
       },
@@ -134,17 +134,17 @@
 
     "@rc-component/mini-decimal": ["@rc-component/mini-decimal@1.1.0", "https://registry.npmmirror.com/@rc-component/mini-decimal/-/mini-decimal-1.1.0.tgz", { "dependencies": { "@babel/runtime": "^7.18.0" } }, "sha512-jS4E7T9Li2GuYwI6PyiVXmxTiM6b07rlD9Ge8uGZSCz3WlzcG5ZK7g5bbuKNeZ9pgUuPK/5guV781ujdVpm4HQ=="],
 
-    "@rjsf/core": ["@rjsf/core@6.0.0-beta.13", "https://registry.npmmirror.com/@rjsf/core/-/core-6.0.0-beta.13.tgz", { "dependencies": { "lodash": "^4.17.21", "lodash-es": "^4.17.21", "markdown-to-jsx": "^7.7.6", "nanoid": "^5.1.5", "prop-types": "^15.8.1" }, "peerDependencies": { "@rjsf/utils": "^6.0.0-beta", "react": ">=18" } }, "sha512-ccOf19OmQXXq4qE6zG3V6mNqOZYgrtfNOjLCmujKx2RprYcUsBo3Nn6yaUrVwHeQ77la1h9rUC7H8FosEj+jNQ=="],
+    "@rjsf/core": ["@rjsf/core@6.0.0-beta.14", "https://registry.npmmirror.com/@rjsf/core/-/core-6.0.0-beta.14.tgz", { "dependencies": { "lodash": "^4.17.21", "lodash-es": "^4.17.21", "markdown-to-jsx": "^7.7.13", "nanoid": "^5.1.5", "prop-types": "^15.8.1" }, "peerDependencies": { "@rjsf/utils": "^6.0.0-beta.14", "react": ">=18" } }, "sha512-e8Ucs5nXKvE/vOQdYr6YwpCinZs+9ukwQkhG21OFPg0he3ET2kRWxYyl4XwRb9WD9MjAfpcUrrL7YcF7vNoR5g=="],
 
-    "@rjsf/mui": ["@rjsf/mui@6.0.0-beta.13", "https://registry.npmmirror.com/@rjsf/mui/-/mui-6.0.0-beta.13.tgz", { "peerDependencies": { "@emotion/react": "^11.7.0", "@emotion/styled": "^11.6.0", "@mui/icons-material": "^7.0.0", "@mui/material": "^7.0.0", "@rjsf/core": "^6.0.0-beta", "@rjsf/utils": "^6.0.0-beta", "react": ">=18" } }, "sha512-ankc4CtbW+CYeNNZcLOMyvUmPG+RfmZ7jiKfbzMf3qMQl8vH7yDeBJ+wNWeutD8SBElRoO1dIVNhFJ1AvuDKSw=="],
+    "@rjsf/mui": ["@rjsf/mui@6.0.0-beta.14", "https://registry.npmmirror.com/@rjsf/mui/-/mui-6.0.0-beta.14.tgz", { "peerDependencies": { "@emotion/react": "^11.7.0", "@emotion/styled": "^11.6.0", "@mui/icons-material": "^7.0.0", "@mui/material": "^7.0.0", "@rjsf/core": "^6.0.0-beta.14", "@rjsf/utils": "^6.0.0-beta.14", "react": ">=18" } }, "sha512-p1z/4ovW4EvNPhuKBVv7PWVTL48IFN5he8YvxpdO2F4r1q/q1QZC/EAWo7+f/VEYvP1x0zN+WoddRi51ipzCug=="],
 
-    "@rjsf/utils": ["@rjsf/utils@6.0.0-beta.13", "https://registry.npmmirror.com/@rjsf/utils/-/utils-6.0.0-beta.13.tgz", { "dependencies": { "fast-uri": "^3.0.6", "json-schema-merge-allof": "^0.8.1", "jsonpointer": "^5.0.1", "lodash": "^4.17.21", "lodash-es": "^4.17.21", "nanoid": "^5.1.5", "react-is": "^18.2.0" }, "peerDependencies": { "react": ">=18" } }, "sha512-2Em5W/pM3J30vw8FxUgrYHI+3J7iz0/IzcB7fXeOVkxFNUIgzSFzhB2Y5luo2hu8VaCaBI5JQxAk+2CLbTjtLg=="],
+    "@rjsf/utils": ["@rjsf/utils@6.0.0-beta.14", "https://registry.npmmirror.com/@rjsf/utils/-/utils-6.0.0-beta.14.tgz", { "dependencies": { "fast-uri": "^3.0.6", "json-schema-merge-allof": "^0.8.1", "jsonpointer": "^5.0.1", "lodash": "^4.17.21", "lodash-es": "^4.17.21", "nanoid": "^5.1.5", "react-is": "^18.3.1" }, "peerDependencies": { "react": ">=18" } }, "sha512-A1ehsARFL+cDsmrYn3LI7u6M2tM4SJYCfEFmkoZ2aQ7Qrfr6gNtL0rEtDD4GQePoEGf+PU232bv/G4jy2PA9vA=="],
 
-    "@rjsf/validator-ajv8": ["@rjsf/validator-ajv8@6.0.0-beta.13", "https://registry.npmmirror.com/@rjsf/validator-ajv8/-/validator-ajv8-6.0.0-beta.13.tgz", { "dependencies": { "ajv": "^8.12.0", "ajv-formats": "^2.1.1", "lodash": "^4.17.21", "lodash-es": "^4.17.21" }, "peerDependencies": { "@rjsf/utils": "^6.0.0-beta" } }, "sha512-cicx6VFvMiIIN/8gUtWYhGSvDFhj7TbKxpER9BTEL2j/eNHwLbBkQH7Y+jrWALKJUptYJsOJlBs3sXpdAq+6xA=="],
+    "@rjsf/validator-ajv8": ["@rjsf/validator-ajv8@6.0.0-beta.14", "https://registry.npmmirror.com/@rjsf/validator-ajv8/-/validator-ajv8-6.0.0-beta.14.tgz", { "dependencies": { "ajv": "^8.17.1", "ajv-formats": "^2.1.1", "lodash": "^4.17.21", "lodash-es": "^4.17.21" }, "peerDependencies": { "@rjsf/utils": "^6.0.0-beta.14" } }, "sha512-I90CEAeAiWNZJbU5JK2zNFjNKCH5GmWN5yeYgZEN8FDORGeGV0+TkdeKRCveec2EMCqaHImphnT3oETNwMCgSQ=="],
 
     "@szhsin/react-menu": ["@szhsin/react-menu@4.4.1", "https://registry.npmmirror.com/@szhsin/react-menu/-/react-menu-4.4.1.tgz", { "dependencies": { "react-transition-state": "^2.3.1" }, "peerDependencies": { "react": ">=16.14.0", "react-dom": ">=16.14.0" } }, "sha512-a5uBCrYPpxiEwp839+cfEiaZh2LKqn9v7VUyBRjHWNjKbhVbSaI1Kyh5G3rIeHBxpbrhSYBmD5KJ5jgzhC2ECw=="],
 
-    "@tauri-apps/api": ["@tauri-apps/api@2.7.0", "https://registry.npmmirror.com/@tauri-apps/api/-/api-2.7.0.tgz", {}, "sha512-v7fVE8jqBl8xJFOcBafDzXFc8FnicoH3j8o8DNNs0tHuEBmXUDqrCOAzMRX0UkfpwqZLqvrvK0GNQ45DfnoVDg=="],
+    "@tauri-apps/api": ["@tauri-apps/api@2.8.0", "https://registry.npmmirror.com/@tauri-apps/api/-/api-2.8.0.tgz", {}, "sha512-ga7zdhbS2GXOMTIZRT0mYjKJtR9fivsXzsyq5U3vjDL0s6DTMwYRm0UHNjzTY5dh4+LSC68Sm/7WEiimbQNYlw=="],
 
     "@tauri-apps/plugin-clipboard-manager": ["@tauri-apps/plugin-clipboard-manager@2.3.0", "https://registry.npmmirror.com/@tauri-apps/plugin-clipboard-manager/-/plugin-clipboard-manager-2.3.0.tgz", { "dependencies": { "@tauri-apps/api": "^2.6.0" } }, "sha512-81NOBA2P+OTY8RLkBwyl9ZR/0CeggLub4F6zxcxUIfFOAqtky7J61+K/MkH2SC1FMxNBxrX0swDuKvkjkHadlA=="],
 
@@ -250,7 +250,7 @@
 
     "html-parse-stringify": ["html-parse-stringify@3.0.1", "https://registry.npmmirror.com/html-parse-stringify/-/html-parse-stringify-3.0.1.tgz", { "dependencies": { "void-elements": "3.1.0" } }, "sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg=="],
 
-    "i18next": ["i18next@25.3.4", "https://registry.npmmirror.com/i18next/-/i18next-25.3.4.tgz", { "dependencies": { "@babel/runtime": "^7.27.6" }, "peerDependencies": { "typescript": "^5" }, "optionalPeers": ["typescript"] }, "sha512-AHklEYFLiRRxW1Cb6zE9lfnEtYvsydRC8nRS3RSKGX3zCqZ8nLZwMaUsrb80YuccPNv2RNokDL8LkTNnp+6mDw=="],
+    "i18next": ["i18next@25.3.6", "https://registry.npmmirror.com/i18next/-/i18next-25.3.6.tgz", { "dependencies": { "@babel/runtime": "^7.27.6" }, "peerDependencies": { "typescript": "^5" }, "optionalPeers": ["typescript"] }, "sha512-dThZ0CTCM3sUG/qS0ZtQYZQcUI6DtBN8yBHK+SKEqihPcEYmjVWh/YJ4luic73Iq6Uxhp6q7LJJntRK5+1t7jQ=="],
 
     "i18next-browser-languagedetector": ["i18next-browser-languagedetector@8.2.0", "https://registry.npmmirror.com/i18next-browser-languagedetector/-/i18next-browser-languagedetector-8.2.0.tgz", { "dependencies": { "@babel/runtime": "^7.23.2" } }, "sha512-P+3zEKLnOF0qmiesW383vsLdtQVyKtCNA9cjSoKCppTKPQVfKd2W8hbVo5ZhNJKDqeM7BOcvNoKJOjpHh4Js9g=="],
 
@@ -348,7 +348,7 @@
 
     "react-is": ["react-is@19.1.1", "https://registry.npmmirror.com/react-is/-/react-is-19.1.1.tgz", {}, "sha512-tr41fA15Vn8p4X9ntI+yCyeGSf1TlYaY5vlTZfQmeLBrFo3psOPX6HhTDnFNL9uj3EhP0KAQ80cugCl4b4BERA=="],
 
-    "react-router": ["react-router@7.8.0", "https://registry.npmmirror.com/react-router/-/react-router-7.8.0.tgz", { "dependencies": { "cookie": "^1.0.1", "set-cookie-parser": "^2.6.0" }, "peerDependencies": { "react": ">=18", "react-dom": ">=18" }, "optionalPeers": ["react-dom"] }, "sha512-r15M3+LHKgM4SOapNmsH3smAizWds1vJ0Z9C4mWaKnT9/wD7+d/0jYcj6LmOvonkrO4Rgdyp4KQ/29gWN2i1eg=="],
+    "react-router": ["react-router@7.8.1", "https://registry.npmmirror.com/react-router/-/react-router-7.8.1.tgz", { "dependencies": { "cookie": "^1.0.1", "set-cookie-parser": "^2.6.0" }, "peerDependencies": { "react": ">=18", "react-dom": ">=18" }, "optionalPeers": ["react-dom"] }, "sha512-5cy/M8DHcG51/KUIka1nfZ2QeylS4PJRs6TT8I4PF5axVsI5JUxp0hC0NZ/AEEj8Vw7xsEoD7L/6FY+zoYaOGA=="],
 
     "react-transition-group": ["react-transition-group@4.4.5", "https://registry.npmmirror.com/react-transition-group/-/react-transition-group-4.4.5.tgz", { "dependencies": { "@babel/runtime": "^7.5.5", "dom-helpers": "^5.0.1", "loose-envify": "^1.4.0", "prop-types": "^15.6.2" }, "peerDependencies": { "react": ">=16.6.0", "react-dom": ">=16.6.0" } }, "sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g=="],
 
@@ -408,10 +408,20 @@
 
     "@rjsf/utils/react-is": ["react-is@18.3.1", "https://registry.npmmirror.com/react-is/-/react-is-18.3.1.tgz", {}, "sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg=="],
 
+    "@tauri-apps/plugin-clipboard-manager/@tauri-apps/api": ["@tauri-apps/api@2.7.0", "https://registry.npmmirror.com/@tauri-apps/api/-/api-2.7.0.tgz", {}, "sha512-v7fVE8jqBl8xJFOcBafDzXFc8FnicoH3j8o8DNNs0tHuEBmXUDqrCOAzMRX0UkfpwqZLqvrvK0GNQ45DfnoVDg=="],
+
+    "@tauri-apps/plugin-dialog/@tauri-apps/api": ["@tauri-apps/api@2.7.0", "https://registry.npmmirror.com/@tauri-apps/api/-/api-2.7.0.tgz", {}, "sha512-v7fVE8jqBl8xJFOcBafDzXFc8FnicoH3j8o8DNNs0tHuEBmXUDqrCOAzMRX0UkfpwqZLqvrvK0GNQ45DfnoVDg=="],
+
+    "@tauri-apps/plugin-fs/@tauri-apps/api": ["@tauri-apps/api@2.7.0", "https://registry.npmmirror.com/@tauri-apps/api/-/api-2.7.0.tgz", {}, "sha512-v7fVE8jqBl8xJFOcBafDzXFc8FnicoH3j8o8DNNs0tHuEBmXUDqrCOAzMRX0UkfpwqZLqvrvK0GNQ45DfnoVDg=="],
+
+    "@tauri-apps/plugin-opener/@tauri-apps/api": ["@tauri-apps/api@2.7.0", "https://registry.npmmirror.com/@tauri-apps/api/-/api-2.7.0.tgz", {}, "sha512-v7fVE8jqBl8xJFOcBafDzXFc8FnicoH3j8o8DNNs0tHuEBmXUDqrCOAzMRX0UkfpwqZLqvrvK0GNQ45DfnoVDg=="],
+
     "hoist-non-react-statics/react-is": ["react-is@16.13.1", "https://registry.npmmirror.com/react-is/-/react-is-16.13.1.tgz", {}, "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="],
 
     "prop-types/react-is": ["react-is@16.13.1", "https://registry.npmmirror.com/react-is/-/react-is-16.13.1.tgz", {}, "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="],
 
     "rc-util/react-is": ["react-is@18.3.1", "https://registry.npmmirror.com/react-is/-/react-is-18.3.1.tgz", {}, "sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg=="],
+
+    "tauri-plugin-pytauri-api/@tauri-apps/api": ["@tauri-apps/api@2.7.0", "https://registry.npmmirror.com/@tauri-apps/api/-/api-2.7.0.tgz", {}, "sha512-v7fVE8jqBl8xJFOcBafDzXFc8FnicoH3j8o8DNNs0tHuEBmXUDqrCOAzMRX0UkfpwqZLqvrvK0GNQ45DfnoVDg=="],
   }
 }
