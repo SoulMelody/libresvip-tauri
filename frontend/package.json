@@ -44,7 +44,7 @@
     "@types/react-dom": "^19",
     "i18next-conv": "^15.1.1",
     "json-schema-to-typescript": "^15.0.4",
-    "npm-check-updates": "^18.0.3",
+    "npm-check-updates": "^19.0.0",
     "typescript": "^5.9.2"
   }
 }
