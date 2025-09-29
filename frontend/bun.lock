@@ -36,7 +36,7 @@
         "@types/react-dom": "^19",
         "i18next-conv": "^15.1.1",
         "json-schema-to-typescript": "^15.0.4",
-        "npm-check-updates": "^18.0.3",
+        "npm-check-updates": "^19.0.0",
         "typescript": "^5.9.2",
       },
     },
@@ -310,7 +310,7 @@
 
     "nanoid": ["nanoid@5.1.5", "https://registry.npmmirror.com/nanoid/-/nanoid-5.1.5.tgz", { "bin": { "nanoid": "bin/nanoid.js" } }, "sha512-Ir/+ZpE9fDsNH0hQ3C68uyThDXzYcim2EqcZ8zn8Chtt1iylPT9xXJB0kPCnqzgcEGikO9RxSrh63MsmVCU7Fw=="],
 
-    "npm-check-updates": ["npm-check-updates@18.0.3", "https://registry.npmmirror.com/npm-check-updates/-/npm-check-updates-18.0.3.tgz", { "bin": { "npm-check-updates": "build/cli.js", "ncu": "build/cli.js" } }, "sha512-IMZWxgAa5gpDVEle2KOZOMLfCu2/9FV+xsXQjPFt2OV0dyZixn0OJrZ9NxUcWgr/ZTGogmZtE0Cb8x2wlsVULg=="],
+    "npm-check-updates": ["npm-check-updates@19.0.0", "", { "bin": { "npm-check-updates": "build/cli.js", "ncu": "build/cli.js" } }, "sha512-qcfjZEv6xB+WvW24S8wU1MKISPPiTREraBg62XDo/7zmOLXH3Zj7ti2v/LRfks0qITU8SDZLTWwgIitflvursw=="],
 
     "object-assign": ["object-assign@4.1.1", "https://registry.npmmirror.com/object-assign/-/object-assign-4.1.1.tgz", {}, "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg=="],
 
