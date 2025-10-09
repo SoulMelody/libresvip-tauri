@@ -1,18 +1,18 @@
 [project]
 name = "libresvip-tauri"
-version = "0.1.0"
+version = "2.0.0"
 description = ""
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "libresvip[crypto,lxml,ruamel_yaml,upath,zstd]>=1.11.3",
+    "libresvip[crypto,lxml,ruamel_yaml,zstd]>=2.0.0",
     "pytauri>=0.8.0",
     "pytauri-wheel>=0.8.0",
 ]
 
 [dependency-groups]
 nodejs = [
-    "nodejs-wheel>=22.19.0",
+    "nodejs-wheel>=22.20.0",
     "pydantic-to-typescript>=2.0.0",
 ]
 packaging = [
