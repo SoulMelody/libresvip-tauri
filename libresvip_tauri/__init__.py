@@ -21,6 +21,7 @@ from pytauri import (
     Commands,
 )
 from pytauri import AppHandle, Emitter
+from pytauri_plugins import clipboard_manager, dialog, fs, opener
 from pytauri_wheel.lib import builder_factory, context_factory
 from typing_extensions import override
 from upath import UPath
@@ -127,33 +128,12 @@ def convert_task(
     )
     try:
         with CatchWarnings() as w:
-            input_plugin = plugin_manager.plugin_registry[converter.convert_options.input_format]
-            output_plugin = plugin_manager.plugin_registry[converter.convert_options.output_format]
-            if (
-                input_plugin.plugin_object is None
-                or (
-                    input_option_class := get_type_hints(
-                        input_plugin.plugin_object.load
-                    ).get(
-                        "options",
-                    )
-                )
-                is None
-                or output_plugin.plugin_object is None
-                or (
-                    output_option_class := get_type_hints(
-                        output_plugin.plugin_object.dump,
-                    ).get("options")
-                )
-                is None
-            ):
-                raise ValueError(
-                    f"Plugin {input_plugin.identifier} or {output_plugin.identifier} is not supported"
-                )
-            input_option = input_option_class(**converter.convert_options.input_options)
+            input_plugin = plugin_manager.plugins.get("svs", {})[converter.convert_options.input_format]
+            output_plugin = plugin_manager.plugins.get("svs", {})[converter.convert_options.output_format]
+            input_option = converter.convert_options.input_options
             if converter.convert_options.mode == "merge" and sub_tasks:
                 child_projects = [
-                    input_plugin.plugin_object.load(
+                    input_plugin.load(
                         Path(input_path),
                         input_option,
                     )
@@ -164,45 +144,33 @@ def convert_task(
                 ]
                 project = Project.merge_projects(child_projects)
             else:
-                project = input_plugin.plugin_object.load(
+                project = input_plugin.load(
                     Path(task.input_path),
                     input_option,
                 )
             for middleware_abbr in converter.convert_options.selected_middlewares:
-                middleware = middleware_manager.plugin_registry[middleware_abbr]
-                if middleware.plugin_object is not None and hasattr(
-                    middleware.plugin_object, "process"
-                ) and (
-                    middleware_option_class := get_type_hints(
-                        middleware.plugin_object.process
-                    ).get(
-                        "options",
-                    )
-                ):
+                if middleware := middleware_manager.plugins.get("middleware", {})[middleware_abbr]:
                     middleware_option = converter.convert_options.middleware_options[
                         middleware_abbr
                     ]
-                    project = middleware.plugin_object.process(
+                    project = middleware.process(
                         project,
-                        middleware_option_class.model_validate(
-                            middleware_option,
-                            from_attributes=True,
-                        ),
+                        middleware_option,
                     )
-            output_option = output_option_class(**converter.convert_options.output_options)
+            output_option = converter.convert_options.output_options
             if converter.convert_options.mode == "split":
                 task.tmp_path.mkdir(parents=True, exist_ok=True)
                 for i, child_project in enumerate(
                     project.split_tracks(converter.convert_options.max_track_count)
                 ):
-                    output_plugin.plugin_object.dump(
+                    output_plugin.dump(
                         task.tmp_path
                         / f"{i + 1:0=2d}.{converter.convert_options.output_format}",
                         child_project,
                         output_option,
                     )
             else:
-                output_plugin.plugin_object.dump(
+                output_plugin.dump(
                     task.tmp_path,
                     project,
                     output_option,
@@ -412,10 +380,15 @@ async def option_schema(body: PluginOption) -> SchemaConfig:
     from libresvip.extension.manager import get_translation, middleware_manager, plugin_manager
 
     if body.category == "process":
-        plugin_info = middleware_manager.plugin_registry.get(body.identifier)
+        plugin_info = middleware_manager.plugins.get("middleware", {}).get(body.identifier)
     else:
-        plugin_info = plugin_manager.plugin_registry.get(body.identifier)
-    option_cls: type[BaseModel] = get_type_hints(getattr(plugin_info.plugin_object, body.category))["options"]
+        plugin_info = plugin_manager.plugins.get("svs", {}).get(body.identifier)
+    if body.category == "load":
+        option_cls = plugin_info.input_option_cls
+    elif body.category == "dump":
+        option_cls = plugin_info.output_option_cls
+    else:
+        option_cls = plugin_info.process_option_cls
     if body.language not in translators_cache:
         translator = get_translation(body.language)
         translators_cache[body.language] = translator
@@ -473,5 +446,6 @@ def main() -> None:
         app = builder_factory().build(
             context=context_factory(SRC_TAURI_DIR, tauri_config=tauri_config),
             invoke_handler=commands.generate_handler(portal),
+            plugins=[clipboard_manager.init(), dialog.init(), fs.init(), opener.init()],
         )
         app.run()
