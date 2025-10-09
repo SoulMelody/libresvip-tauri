@@ -330,12 +330,12 @@ def dump_plugin_infos() -> None:
     result = PluginInfoDict({
         identifier: PluginInfo(
             identifier=identifier,
-            version=str(plugin_info.version),
-            suffix=f"(*.{plugin_info.suffix})",
-            icon_base64=plugin_info.icon_base64,
-            website=plugin_info.website,
+            version=str(plugin.version),
+            suffix=f"(*.{plugin.info.suffix})",
+            icon_base64=plugin.info.icon_base64,
+            website=plugin.info.website,
         )
-        for identifier, plugin_info in plugin_manager.plugin_registry.items()
+        for identifier, plugin in plugin_manager.plugins["svs"].items()
     })
     Path("plugin_infos.json").write_text(result.model_dump_json(), encoding="utf-8")
 
