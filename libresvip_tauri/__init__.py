@@ -408,16 +408,19 @@ async def option_schema(body: PluginOption) -> SchemaConfig:
     for field_name, field_info in option_cls.model_fields.items():
         if issubclass(field_info.annotation, enum.Enum):
             enum_names = []
-            annotations = get_type_hints(field_info.annotation, include_extras=True)
+            type_hints = get_type_hints(field_info.annotation, include_extras=True)
+            annotations = None
+            if "_value_" in type_hints:
+                value_args = get_args(type_hints["_value_"])
+                if len(value_args) >= 2:
+                    model = value_args[1]
+                    if hasattr(model, "model_fields"):
+                        annotations = model.model_fields
+            if annotations is None:
+                continue
             for enum_item in field_info.annotation:
                 if enum_item.name in annotations:
-                    annotated_args = list(
-                        get_args(annotations[enum_item.name]),
-                    )
-                    if len(annotated_args) >= 2:
-                        enum_field = annotated_args[1]
-                    else:
-                        continue
+                    enum_field = annotations[enum_item.name]
                     enum_names.append(translator.gettext(enum_field.title))
             ui_schema[field_name] = {
                 "ui:enumNames": enum_names
