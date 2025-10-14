@@ -1,1 +1,2 @@
 index-url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+python-install-mirror = "https://mirror.nju.edu.cn/github-release/astral-sh/python-build-standalone"
