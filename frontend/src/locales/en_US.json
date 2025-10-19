@@ -127,12 +127,6 @@
       "file_format": "DeepVocal project file",
       "description": "Conversion plugin for dv file"
     },
-    "gj": {
-      "name": "gjgj",
-      "author": "FlutyDeer",
-      "file_format": "Gejigeji project file",
-      "description": "Conversion plugin for Gejigeji project file.\nOnly Gejigeji v2.0 spec is supported."
-    },
     "json": {
       "name": "JsonSvip",
       "author": "yqzhishen",
@@ -306,6 +300,12 @@
       "author": "SoulMelody",
       "file_format": "VX-β project file",
       "description": "Conversion plugin for VX-β project file"
+    },
+    "xvsq": {
+      "name": "Cadencii",
+      "author": "SoulMelody",
+      "file_format": "Cadencii project file",
+      "description": "Conversion plugin for Cadencii project file"
     },
     "y77": {
       "name": "Y77",

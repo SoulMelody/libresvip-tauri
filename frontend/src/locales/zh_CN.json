@@ -127,12 +127,6 @@
       "file_format": "DeepVocal工程文件",
       "description": "dv 格式转换插件"
     },
-    "gj": {
-      "name": "gjgj",
-      "author": "笛鹿",
-      "file_format": "歌叽歌叽工程文件",
-      "description": "歌叽歌叽工程格式转换插件。\n仅支持歌叽歌叽2.0版本。"
-    },
     "json": {
       "name": "JsonSvip",
       "author": "yqzhishen",
@@ -306,6 +300,12 @@
       "author": "岁月静好_初心不忘",
       "file_format": "VX-β 工程文件",
       "description": "VX-β 工程格式转换插件"
+    },
+    "xvsq": {
+      "name": "Cadencii",
+      "author": "岁月静好_初心不忘",
+      "file_format": "Cadencii 工程文件",
+      "description": "Cadencii 工程格式转换插件"
     },
     "y77": {
       "name": "Y77",
