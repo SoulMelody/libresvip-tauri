@@ -436,7 +436,7 @@ wheels = [
 
 [[package]]
 name = "libresvip"
-version = "2.0.2"
+version = "2.0.3"
 source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
 dependencies = [
     { name = "bidict" },
@@ -470,9 +470,9 @@ dependencies = [
     { name = "xsdata-pydantic" },
     { name = "zhon" },
 ]
-sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/76/5d/8c4e0ec74e3843eb63d961e433bb433ecfa5c9192427a01becec76022b0c/libresvip-2.0.2.tar.gz", hash = "sha256:733434bad2c92a1e834d80e2ceac114178008827afb8bb12f98b37e6acd1a61d", size = 1200049, upload-time = "2025-10-31T22:55:04.503Z" }
+sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/9a/70/1f6c77c32847fa67b4ef2df1d9cecd87989103f426b876bdee39e02c6be5/libresvip-2.0.3.tar.gz", hash = "sha256:0e7ce08feb83c657e4955b74e809158380ac161ff1a7fe6ef3b9cfb54a53077b", size = 1199854, upload-time = "2025-11-09T11:47:19.831Z" }
 wheels = [
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/fb/06/5fd2ae19aecd032e605c93a3b963f09dd9c93e5cb79cc074e1ca9472818b/libresvip-2.0.2-py3-none-any.whl", hash = "sha256:2c7ba2623e9046275713da77701428dfb13a454fd9eb26cd77767e3260e951e0", size = 1303520, upload-time = "2025-10-31T22:55:02.752Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/22/8c/65bccdf7a4ec113a1fa74add075f732157d764678b09744ff158beafd203/libresvip-2.0.3-py3-none-any.whl", hash = "sha256:bffceff539a18280c61aeb4666ff6814fa28e21ce69935fbb2f4581fc931f8d0", size = 1303395, upload-time = "2025-11-09T11:47:17.963Z" },
 ]
 
 [package.optional-dependencies]
@@ -513,7 +513,7 @@ packaging = [
 
 [package.metadata]
 requires-dist = [
-    { name = "libresvip", extras = ["crypto", "lxml", "ruamel-yaml", "zstd"], specifier = ">=2.0.2" },
+    { name = "libresvip", extras = ["crypto", "lxml", "ruamel-yaml", "zstd"], specifier = ">=2.0.3" },
     { name = "pytauri", specifier = ">=0.8.0" },
     { name = "pytauri-wheel", specifier = ">=0.8.0" },
 ]
@@ -1185,16 +1185,16 @@ wheels = [
 
 [[package]]
 name = "pydantic-settings"
-version = "2.11.0"
+version = "2.12.0"
 source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
 dependencies = [
     { name = "pydantic" },
     { name = "python-dotenv" },
     { name = "typing-inspection" },
 ]
-sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/20/c5/dbbc27b814c71676593d1c3f718e6cd7d4f00652cefa24b75f7aa3efb25e/pydantic_settings-2.11.0.tar.gz", hash = "sha256:d0e87a1c7d33593beb7194adb8470fc426e95ba02af83a0f23474a04c9a08180", size = 188394, upload-time = "2025-09-24T14:19:11.764Z" }
+sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/43/4b/ac7e0aae12027748076d72a8764ff1c9d82ca75a7a52622e67ed3f765c54/pydantic_settings-2.12.0.tar.gz", hash = "sha256:005538ef951e3c2a68e1c08b292b5f2e71490def8589d4221b95dab00dafcfd0", size = 194184, upload-time = "2025-11-10T14:25:47.013Z" }
 wheels = [
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/83/d6/887a1ff844e64aa823fb4905978d882a633cfe295c32eacad582b78a7d8b/pydantic_settings-2.11.0-py3-none-any.whl", hash = "sha256:fe2cea3413b9530d10f3a5875adffb17ada5c1e1bab0b2885546d7310415207c", size = 48608, upload-time = "2025-09-24T14:19:10.015Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/c1/60/5d4751ba3f4a40a6891f24eec885f51afd78d208498268c734e256fb13c4/pydantic_settings-2.12.0-py3-none-any.whl", hash = "sha256:fddb9fd99a5b18da837b29710391e945b1e30c135477f484084ee513adb93809", size = 51880, upload-time = "2025-11-10T14:25:45.546Z" },
 ]
 
 [[package]]
@@ -1635,15 +1635,15 @@ wheels = [
 
 [[package]]
 name = "universal-pathlib"
-version = "0.3.4"
+version = "0.3.5"
 source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
 dependencies = [
     { name = "fsspec" },
     { name = "pathlib-abc" },
 ]
-sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/79/15/907728d15ebc125616eb275245d1f1ba0d5a66150eea74bea68651f22d87/universal_pathlib-0.3.4.tar.gz", hash = "sha256:8472df61ea931eb7e8158abf5a12ec9c45103dc58716c0103cf5e88712fa357a", size = 203284, upload-time = "2025-10-16T08:02:59.003Z" }
+sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/94/3f/913fa2a88971d5aaf49b04ed70216f34d783b992ac6da37a7b1f2b122b1e/universal_pathlib-0.3.5.tar.gz", hash = "sha256:e3a9bf8a4e73e25c95c86af5028345013701355e8d573e68dd1ffeeb18fa71b7", size = 244746, upload-time = "2025-11-09T03:57:54.469Z" }
 wheels = [
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/ae/0c/6dc1e50b29ba5ebdbeaab325207e2bba93f072207a6787accc4630b811e3/universal_pathlib-0.3.4-py3-none-any.whl", hash = "sha256:69b6250d9a79dbc33a9e6a7b0e732aece8b0e178fe0af35f104b4e207fd9d5ae", size = 72105, upload-time = "2025-10-16T08:02:57.333Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/2d/32/2569fc0a8c7215fdb55bfe1aa8fe5dada6042c4918625ce13be72eb434ed/universal_pathlib-0.3.5-py3-none-any.whl", hash = "sha256:123275e22a6798df40019c3f72728ff37f73aba8734116ae51b08c4b78598f20", size = 76811, upload-time = "2025-11-09T03:57:52.941Z" },
 ]
 
 [[package]]
