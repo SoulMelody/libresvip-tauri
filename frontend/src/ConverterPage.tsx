@@ -70,7 +70,8 @@ import { stat } from '@tauri-apps/plugin-fs';
 export const ConverterPage = () => {
   const { t } = useTranslation();
   const {
-    pluginInfos,
+    inputPluginInfos,
+    outputPluginInfos,
     middlewareIds,
     middlewareSchemas,
     middlewareFormDatas,
@@ -337,7 +338,7 @@ export const ConverterPage = () => {
             file = file.replace(/\\/g, '/');
           }
           let parsed = await parsePath(file)
-          let detectedInputFormat = parsed.ext.toLowerCase() in pluginInfos ? parsed.ext.toLowerCase() : inputFormat;
+          let detectedInputFormat = parsed.ext.toLowerCase() in inputPluginInfos ? parsed.ext.toLowerCase() : inputFormat;
           if (detectedInputFormat === null) {
             continue;
           }
@@ -526,7 +527,7 @@ export const ConverterPage = () => {
                     }}
                     sx={{ minWidth: 200 }}
                   >
-                    {Object.values(pluginInfos).map((info) => {
+                    {Object.values(inputPluginInfos).map((info) => {
                       return (
                         <MenuItem value={info.identifier}>{t(`plugin.${info.identifier}.file_format`)} {`(*.${info.suffix})`}</MenuItem>
                       )
@@ -553,30 +554,30 @@ export const ConverterPage = () => {
                         }}
                       >
                         {
-                          inputFormat!== null && pluginInfos[inputFormat]!== undefined && (
+                          inputFormat!== null && inputPluginInfos[inputFormat]!== undefined && (
                             <Card>
                               <Box sx={{flexDirection: 'row', display: 'flex'}}>
-                                <Avatar src={"data:image/png;base64," + pluginInfos[inputFormat].icon_base64} sx={{ width: 150, height: 150 }} /> 
+                                <Avatar src={"data:image/png;base64," + inputPluginInfos[inputFormat].icon_base64} sx={{ width: 150, height: 150 }} /> 
                                 <Divider orientation="vertical" />
                                 <Box>
                                   <Typography variant="h5" sx={{ p: 2 }}>{
                                     t(`plugin.${inputFormat}.name`)
                                   }</Typography>
                                   <Box sx={{flexDirection: 'row', display: 'flex'}}>
-                                    <Chip icon={<TagRegular/>} label={pluginInfos[inputFormat].version} sx={{ m: 1 }}/>
+                                    <Chip icon={<TagRegular/>} label={inputPluginInfos[inputFormat].version} sx={{ m: 1 }}/>
                                     <Chip
                                       icon={<PersonRegular/>}
                                       deleteIcon={<OpenRegular/>}
                                       label={t(`plugin.${inputFormat}.author`)}
                                       component="a"
-                                      href={pluginInfos[inputFormat].website || '#'}
+                                      href={inputPluginInfos[inputFormat].website || '#'}
                                       target="_blank"
                                       sx={{ m: 1 }}
                                       clickable
                                       onDelete={() => {}}
                                     />
                                   </Box>
-                                  <Chip icon={<DocumentRegular/>} label={t(`plugin.${inputFormat}.file_format`) + " " + `(*.${pluginInfos[inputFormat].suffix})`} sx={{ m: 1 }}/>
+                                  <Chip icon={<DocumentRegular/>} label={t(`plugin.${inputFormat}.file_format`) + " " + `(*.${inputPluginInfos[inputFormat].suffix})`} sx={{ m: 1 }}/>
                                 </Box>
                               </Box>
                               <Divider />
@@ -596,7 +597,7 @@ export const ConverterPage = () => {
                       filters: [{
                         name: t('converter.all_files'),
                         extensions: ['*'],
-                      }, ...Object.entries(pluginInfos).map(([identifier, info]) => {
+                      }, ...Object.entries(inputPluginInfos).map(([identifier, info]) => {
                         return {
                           name: t(`plugin.${identifier}.file_format`),
                           extensions: [info.suffix],
@@ -610,7 +611,7 @@ export const ConverterPage = () => {
                           file = file.replace(/\\/g, '/');
                         }
                         let parsed = await parsePath(file)
-                        let detectedInputFormat = parsed.ext.toLowerCase() in pluginInfos ? parsed.ext.toLowerCase() : inputFormat;
+                        let detectedInputFormat = parsed.ext.toLowerCase() in inputPluginInfos ? parsed.ext.toLowerCase() : inputFormat;
                         if (detectedInputFormat === null)
                           continue;
                         let task: ConversionTask = {
@@ -672,7 +673,7 @@ export const ConverterPage = () => {
                       }}
                       sx={{ minWidth: 200 }}
                     >
-                      {Object.values(pluginInfos).map((info) => {
+                      {Object.values(outputPluginInfos).map((info) => {
                         return (
                           <MenuItem value={info.identifier}>{t(`plugin.${info.identifier}.file_format`)} {`(*.${info.suffix})`}</MenuItem>
                         )
@@ -699,30 +700,30 @@ export const ConverterPage = () => {
                           }}
                         >
                           {
-                            outputFormat !== null && pluginInfos[outputFormat]!== undefined && (
+                            outputFormat !== null && outputPluginInfos[outputFormat]!== undefined && (
                               <Card>
                                 <Box sx={{flexDirection: 'row', display: 'flex'}}>
-                                  <Avatar src={"data:image/png;base64," + pluginInfos[outputFormat].icon_base64} sx={{ width: 150, height: 150 }} />
+                                  <Avatar src={"data:image/png;base64," + outputPluginInfos[outputFormat].icon_base64} sx={{ width: 150, height: 150 }} />
                                   <Divider orientation="vertical" />
                                   <Box>
                                     <Typography variant="h5" sx={{ p: 2 }}>{
                                       t(`plugin.${outputFormat}.name`)
                                     }</Typography>
                                     <Box sx={{flexDirection: 'row', display: 'flex'}}>
-                                      <Chip icon={<TagRegular/>} label={pluginInfos[outputFormat].version} sx={{ m: 1 }}/>
+                                      <Chip icon={<TagRegular/>} label={outputPluginInfos[outputFormat].version} sx={{ m: 1 }}/>
                                       <Chip
                                         icon={<PersonRegular/>}
                                         deleteIcon={<OpenRegular/>}
                                         label={t(`plugin.${outputFormat}.author`)}
                                         component="a"
-                                        href={pluginInfos[outputFormat].website || '#'}
+                                        href={outputPluginInfos[outputFormat].website || '#'}
                                         target="_blank"
                                         sx={{ m: 1 }}
                                         clickable
                                         onDelete={() => {}}
                                       />
                                     </Box>
-                                    <Chip icon={<DocumentRegular/>} label={t(`plugin.${outputFormat}.file_format`) + " " + `(*.${pluginInfos[outputFormat].suffix})`} sx={{ m: 1 }}/>
+                                    <Chip icon={<DocumentRegular/>} label={t(`plugin.${outputFormat}.file_format`) + " " + `(*.${outputPluginInfos[outputFormat].suffix})`} sx={{ m: 1 }}/>
                                   </Box>
                                 </Box>
                                 <Divider />

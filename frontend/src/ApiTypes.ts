@@ -58,6 +58,7 @@ export interface PluginInfo {
   suffix: string;
   icon_base64?: string | null;
   website?: string | null;
+  categories: string[];
 }
 export interface RootModelDictStrPluginInfo {
   [k: string]: PluginInfo;

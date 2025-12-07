@@ -6,7 +6,8 @@ import { ConversionTask, PluginInfo, SchemaConfig } from '@/ApiTypes';
 
 interface ConverterStore {
   activeStep: number;
-  pluginInfos: { [key: string]: PluginInfo };
+  inputPluginInfos: { [key: string]: PluginInfo };
+  outputPluginInfos: { [key: string]: PluginInfo };
   middlewareIds: string[];
   selectedMiddlewares: string[];
   middlewareSchemas: { [key: string]: SchemaConfig };
@@ -32,11 +33,14 @@ interface ConverterStore {
   setMiddlewareFormData: (id: string, formData: {[k: string]: any}) => void;
 }
 
+let pluginInfoEntries: [string, PluginInfo][] = Object.entries(require('../assets/plugin_infos.json'));
+
 export const useConverterStore = create<ConverterStore>()(
   subscribeWithSelector(
     (set, get) => ({
       activeStep: 0,
-      pluginInfos: require('../assets/plugin_infos.json'),
+      inputPluginInfos: Object.fromEntries(pluginInfoEntries.filter(([key, p]) => p.categories.includes("input"))),
+      outputPluginInfos: Object.fromEntries(pluginInfoEntries.filter(([key, p]) => p.categories.includes("output"))),
       middlewareIds: require('../assets/middleware_ids.json'),
       conversionTasks: [],
       selectedMiddlewares: [],

@@ -137,7 +137,7 @@ export function App(props: Props) {
     conversionTasks,
     curTaskListPage,
     middlewareIds,
-    pluginInfos,
+    inputPluginInfos,
     addConversionTasks,
     updateConversionTask,
     removeConversionTask,
@@ -590,7 +590,7 @@ export function App(props: Props) {
                               filters: [{
                                 name: t('converter.all_files'),
                                 extensions: ['*'],
-                              }, ...Object.entries(pluginInfos).map(([identifier, info]) => {
+                              }, ...Object.entries(inputPluginInfos).map(([identifier, info]) => {
                                 return {
                                   name: t(`plugin.${identifier}.file_format`),
                                   extensions: [info.suffix],
@@ -604,7 +604,7 @@ export function App(props: Props) {
                                   file = file.replace(/\\/g, '/');
                                 }
                                 let parsed = await parsePath(file);
-                                let detectedInputFormat = parsed.ext.toLowerCase() in pluginInfos ? parsed.ext.toLowerCase() : inputFormat;
+                                let detectedInputFormat = parsed.ext.toLowerCase() in inputPluginInfos ? parsed.ext.toLowerCase() : inputFormat;
                                 if (detectedInputFormat === null) {
                                   continue;
                                 }
