@@ -1,4 +1,4 @@
-#!/usr/bin/makensis
+﻿#!/usr/bin/makensis
 
 ; BEGIN NSIS TEMPLATE HEADER
 !define /file APPDIR "APPDIR"
@@ -39,7 +39,14 @@ SetCompressor lzma
 !include "MUI2.nsh"
 !define MUI_ABORTWARNING
 !define MUI_ICON "${ICON}"
-!define MUI_UNICON "${ICON}"
+
+Function finishpageaction
+    CreateShortcut "$DESKTOP\${APPNAME}.lnk" "$INSTDIR\libresvip-tauri.exe" "" "$INSTDIR\${ICON}"
+FunctionEnd
+
+!define MUI_FINISHPAGE_SHOWREADME ""
+!define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
+!define MUI_FINISHPAGE_SHOWREADME_FUNCTION finishpageaction
 
 ; UI pages
 !insertmacro MUI_PAGE_WELCOME
@@ -91,6 +98,9 @@ SetCompressor lzma
 !insertmacro MUI_LANGUAGE "Corsican"
 !insertmacro MUI_LANGUAGE "Tatar"
 !insertmacro MUI_LANGUAGE "Hindi"
+
+LangString MUI_TEXT_FINISH_SHOWREADME ${LANG_ENGLISH} "Create a shortcut on the desktop"
+LangString MUI_TEXT_FINISH_SHOWREADME ${LANG_SIMPCHINESE} "在桌面创建快捷方式"
 
 Name "${APPNAME} ${VERSION}"
 !if ${VERSION} != "None"
