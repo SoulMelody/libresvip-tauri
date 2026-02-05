@@ -17,6 +17,7 @@
     "@emotion/styled": "^11.14.1",
     "@fluentui/react-icons": "^2.0.316",
     "@grpc/grpc-js": "^1.14.3",
+    "@grpc/proto-loader": "^0.8.0",
     "@mui/material": "^7.3.7",
     "@rjsf/core": "^6.2.5",
     "@rjsf/mui": "^6.2.5",
