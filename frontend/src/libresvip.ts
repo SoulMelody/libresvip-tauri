@@ -2,12 +2,24 @@
 // versions:
 //   protoc-gen-ts_proto  v2.11.2
 //   protoc               v6.33.0
-// source: src/assets/libresvip.proto
+// source: src/libresvip.proto
 
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import {
+  type CallOptions,
+  type ChannelCredentials,
+  Client,
+  type ClientOptions,
+  type ClientReadableStream,
+  type ClientUnaryCall,
+  type handleServerStreamingCall,
+  type handleUnaryCall,
+  makeGenericClientConstructor,
+  type Metadata,
+  type ServiceError,
+  type UntypedServiceImplementation,
+} from "@grpc/grpc-js";
 
 export const protobufPackage = "LibreSVIP";
 
@@ -1337,56 +1349,101 @@ export const MoveFileResponse: MessageFns<MoveFileResponse> = {
   },
 };
 
-export interface Conversion {
-  PluginInfos(request: PluginInfosRequest): Promise<PluginInfosResponse>;
-  Convert(request: ConversionRequest): Observable<SingleConversionResult>;
-  Version(request: VersionInfo): Promise<VersionInfo>;
-  MoveFile(request: MoveFileRequest): Observable<MoveFileResponse>;
+export type ConversionService = typeof ConversionService;
+export const ConversionService = {
+  pluginInfos: {
+    path: "/LibreSVIP.Conversion/PluginInfos",
+    requestStream: false,
+    responseStream: false,
+    requestSerialize: (value: PluginInfosRequest): Buffer => Buffer.from(PluginInfosRequest.encode(value).finish()),
+    requestDeserialize: (value: Buffer): PluginInfosRequest => PluginInfosRequest.decode(value),
+    responseSerialize: (value: PluginInfosResponse): Buffer => Buffer.from(PluginInfosResponse.encode(value).finish()),
+    responseDeserialize: (value: Buffer): PluginInfosResponse => PluginInfosResponse.decode(value),
+  },
+  convert: {
+    path: "/LibreSVIP.Conversion/Convert",
+    requestStream: false,
+    responseStream: true,
+    requestSerialize: (value: ConversionRequest): Buffer => Buffer.from(ConversionRequest.encode(value).finish()),
+    requestDeserialize: (value: Buffer): ConversionRequest => ConversionRequest.decode(value),
+    responseSerialize: (value: SingleConversionResult): Buffer =>
+      Buffer.from(SingleConversionResult.encode(value).finish()),
+    responseDeserialize: (value: Buffer): SingleConversionResult => SingleConversionResult.decode(value),
+  },
+  version: {
+    path: "/LibreSVIP.Conversion/Version",
+    requestStream: false,
+    responseStream: false,
+    requestSerialize: (value: VersionInfo): Buffer => Buffer.from(VersionInfo.encode(value).finish()),
+    requestDeserialize: (value: Buffer): VersionInfo => VersionInfo.decode(value),
+    responseSerialize: (value: VersionInfo): Buffer => Buffer.from(VersionInfo.encode(value).finish()),
+    responseDeserialize: (value: Buffer): VersionInfo => VersionInfo.decode(value),
+  },
+  moveFile: {
+    path: "/LibreSVIP.Conversion/MoveFile",
+    requestStream: false,
+    responseStream: true,
+    requestSerialize: (value: MoveFileRequest): Buffer => Buffer.from(MoveFileRequest.encode(value).finish()),
+    requestDeserialize: (value: Buffer): MoveFileRequest => MoveFileRequest.decode(value),
+    responseSerialize: (value: MoveFileResponse): Buffer => Buffer.from(MoveFileResponse.encode(value).finish()),
+    responseDeserialize: (value: Buffer): MoveFileResponse => MoveFileResponse.decode(value),
+  },
+} as const;
+
+export interface ConversionServer extends UntypedServiceImplementation {
+  pluginInfos: handleUnaryCall<PluginInfosRequest, PluginInfosResponse>;
+  convert: handleServerStreamingCall<ConversionRequest, SingleConversionResult>;
+  version: handleUnaryCall<VersionInfo, VersionInfo>;
+  moveFile: handleServerStreamingCall<MoveFileRequest, MoveFileResponse>;
 }
 
-export const ConversionServiceName = "LibreSVIP.Conversion";
-export class ConversionClientImpl implements Conversion {
-  private readonly rpc: Rpc;
-  private readonly service: string;
-  constructor(rpc: Rpc, opts?: { service?: string }) {
-    this.service = opts?.service || ConversionServiceName;
-    this.rpc = rpc;
-    this.PluginInfos = this.PluginInfos.bind(this);
-    this.Convert = this.Convert.bind(this);
-    this.Version = this.Version.bind(this);
-    this.MoveFile = this.MoveFile.bind(this);
-  }
-  PluginInfos(request: PluginInfosRequest): Promise<PluginInfosResponse> {
-    const data = PluginInfosRequest.encode(request).finish();
-    const promise = this.rpc.request(this.service, "PluginInfos", data);
-    return promise.then((data) => PluginInfosResponse.decode(new BinaryReader(data)));
-  }
-
-  Convert(request: ConversionRequest): Observable<SingleConversionResult> {
-    const data = ConversionRequest.encode(request).finish();
-    const result = this.rpc.serverStreamingRequest(this.service, "Convert", data);
-    return result.pipe(map((data) => SingleConversionResult.decode(new BinaryReader(data))));
-  }
-
-  Version(request: VersionInfo): Promise<VersionInfo> {
-    const data = VersionInfo.encode(request).finish();
-    const promise = this.rpc.request(this.service, "Version", data);
-    return promise.then((data) => VersionInfo.decode(new BinaryReader(data)));
-  }
-
-  MoveFile(request: MoveFileRequest): Observable<MoveFileResponse> {
-    const data = MoveFileRequest.encode(request).finish();
-    const result = this.rpc.serverStreamingRequest(this.service, "MoveFile", data);
-    return result.pipe(map((data) => MoveFileResponse.decode(new BinaryReader(data))));
-  }
+export interface ConversionClient extends Client {
+  pluginInfos(
+    request: PluginInfosRequest,
+    callback: (error: ServiceError | null, response: PluginInfosResponse) => void,
+  ): ClientUnaryCall;
+  pluginInfos(
+    request: PluginInfosRequest,
+    metadata: Metadata,
+    callback: (error: ServiceError | null, response: PluginInfosResponse) => void,
+  ): ClientUnaryCall;
+  pluginInfos(
+    request: PluginInfosRequest,
+    metadata: Metadata,
+    options: Partial<CallOptions>,
+    callback: (error: ServiceError | null, response: PluginInfosResponse) => void,
+  ): ClientUnaryCall;
+  convert(request: ConversionRequest, options?: Partial<CallOptions>): ClientReadableStream<SingleConversionResult>;
+  convert(
+    request: ConversionRequest,
+    metadata?: Metadata,
+    options?: Partial<CallOptions>,
+  ): ClientReadableStream<SingleConversionResult>;
+  version(request: VersionInfo, callback: (error: ServiceError | null, response: VersionInfo) => void): ClientUnaryCall;
+  version(
+    request: VersionInfo,
+    metadata: Metadata,
+    callback: (error: ServiceError | null, response: VersionInfo) => void,
+  ): ClientUnaryCall;
+  version(
+    request: VersionInfo,
+    metadata: Metadata,
+    options: Partial<CallOptions>,
+    callback: (error: ServiceError | null, response: VersionInfo) => void,
+  ): ClientUnaryCall;
+  moveFile(request: MoveFileRequest, options?: Partial<CallOptions>): ClientReadableStream<MoveFileResponse>;
+  moveFile(
+    request: MoveFileRequest,
+    metadata?: Metadata,
+    options?: Partial<CallOptions>,
+  ): ClientReadableStream<MoveFileResponse>;
 }
 
-interface Rpc {
-  request(service: string, method: string, data: Uint8Array): Promise<Uint8Array>;
-  clientStreamingRequest(service: string, method: string, data: Observable<Uint8Array>): Promise<Uint8Array>;
-  serverStreamingRequest(service: string, method: string, data: Uint8Array): Observable<Uint8Array>;
-  bidirectionalStreamingRequest(service: string, method: string, data: Observable<Uint8Array>): Observable<Uint8Array>;
-}
+export const ConversionClient = makeGenericClientConstructor(ConversionService, "LibreSVIP.Conversion") as unknown as {
+  new (address: string, credentials: ChannelCredentials, options?: Partial<ClientOptions>): ConversionClient;
+  service: typeof ConversionService;
+  serviceName: string;
+};
 
 function bytesFromBase64(b64: string): Uint8Array {
   if ((globalThis as any).Buffer) {
