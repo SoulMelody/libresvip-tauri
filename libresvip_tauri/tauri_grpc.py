@@ -15,7 +15,6 @@ __all__ = (
     "VersionInfo",
     "MoveFileRequest",
     "MoveFileResponse",
-    "ConversionStub",
     "ConversionBase",
 )
 
@@ -29,8 +28,6 @@ from aristaproto.grpc.grpclib_server import ServiceBase
 from pydantic.dataclasses import dataclass
 if TYPE_CHECKING:
     import grpclib.server
-    from aristaproto.grpc.grpclib_client import MetadataLike
-    from grpclib.metadata import Deadline
 
 class PluginCategory(aristaproto.Enum):
     INPUT = 0
@@ -121,74 +118,6 @@ class MoveFileResponse(aristaproto.Message):
     group_id: str = aristaproto.string_field(1)
     output_path: str = aristaproto.string_field(2)
     conflict_policy: "ConflictPolicy" = aristaproto.enum_field(3)
-
-class ConversionStub(aristaproto.ServiceStub):
-    async def plugin_infos(
-        self,
-        plugin_infos_request: "PluginInfosRequest",
-        *,
-        timeout: float | None = None,
-        deadline: "Deadline" | None = None,
-        metadata: "MetadataLike" | None = None,
-    ) -> "PluginInfosResponse":
-        return await self._unary_unary(
-            "/LibreSVIP.Conversion/PluginInfos",
-            plugin_infos_request,
-            PluginInfosResponse,
-            timeout=timeout,
-            deadline=deadline,
-            metadata=metadata,
-        )
-    async def convert(
-        self,
-        conversion_request: "ConversionRequest",
-        *,
-        timeout: float | None = None,
-        deadline: "Deadline" | None = None,
-        metadata: "MetadataLike" | None = None,
-    ) -> "AsyncIterator[SingleConversionResult]":
-        async for response in self._unary_stream(
-            "/LibreSVIP.Conversion/Convert",
-            conversion_request,
-            SingleConversionResult,
-            timeout=timeout,
-            deadline=deadline,
-            metadata=metadata,
-        ):
-            yield response
-    async def version(
-        self,
-        version_info: "VersionInfo",
-        *,
-        timeout: float | None = None,
-        deadline: "Deadline" | None = None,
-        metadata: "MetadataLike" | None = None,
-    ) -> "VersionInfo":
-        return await self._unary_unary(
-            "/LibreSVIP.Conversion/Version",
-            version_info,
-            VersionInfo,
-            timeout=timeout,
-            deadline=deadline,
-            metadata=metadata,
-        )
-    async def move_file(
-        self,
-        move_file_request: "MoveFileRequest",
-        *,
-        timeout: float | None = None,
-        deadline: "Deadline" | None = None,
-        metadata: "MetadataLike" | None = None,
-    ) -> "AsyncIterator[MoveFileResponse]":
-        async for response in self._unary_stream(
-            "/LibreSVIP.Conversion/MoveFile",
-            move_file_request,
-            MoveFileResponse,
-            timeout=timeout,
-            deadline=deadline,
-            metadata=metadata,
-        ):
-            yield response
 
 class ConversionBase(ServiceBase):
     async def plugin_infos(
