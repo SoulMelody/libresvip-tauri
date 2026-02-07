@@ -74,6 +74,7 @@ import { ask, open } from '@tauri-apps/plugin-dialog';
 import { writeText } from '@tauri-apps/plugin-clipboard-manager';
 import { revealItemInDir } from '@tauri-apps/plugin-opener';
 // import { pyInvoke } from 'tauri-plugin-pytauri-api';
+import { invoke } from '@tauri-apps/api/core';
 import { useSettingStore } from './store/SettingStore';
 import { useWindowStore } from './store/WindowStore';
 import { useConverterStore } from "./store/ConverterStore";
@@ -492,18 +493,16 @@ export function App(props: Props) {
   
   const handleMaximize = async () => {
     let webview = getCurrentWebview();
-    await webview.window.toggleMaximize();
+    await invoke("plugin:window|toggle_maximize");
     setIsMaximized(await webview.window.isMaximized());
   };
   
   const handleMinimize = async () => {
-    let webview = getCurrentWebview();
-    await webview.window.minimize();
+    await invoke("plugin:window|minimize");
   }
   
   const handleClose = async () => {
-    let webview = getCurrentWebview();
-    await webview.window.close();
+    await invoke("plugin:window|close");
   }
 
   const container = windowProps !== undefined ? () => windowProps().document.body : undefined;
@@ -929,16 +928,15 @@ export function App(props: Props) {
                 color="inherit"
                 onClick={handleMaximize}
                 onMouseEnter={() => {
-                  if (snapOverlayRef.current !== null)
-                    clearTimeout(snapOverlayRef.current);
+                  if (snapOverlayRef.current === null)
                     snapOverlayRef.current = setTimeout(async () => {
-                      const { invoke } = await import("@tauri-apps/api/core");
-                      const { getCurrentWindow } = await import("@tauri-apps/api/window");
-                      const win = getCurrentWindow();
+                      let webview = getCurrentWebview();
+                      const win = webview.window;
                       await win.setFocus();
                       await invoke("plugin:decorum|show_snap_overlay");
                     }, 620);
-                }}
+                  }
+                }
                 onMouseLeave={() => {
                   if (snapOverlayRef.current === null) return;
                   clearTimeout(snapOverlayRef.current);
