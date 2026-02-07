@@ -13,6 +13,7 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@cloudworxx/tauri-plugin-mac-rounded-corners": "^1.1.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@fluentui/react-icons": "^2.0.316",
@@ -50,5 +51,9 @@
     "@types/react-dom": "^19.2.3",
     "json-schema-to-typescript": "^15.0.4",
     "typescript": "^5.9.3"
-  }
+  },
+  "trustedDependencies": [
+    "@cloudworxx/tauri-plugin-mac-rounded-corners",
+    "protobufjs"
+  ]
 }
