@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { subscribeWithSelector } from 'zustand/middleware';
-import { pyInvoke } from 'tauri-plugin-pytauri-api';
+// import { pyInvoke } from 'tauri-plugin-pytauri-api';
 import { ConversionTask, PluginInfo, SchemaConfig } from '@/ApiTypes';
 
 
@@ -30,6 +30,7 @@ interface ConverterStore {
   setOptionTab: (tab: number) => void;
   setSelectedMiddlewares: (middlewares: string[]) => void;
   loadMiddlewareSchema: (id: string, language: string) => Promise<void>;
+  setMiddlewareIds: (ids: string[]) => void;
   setMiddlewareFormData: (id: string, formData: {[k: string]: any}) => void;
 }
 
@@ -41,7 +42,7 @@ export const useConverterStore = create<ConverterStore>()(
       activeStep: 0,
       inputPluginInfos: Object.fromEntries(pluginInfoEntries.filter(([key, p]) => p.categories.includes("input"))),
       outputPluginInfos: Object.fromEntries(pluginInfoEntries.filter(([key, p]) => p.categories.includes("output"))),
-      middlewareIds: require('../assets/middleware_ids.json'),
+      middlewareIds: [],
       conversionTasks: [],
       selectedMiddlewares: [],
       middlewareSchemas: {},
@@ -82,6 +83,7 @@ export const useConverterStore = create<ConverterStore>()(
           }
         }))
       },
+      setMiddlewareIds: (ids) => set({ middlewareIds: ids }),
       setMiddlewareFormData: (id, formData) => set((state) => ({
         middlewareFormDatas: {
           ...state.middlewareFormDatas,

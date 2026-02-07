@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist, subscribeWithSelector } from 'zustand/middleware';
-import { pyInvoke } from 'tauri-plugin-pytauri-api';
+// import { pyInvoke } from 'tauri-plugin-pytauri-api';
 import { SchemaConfig } from '@/ApiTypes';
 
 interface SettingState {

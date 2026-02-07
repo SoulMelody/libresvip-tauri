@@ -73,7 +73,7 @@ import { getCurrentWebview } from "@tauri-apps/api/webview";
 import { ask, open } from '@tauri-apps/plugin-dialog';
 import { writeText } from '@tauri-apps/plugin-clipboard-manager';
 import { revealItemInDir } from '@tauri-apps/plugin-opener';
-import { pyInvoke } from 'tauri-plugin-pytauri-api';
+// import { pyInvoke } from 'tauri-plugin-pytauri-api';
 import { useSettingStore } from './store/SettingStore';
 import { useWindowStore } from './store/WindowStore';
 import { useConverterStore } from "./store/ConverterStore";

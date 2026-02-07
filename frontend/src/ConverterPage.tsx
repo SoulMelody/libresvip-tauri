@@ -63,7 +63,7 @@ import i18n from './i18n';
 import { nanoid } from 'nanoid';
 import HoverPopover from 'material-ui-popup-state/HoverPopover';
 import PopupState, { bindHover, bindPopover, bindTrigger } from 'material-ui-popup-state';
-import { pyInvoke } from 'tauri-plugin-pytauri-api';
+// import { pyInvoke } from 'tauri-plugin-pytauri-api';
 import { stat } from '@tauri-apps/plugin-fs';
 
 
