@@ -509,7 +509,7 @@ export function App(props: Props) {
   return (
     <ThemeProvider theme={theme}>
       <AppBar position="static">
-        <Toolbar onDoubleClick={handleMaximize} data-tauri-drag-region sx={{
+        <Toolbar data-tauri-drag-region sx={{
           paddingLeft: "16px !important",
           paddingRight: "0px !important",
           minHeight: "40px !important",
