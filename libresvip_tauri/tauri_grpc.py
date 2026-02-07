@@ -22,9 +22,6 @@ __all__ = (
 from typing import (
     TYPE_CHECKING,
     AsyncIterator,
-    Dict,
-    List,
-    Optional,
 )
 import aristaproto
 import grpclib
@@ -61,7 +58,7 @@ class ConflictPolicy(aristaproto.Enum):
         from pydantic_core import core_schema
         return core_schema.int_schema(ge=0)
 
-@dataclass(eq=False, repr=False, config={"extra": "forbid"})
+@dataclass
 class PluginInfo(aristaproto.Message):
     identifier: str = aristaproto.string_field(1)
     name: str = aristaproto.string_field(2)
@@ -72,54 +69,54 @@ class PluginInfo(aristaproto.Message):
     json_schema: str = aristaproto.string_field(7)
     file_format: str = aristaproto.string_field(8)
     """additional fields for io plugins"""
-    suffixes: List[str] = aristaproto.string_field(9)
+    suffixes: list[str] = aristaproto.string_field(9)
     icon_base64: str = aristaproto.string_field(10)
     ui_json_schema: str = aristaproto.string_field(11)
 
-@dataclass(eq=False, repr=False, config={"extra": "forbid"})
+@dataclass
 class PluginInfosRequest(aristaproto.Message):
     category: "PluginCategory" = aristaproto.enum_field(1)
     language: str = aristaproto.string_field(2)
 
-@dataclass(eq=False, repr=False, config={"extra": "forbid"})
+@dataclass
 class PluginInfosResponse(aristaproto.Message):
-    values: List["PluginInfo"] = aristaproto.message_field(1)
+    values: list["PluginInfo"] = aristaproto.message_field(1)
 
-@dataclass(eq=False, repr=False, config={"extra": "forbid"})
+@dataclass
 class ConversionGroup(aristaproto.Message):
     group_id: str = aristaproto.string_field(1)
-    file_contents: List[bytes] = aristaproto.bytes_field(2)
+    file_contents: list[bytes] = aristaproto.bytes_field(2)
 
-@dataclass(eq=False, repr=False, config={"extra": "forbid"})
+@dataclass
 class ConversionRequest(aristaproto.Message):
     input_format: str = aristaproto.string_field(1)
     output_format: str = aristaproto.string_field(2)
     mode: "ConversionMode" = aristaproto.enum_field(3)
     max_track_count: int = aristaproto.int32_field(4)
-    groups: List["ConversionGroup"] = aristaproto.message_field(5)
+    groups: list["ConversionGroup"] = aristaproto.message_field(5)
     input_options: str = aristaproto.string_field(6)
     output_options: str = aristaproto.string_field(7)
-    middleware_options: Dict[str, str] = aristaproto.map_field(
+    middleware_options: dict[str, str] = aristaproto.map_field(
         8, aristaproto.TYPE_STRING, aristaproto.TYPE_STRING
     )
 
-@dataclass(eq=False, repr=False, config={"extra": "forbid"})
+@dataclass
 class SingleConversionResult(aristaproto.Message):
     group_id: str = aristaproto.string_field(1)
     completed: bool = aristaproto.bool_field(2)
     error_message: str = aristaproto.string_field(3)
-    warning_messages: List[str] = aristaproto.string_field(4)
+    warning_messages: list[str] = aristaproto.string_field(4)
 
-@dataclass(eq=False, repr=False, config={"extra": "forbid"})
+@dataclass
 class VersionInfo(aristaproto.Message):
     version: str = aristaproto.string_field(1)
 
-@dataclass(eq=False, repr=False, config={"extra": "forbid"})
+@dataclass
 class MoveFileRequest(aristaproto.Message):
     group_id: str = aristaproto.string_field(1)
     force_overwrite: bool = aristaproto.bool_field(2)
 
-@dataclass(eq=False, repr=False, config={"extra": "forbid"})
+@dataclass
 class MoveFileResponse(aristaproto.Message):
     group_id: str = aristaproto.string_field(1)
     output_path: str = aristaproto.string_field(2)
@@ -128,15 +125,15 @@ class MoveFileResponse(aristaproto.Message):
 class ConversionStub(aristaproto.ServiceStub):
     async def plugin_infos(
         self,
-        libre_svip_plugin_infos_request: "PluginInfosRequest",
+        plugin_infos_request: "PluginInfosRequest",
         *,
-        timeout: Optional[float] = None,
-        deadline: Optional["Deadline"] = None,
-        metadata: Optional["MetadataLike"] = None,
+        timeout: float | None = None,
+        deadline: "Deadline" | None = None,
+        metadata: "MetadataLike" | None = None,
     ) -> "PluginInfosResponse":
         return await self._unary_unary(
             "/LibreSVIP.Conversion/PluginInfos",
-            libre_svip_plugin_infos_request,
+            plugin_infos_request,
             PluginInfosResponse,
             timeout=timeout,
             deadline=deadline,
@@ -144,15 +141,15 @@ class ConversionStub(aristaproto.ServiceStub):
         )
     async def convert(
         self,
-        libre_svip_conversion_request: "ConversionRequest",
+        conversion_request: "ConversionRequest",
         *,
-        timeout: Optional[float] = None,
-        deadline: Optional["Deadline"] = None,
-        metadata: Optional["MetadataLike"] = None,
+        timeout: float | None = None,
+        deadline: "Deadline" | None = None,
+        metadata: "MetadataLike" | None = None,
     ) -> "AsyncIterator[SingleConversionResult]":
         async for response in self._unary_stream(
             "/LibreSVIP.Conversion/Convert",
-            libre_svip_conversion_request,
+            conversion_request,
             SingleConversionResult,
             timeout=timeout,
             deadline=deadline,
@@ -161,15 +158,15 @@ class ConversionStub(aristaproto.ServiceStub):
             yield response
     async def version(
         self,
-        libre_svip_version_info: "VersionInfo",
+        version_info: "VersionInfo",
         *,
-        timeout: Optional[float] = None,
-        deadline: Optional["Deadline"] = None,
-        metadata: Optional["MetadataLike"] = None,
+        timeout: float | None = None,
+        deadline: "Deadline" | None = None,
+        metadata: "MetadataLike" | None = None,
     ) -> "VersionInfo":
         return await self._unary_unary(
             "/LibreSVIP.Conversion/Version",
-            libre_svip_version_info,
+            version_info,
             VersionInfo,
             timeout=timeout,
             deadline=deadline,
@@ -177,15 +174,15 @@ class ConversionStub(aristaproto.ServiceStub):
         )
     async def move_file(
         self,
-        libre_svip_move_file_request: "MoveFileRequest",
+        move_file_request: "MoveFileRequest",
         *,
-        timeout: Optional[float] = None,
-        deadline: Optional["Deadline"] = None,
-        metadata: Optional["MetadataLike"] = None,
+        timeout: float | None = None,
+        deadline: "Deadline" | None = None,
+        metadata: "MetadataLike" | None = None,
     ) -> "AsyncIterator[MoveFileResponse]":
         async for response in self._unary_stream(
             "/LibreSVIP.Conversion/MoveFile",
-            libre_svip_move_file_request,
+            move_file_request,
             MoveFileResponse,
             timeout=timeout,
             deadline=deadline,
@@ -242,7 +239,7 @@ class ConversionBase(ServiceBase):
             stream,
             request,
         )
-    def __mapping__(self) -> Dict[str, grpclib.const.Handler]:
+    def __mapping__(self) -> dict[str, grpclib.const.Handler]:
         return {
             "/LibreSVIP.Conversion/PluginInfos": grpclib.const.Handler(
                 self.__rpc_plugin_infos,
