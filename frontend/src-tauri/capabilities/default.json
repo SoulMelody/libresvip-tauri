@@ -25,7 +25,7 @@
       "identifier": "shell:allow-execute",
       "allow": [
         {
-          "name": "libresvip-cli",
+          "name": "libresvip-tauri-server",
           "sidecar": true
         }
       ]

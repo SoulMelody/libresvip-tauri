@@ -27,7 +27,7 @@
   "bundle": {
     "active": true,
     "externalBin": [
-      "libresvip-cli"
+      "libresvip-tauri-server"
     ],
     "targets": "all",
     "icon": [
