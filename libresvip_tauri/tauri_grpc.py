@@ -12,7 +12,8 @@ __all__ = (
     "ConversionGroup",
     "ConversionRequest",
     "SingleConversionResult",
-    "VersionInfo",
+    "VersionRequest",
+    "VersionResponse",
     "MoveFileRequest",
     "MoveFileResponse",
     "ConversionBase",
@@ -26,34 +27,45 @@ import aristaproto
 import grpclib
 from aristaproto.grpc.grpclib_server import ServiceBase
 from pydantic.dataclasses import dataclass
+
 if TYPE_CHECKING:
     import grpclib.server
+
 
 class PluginCategory(aristaproto.Enum):
     INPUT = 0
     OUTPUT = 1
     MIDDLEWARE = 2
+
     @classmethod
     def __get_pydantic_core_schema__(cls, _source_type, _handler):
         from pydantic_core import core_schema
+
         return core_schema.int_schema(ge=0)
+
 
 class ConversionMode(aristaproto.Enum):
     DIRECT = 0
     SPLIT = 1
     MERGE = 2
+
     @classmethod
     def __get_pydantic_core_schema__(cls, _source_type, _handler):
         from pydantic_core import core_schema
+
         return core_schema.int_schema(ge=0)
+
 
 class ConflictPolicy(aristaproto.Enum):
     SKIP = 0
     PROMPT = 1
+
     @classmethod
     def __get_pydantic_core_schema__(cls, _source_type, _handler):
         from pydantic_core import core_schema
+
         return core_schema.int_schema(ge=0)
+
 
 @dataclass
 class PluginInfo(aristaproto.Message):
@@ -70,19 +82,23 @@ class PluginInfo(aristaproto.Message):
     icon_base64: str = aristaproto.string_field(10)
     ui_json_schema: str = aristaproto.string_field(11)
 
+
 @dataclass
 class PluginInfosRequest(aristaproto.Message):
     category: "PluginCategory" = aristaproto.enum_field(1)
     language: str = aristaproto.string_field(2)
 
+
 @dataclass
 class PluginInfosResponse(aristaproto.Message):
     values: list["PluginInfo"] = aristaproto.message_field(1)
+
 
 @dataclass
 class ConversionGroup(aristaproto.Message):
     group_id: str = aristaproto.string_field(1)
     file_contents: list[bytes] = aristaproto.bytes_field(2)
+
 
 @dataclass
 class ConversionRequest(aristaproto.Message):
@@ -97,6 +113,7 @@ class ConversionRequest(aristaproto.Message):
         8, aristaproto.TYPE_STRING, aristaproto.TYPE_STRING
     )
 
+
 @dataclass
 class SingleConversionResult(aristaproto.Message):
     group_id: str = aristaproto.string_field(1)
@@ -104,14 +121,22 @@ class SingleConversionResult(aristaproto.Message):
     error_message: str = aristaproto.string_field(3)
     warning_messages: list[str] = aristaproto.string_field(4)
 
+
 @dataclass
-class VersionInfo(aristaproto.Message):
+class VersionRequest(aristaproto.Message):
+    pass
+
+
+@dataclass
+class VersionResponse(aristaproto.Message):
     version: str = aristaproto.string_field(1)
+
 
 @dataclass
 class MoveFileRequest(aristaproto.Message):
     group_id: str = aristaproto.string_field(1)
     force_overwrite: bool = aristaproto.bool_field(2)
+
 
 @dataclass
 class MoveFileResponse(aristaproto.Message):
@@ -119,21 +144,26 @@ class MoveFileResponse(aristaproto.Message):
     output_path: str = aristaproto.string_field(2)
     conflict_policy: "ConflictPolicy" = aristaproto.enum_field(3)
 
+
 class ConversionBase(ServiceBase):
     async def plugin_infos(
         self, plugin_infos_request: "PluginInfosRequest"
     ) -> "PluginInfosResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
     async def convert(
         self, conversion_request: "ConversionRequest"
     ) -> AsyncIterator[SingleConversionResult]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
-    async def version(self, version_info: "VersionInfo") -> "VersionInfo":
+
+    async def version(self, version_request: "VersionRequest") -> "VersionResponse":
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
     async def move_file(
         self, move_file_request: "MoveFileRequest"
     ) -> AsyncIterator[MoveFileResponse]:
         raise grpclib.GRPCError(grpclib.const.Status.UNIMPLEMENTED)
+
     async def __rpc_plugin_infos(
         self,
         stream: "grpclib.server.Stream[PluginInfosRequest, PluginInfosResponse]",
@@ -141,6 +171,7 @@ class ConversionBase(ServiceBase):
         request = await stream.recv_message()
         response = await self.plugin_infos(request)
         await stream.send_message(response)
+
     async def __rpc_convert(
         self,
         stream: "grpclib.server.Stream[ConversionRequest, SingleConversionResult]",
@@ -151,13 +182,15 @@ class ConversionBase(ServiceBase):
             stream,
             request,
         )
+
     async def __rpc_version(
         self,
-        stream: "grpclib.server.Stream[VersionInfo, VersionInfo]",
+        stream: "grpclib.server.Stream[VersionRequest, VersionResponse]",
     ) -> None:
         request = await stream.recv_message()
         response = await self.version(request)
         await stream.send_message(response)
+
     async def __rpc_move_file(
         self,
         stream: "grpclib.server.Stream[MoveFileRequest, MoveFileResponse]",
@@ -168,6 +201,7 @@ class ConversionBase(ServiceBase):
             stream,
             request,
         )
+
     def __mapping__(self) -> dict[str, grpclib.const.Handler]:
         return {
             "/LibreSVIP.Conversion/PluginInfos": grpclib.const.Handler(
@@ -185,8 +219,8 @@ class ConversionBase(ServiceBase):
             "/LibreSVIP.Conversion/Version": grpclib.const.Handler(
                 self.__rpc_version,
                 grpclib.const.Cardinality.UNARY_UNARY,
-                VersionInfo,
-                VersionInfo,
+                VersionRequest,
+                VersionResponse,
             ),
             "/LibreSVIP.Conversion/MoveFile": grpclib.const.Handler(
                 self.__rpc_move_file,

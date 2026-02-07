@@ -66,7 +66,10 @@ message SingleConversionResult {
   repeated string warning_messages = 4;
 }
 
-message VersionInfo {
+message VersionRequest {
+}
+
+message VersionResponse {
   string version = 1;
 }
 
@@ -84,6 +87,6 @@ message MoveFileResponse {
 service Conversion {
   rpc PluginInfos(PluginInfosRequest) returns (PluginInfosResponse);
   rpc Convert(ConversionRequest) returns (stream SingleConversionResult);
-  rpc Version(VersionInfo) returns (VersionInfo);
+  rpc Version(VersionRequest) returns (VersionResponse);
   rpc MoveFile(MoveFileRequest) returns (stream MoveFileResponse);
 }

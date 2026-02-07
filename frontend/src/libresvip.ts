@@ -186,7 +186,10 @@ export interface SingleConversionResult {
   warningMessages: string[];
 }
 
-export interface VersionInfo {
+export interface VersionRequest {
+}
+
+export interface VersionResponse {
   version: string;
 }
 
@@ -1103,22 +1106,65 @@ export const SingleConversionResult: MessageFns<SingleConversionResult> = {
   },
 };
 
-function createBaseVersionInfo(): VersionInfo {
+function createBaseVersionRequest(): VersionRequest {
+  return {};
+}
+
+export const VersionRequest: MessageFns<VersionRequest> = {
+  encode(_: VersionRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): VersionRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseVersionRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(_: any): VersionRequest {
+    return {};
+  },
+
+  toJSON(_: VersionRequest): unknown {
+    const obj: any = {};
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<VersionRequest>, I>>(base?: I): VersionRequest {
+    return VersionRequest.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<VersionRequest>, I>>(_: I): VersionRequest {
+    const message = createBaseVersionRequest();
+    return message;
+  },
+};
+
+function createBaseVersionResponse(): VersionResponse {
   return { version: "" };
 }
 
-export const VersionInfo: MessageFns<VersionInfo> = {
-  encode(message: VersionInfo, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+export const VersionResponse: MessageFns<VersionResponse> = {
+  encode(message: VersionResponse, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
     if (message.version !== "") {
       writer.uint32(10).string(message.version);
     }
     return writer;
   },
 
-  decode(input: BinaryReader | Uint8Array, length?: number): VersionInfo {
+  decode(input: BinaryReader | Uint8Array, length?: number): VersionResponse {
     const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
     const end = length === undefined ? reader.len : reader.pos + length;
-    const message = createBaseVersionInfo();
+    const message = createBaseVersionResponse();
     while (reader.pos < end) {
       const tag = reader.uint32();
       switch (tag >>> 3) {
@@ -1139,11 +1185,11 @@ export const VersionInfo: MessageFns<VersionInfo> = {
     return message;
   },
 
-  fromJSON(object: any): VersionInfo {
+  fromJSON(object: any): VersionResponse {
     return { version: isSet(object.version) ? globalThis.String(object.version) : "" };
   },
 
-  toJSON(message: VersionInfo): unknown {
+  toJSON(message: VersionResponse): unknown {
     const obj: any = {};
     if (message.version !== "") {
       obj.version = message.version;
@@ -1151,11 +1197,11 @@ export const VersionInfo: MessageFns<VersionInfo> = {
     return obj;
   },
 
-  create<I extends Exact<DeepPartial<VersionInfo>, I>>(base?: I): VersionInfo {
-    return VersionInfo.fromPartial(base ?? ({} as any));
+  create<I extends Exact<DeepPartial<VersionResponse>, I>>(base?: I): VersionResponse {
+    return VersionResponse.fromPartial(base ?? ({} as any));
   },
-  fromPartial<I extends Exact<DeepPartial<VersionInfo>, I>>(object: I): VersionInfo {
-    const message = createBaseVersionInfo();
+  fromPartial<I extends Exact<DeepPartial<VersionResponse>, I>>(object: I): VersionResponse {
+    const message = createBaseVersionResponse();
     message.version = object.version ?? "";
     return message;
   },
@@ -1374,10 +1420,10 @@ export const ConversionService = {
     path: "/LibreSVIP.Conversion/Version",
     requestStream: false,
     responseStream: false,
-    requestSerialize: (value: VersionInfo): Buffer => Buffer.from(VersionInfo.encode(value).finish()),
-    requestDeserialize: (value: Buffer): VersionInfo => VersionInfo.decode(value),
-    responseSerialize: (value: VersionInfo): Buffer => Buffer.from(VersionInfo.encode(value).finish()),
-    responseDeserialize: (value: Buffer): VersionInfo => VersionInfo.decode(value),
+    requestSerialize: (value: VersionRequest): Buffer => Buffer.from(VersionRequest.encode(value).finish()),
+    requestDeserialize: (value: Buffer): VersionRequest => VersionRequest.decode(value),
+    responseSerialize: (value: VersionResponse): Buffer => Buffer.from(VersionResponse.encode(value).finish()),
+    responseDeserialize: (value: Buffer): VersionResponse => VersionResponse.decode(value),
   },
   moveFile: {
     path: "/LibreSVIP.Conversion/MoveFile",
@@ -1393,7 +1439,7 @@ export const ConversionService = {
 export interface ConversionServer extends UntypedServiceImplementation {
   pluginInfos: handleUnaryCall<PluginInfosRequest, PluginInfosResponse>;
   convert: handleServerStreamingCall<ConversionRequest, SingleConversionResult>;
-  version: handleUnaryCall<VersionInfo, VersionInfo>;
+  version: handleUnaryCall<VersionRequest, VersionResponse>;
   moveFile: handleServerStreamingCall<MoveFileRequest, MoveFileResponse>;
 }
 
@@ -1419,17 +1465,20 @@ export interface ConversionClient extends Client {
     metadata?: Metadata,
     options?: Partial<CallOptions>,
   ): ClientReadableStream<SingleConversionResult>;
-  version(request: VersionInfo, callback: (error: ServiceError | null, response: VersionInfo) => void): ClientUnaryCall;
   version(
-    request: VersionInfo,
-    metadata: Metadata,
-    callback: (error: ServiceError | null, response: VersionInfo) => void,
+    request: VersionRequest,
+    callback: (error: ServiceError | null, response: VersionResponse) => void,
   ): ClientUnaryCall;
   version(
-    request: VersionInfo,
+    request: VersionRequest,
+    metadata: Metadata,
+    callback: (error: ServiceError | null, response: VersionResponse) => void,
+  ): ClientUnaryCall;
+  version(
+    request: VersionRequest,
     metadata: Metadata,
     options: Partial<CallOptions>,
-    callback: (error: ServiceError | null, response: VersionInfo) => void,
+    callback: (error: ServiceError | null, response: VersionResponse) => void,
   ): ClientUnaryCall;
   moveFile(request: MoveFileRequest, options?: Partial<CallOptions>): ClientReadableStream<MoveFileResponse>;
   moveFile(
