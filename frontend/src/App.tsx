@@ -493,7 +493,7 @@ export function App(props: Props) {
   
   const handleMaximize = async () => {
     let webview = getCurrentWebview();
-    await invoke("plugin:window|toggle_maximize");
+    await webview.window.toggleMaximize();
     setIsMaximized(await webview.window.isMaximized());
   };
   
