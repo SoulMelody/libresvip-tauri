@@ -2,7 +2,7 @@
 // versions:
 //   protoc-gen-ts_proto  v2.11.2
 //   protoc               v6.33.0
-// source: src/libresvip.proto
+// source: libresvip.proto
 
 /* eslint-disable */
 import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
