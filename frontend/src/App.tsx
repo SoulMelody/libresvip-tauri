@@ -69,7 +69,6 @@ import { AboutPage } from "./AboutPage";
 import { ConverterPage } from "./ConverterPage";
 import { path } from '@tauri-apps/api';
 import { listen } from "@tauri-apps/api/event";
-import { Command } from "@tauri-apps/plugin-shell";
 import { ask, open } from '@tauri-apps/plugin-dialog';
 import { writeText } from '@tauri-apps/plugin-clipboard-manager';
 import { revealItemInDir } from '@tauri-apps/plugin-opener';
@@ -220,11 +219,6 @@ export function App(props: Props) {
         }
       }
     })
-
-    const executeSidecar = async () => {
-      await Command.sidecar("libresvip-tauri-server", []).execute();
-    }
-    executeSidecar();
 
     const getAppVersion = async () => {
       setAppVersion(await pyInvoke('app_version', {}));

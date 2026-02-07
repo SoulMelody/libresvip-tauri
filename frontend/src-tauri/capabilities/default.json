@@ -20,15 +20,6 @@
     "core:window:allow-set-focus",
     "decorum:allow-show-snap-overlay",
     "clipboard-manager:allow-write-text",
-    "fs:allow-stat",
-    {
-      "identifier": "shell:allow-execute",
-      "allow": [
-        {
-          "name": "libresvip-tauri-server",
-          "sidecar": true
-        }
-      ]
-    }
+    "fs:allow-stat"
   ]
 }

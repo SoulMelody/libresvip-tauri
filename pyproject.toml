@@ -5,7 +5,8 @@ description = ""
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "libresvip[cli,crypto,lxml,yaml12,zstd]>=2.1.2",
+    "libresvip[crypto,lxml,yaml12,zstd]>=2.1.2",
+    "webrockets>=0.1.5",
 ]
 
 [dependency-groups]
@@ -17,9 +18,6 @@ packaging = [
     "pydeployment>=1.3.12",
     "pyinstaller>=6.18.0",
     "shellingham<2.0.0,>=1.5.4",
-]
-protoc = [
-    "protoc-wrapper>=33.0.0",
 ]
 
 [tool.uv.build-backend]
