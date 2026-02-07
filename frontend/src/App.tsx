@@ -930,9 +930,6 @@ export function App(props: Props) {
                 onMouseEnter={() => {
                   if (snapOverlayRef.current === null)
                     snapOverlayRef.current = setTimeout(async () => {
-                      let webview = getCurrentWebview();
-                      const win = webview.window;
-                      await win.setFocus();
                       await invoke("plugin:decorum|show_snap_overlay");
                     }, 620);
                   }
