@@ -13,12 +13,12 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@bufbuild/protobuf": "^2.11.0",
     "@cloudworxx/tauri-plugin-mac-rounded-corners": "^1.1.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@fluentui/react-icons": "^2.0.316",
     "@grpc/grpc-js": "^1.14.3",
-    "@grpc/proto-loader": "^0.8.0",
     "@mui/material": "^7.3.7",
     "@rjsf/core": "^6.2.5",
     "@rjsf/mui": "^6.2.5",
@@ -42,6 +42,7 @@
     "react-hotkeys-hook": "^5.2.4",
     "react-i18next": "^16.5.4",
     "react-router": "^7.13.0",
+    "rxjs": "^7.8.2",
     "zustand": "^5.0.11"
   },
   "devDependencies": {
@@ -50,6 +51,7 @@
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
     "json-schema-to-typescript": "^15.0.4",
+    "ts-proto": "^2.11.2",
     "typescript": "^5.9.3"
   },
   "trustedDependencies": [
