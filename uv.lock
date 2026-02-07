@@ -369,11 +369,11 @@ wheels = [
 
 [[package]]
 name = "fsspec"
-version = "2026.1.0"
+version = "2026.2.0"
 source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
-sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/d5/7d/5df2650c57d47c57232af5ef4b4fdbff182070421e405e0d62c6cdbfaa87/fsspec-2026.1.0.tar.gz", hash = "sha256:e987cb0496a0d81bba3a9d1cee62922fb395e7d4c3b575e57f547953334fe07b", size = 310496, upload-time = "2026-01-09T15:21:35.562Z" }
+sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/51/7c/f60c259dcbf4f0c47cc4ddb8f7720d2dcdc8888c8e5ad84c73ea4531cc5b/fsspec-2026.2.0.tar.gz", hash = "sha256:6544e34b16869f5aacd5b90bdf1a71acb37792ea3ddf6125ee69a22a53fb8bff", size = 313441, upload-time = "2026-02-05T21:50:53.743Z" }
 wheels = [
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/01/c9/97cc5aae1648dcb851958a3ddf73ccd7dbe5650d95203ecb4d7720b4cdbf/fsspec-2026.1.0-py3-none-any.whl", hash = "sha256:cb76aa913c2285a3b49bdd5fc55b1d7c708d7208126b60f2eb8194fe1b4cbdcc", size = 201838, upload-time = "2026-01-09T15:21:34.041Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/e6/ab/fb21f4c939bb440104cc2b396d3be1d9b7a9fd3c6c2a53d98c45b3d7c954/fsspec-2026.2.0-py3-none-any.whl", hash = "sha256:98de475b5cb3bd66bedd5c4679e87b4fdfe1a3bf4d707b151b3c07e58c9a2437", size = 202505, upload-time = "2026-02-05T21:50:51.819Z" },
 ]
 
 [[package]]
@@ -536,6 +536,9 @@ packaging = [
     { name = "pyinstaller" },
     { name = "shellingham" },
 ]
+protoc = [
+    { name = "protoc-wrapper" },
+]
 
 [package.metadata]
 requires-dist = [{ name = "libresvip", extras = ["cli", "crypto", "lxml", "yaml12", "zstd"], specifier = ">=2.1.2" }]
@@ -550,6 +553,7 @@ packaging = [
     { name = "pyinstaller", specifier = ">=6.18.0" },
     { name = "shellingham", specifier = ">=1.5.4,<2.0.0" },
 ]
+protoc = [{ name = "protoc-wrapper", specifier = ">=33.0.0" }]
 
 [[package]]
 name = "loguru"
@@ -1027,6 +1031,22 @@ dependencies = [
 sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/71/eb/fb2cc91b0214c0c6028cb4b29d309142687c740d1daf7c36c771a0aa5ac1/portion-2.6.1.tar.gz", hash = "sha256:44b1f7d57e052993c4157e519dc447e57b87a4e5e00a77c1c50e7044104e53c6", size = 61345, upload-time = "2025-05-25T13:50:46.683Z" }
 wheels = [
     { url = "https://pypi.tuna.tsinghua.edu.cn/packages/da/9e/21c4088d1d433cfbf0578f138a6df59527dbd9e9d67355ee31b17e6dc774/portion-2.6.1-py3-none-any.whl", hash = "sha256:764d0be5479842f011feccc6f4bf80454dd944ef16309fceb2b5ae229cf05df3", size = 27389, upload-time = "2025-05-25T13:50:45.295Z" },
+]
+
+[[package]]
+name = "protoc-wrapper"
+version = "33.0.0"
+source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
+wheels = [
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/03/95/927fa0c89b3702f55b30c3acab8893ec13104f034aadb7bcc3873dfd52bc/protoc_wrapper-33.0.0-py3-none-macosx_12_0_arm64.whl", hash = "sha256:642b512196dc1f30cc41c67ce66341f6edd6f5b0622828ff4dee73964ea23239", size = 2480070, upload-time = "2025-10-16T00:34:17.988Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/16/77/0afef71b801642ac51bba52e2eb1fff9b6b44ce849cc751ace464e4e7e1c/protoc_wrapper-33.0.0-py3-none-macosx_12_0_x86_64.whl", hash = "sha256:3d2ffe08208d1680448d6030bbf038b2b10a6bdc5cc244d681e16ac0420dd220", size = 2603399, upload-time = "2025-10-16T00:34:19.772Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/38/48/6e609a2764c89116ec81be815c664033b8a2cdc0568f214baba28060b00c/protoc_wrapper-33.0.0-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:d3262545667d53499c9b689049d3a803a93b7bc51f21747f221b37e2b09c54af", size = 3818618, upload-time = "2025-10-16T00:34:21.04Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/0f/71/9cdd2e53cb7ef47617df01f63186c6ba228c5f4febcbf029ae073aee94de/protoc_wrapper-33.0.0-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:ec361c2e7382521aafbbcd5c182c19f5f4f27f699d74f0b49065771a20bcbda8", size = 3821119, upload-time = "2025-10-16T00:34:22.549Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/f9/84/9099077bb320c39bf55751c8f29f3e60ff054da1828b9bc15c65421093f4/protoc_wrapper-33.0.0-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:0afcb097f0c1aafc0fa33059d8de3c4c82b37629148bc51162e476c27942d9ea", size = 4525880, upload-time = "2025-10-16T00:34:23.921Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/b2/58/f68d167553423ca35a9e681e6d5844fedcf9a849a0b56db1b859a69fcdfd/protoc_wrapper-33.0.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:7e25ea5f12cdd8b6336fad86327d72de1465ffa5cb091d6fe2c1fd3bb539570d", size = 3515842, upload-time = "2025-10-16T00:34:25.375Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/59/f2/9973243aee25861da09251de959365cc8b05719fa0dad4294f0ae932fbfb/protoc_wrapper-33.0.0-py3-none-manylinux_2_28_aarch64.whl", hash = "sha256:e4b07dc1aef35c847864dd11f1822c32f94504480c44c214e4b797edecbaba50", size = 3473169, upload-time = "2025-10-16T00:34:26.758Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/d5/3e/f757aea69b815e935b3a11f30475c62a8bd3e5a518bf864540376a06269a/protoc_wrapper-33.0.0-py3-none-win32.whl", hash = "sha256:e470e6860d9222ce3d81e25c916d076092f61209b69c873f072239e19315f07e", size = 3473194, upload-time = "2025-10-16T00:34:28.097Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/84/65/bfb7fc3b2bea20d5be0ee0219544a1249401c65d5aa46a7a694974f5039c/protoc_wrapper-33.0.0-py3-none-win_amd64.whl", hash = "sha256:537200eef096cdfd217674b286ac043121cd6cdc76d4300d26f7859da8c641cd", size = 3385225, upload-time = "2025-10-16T00:34:29.399Z" },
 ]
 
 [[package]]
@@ -1532,11 +1552,11 @@ sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/ea/97/60fda20e2fb54b
 
 [[package]]
 name = "setuptools"
-version = "80.10.2"
+version = "81.0.0"
 source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
-sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/76/95/faf61eb8363f26aa7e1d762267a8d602a1b26d4f3a1e758e92cb3cb8b054/setuptools-80.10.2.tar.gz", hash = "sha256:8b0e9d10c784bf7d262c4e5ec5d4ec94127ce206e8738f29a437945fbc219b70", size = 1200343, upload-time = "2026-01-25T22:38:17.252Z" }
+sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/0d/1c/73e719955c59b8e424d015ab450f51c0af856ae46ea2da83eba51cc88de1/setuptools-81.0.0.tar.gz", hash = "sha256:487b53915f52501f0a79ccfd0c02c165ffe06631443a886740b91af4b7a5845a", size = 1198299, upload-time = "2026-02-06T21:10:39.601Z" }
 wheels = [
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/94/b8/f1f62a5e3c0ad2ff1d189590bfa4c46b4f3b6e49cef6f26c6ee4e575394d/setuptools-80.10.2-py3-none-any.whl", hash = "sha256:95b30ddfb717250edb492926c92b5221f7ef3fbcc2b07579bcd4a27da21d0173", size = 1064234, upload-time = "2026-01-25T22:38:15.216Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/e1/e3/c164c88b2e5ce7b24d667b9bd83589cf4f3520d97cad01534cd3c4f55fdb/setuptools-81.0.0-py3-none-any.whl", hash = "sha256:fdd925d5c5d9f62e4b74b30d6dd7828ce236fd6ed998a08d81de62ce5a6310d6", size = 1062021, upload-time = "2026-02-06T21:10:37.175Z" },
 ]
 
 [[package]]

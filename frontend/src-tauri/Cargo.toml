@@ -1,8 +1,8 @@
 [package]
 name = "libresvip-tauri"
 version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
+description = ""
+authors = ["SoulMelody"]
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -26,3 +26,4 @@ tauri-plugin-dialog = "2.6.0"
 tauri-plugin-fs = "2.4.5"
 tauri-plugin-shell = "2.3.5"
 tauri-plugin-clipboard-manager = "2.3.2"
+tauri-plugin-decorum = "1.1.0"

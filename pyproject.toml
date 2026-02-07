@@ -18,6 +18,9 @@ packaging = [
     "pyinstaller>=6.18.0",
     "shellingham<2.0.0,>=1.5.4",
 ]
+protoc = [
+    "protoc-wrapper>=33.0.0",
+]
 
 [tool.uv.build-backend]
 module-name = "libresvip_tauri"
