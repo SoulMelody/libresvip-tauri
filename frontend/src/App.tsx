@@ -108,6 +108,7 @@ const navItems = [
 ];
 
 export function App(props: Props) {
+	const snapOverlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { windowProps } = props;
   const {
     drawerOpen,
@@ -516,7 +517,7 @@ export function App(props: Props) {
           minHeight: "40px !important",
         }}>
           <div 
-            data-tauri-drag-region=""
+            data-tauri-drag-region
           >
             <IconButton
               color="inherit"
@@ -903,57 +904,83 @@ export function App(props: Props) {
             </ControlledMenu>
           </div>
           <Divider orientation="vertical" flexItem sx={{ marginLeft: '16px', marginRight: '16px' }}/>
-          <Tooltip title={t('window.minimize')} enterDelay={500}>
-            <IconButton
-              color="inherit"
-              onClick={handleMinimize}
-              sx={{
-                borderRadius: "0px",
-                ':hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
-                padding: "16px", marginLeft: "0px", cursor: "default",
-                "& .MuiTouchRipple-root .MuiTouchRipple-child": {
-                  borderRadius: "0px"
-                }
-              }}
-              size="large"
-            >
-              <Subtract20Regular />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title={isMaximized ? t('window.restore') : t('window.maximize')} enterDelay={500}>
-            <IconButton
-              color="inherit"
-              onClick={handleMaximize}
-              sx={{
-                borderRadius: "0px",
-                ':hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
-                padding: "16px", marginLeft: "0px", cursor: "default",
-                "& .MuiTouchRipple-root .MuiTouchRipple-child": {
-                  borderRadius: "0px"
-                }
-              }}
-              size="large"
-            >
-              {isMaximized ? <SquareMultiple20Regular /> : <Maximize20Regular />}
-            </IconButton>
-          </Tooltip>
-          <Tooltip title={t('window.close')} enterDelay={500}>
-            <IconButton
-              color="inherit"
-              onClick={handleClose}
-              sx={{
-                borderRadius: "0px",
-                ':hover': { backgroundColor: 'rgba(255, 0, 0, 0.75)' },
-                padding: "16px", marginLeft: "0px", cursor: "default",
-                "& .MuiTouchRipple-root .MuiTouchRipple-child": {
-                  borderRadius: "0px"
-                }
-              }}
-              size="large"
-            >
-              <Dismiss20Regular />
-            </IconButton>
-          </Tooltip>
+          <div 
+            data-tauri-drag-region="false" data-tauri-decorum-tb
+          >
+            <Tooltip title={t('window.minimize')} enterDelay={500}>
+              <IconButton
+                id="decorum-tb-minimize"
+                className="decorum-tb-btn"
+                color="inherit"
+                onClick={handleMinimize}
+                sx={{
+                  borderRadius: "0px",
+                  ':hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
+                  padding: "16px", marginLeft: "0px", cursor: "default",
+                  "& .MuiTouchRipple-root .MuiTouchRipple-child": {
+                    borderRadius: "0px"
+                  }
+                }}
+                size="large"
+              >
+                <Subtract20Regular />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title={isMaximized ? t('window.restore') : t('window.maximize')} enterDelay={500}>
+              <IconButton
+                id="decorum-tb-maximize"
+                className="decorum-tb-btn"
+                color="inherit"
+                onClick={handleMaximize}
+                onMouseEnter={() => {
+                  if (snapOverlayRef.current !== null)
+                    clearTimeout(snapOverlayRef.current);
+                    snapOverlayRef.current = setTimeout(async () => {
+                      const { invoke } = await import("@tauri-apps/api/core");
+                      const { getCurrentWindow } = await import("@tauri-apps/api/window");
+                      const win = getCurrentWindow();
+                      await win.setFocus();
+                      await invoke("plugin:decorum|show_snap_overlay");
+                    }, 620);
+                }}
+                onMouseLeave={() => {
+                  if (snapOverlayRef.current === null) return;
+                  clearTimeout(snapOverlayRef.current);
+                  snapOverlayRef.current = null;
+                }}
+                sx={{
+                  borderRadius: "0px",
+                  ':hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
+                  padding: "16px", marginLeft: "0px", cursor: "default",
+                  "& .MuiTouchRipple-root .MuiTouchRipple-child": {
+                    borderRadius: "0px"
+                  }
+                }}
+                size="large"
+              >
+                {isMaximized ? <SquareMultiple20Regular /> : <Maximize20Regular />}
+              </IconButton>
+            </Tooltip>
+            <Tooltip title={t('window.close')} enterDelay={500}>
+              <IconButton
+                id="decorum-tb-close"
+                className="decorum-tb-btn"
+                color="inherit"
+                onClick={handleClose}
+                sx={{
+                  borderRadius: "0px",
+                  ':hover': { backgroundColor: 'rgba(255, 0, 0, 0.75)' },
+                  padding: "16px", marginLeft: "0px", cursor: "default",
+                  "& .MuiTouchRipple-root .MuiTouchRipple-child": {
+                    borderRadius: "0px"
+                  }
+                }}
+                size="large"
+              >
+                <Dismiss20Regular />
+              </IconButton>
+            </Tooltip>
+          </div>
         </Toolbar>
       </AppBar>
       <Box component="nav">
