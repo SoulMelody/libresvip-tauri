@@ -32,3 +32,18 @@ a:hover {
 .szh-menu-container--theme-dark .szh-menu__item--hover {
   background-color: rgba(50, 50, 50, 0.87);
 }
+
+.decorum-tb-btn,
+#decorum-tb-minimize,
+#decorum-tb-maximize,
+#decorum-tb-close {
+  display: none !important;
+}
+
+[data-tauri-decorum-tb] {
+  pointer-events: none !important;
+}
+
+[data-tauri-decorum-tb] > * {
+  pointer-events: none !important;
+}
