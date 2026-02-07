@@ -518,6 +518,7 @@ export function App(props: Props) {
         }}>
           <div 
             data-tauri-drag-region
+            style={{ marginRight: '2' }}
           >
             <IconButton
               color="inherit"
@@ -525,7 +526,6 @@ export function App(props: Props) {
               edge="start"
               size="large"
               onClick={handleDrawerToggle}
-              sx={{ mr: 2 }}
             >
               <PanelLeftExpandFilled />
             </IconButton>

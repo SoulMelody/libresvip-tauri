@@ -12,8 +12,11 @@ pub fn run() {
         .plugin(tauri_plugin_clipboard_manager::init())
 		.plugin(tauri_plugin_decorum::init())
         .invoke_handler(tauri::generate_handler![
+            #[cfg(target_os = "macos")]
             plugins::mac_rounded_corners::enable_rounded_corners,
+            #[cfg(target_os = "macos")]
             plugins::mac_rounded_corners::enable_modern_window_style,
+            #[cfg(target_os = "macos")]
             plugins::mac_rounded_corners::reposition_traffic_lights,
         ])
         .run(tauri::generate_context!())
