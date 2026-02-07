@@ -504,12 +504,19 @@ export function App(props: Props) {
     await invoke("plugin:window|close");
   }
 
+  const handleStartDragging = async (
+    event: React.DragEvent<HTMLDivElement>
+  ) => {
+    event.preventDefault();
+    await invoke("plugin:window|start_dragging");
+  }
+
   const container = windowProps !== undefined ? () => windowProps().document.body : undefined;
 
   return (
     <ThemeProvider theme={theme}>
       <AppBar position="static">
-        <Toolbar data-tauri-drag-region sx={{
+        <Toolbar onDoubleClick={handleMaximize} draggable={true} onDragStart={handleStartDragging} sx={{
           paddingLeft: "16px !important",
           paddingRight: "0px !important",
           minHeight: "40px !important",
