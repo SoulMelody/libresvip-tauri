@@ -22,13 +22,13 @@ class Conversion(Protocol):
     async def plugin_infos(self, request: libresvip__tauri__pb2.PluginInfosRequest, ctx: RequestContext) -> libresvip__tauri__pb2.PluginInfosResponse:
         raise ConnectError(Code.UNIMPLEMENTED, "Not implemented")
 
-    def convert(self, request: libresvip__tauri__pb2.ConversionRequest, ctx: RequestContext) -> AsyncIterator[libresvip__tauri__pb2.SingleConversionResult]:
+    async def convert(self, request: libresvip__tauri__pb2.ConversionRequest, ctx: RequestContext) -> AsyncIterator[libresvip__tauri__pb2.SingleConversionResult]:
         raise ConnectError(Code.UNIMPLEMENTED, "Not implemented")
 
     async def version(self, request: libresvip__tauri__pb2.VersionRequest, ctx: RequestContext) -> libresvip__tauri__pb2.VersionResponse:
         raise ConnectError(Code.UNIMPLEMENTED, "Not implemented")
 
-    def move_file(self, request: libresvip__tauri__pb2.MoveFileRequest, ctx: RequestContext) -> AsyncIterator[libresvip__tauri__pb2.MoveFileResponse]:
+    async def move_file(self, request: libresvip__tauri__pb2.MoveFileRequest, ctx: RequestContext) -> AsyncIterator[libresvip__tauri__pb2.MoveFileResponse]:
         raise ConnectError(Code.UNIMPLEMENTED, "Not implemented")
 
 

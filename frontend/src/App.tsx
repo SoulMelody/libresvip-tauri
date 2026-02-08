@@ -92,6 +92,7 @@ import {
 } from 'react-router';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useRef, useState } from 'react';
+import { client } from './client';
 
 interface ListItemLinkProps extends ListItemProps {
   to: string;
@@ -221,9 +222,16 @@ export function App(props: Props) {
     })
 
     const getAppVersion = async () => {
-      setAppVersion(await pyInvoke('app_version', {}));
+      try {
+        let appVersionRes = await client.version({}, {timeoutMs: 1000});
+        setAppVersion(appVersionRes.version);
+        clearInterval(appVersionIntervalId);
+      } catch (e) {
+        console.error(e);
+      }
     }
-    getAppVersion();
+
+    let appVersionIntervalId = setInterval(getAppVersion, 2000);
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 

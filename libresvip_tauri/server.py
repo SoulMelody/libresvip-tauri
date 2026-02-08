@@ -5,4 +5,6 @@ from hypercorn.asyncio import serve
 from .service import app
 
 if __name__ == "__main__":
-    asyncio.run(serve(app, Config()))
+    config = Config()
+    config.bind = ["127.0.0.1:1229"]
+    asyncio.run(serve(app, config))
