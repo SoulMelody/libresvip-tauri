@@ -1,0 +1,12 @@
+version: v2
+plugins:
+  - local: protoc-gen-es
+    out: src
+    include_imports: true
+    opt: target=ts
+  - protoc_builtin: python
+    out: ../libresvip_tauri
+  - protoc_builtin: pyi
+    out: ../libresvip_tauri
+  - local: protoc-gen-connect-python
+    out: ../libresvip_tauri
