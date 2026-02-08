@@ -5,8 +5,8 @@ description = ""
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "connect-python>=0.8.1",
     "libresvip[crypto,lxml,yaml12,zstd]>=2.1.2",
-    "webrockets>=0.1.5",
 ]
 
 [dependency-groups]

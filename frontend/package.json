@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@cloudworxx/tauri-plugin-mac-rounded-corners": "^1.1.1",
+    "@connectrpc/connect-web": "^2.1.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@fluentui/react-icons": "^2.0.316",
@@ -28,7 +29,6 @@
     "@tauri-apps/plugin-dialog": "^2.6.0",
     "@tauri-apps/plugin-fs": "^2.4.5",
     "@tauri-apps/plugin-opener": "^2.5.3",
-    "@tauri-apps/plugin-websocket": "^2.4.2",
     "ajv-i18n": "^4.2.0",
     "i18next": "^25.8.4",
     "i18next-browser-languagedetector": "^8.2.0",
@@ -43,16 +43,16 @@
     "zustand": "^5.0.11"
   },
   "devDependencies": {
+    "@bufbuild/buf": "^1.65.0",
+    "@bufbuild/protoc-gen-es": "^2.11.0",
     "@tauri-apps/cli": "^2.10.0",
     "@types/bun": "latest",
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
     "json-schema-to-typescript": "^15.0.4",
-    "ts-proto": "^2.11.2",
     "typescript": "^5.9.3"
   },
   "trustedDependencies": [
-    "@cloudworxx/tauri-plugin-mac-rounded-corners",
-    "protobufjs"
+    "@cloudworxx/tauri-plugin-mac-rounded-corners"
   ]
 }

@@ -20,7 +20,6 @@
     "core:window:allow-set-focus",
     "decorum:allow-show-snap-overlay",
     "clipboard-manager:allow-write-text",
-    "fs:allow-stat",
-    "websocket:default"
+    "fs:allow-stat"
   ]
 }
