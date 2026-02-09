@@ -1,5 +1,6 @@
 mod plugins;
 
+use ctrlc;
 use std::process::{Child, Command, Stdio};
 use std::sync::Mutex;
 use tauri::Manager;
@@ -54,6 +55,10 @@ fn start_sidecar_command() -> Result<(), String> {
             match start_sidecar() {
                 Ok(child) => {
                     *guard = Some(child);
+                    ctrlc::set_handler(|| {
+                        println!("[LibreSVIP] Ctrl-C pressed, stopping sidecar...");
+                        stop_sidecar();
+                    });
                     Ok(())
                 }
                 Err(e) => Err(format!("Failed to start sidecar: {}", e)),
@@ -84,12 +89,6 @@ pub fn run() {
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_clipboard_manager::init())
 		.plugin(tauri_plugin_decorum::init())
-        .on_window_event(|_window, event| {
-            if let tauri::WindowEvent::CloseRequested { .. } = event {
-                println!("[LibreSVIP] Window close requested, stopping sidecar...");
-                stop_sidecar();
-            }
-        })
         .invoke_handler(tauri::generate_handler![
             start_sidecar_command,
             #[cfg(target_os = "macos")]

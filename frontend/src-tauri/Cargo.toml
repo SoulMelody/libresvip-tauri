@@ -27,6 +27,7 @@ tauri-plugin-clipboard-manager = "2.3.2"
 tauri-plugin-opener = "2"
 tauri-plugin-shell = "2.3.5"
 tauri-plugin-decorum = "1.1.1"
+ctrlc = { version = "3.5.1", features = ["termination"] }
 
 [target.'cfg(target_os = "macos")'.dependencies]
 cocoa = "0.26"
