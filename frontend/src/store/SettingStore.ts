@@ -98,9 +98,9 @@ export const useSettingStore = create<SettingState>()(
         const plugin = response.values.find((v) => v.identifier === outputFormat);
         if (plugin) {
           set({
-            inputFormatSchema: JSON.parse(plugin.jsonSchema),
-            inputFormatUiSchema: JSON.parse(plugin.uiJsonSchema ?? '{}'),
-            inputFormatFormData: JSON.parse(plugin.defaultJsonValue ?? '{}'),
+            outputFormatSchema: JSON.parse(plugin.jsonSchema),
+            outputFormatUiSchema: JSON.parse(plugin.uiJsonSchema ?? '{}'),
+            outputFormatFormData: JSON.parse(plugin.defaultJsonValue ?? '{}'),
           })
         }
       },
