@@ -17,7 +17,6 @@ from libresvip.extension.base import (
 )
 from libresvip.extension.manager import get_translation, middleware_manager, plugin_manager
 from libresvip.utils.translation import gettext_lazy as _
-from libresvip.utils.translation import lazy_translation
 
 from connectrpc.request import RequestContext
 from .libresvip_tauri_pb2 import (
@@ -36,9 +35,9 @@ class GettextGenerateJsonSchema(GenerateJsonSchema):
     def generate_inner(self, schema: CoreSchemaOrField) -> JsonSchemaValue:
         json_schema = super().generate_inner(schema)
         if "title" in json_schema:
-            json_schema["title"] = _(json_schema["title"])
+            json_schema["title"] = self.translator.gettext(json_schema["title"])
         if "description" in json_schema:
-            json_schema["description"] = _(json_schema["description"])
+            json_schema["description"] = self.translator.gettext(json_schema["description"])
         return json_schema
 
 
