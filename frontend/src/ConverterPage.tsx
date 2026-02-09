@@ -573,7 +573,15 @@ export const ConverterPage = () => {
                       split: ConversionMode.SPLIT,
                     }[conversionMode],
                     maxTrackCount: maxTrackCount,
-                    groups: conversionTasks.map((task) => {
+                    groups: conversionMode === "merge" ? [
+                      {
+                        groupId: conversionTasks[0].id,
+                        filePaths: conversionTasks.map((task) => {
+                          return task.inputPath;
+                        }),
+                        "$typeName": "LibreSVIP.ConversionGroup",
+                      }
+                    ] : conversionTasks.map((task) => {
                       return {
                         groupId: task.id,
                         filePaths: [task.inputPath],
