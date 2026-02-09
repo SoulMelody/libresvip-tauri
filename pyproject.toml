@@ -16,6 +16,7 @@ nodejs = [
     "pydantic-to-typescript>=2.0.0",
 ]
 packaging = [
+    "pillow>=12.1.0",
     "pyinstaller>=6.18.0",
     "shellingham<2.0.0,>=1.5.4",
 ]
