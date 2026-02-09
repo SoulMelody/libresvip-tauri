@@ -29,6 +29,9 @@
     "externalBin": [
       "libresvip-tauri-server"
     ],
+    "resources": [
+      "_internal/**/*"
+    ],
     "targets": "all",
     "icon": [
       "icons/icon.ico"
