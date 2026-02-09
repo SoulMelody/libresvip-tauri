@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist, subscribeWithSelector } from 'zustand/middleware';
-import { pyInvoke } from 'tauri-plugin-pytauri-api';
-import { SchemaConfig } from '@/ApiTypes';
+import { client } from '@/client';
+import { PluginCategory } from '@/libresvip_tauri_pb';
 
 interface SettingState {
   darkMode: 'light' | 'dark' | 'system';
@@ -77,28 +77,32 @@ export const useSettingStore = create<SettingState>()(
       setConflictPolicy: (policy) => set({ conflictPolicy: policy }),
       setRevealFileOnFinish: (reveal) => set({ revealFileOnFinish: reveal }),
       loadInputFormatSchema: async (inputFormat, language) => {
-        const response: SchemaConfig = await pyInvoke('option_schema', {
-          identifier: inputFormat,
-          category: "load",
+        const response = await client.pluginInfos({
+          category: PluginCategory.INPUT,
           language: language
         })
-        set({
-          inputFormatSchema: response.json_schema,
-          inputFormatUiSchema: response.ui_schema ?? {},
-          inputFormatFormData: response.default_value,
-        })
+        const plugin = response.values.find((v) => v.identifier === inputFormat);
+        if (plugin) {
+          set({
+            inputFormatSchema: JSON.parse(plugin.jsonSchema),
+            inputFormatUiSchema: JSON.parse(plugin.uiJsonSchema ?? '{}'),
+            inputFormatFormData: JSON.parse(plugin.defaultJsonValue ?? '{}'),
+          })
+        }
       },
       loadOutputFormatSchema: async (outputFormat, language) => {
-        const response: SchemaConfig = await pyInvoke('option_schema', {
-          identifier: outputFormat,
-          category: "dump",
+        const response = await client.pluginInfos({
+          category: PluginCategory.OUTPUT,
           language: language
         })
-        set({
-          outputFormatSchema: response.json_schema,
-          outputFormatUiSchema: response.ui_schema?? {},
-          outputFormatFormData: response.default_value,
-        }) 
+        const plugin = response.values.find((v) => v.identifier === outputFormat);
+        if (plugin) {
+          set({
+            outputFormatSchema: JSON.parse(plugin.jsonSchema),
+            outputFormatUiSchema: JSON.parse(plugin.uiJsonSchema ?? '{}'),
+            outputFormatFormData: JSON.parse(plugin.defaultJsonValue ?? '{}'),
+          })
+        }
       },
       toggleTheme: () =>
         set((state) => {

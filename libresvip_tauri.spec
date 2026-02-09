@@ -20,16 +20,17 @@ with contextlib.suppress(Exception):
         os.environ["PATH"] = f"{sys.base_prefix}/Library/bin{os.pathsep}" + os.environ["PATH"]
 
 a = Analysis(
-    ['libresvip_tauri/__main__.py'],
+    ['libresvip_tauri/server.py'],
     pathex=[
         ".",
     ],
     binaries=[],
     datas=(
-        collect_data_files("libresvip_tauri", excludes=[], includes=["**/*.toml", "**/*.ico", "**/*.png", "**/*.html", "**/*.js", "**/*.css"]) +
-        copy_metadata("pytauri_wheel") + collect_data_files("jyutping") + collect_data_files("xsdata") + collect_entry_point("xsdata.plugins.class_types")[0]
+        collect_data_files("libresvip_tauri", excludes=[]) +
+        collect_data_files("jyutping") + collect_data_files("xsdata") + collect_entry_point("xsdata.plugins.class_types")[0]
     ),
     hiddenimports=[
+        "aristaproto",
         "backports.zstd",
         "bidict",
         "construct_typed",
@@ -55,6 +56,7 @@ a = Analysis(
         "yaml",
         "yaml_ft",
         "yaml12",
+        "ryaml",
         "zstandard",
     ],
     hookspath=[],
@@ -94,18 +96,18 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='libresvip-tauri',
+    name='libresvip-tauri-server',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=False,
-    console=False,
+    console=True,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['libresvip_tauri/icons/icon.ico'],
+    icon=['frontend/src/assets/libresvip.png'],
 )
 coll = COLLECT(
     exe,
@@ -115,5 +117,5 @@ coll = COLLECT(
     strip=False,
     upx=False,
     upx_exclude=[],
-    name='libresvip-tauri',
+    name='libresvip-tauri-server',
 )

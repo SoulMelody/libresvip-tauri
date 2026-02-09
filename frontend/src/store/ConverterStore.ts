@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { subscribeWithSelector } from 'zustand/middleware';
-import { pyInvoke } from 'tauri-plugin-pytauri-api';
+import { client } from '@/client';
+import { PluginCategory } from '@/libresvip_tauri_pb';
 import { ConversionTask, PluginInfo, SchemaConfig } from '@/ApiTypes';
 
 
@@ -29,7 +30,7 @@ interface ConverterStore {
   setCurTaskListPage: (page: number) => void;
   setOptionTab: (tab: number) => void;
   setSelectedMiddlewares: (middlewares: string[]) => void;
-  loadMiddlewareSchema: (id: string, language: string) => Promise<void>;
+  loadMiddlewareSchemas: (language: string) => Promise<void>;
   setMiddlewareFormData: (id: string, formData: {[k: string]: any}) => void;
 }
 
@@ -41,7 +42,7 @@ export const useConverterStore = create<ConverterStore>()(
       activeStep: 0,
       inputPluginInfos: Object.fromEntries(pluginInfoEntries.filter(([key, p]) => p.categories.includes("input"))),
       outputPluginInfos: Object.fromEntries(pluginInfoEntries.filter(([key, p]) => p.categories.includes("output"))),
-      middlewareIds: require('../assets/middleware_ids.json'),
+      middlewareIds: [],
       conversionTasks: [],
       selectedMiddlewares: [],
       middlewareSchemas: {},
@@ -69,17 +70,21 @@ export const useConverterStore = create<ConverterStore>()(
       setOptionTab: (tab) => set({ optionTab: tab }),
       setCurTaskListPage: (page) => set({ curTaskListPage: page }),
       setSelectedMiddlewares: (middlewares) => set({ selectedMiddlewares: middlewares }),
-      loadMiddlewareSchema: async (id, language) => {
-        const response: SchemaConfig = await pyInvoke('option_schema', {
-          identifier: id,
-          category: "process",
+      loadMiddlewareSchemas: async (language) => {
+        const response = await client.pluginInfos({
+          category: PluginCategory.MIDDLEWARE,
           language: language
         })
         set((state) => ({
           middlewareSchemas: {
             ...state.middlewareSchemas,
-            [id]: response
-          }
+            ...Object.fromEntries(response.values.map((p) => [p.identifier, {
+              json_schema: JSON.parse(p.jsonSchema),
+              ui_schema: JSON.parse(p.uiJsonSchema),
+              default_value: JSON.parse(p.defaultJsonValue),
+            }]))
+          },
+          middlewareIds: response.values.map((p) => p.identifier),
         }))
       },
       setMiddlewareFormData: (id, formData) => set((state) => ({

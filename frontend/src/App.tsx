@@ -68,16 +68,13 @@ import { useTranslation } from 'react-i18next';
 import { AboutPage } from "./AboutPage";
 import { ConverterPage } from "./ConverterPage";
 import { path } from '@tauri-apps/api';
-import { listen } from "@tauri-apps/api/event";
-import { getCurrentWebview } from "@tauri-apps/api/webview";
-import { ask, open } from '@tauri-apps/plugin-dialog';
+import { open } from '@tauri-apps/plugin-dialog';
 import { writeText } from '@tauri-apps/plugin-clipboard-manager';
-import { revealItemInDir } from '@tauri-apps/plugin-opener';
-import { pyInvoke } from 'tauri-plugin-pytauri-api';
+import { invoke } from '@tauri-apps/api/core';
 import { useSettingStore } from './store/SettingStore';
 import { useWindowStore } from './store/WindowStore';
 import { useConverterStore } from "./store/ConverterStore";
-import { ConversionTask, MoveCallbackParams } from './ApiTypes';
+import { ConversionTask } from './ApiTypes';
 import { parsePath, useMessage } from './Utils';
 import { ControlledMenu, MenuItem, MenuRadioGroup, SubMenu } from '@szhsin/react-menu';
 import { nanoid } from 'nanoid';
@@ -92,6 +89,7 @@ import {
 } from 'react-router';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useRef, useState } from 'react';
+import { client } from './client';
 
 interface ListItemLinkProps extends ListItemProps {
   to: string;
@@ -108,6 +106,7 @@ const navItems = [
 ];
 
 export function App(props: Props) {
+	const snapOverlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { windowProps } = props;
   const {
     drawerOpen,
@@ -136,93 +135,47 @@ export function App(props: Props) {
   const {
     conversionTasks,
     curTaskListPage,
-    middlewareIds,
     inputPluginInfos,
     addConversionTasks,
     updateConversionTask,
     removeConversionTask,
     filterConversionTasksByInputFormat,
     clearConversionTasks,
-    loadMiddlewareSchema,
+    loadMiddlewareSchemas,
     setActiveStep,
     increaseFinishedCount,
     setCurTaskListPage,
   } = useConverterStore();
   const {
-    showMessage,
     MessageSnackbar,
   } = useMessage();
 
   const handleDrawerToggle = toggledrawerOpen;
 
   useEffect(() => {
-    const unlistenTaskProgress = listen('task_progress', (event) => {
-      let task = event.payload as ConversionTask;
-      updateConversionTask(task.id, task);
-      if (!task.running) {
-        if (task.success !== false) {
-          pyInvoke("move_file", {
-            "id": task.id,
-            "forceOverwrite": false
-          })
-        } else {
-          showMessage(
-            t("converter.conversion_failed"),
-            'error'
-          );
-          increaseFinishedCount();
-        }
-      }
-    })
-    const unlistenMoveResult = listen('move_result', (event) => {
-      let task = event.payload as ConversionTask;
-      updateConversionTask(task.id, task);
-      if (task.outputPath !== null && revealFileOnFinish) {
-        revealItemInDir(task.outputPath);
-      }
-      increaseFinishedCount();
-    })
-    const unlistenMoveCallback = listen('move_callback', async (event) => {
-      let payload = event.payload as MoveCallbackParams;
-      if (
-        payload.conflictPolicy === "skip"
-      ) {
-        updateConversionTask(payload.id, {
-          success: true,
-          warning: t("converter.skip_file"),
-        });
-        increaseFinishedCount();
-      } else {
-        let shouldOverwrite = await ask(
-          t("converter.overwrite_file", {
-            "file": payload.outputPath,
-          }),
-          {
-            kind: "warning",
-            title: "LibreSVIP",
-            okLabel: t("window.ok"),
-            cancelLabel: t("window.cancel"),
-          }
-        );
-        if (shouldOverwrite) {
-          await pyInvoke("move_file", {
-            "id": payload.id,
-            "forceOverwrite": true
-          })
-        } else {
-          updateConversionTask(payload.id, {
-            success: true,
-            warning: t("converter.skip_file"),
-          });
-          increaseFinishedCount();
-        }
-      }
-    })
+    const startServer = async () => {
+      await invoke("start_sidecar_command");
+    }
+    startServer();
 
     const getAppVersion = async () => {
-      setAppVersion(await pyInvoke('app_version', {}));
+      try {
+        let appVersionRes = await client.version({}, {timeoutMs: 1000});
+        setAppVersion(appVersionRes.version);
+        clearInterval(appVersionIntervalId);
+        loadMiddlewareSchemas(language);
+        if (inputFormat !== null) {
+          loadInputFormatSchema(inputFormat, language);
+        }
+        if (outputFormat !== null) {
+          loadOutputFormatSchema(outputFormat, language);
+        }
+      } catch (e) {
+        console.error(e);
+      }
     }
-    getAppVersion();
+
+    let appVersionIntervalId = setInterval(getAppVersion, 2000);
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -255,34 +208,19 @@ export function App(props: Props) {
         loadOutputFormatSchema(outputFormat, i18n.language);
       }
     });
-    if (inputFormat !== null) {
-      loadInputFormatSchema(inputFormat, language);
-    }
-    if (outputFormat !== null) {
-      loadOutputFormatSchema(outputFormat, language);
-    }
 
     const unsubLanguage = useSettingStore.subscribe((state) => state.language, (language, prevLanguage) => {
       if (language !== prevLanguage) {
         i18n.changeLanguage(language);
-        for (const middlewareId of middlewareIds) {
-          loadMiddlewareSchema(middlewareId, language);
-        }
+        loadMiddlewareSchemas(language);
       }
     });
-
-    for (const middlewareId of middlewareIds) {
-      loadMiddlewareSchema(middlewareId, language);
-    }
 
     mediaQuery.addEventListener('change', handleSystemThemeChange);
     document.addEventListener('contextmenu', handleContextMenu);
     return () => {
       mediaQuery.removeEventListener('change', handleSystemThemeChange);
       document.removeEventListener('contextmenu', handleContextMenu);
-      unlistenTaskProgress.then((unsub) => unsub());
-      unlistenMoveResult.then((unsub) => unsub());
-      unlistenMoveCallback.then((unsub) => unsub());
       unsubConversionTasks();
       unsubInputFormat();
       unsubOutputFormat();
@@ -490,27 +428,23 @@ export function App(props: Props) {
   ); 
   
   const handleMaximize = async () => {
-    let webview = getCurrentWebview();
-    await webview.window.toggleMaximize();
-    setIsMaximized(await webview.window.isMaximized());
+    await invoke("plugin:window|toggle_maximize");
+    setIsMaximized(await invoke("plugin:window|is_maximized"));
   };
   
   const handleMinimize = async () => {
-    let webview = getCurrentWebview();
-    await webview.window.minimize();
+    await invoke("plugin:window|minimize");
   }
   
   const handleClose = async () => {
-    let webview = getCurrentWebview();
-    await webview.window.close();
+    await invoke("plugin:window|close");
   }
 
   const handleStartDragging = async (
     event: React.DragEvent<HTMLDivElement>
   ) => {
     event.preventDefault();
-    let webview = getCurrentWebview();
-    await webview.window.startDragging();
+    await invoke("plugin:window|start_dragging");
   }
 
   const container = windowProps !== undefined ? () => windowProps().document.body : undefined;
@@ -907,57 +841,79 @@ export function App(props: Props) {
             </SubMenu>
           </ControlledMenu>
           <Divider orientation="vertical" flexItem sx={{ marginLeft: '16px', marginRight: '16px' }}/>
-          <Tooltip title={t('window.minimize')} enterDelay={500}>
-            <IconButton
-              color="inherit"
-              onClick={handleMinimize}
-              sx={{
-                borderRadius: "0px",
-                ':hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
-                padding: "16px", marginLeft: "0px", cursor: "default",
-                "& .MuiTouchRipple-root .MuiTouchRipple-child": {
-                  borderRadius: "0px"
+          <div 
+            data-tauri-drag-region="false" data-tauri-decorum-tb
+          >
+            <Tooltip title={t('window.minimize')} enterDelay={500}>
+              <IconButton
+                id="decorum-tb-minimize"
+                className="decorum-tb-btn"
+                color="inherit"
+                onClick={handleMinimize}
+                sx={{
+                  borderRadius: "0px",
+                  ':hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
+                  padding: "16px", marginLeft: "0px", cursor: "default",
+                  "& .MuiTouchRipple-root .MuiTouchRipple-child": {
+                    borderRadius: "0px"
+                  }
+                }}
+                size="large"
+              >
+                <Subtract20Regular />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title={isMaximized ? t('window.restore') : t('window.maximize')} enterDelay={500}>
+              <IconButton
+                id="decorum-tb-maximize"
+                className="decorum-tb-btn"
+                color="inherit"
+                onClick={handleMaximize}
+                onMouseEnter={() => {
+                  if (snapOverlayRef.current === null)
+                    snapOverlayRef.current = setTimeout(async () => {
+                      await invoke("plugin:decorum|show_snap_overlay");
+                    }, 620);
+                  }
                 }
-              }}
-              size="large"
-            >
-              <Subtract20Regular />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title={isMaximized ? t('window.restore') : t('window.maximize')} enterDelay={500}>
-            <IconButton
-              color="inherit"
-              onClick={handleMaximize}
-              sx={{
-                borderRadius: "0px",
-                ':hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
-                padding: "16px", marginLeft: "0px", cursor: "default",
-                "& .MuiTouchRipple-root .MuiTouchRipple-child": {
-                  borderRadius: "0px"
-                }
-              }}
-              size="large"
-            >
-              {isMaximized ? <SquareMultiple20Regular /> : <Maximize20Regular />}
-            </IconButton>
-          </Tooltip>
-          <Tooltip title={t('window.close')} enterDelay={500}>
-            <IconButton
-              color="inherit"
-              onClick={handleClose}
-              sx={{
-                borderRadius: "0px",
-                ':hover': { backgroundColor: 'rgba(255, 0, 0, 0.75)' },
-                padding: "16px", marginLeft: "0px", cursor: "default",
-                "& .MuiTouchRipple-root .MuiTouchRipple-child": {
-                  borderRadius: "0px"
-                }
-              }}
-              size="large"
-            >
-              <Dismiss20Regular />
-            </IconButton>
-          </Tooltip>
+                onMouseLeave={() => {
+                  if (snapOverlayRef.current === null) return;
+                  clearTimeout(snapOverlayRef.current);
+                  snapOverlayRef.current = null;
+                }}
+                sx={{
+                  borderRadius: "0px",
+                  ':hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
+                  padding: "16px", marginLeft: "0px", cursor: "default",
+                  "& .MuiTouchRipple-root .MuiTouchRipple-child": {
+                    borderRadius: "0px"
+                  }
+                }}
+                size="large"
+              >
+                {isMaximized ? <SquareMultiple20Regular /> : <Maximize20Regular />}
+              </IconButton>
+            </Tooltip>
+            <Tooltip title={t('window.close')} enterDelay={500}>
+              <IconButton
+                id="decorum-tb-close"
+                className="decorum-tb-btn"
+                color="inherit"
+                onClick={handleClose}
+                sx={{
+                  borderRadius: "0px",
+                  ':hover': { backgroundColor: 'rgba(255, 0, 0, 0.75)' },
+                  padding: "16px", marginLeft: "0px", cursor: "default",
+                  "& .MuiTouchRipple-root .MuiTouchRipple-child": {
+                    borderRadius: "0px"
+                  }
+                }}
+                size="large"
+              >
+                <Dismiss20Regular />
+              </IconButton>
+            </Tooltip>
+          </div>
         </Toolbar>
       </AppBar>
       <Box component="nav">

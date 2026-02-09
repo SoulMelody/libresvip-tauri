@@ -7,6 +7,7 @@ i18n
   .use(initReactI18next)
   .init({
     debug: false, // Set to true for development, false for production
+    showSupportNotice: false,
     interpolation: {
       escapeValue: false,
     },
