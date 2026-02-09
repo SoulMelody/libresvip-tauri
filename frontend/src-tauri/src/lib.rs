@@ -49,6 +49,8 @@ fn start_sidecar_command() -> Result<(), String> {
                 Err(e) => Err(format!("Failed to start sidecar: {}", e)),
             }
         }
+    } else {
+        Err("Failed to acquire lock on sidecar process".to_string())
     }
 }
 
