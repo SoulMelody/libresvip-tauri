@@ -77,10 +77,10 @@ class PluginInfosResponse(_message.Message):
 class ConversionGroup(_message.Message):
     __slots__ = ()
     GROUP_ID_FIELD_NUMBER: _ClassVar[int]
-    FILE_CONTENTS_FIELD_NUMBER: _ClassVar[int]
+    FILE_PATHS_FIELD_NUMBER: _ClassVar[int]
     group_id: str
-    file_contents: _containers.RepeatedScalarFieldContainer[bytes]
-    def __init__(self, group_id: _Optional[str] = ..., file_contents: _Optional[_Iterable[bytes]] = ...) -> None: ...
+    file_paths: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, group_id: _Optional[str] = ..., file_paths: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ConversionRequest(_message.Message):
     __slots__ = ()
@@ -99,6 +99,7 @@ class ConversionRequest(_message.Message):
     INPUT_OPTIONS_FIELD_NUMBER: _ClassVar[int]
     OUTPUT_OPTIONS_FIELD_NUMBER: _ClassVar[int]
     MIDDLEWARE_OPTIONS_FIELD_NUMBER: _ClassVar[int]
+    LANGUAGE_FIELD_NUMBER: _ClassVar[int]
     input_format: str
     output_format: str
     mode: ConversionMode
@@ -107,19 +108,22 @@ class ConversionRequest(_message.Message):
     input_options: str
     output_options: str
     middleware_options: _containers.ScalarMap[str, str]
-    def __init__(self, input_format: _Optional[str] = ..., output_format: _Optional[str] = ..., mode: _Optional[_Union[ConversionMode, str]] = ..., max_track_count: _Optional[int] = ..., groups: _Optional[_Iterable[_Union[ConversionGroup, _Mapping]]] = ..., input_options: _Optional[str] = ..., output_options: _Optional[str] = ..., middleware_options: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    language: str
+    def __init__(self, input_format: _Optional[str] = ..., output_format: _Optional[str] = ..., mode: _Optional[_Union[ConversionMode, str]] = ..., max_track_count: _Optional[int] = ..., groups: _Optional[_Iterable[_Union[ConversionGroup, _Mapping]]] = ..., input_options: _Optional[str] = ..., output_options: _Optional[str] = ..., middleware_options: _Optional[_Mapping[str, str]] = ..., language: _Optional[str] = ...) -> None: ...
 
 class SingleConversionResult(_message.Message):
     __slots__ = ()
     GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    RUNNING_FIELD_NUMBER: _ClassVar[int]
     COMPLETED_FIELD_NUMBER: _ClassVar[int]
     ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     WARNING_MESSAGES_FIELD_NUMBER: _ClassVar[int]
     group_id: str
+    running: bool
     completed: bool
     error_message: str
     warning_messages: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, group_id: _Optional[str] = ..., completed: _Optional[bool] = ..., error_message: _Optional[str] = ..., warning_messages: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, group_id: _Optional[str] = ..., running: _Optional[bool] = ..., completed: _Optional[bool] = ..., error_message: _Optional[str] = ..., warning_messages: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class VersionRequest(_message.Message):
     __slots__ = ()
@@ -134,17 +138,23 @@ class VersionResponse(_message.Message):
 class MoveFileRequest(_message.Message):
     __slots__ = ()
     GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    OUTPUT_DIR_FIELD_NUMBER: _ClassVar[int]
     FORCE_OVERWRITE_FIELD_NUMBER: _ClassVar[int]
     group_id: str
+    output_dir: str
     force_overwrite: bool
-    def __init__(self, group_id: _Optional[str] = ..., force_overwrite: _Optional[bool] = ...) -> None: ...
+    def __init__(self, group_id: _Optional[str] = ..., output_dir: _Optional[str] = ..., force_overwrite: _Optional[bool] = ...) -> None: ...
 
 class MoveFileResponse(_message.Message):
     __slots__ = ()
     GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     OUTPUT_PATH_FIELD_NUMBER: _ClassVar[int]
     CONFLICT_POLICY_FIELD_NUMBER: _ClassVar[int]
+    COMPLETED_FIELD_NUMBER: _ClassVar[int]
+    ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     group_id: str
     output_path: str
     conflict_policy: ConflictPolicy
-    def __init__(self, group_id: _Optional[str] = ..., output_path: _Optional[str] = ..., conflict_policy: _Optional[_Union[ConflictPolicy, str]] = ...) -> None: ...
+    completed: bool
+    error_message: str
+    def __init__(self, group_id: _Optional[str] = ..., output_path: _Optional[str] = ..., conflict_policy: _Optional[_Union[ConflictPolicy, str]] = ..., completed: _Optional[bool] = ..., error_message: _Optional[str] = ...) -> None: ...

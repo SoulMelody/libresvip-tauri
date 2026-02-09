@@ -46,7 +46,7 @@ message PluginInfosResponse {
 
 message ConversionGroup {
   string group_id = 1;
-  repeated bytes file_contents = 2;
+  repeated string file_paths = 2;
 }
 
 message ConversionRequest {
@@ -58,13 +58,15 @@ message ConversionRequest {
   string input_options = 6;
   string output_options = 7;
   map<string, string> middleware_options = 8;
+  string language = 9;
 }
 
 message SingleConversionResult {
   string group_id = 1;
-  bool completed = 2;
-  string error_message = 3;
-  repeated string warning_messages = 4;
+  bool running = 2;
+  bool completed = 3;
+  string error_message = 4;
+  repeated string warning_messages = 5;
 }
 
 message VersionRequest {
@@ -76,13 +78,16 @@ message VersionResponse {
 
 message MoveFileRequest {
   string group_id = 1;
-  bool force_overwrite = 2;
+  string output_dir = 2;
+  bool force_overwrite = 3;
 }
 
 message MoveFileResponse {
   string group_id = 1;
   string output_path = 2;
   ConflictPolicy conflict_policy = 3;
+  bool completed = 4;
+  string error_message = 5;
 }
 
 service Conversion {

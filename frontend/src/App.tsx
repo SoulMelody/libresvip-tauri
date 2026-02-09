@@ -157,24 +157,6 @@ export function App(props: Props) {
   const handleDrawerToggle = toggledrawerOpen;
 
   useEffect(() => {
-    const unlistenTaskProgress = listen('task_progress', (event) => {
-      let task = event.payload as ConversionTask;
-      updateConversionTask(task.id, task);
-      if (!task.running) {
-        if (task.success !== false) {
-          pyInvoke("move_file", {
-            "id": task.id,
-            "forceOverwrite": false
-          })
-        } else {
-          showMessage(
-            t("converter.conversion_failed"),
-            'error'
-          );
-          increaseFinishedCount();
-        }
-      }
-    })
     const unlistenMoveResult = listen('move_result', (event) => {
       let task = event.payload as ConversionTask;
       updateConversionTask(task.id, task);
@@ -288,7 +270,6 @@ export function App(props: Props) {
     return () => {
       mediaQuery.removeEventListener('change', handleSystemThemeChange);
       document.removeEventListener('contextmenu', handleContextMenu);
-      unlistenTaskProgress.then((unsub) => unsub());
       unlistenMoveResult.then((unsub) => unsub());
       unlistenMoveCallback.then((unsub) => unsub());
       unsubConversionTasks();

@@ -52,7 +52,7 @@ import { ConversionTask } from './ApiTypes';
 import { useSettingStore } from './store/SettingStore';
 import { useTranslation } from 'react-i18next';
 import { path } from '@tauri-apps/api';
-import { parsePath } from './Utils';
+import { parsePath, useMessage } from './Utils';
 import InputNumber from 'rc-input-number';
 import 'rc-input-number/assets/index.css';
 import Form from '@rjsf/mui';
@@ -65,6 +65,8 @@ import HoverPopover from 'material-ui-popup-state/HoverPopover';
 import PopupState, { bindHover, bindPopover, bindTrigger } from 'material-ui-popup-state';
 // import { pyInvoke } from 'tauri-plugin-pytauri-api';
 import { stat } from '@tauri-apps/plugin-fs';
+import { client } from './client';
+import { ConversionMode, ConversionRequest } from './libresvip_tauri_pb';
 
 
 export const ConverterPage = () => {
@@ -83,9 +85,11 @@ export const ConverterPage = () => {
     handleNext,
     handleBack,
     addConversionTasks,
+    updateConversionTask,
     setOptionTab,
     clearConversionTasks,
     setSelectedMiddlewares,
+    increaseFinishedCount,
     resetFinishedCount,
     setMiddlewareFormData,
   } = useConverterStore();
@@ -113,6 +117,9 @@ export const ConverterPage = () => {
     setInputFormatFormData,
     setOutputFormatFormData,
   } = useSettingStore();
+  const {
+    showMessage,
+  } = useMessage();
   const tempFormDatas: {[k: string]: {[k: string]: any}} = {};
 
   const validator = customizeValidator({}, localizer[(
@@ -125,6 +132,34 @@ export const ConverterPage = () => {
       }      
     }
   )(i18n.language)]);
+
+  const startConversion = async (request: ConversionRequest) => {
+    for await (const res of client.convert(request)) {
+      let task = {
+        id: res.groupId,
+        running: res.running,
+        success: res.completed,
+        error: res.errorMessage,
+        warning: res.warningMessages.join("\n"),
+      }
+      updateConversionTask(task.id, task);
+      if (!task.running) {
+        if (task.success !== false) {
+          console.log(task);
+          // pyInvoke("move_file", {
+          //   "id": task.id,
+          //   "forceOverwrite": false
+          // })
+        } else {
+          showMessage(
+            t("converter.conversion_failed"),
+            'error'
+          );
+          increaseFinishedCount();
+        }
+      }
+    }
+  }
 
   function CustomFieldTemplate(props: FieldTemplateProps) {
     const {
@@ -438,7 +473,7 @@ export const ConverterPage = () => {
               }} onClick={() => {
                 let curInputFormatFormData = inputFormatFormData;
                 let curOutputFormatFormData = outputFormatFormData;
-                let curMiddlewareFormDatas = middlewareFormDatas;
+                let curMiddlewareFormDatas: { [key: string]: string } = {};
                 for (let [identifier, formData] of Object.entries(tempFormDatas)) {
                   if (identifier === 'inputOptionsForm') {
                     setInputFormatFormData(formData);
@@ -449,25 +484,35 @@ export const ConverterPage = () => {
                   } else {
                     let middlewareIdentifier = identifier.split('-')[1];
                     setMiddlewareFormData(middlewareIdentifier, formData);
-                    curMiddlewareFormDatas[middlewareIdentifier] = formData;
+                    curMiddlewareFormDatas[middlewareIdentifier] = JSON.stringify(formData);
                   }
                 }
-                pyInvoke("start_conversion", {
-                  inputFormat: inputFormat,
-                  outputFormat: outputFormat,
-                  language: i18n.language,
-                  mode: conversionMode,
-                  maxTrackCount: maxTrackCount,
-                  conversionTasks: conversionTasks,
-                  inputOptions: curInputFormatFormData,
-                  outputOptions: curOutputFormatFormData,
-                  selectedMiddlewares: selectedMiddlewares,
-                  middlewareOptions: curMiddlewareFormDatas,
-                  outputDir: outputDirectory,
-                  conflictPolicy: conflictPolicy,
-                });
-                handleNext();
                 resetFinishedCount();
+                startConversion(
+                  {
+                    inputFormat: inputFormat,
+                    outputFormat: outputFormat,
+                    language: i18n.language,
+                    mode: {
+                      direct: ConversionMode.DIRECT,
+                      merge: ConversionMode.MERGE,
+                      split: ConversionMode.SPLIT,
+                    }[conversionMode],
+                    maxTrackCount: maxTrackCount,
+                    groups: conversionTasks.map((task) => {
+                      return {
+                        groupId: task.id,
+                        filePaths: [task.inputPath],
+                        "$typeName": "LibreSVIP.ConversionGroup",
+                      }
+                    }),
+                    inputOptions: JSON.stringify(curInputFormatFormData),
+                    outputOptions: JSON.stringify(curOutputFormatFormData),
+                    middlewareOptions: curMiddlewareFormDatas,
+                    "$typeName": "LibreSVIP.ConversionRequest",
+                  }
+                );
+                handleNext();
               }}>
                 <Play20Filled />
               </Fab>

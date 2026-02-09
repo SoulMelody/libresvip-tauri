@@ -75,7 +75,6 @@ export const useConverterStore = create<ConverterStore>()(
           category: PluginCategory.MIDDLEWARE,
           language: language
         })
-        console.log(response)
         set((state) => ({
           middlewareSchemas: {
             ...state.middlewareSchemas,

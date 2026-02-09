@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file libresvip_tauri.proto.
  */
 export const file_libresvip_tauri: GenFile = /*@__PURE__*/
-  fileDesc("ChVsaWJyZXN2aXBfdGF1cmkucHJvdG8SCUxpYnJlU1ZJUCL6AQoKUGx1Z2luSW5mbxISCgppZGVudGlmaWVyGAEgASgJEgwKBG5hbWUYAiABKAkSDwoHdmVyc2lvbhgDIAEoCRITCgtkZXNjcmlwdGlvbhgEIAEoCRIOCgZhdXRob3IYBSABKAkSDwoHd2Vic2l0ZRgGIAEoCRITCgtqc29uX3NjaGVtYRgHIAEoCRITCgtmaWxlX2Zvcm1hdBgIIAEoCRIQCghzdWZmaXhlcxgJIAMoCRITCgtpY29uX2Jhc2U2NBgKIAEoCRIWCg51aV9qc29uX3NjaGVtYRgLIAEoCRIaChJkZWZhdWx0X2pzb25fdmFsdWUYDCABKAkiUwoSUGx1Z2luSW5mb3NSZXF1ZXN0EisKCGNhdGVnb3J5GAEgASgOMhkuTGlicmVTVklQLlBsdWdpbkNhdGVnb3J5EhAKCGxhbmd1YWdlGAIgASgJIjwKE1BsdWdpbkluZm9zUmVzcG9uc2USJQoGdmFsdWVzGAEgAygLMhUuTGlicmVTVklQLlBsdWdpbkluZm8iOgoPQ29udmVyc2lvbkdyb3VwEhAKCGdyb3VwX2lkGAEgASgJEhUKDWZpbGVfY29udGVudHMYAiADKAwi6AIKEUNvbnZlcnNpb25SZXF1ZXN0EhQKDGlucHV0X2Zvcm1hdBgBIAEoCRIVCg1vdXRwdXRfZm9ybWF0GAIgASgJEicKBG1vZGUYAyABKA4yGS5MaWJyZVNWSVAuQ29udmVyc2lvbk1vZGUSFwoPbWF4X3RyYWNrX2NvdW50GAQgASgFEioKBmdyb3VwcxgFIAMoCzIaLkxpYnJlU1ZJUC5Db252ZXJzaW9uR3JvdXASFQoNaW5wdXRfb3B0aW9ucxgGIAEoCRIWCg5vdXRwdXRfb3B0aW9ucxgHIAEoCRJPChJtaWRkbGV3YXJlX29wdGlvbnMYCCADKAsyMy5MaWJyZVNWSVAuQ29udmVyc2lvblJlcXVlc3QuTWlkZGxld2FyZU9wdGlvbnNFbnRyeRo4ChZNaWRkbGV3YXJlT3B0aW9uc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEibgoWU2luZ2xlQ29udmVyc2lvblJlc3VsdBIQCghncm91cF9pZBgBIAEoCRIRCgljb21wbGV0ZWQYAiABKAgSFQoNZXJyb3JfbWVzc2FnZRgDIAEoCRIYChB3YXJuaW5nX21lc3NhZ2VzGAQgAygJIhAKDlZlcnNpb25SZXF1ZXN0IiIKD1ZlcnNpb25SZXNwb25zZRIPCgd2ZXJzaW9uGAEgASgJIjwKD01vdmVGaWxlUmVxdWVzdBIQCghncm91cF9pZBgBIAEoCRIXCg9mb3JjZV9vdmVyd3JpdGUYAiABKAgibQoQTW92ZUZpbGVSZXNwb25zZRIQCghncm91cF9pZBgBIAEoCRITCgtvdXRwdXRfcGF0aBgCIAEoCRIyCg9jb25mbGljdF9wb2xpY3kYAyABKA4yGS5MaWJyZVNWSVAuQ29uZmxpY3RQb2xpY3kqNwoOUGx1Z2luQ2F0ZWdvcnkSCQoFSU5QVVQQABIKCgZPVVRQVVQQARIOCgpNSURETEVXQVJFEAIqMgoOQ29udmVyc2lvbk1vZGUSCgoGRElSRUNUEAASCQoFU1BMSVQQARIJCgVNRVJHRRACKiYKDkNvbmZsaWN0UG9saWN5EggKBFNLSVAQABIKCgZQUk9NUFQQATKxAgoKQ29udmVyc2lvbhJMCgtQbHVnaW5JbmZvcxIdLkxpYnJlU1ZJUC5QbHVnaW5JbmZvc1JlcXVlc3QaHi5MaWJyZVNWSVAuUGx1Z2luSW5mb3NSZXNwb25zZRJMCgdDb252ZXJ0EhwuTGlicmVTVklQLkNvbnZlcnNpb25SZXF1ZXN0GiEuTGlicmVTVklQLlNpbmdsZUNvbnZlcnNpb25SZXN1bHQwARJACgdWZXJzaW9uEhkuTGlicmVTVklQLlZlcnNpb25SZXF1ZXN0GhouTGlicmVTVklQLlZlcnNpb25SZXNwb25zZRJFCghNb3ZlRmlsZRIaLkxpYnJlU1ZJUC5Nb3ZlRmlsZVJlcXVlc3QaGy5MaWJyZVNWSVAuTW92ZUZpbGVSZXNwb25zZTABYgZwcm90bzM");
+  fileDesc("ChVsaWJyZXN2aXBfdGF1cmkucHJvdG8SCUxpYnJlU1ZJUCL6AQoKUGx1Z2luSW5mbxISCgppZGVudGlmaWVyGAEgASgJEgwKBG5hbWUYAiABKAkSDwoHdmVyc2lvbhgDIAEoCRITCgtkZXNjcmlwdGlvbhgEIAEoCRIOCgZhdXRob3IYBSABKAkSDwoHd2Vic2l0ZRgGIAEoCRITCgtqc29uX3NjaGVtYRgHIAEoCRITCgtmaWxlX2Zvcm1hdBgIIAEoCRIQCghzdWZmaXhlcxgJIAMoCRITCgtpY29uX2Jhc2U2NBgKIAEoCRIWCg51aV9qc29uX3NjaGVtYRgLIAEoCRIaChJkZWZhdWx0X2pzb25fdmFsdWUYDCABKAkiUwoSUGx1Z2luSW5mb3NSZXF1ZXN0EisKCGNhdGVnb3J5GAEgASgOMhkuTGlicmVTVklQLlBsdWdpbkNhdGVnb3J5EhAKCGxhbmd1YWdlGAIgASgJIjwKE1BsdWdpbkluZm9zUmVzcG9uc2USJQoGdmFsdWVzGAEgAygLMhUuTGlicmVTVklQLlBsdWdpbkluZm8iNwoPQ29udmVyc2lvbkdyb3VwEhAKCGdyb3VwX2lkGAEgASgJEhIKCmZpbGVfcGF0aHMYAiADKAki+gIKEUNvbnZlcnNpb25SZXF1ZXN0EhQKDGlucHV0X2Zvcm1hdBgBIAEoCRIVCg1vdXRwdXRfZm9ybWF0GAIgASgJEicKBG1vZGUYAyABKA4yGS5MaWJyZVNWSVAuQ29udmVyc2lvbk1vZGUSFwoPbWF4X3RyYWNrX2NvdW50GAQgASgFEioKBmdyb3VwcxgFIAMoCzIaLkxpYnJlU1ZJUC5Db252ZXJzaW9uR3JvdXASFQoNaW5wdXRfb3B0aW9ucxgGIAEoCRIWCg5vdXRwdXRfb3B0aW9ucxgHIAEoCRJPChJtaWRkbGV3YXJlX29wdGlvbnMYCCADKAsyMy5MaWJyZVNWSVAuQ29udmVyc2lvblJlcXVlc3QuTWlkZGxld2FyZU9wdGlvbnNFbnRyeRIQCghsYW5ndWFnZRgJIAEoCRo4ChZNaWRkbGV3YXJlT3B0aW9uc0VudHJ5EgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCToCOAEifwoWU2luZ2xlQ29udmVyc2lvblJlc3VsdBIQCghncm91cF9pZBgBIAEoCRIPCgdydW5uaW5nGAIgASgIEhEKCWNvbXBsZXRlZBgDIAEoCBIVCg1lcnJvcl9tZXNzYWdlGAQgASgJEhgKEHdhcm5pbmdfbWVzc2FnZXMYBSADKAkiEAoOVmVyc2lvblJlcXVlc3QiIgoPVmVyc2lvblJlc3BvbnNlEg8KB3ZlcnNpb24YASABKAkiUAoPTW92ZUZpbGVSZXF1ZXN0EhAKCGdyb3VwX2lkGAEgASgJEhIKCm91dHB1dF9kaXIYAiABKAkSFwoPZm9yY2Vfb3ZlcndyaXRlGAMgASgIIpcBChBNb3ZlRmlsZVJlc3BvbnNlEhAKCGdyb3VwX2lkGAEgASgJEhMKC291dHB1dF9wYXRoGAIgASgJEjIKD2NvbmZsaWN0X3BvbGljeRgDIAEoDjIZLkxpYnJlU1ZJUC5Db25mbGljdFBvbGljeRIRCgljb21wbGV0ZWQYBCABKAgSFQoNZXJyb3JfbWVzc2FnZRgFIAEoCSo3Cg5QbHVnaW5DYXRlZ29yeRIJCgVJTlBVVBAAEgoKBk9VVFBVVBABEg4KCk1JRERMRVdBUkUQAioyCg5Db252ZXJzaW9uTW9kZRIKCgZESVJFQ1QQABIJCgVTUExJVBABEgkKBU1FUkdFEAIqJgoOQ29uZmxpY3RQb2xpY3kSCAoEU0tJUBAAEgoKBlBST01QVBABMrECCgpDb252ZXJzaW9uEkwKC1BsdWdpbkluZm9zEh0uTGlicmVTVklQLlBsdWdpbkluZm9zUmVxdWVzdBoeLkxpYnJlU1ZJUC5QbHVnaW5JbmZvc1Jlc3BvbnNlEkwKB0NvbnZlcnQSHC5MaWJyZVNWSVAuQ29udmVyc2lvblJlcXVlc3QaIS5MaWJyZVNWSVAuU2luZ2xlQ29udmVyc2lvblJlc3VsdDABEkAKB1ZlcnNpb24SGS5MaWJyZVNWSVAuVmVyc2lvblJlcXVlc3QaGi5MaWJyZVNWSVAuVmVyc2lvblJlc3BvbnNlEkUKCE1vdmVGaWxlEhouTGlicmVTVklQLk1vdmVGaWxlUmVxdWVzdBobLkxpYnJlU1ZJUC5Nb3ZlRmlsZVJlc3BvbnNlMAFiBnByb3RvMw");
 
 /**
  * @generated from message LibreSVIP.PluginInfo
@@ -135,9 +135,9 @@ export type ConversionGroup = Message<"LibreSVIP.ConversionGroup"> & {
   groupId: string;
 
   /**
-   * @generated from field: repeated bytes file_contents = 2;
+   * @generated from field: repeated string file_paths = 2;
    */
-  fileContents: Uint8Array[];
+  filePaths: string[];
 };
 
 /**
@@ -190,6 +190,11 @@ export type ConversionRequest = Message<"LibreSVIP.ConversionRequest"> & {
    * @generated from field: map<string, string> middleware_options = 8;
    */
   middlewareOptions: { [key: string]: string };
+
+  /**
+   * @generated from field: string language = 9;
+   */
+  language: string;
 };
 
 /**
@@ -209,17 +214,22 @@ export type SingleConversionResult = Message<"LibreSVIP.SingleConversionResult">
   groupId: string;
 
   /**
-   * @generated from field: bool completed = 2;
+   * @generated from field: bool running = 2;
+   */
+  running: boolean;
+
+  /**
+   * @generated from field: bool completed = 3;
    */
   completed: boolean;
 
   /**
-   * @generated from field: string error_message = 3;
+   * @generated from field: string error_message = 4;
    */
   errorMessage: string;
 
   /**
-   * @generated from field: repeated string warning_messages = 4;
+   * @generated from field: repeated string warning_messages = 5;
    */
   warningMessages: string[];
 };
@@ -271,7 +281,12 @@ export type MoveFileRequest = Message<"LibreSVIP.MoveFileRequest"> & {
   groupId: string;
 
   /**
-   * @generated from field: bool force_overwrite = 2;
+   * @generated from field: string output_dir = 2;
+   */
+  outputDir: string;
+
+  /**
+   * @generated from field: bool force_overwrite = 3;
    */
   forceOverwrite: boolean;
 };
@@ -301,6 +316,16 @@ export type MoveFileResponse = Message<"LibreSVIP.MoveFileResponse"> & {
    * @generated from field: LibreSVIP.ConflictPolicy conflict_policy = 3;
    */
   conflictPolicy: ConflictPolicy;
+
+  /**
+   * @generated from field: bool completed = 4;
+   */
+  completed: boolean;
+
+  /**
+   * @generated from field: string error_message = 5;
+   */
+  errorMessage: string;
 };
 
 /**
