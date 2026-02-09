@@ -5,7 +5,6 @@
 from collections.abc import AsyncGenerator, AsyncIterator, Iterable
 from typing import Protocol
 
-import libresvip_tauri_pb2 as libresvip__tauri__pb2
 from connectrpc.code import Code
 from connectrpc.errors import ConnectError
 from connectrpc.interceptor import Interceptor
@@ -15,6 +14,8 @@ from connectrpc.server import (
     ConnectASGIApplication,
     Endpoint,
 )
+
+from . import libresvip_tauri_pb2 as libresvip__tauri__pb2
 
 
 class Conversion(Protocol):
