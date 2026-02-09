@@ -45,6 +45,7 @@ class PluginInfo(_message.Message):
     SUFFIXES_FIELD_NUMBER: _ClassVar[int]
     ICON_BASE64_FIELD_NUMBER: _ClassVar[int]
     UI_JSON_SCHEMA_FIELD_NUMBER: _ClassVar[int]
+    DEFAULT_JSON_VALUE_FIELD_NUMBER: _ClassVar[int]
     identifier: str
     name: str
     version: str
@@ -56,7 +57,8 @@ class PluginInfo(_message.Message):
     suffixes: _containers.RepeatedScalarFieldContainer[str]
     icon_base64: str
     ui_json_schema: str
-    def __init__(self, identifier: _Optional[str] = ..., name: _Optional[str] = ..., version: _Optional[str] = ..., description: _Optional[str] = ..., author: _Optional[str] = ..., website: _Optional[str] = ..., json_schema: _Optional[str] = ..., file_format: _Optional[str] = ..., suffixes: _Optional[_Iterable[str]] = ..., icon_base64: _Optional[str] = ..., ui_json_schema: _Optional[str] = ...) -> None: ...
+    default_json_value: str
+    def __init__(self, identifier: _Optional[str] = ..., name: _Optional[str] = ..., version: _Optional[str] = ..., description: _Optional[str] = ..., author: _Optional[str] = ..., website: _Optional[str] = ..., json_schema: _Optional[str] = ..., file_format: _Optional[str] = ..., suffixes: _Optional[_Iterable[str]] = ..., icon_base64: _Optional[str] = ..., ui_json_schema: _Optional[str] = ..., default_json_value: _Optional[str] = ...) -> None: ...
 
 class PluginInfosRequest(_message.Message):
     __slots__ = ()

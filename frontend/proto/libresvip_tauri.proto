@@ -32,6 +32,7 @@ message PluginInfo {
   repeated string suffixes = 9;
   string icon_base64 = 10;
   string ui_json_schema = 11;
+  string default_json_value = 12;
 }
 
 message PluginInfosRequest {

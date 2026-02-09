@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15libresvip_tauri.proto\x12\tLibreSVIP\"\xd3\x02\n\nPluginInfo\x12\x1e\n\nidentifier\x18\x01 \x01(\tR\nidentifier\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n\x07version\x18\x03 \x01(\tR\x07version\x12 \n\x0b\x64\x65scription\x18\x04 \x01(\tR\x0b\x64\x65scription\x12\x16\n\x06\x61uthor\x18\x05 \x01(\tR\x06\x61uthor\x12\x18\n\x07website\x18\x06 \x01(\tR\x07website\x12\x1f\n\x0bjson_schema\x18\x07 \x01(\tR\njsonSchema\x12\x1f\n\x0b\x66ile_format\x18\x08 \x01(\tR\nfileFormat\x12\x1a\n\x08suffixes\x18\t \x03(\tR\x08suffixes\x12\x1f\n\x0bicon_base64\x18\n \x01(\tR\niconBase64\x12$\n\x0eui_json_schema\x18\x0b \x01(\tR\x0cuiJsonSchema\"g\n\x12PluginInfosRequest\x12\x35\n\x08\x63\x61tegory\x18\x01 \x01(\x0e\x32\x19.LibreSVIP.PluginCategoryR\x08\x63\x61tegory\x12\x1a\n\x08language\x18\x02 \x01(\tR\x08language\"D\n\x13PluginInfosResponse\x12-\n\x06values\x18\x01 \x03(\x0b\x32\x15.LibreSVIP.PluginInfoR\x06values\"Q\n\x0f\x43onversionGroup\x12\x19\n\x08group_id\x18\x01 \x01(\tR\x07groupId\x12#\n\rfile_contents\x18\x02 \x03(\x0cR\x0c\x66ileContents\"\xdc\x03\n\x11\x43onversionRequest\x12!\n\x0cinput_format\x18\x01 \x01(\tR\x0binputFormat\x12#\n\routput_format\x18\x02 \x01(\tR\x0coutputFormat\x12-\n\x04mode\x18\x03 \x01(\x0e\x32\x19.LibreSVIP.ConversionModeR\x04mode\x12&\n\x0fmax_track_count\x18\x04 \x01(\x05R\rmaxTrackCount\x12\x32\n\x06groups\x18\x05 \x03(\x0b\x32\x1a.LibreSVIP.ConversionGroupR\x06groups\x12#\n\rinput_options\x18\x06 \x01(\tR\x0cinputOptions\x12%\n\x0eoutput_options\x18\x07 \x01(\tR\routputOptions\x12\x62\n\x12middleware_options\x18\x08 \x03(\x0b\x32\x33.LibreSVIP.ConversionRequest.MiddlewareOptionsEntryR\x11middlewareOptions\x1a\x44\n\x16MiddlewareOptionsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xa1\x01\n\x16SingleConversionResult\x12\x19\n\x08group_id\x18\x01 \x01(\tR\x07groupId\x12\x1c\n\tcompleted\x18\x02 \x01(\x08R\tcompleted\x12#\n\rerror_message\x18\x03 \x01(\tR\x0c\x65rrorMessage\x12)\n\x10warning_messages\x18\x04 \x03(\tR\x0fwarningMessages\"\x10\n\x0eVersionRequest\"+\n\x0fVersionResponse\x12\x18\n\x07version\x18\x01 \x01(\tR\x07version\"U\n\x0fMoveFileRequest\x12\x19\n\x08group_id\x18\x01 \x01(\tR\x07groupId\x12\'\n\x0f\x66orce_overwrite\x18\x02 \x01(\x08R\x0e\x66orceOverwrite\"\x92\x01\n\x10MoveFileResponse\x12\x19\n\x08group_id\x18\x01 \x01(\tR\x07groupId\x12\x1f\n\x0boutput_path\x18\x02 \x01(\tR\noutputPath\x12\x42\n\x0f\x63onflict_policy\x18\x03 \x01(\x0e\x32\x19.LibreSVIP.ConflictPolicyR\x0e\x63onflictPolicy*7\n\x0ePluginCategory\x12\t\n\x05INPUT\x10\x00\x12\n\n\x06OUTPUT\x10\x01\x12\x0e\n\nMIDDLEWARE\x10\x02*2\n\x0e\x43onversionMode\x12\n\n\x06\x44IRECT\x10\x00\x12\t\n\x05SPLIT\x10\x01\x12\t\n\x05MERGE\x10\x02*&\n\x0e\x43onflictPolicy\x12\x08\n\x04SKIP\x10\x00\x12\n\n\x06PROMPT\x10\x01\x32\xb1\x02\n\nConversion\x12L\n\x0bPluginInfos\x12\x1d.LibreSVIP.PluginInfosRequest\x1a\x1e.LibreSVIP.PluginInfosResponse\x12L\n\x07\x43onvert\x12\x1c.LibreSVIP.ConversionRequest\x1a!.LibreSVIP.SingleConversionResult0\x01\x12@\n\x07Version\x12\x19.LibreSVIP.VersionRequest\x1a\x1a.LibreSVIP.VersionResponse\x12\x45\n\x08MoveFile\x12\x1a.LibreSVIP.MoveFileRequest\x1a\x1b.LibreSVIP.MoveFileResponse0\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15libresvip_tauri.proto\x12\tLibreSVIP\"\x81\x03\n\nPluginInfo\x12\x1e\n\nidentifier\x18\x01 \x01(\tR\nidentifier\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n\x07version\x18\x03 \x01(\tR\x07version\x12 \n\x0b\x64\x65scription\x18\x04 \x01(\tR\x0b\x64\x65scription\x12\x16\n\x06\x61uthor\x18\x05 \x01(\tR\x06\x61uthor\x12\x18\n\x07website\x18\x06 \x01(\tR\x07website\x12\x1f\n\x0bjson_schema\x18\x07 \x01(\tR\njsonSchema\x12\x1f\n\x0b\x66ile_format\x18\x08 \x01(\tR\nfileFormat\x12\x1a\n\x08suffixes\x18\t \x03(\tR\x08suffixes\x12\x1f\n\x0bicon_base64\x18\n \x01(\tR\niconBase64\x12$\n\x0eui_json_schema\x18\x0b \x01(\tR\x0cuiJsonSchema\x12,\n\x12\x64\x65\x66\x61ult_json_value\x18\x0c \x01(\tR\x10\x64\x65\x66\x61ultJsonValue\"g\n\x12PluginInfosRequest\x12\x35\n\x08\x63\x61tegory\x18\x01 \x01(\x0e\x32\x19.LibreSVIP.PluginCategoryR\x08\x63\x61tegory\x12\x1a\n\x08language\x18\x02 \x01(\tR\x08language\"D\n\x13PluginInfosResponse\x12-\n\x06values\x18\x01 \x03(\x0b\x32\x15.LibreSVIP.PluginInfoR\x06values\"Q\n\x0f\x43onversionGroup\x12\x19\n\x08group_id\x18\x01 \x01(\tR\x07groupId\x12#\n\rfile_contents\x18\x02 \x03(\x0cR\x0c\x66ileContents\"\xdc\x03\n\x11\x43onversionRequest\x12!\n\x0cinput_format\x18\x01 \x01(\tR\x0binputFormat\x12#\n\routput_format\x18\x02 \x01(\tR\x0coutputFormat\x12-\n\x04mode\x18\x03 \x01(\x0e\x32\x19.LibreSVIP.ConversionModeR\x04mode\x12&\n\x0fmax_track_count\x18\x04 \x01(\x05R\rmaxTrackCount\x12\x32\n\x06groups\x18\x05 \x03(\x0b\x32\x1a.LibreSVIP.ConversionGroupR\x06groups\x12#\n\rinput_options\x18\x06 \x01(\tR\x0cinputOptions\x12%\n\x0eoutput_options\x18\x07 \x01(\tR\routputOptions\x12\x62\n\x12middleware_options\x18\x08 \x03(\x0b\x32\x33.LibreSVIP.ConversionRequest.MiddlewareOptionsEntryR\x11middlewareOptions\x1a\x44\n\x16MiddlewareOptionsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xa1\x01\n\x16SingleConversionResult\x12\x19\n\x08group_id\x18\x01 \x01(\tR\x07groupId\x12\x1c\n\tcompleted\x18\x02 \x01(\x08R\tcompleted\x12#\n\rerror_message\x18\x03 \x01(\tR\x0c\x65rrorMessage\x12)\n\x10warning_messages\x18\x04 \x03(\tR\x0fwarningMessages\"\x10\n\x0eVersionRequest\"+\n\x0fVersionResponse\x12\x18\n\x07version\x18\x01 \x01(\tR\x07version\"U\n\x0fMoveFileRequest\x12\x19\n\x08group_id\x18\x01 \x01(\tR\x07groupId\x12\'\n\x0f\x66orce_overwrite\x18\x02 \x01(\x08R\x0e\x66orceOverwrite\"\x92\x01\n\x10MoveFileResponse\x12\x19\n\x08group_id\x18\x01 \x01(\tR\x07groupId\x12\x1f\n\x0boutput_path\x18\x02 \x01(\tR\noutputPath\x12\x42\n\x0f\x63onflict_policy\x18\x03 \x01(\x0e\x32\x19.LibreSVIP.ConflictPolicyR\x0e\x63onflictPolicy*7\n\x0ePluginCategory\x12\t\n\x05INPUT\x10\x00\x12\n\n\x06OUTPUT\x10\x01\x12\x0e\n\nMIDDLEWARE\x10\x02*2\n\x0e\x43onversionMode\x12\n\n\x06\x44IRECT\x10\x00\x12\t\n\x05SPLIT\x10\x01\x12\t\n\x05MERGE\x10\x02*&\n\x0e\x43onflictPolicy\x12\x08\n\x04SKIP\x10\x00\x12\n\n\x06PROMPT\x10\x01\x32\xb1\x02\n\nConversion\x12L\n\x0bPluginInfos\x12\x1d.LibreSVIP.PluginInfosRequest\x1a\x1e.LibreSVIP.PluginInfosResponse\x12L\n\x07\x43onvert\x12\x1c.LibreSVIP.ConversionRequest\x1a!.LibreSVIP.SingleConversionResult0\x01\x12@\n\x07Version\x12\x19.LibreSVIP.VersionRequest\x1a\x1a.LibreSVIP.VersionResponse\x12\x45\n\x08MoveFile\x12\x1a.LibreSVIP.MoveFileRequest\x1a\x1b.LibreSVIP.MoveFileResponse0\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,34 +33,34 @@ if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_CONVERSIONREQUEST_MIDDLEWAREOPTIONSENTRY']._loaded_options = None
   _globals['_CONVERSIONREQUEST_MIDDLEWAREOPTIONSENTRY']._serialized_options = b'8\001'
-  _globals['_PLUGINCATEGORY']._serialized_start=1578
-  _globals['_PLUGINCATEGORY']._serialized_end=1633
-  _globals['_CONVERSIONMODE']._serialized_start=1635
-  _globals['_CONVERSIONMODE']._serialized_end=1685
-  _globals['_CONFLICTPOLICY']._serialized_start=1687
-  _globals['_CONFLICTPOLICY']._serialized_end=1725
+  _globals['_PLUGINCATEGORY']._serialized_start=1624
+  _globals['_PLUGINCATEGORY']._serialized_end=1679
+  _globals['_CONVERSIONMODE']._serialized_start=1681
+  _globals['_CONVERSIONMODE']._serialized_end=1731
+  _globals['_CONFLICTPOLICY']._serialized_start=1733
+  _globals['_CONFLICTPOLICY']._serialized_end=1771
   _globals['_PLUGININFO']._serialized_start=37
-  _globals['_PLUGININFO']._serialized_end=376
-  _globals['_PLUGININFOSREQUEST']._serialized_start=378
-  _globals['_PLUGININFOSREQUEST']._serialized_end=481
-  _globals['_PLUGININFOSRESPONSE']._serialized_start=483
-  _globals['_PLUGININFOSRESPONSE']._serialized_end=551
-  _globals['_CONVERSIONGROUP']._serialized_start=553
-  _globals['_CONVERSIONGROUP']._serialized_end=634
-  _globals['_CONVERSIONREQUEST']._serialized_start=637
-  _globals['_CONVERSIONREQUEST']._serialized_end=1113
-  _globals['_CONVERSIONREQUEST_MIDDLEWAREOPTIONSENTRY']._serialized_start=1045
-  _globals['_CONVERSIONREQUEST_MIDDLEWAREOPTIONSENTRY']._serialized_end=1113
-  _globals['_SINGLECONVERSIONRESULT']._serialized_start=1116
-  _globals['_SINGLECONVERSIONRESULT']._serialized_end=1277
-  _globals['_VERSIONREQUEST']._serialized_start=1279
-  _globals['_VERSIONREQUEST']._serialized_end=1295
-  _globals['_VERSIONRESPONSE']._serialized_start=1297
-  _globals['_VERSIONRESPONSE']._serialized_end=1340
-  _globals['_MOVEFILEREQUEST']._serialized_start=1342
-  _globals['_MOVEFILEREQUEST']._serialized_end=1427
-  _globals['_MOVEFILERESPONSE']._serialized_start=1430
-  _globals['_MOVEFILERESPONSE']._serialized_end=1576
-  _globals['_CONVERSION']._serialized_start=1728
-  _globals['_CONVERSION']._serialized_end=2033
+  _globals['_PLUGININFO']._serialized_end=422
+  _globals['_PLUGININFOSREQUEST']._serialized_start=424
+  _globals['_PLUGININFOSREQUEST']._serialized_end=527
+  _globals['_PLUGININFOSRESPONSE']._serialized_start=529
+  _globals['_PLUGININFOSRESPONSE']._serialized_end=597
+  _globals['_CONVERSIONGROUP']._serialized_start=599
+  _globals['_CONVERSIONGROUP']._serialized_end=680
+  _globals['_CONVERSIONREQUEST']._serialized_start=683
+  _globals['_CONVERSIONREQUEST']._serialized_end=1159
+  _globals['_CONVERSIONREQUEST_MIDDLEWAREOPTIONSENTRY']._serialized_start=1091
+  _globals['_CONVERSIONREQUEST_MIDDLEWAREOPTIONSENTRY']._serialized_end=1159
+  _globals['_SINGLECONVERSIONRESULT']._serialized_start=1162
+  _globals['_SINGLECONVERSIONRESULT']._serialized_end=1323
+  _globals['_VERSIONREQUEST']._serialized_start=1325
+  _globals['_VERSIONREQUEST']._serialized_end=1341
+  _globals['_VERSIONRESPONSE']._serialized_start=1343
+  _globals['_VERSIONRESPONSE']._serialized_end=1386
+  _globals['_MOVEFILEREQUEST']._serialized_start=1388
+  _globals['_MOVEFILEREQUEST']._serialized_end=1473
+  _globals['_MOVEFILERESPONSE']._serialized_start=1476
+  _globals['_MOVEFILERESPONSE']._serialized_end=1622
+  _globals['_CONVERSION']._serialized_start=1774
+  _globals['_CONVERSION']._serialized_end=2079
 # @@protoc_insertion_point(module_scope)
