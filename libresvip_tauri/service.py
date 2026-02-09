@@ -130,7 +130,7 @@ def convert_one_group(
                 if w.output:
                     result.warning_messages.append(w.output)
             except Exception:
-                result.success = False
+                result.completed = False
                 result.error_message = traceback.format_exc()
                 project = None
                 break
@@ -144,7 +144,7 @@ def convert_one_group(
             if w.output:
                 result.warning_messages.append(w.output)
         except Exception:
-            result.success = False
+            result.completed = False
             result.error_message = traceback.format_exc()
     if project is not None:
         middlewares = middleware_manager.plugins.get("middleware", {})
@@ -162,7 +162,7 @@ def convert_one_group(
                     if w.output:
                         result.warning_messages.append(w.output)
                 except Exception:
-                    result.success = False
+                    result.completed = False
                     result.error_message = traceback.format_exc()
                     project = None
                     break
@@ -179,19 +179,19 @@ def convert_one_group(
                         result.warning_messages.append(w.output)
                     result.file_contents.append(child_path.read_bytes())
                 except Exception:
-                    result.success = False
+                    result.completed = False
                     result.error_message = traceback.format_exc()
                     break
             else:
-                result.success = True
+                result.completed = True
         else:
             child_path = group_path / "0"
             try:
                 output_plugin.dump(child_path, project, output_options)
                 result.file_contents.append(child_path.read_bytes())
-                result.success = True
+                result.completed = True
             except Exception:
-                result.success = False
+                result.completed = False
                 result.error_message = traceback.format_exc()
     return result
 

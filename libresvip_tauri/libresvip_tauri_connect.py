@@ -11,7 +11,7 @@ from connectrpc.interceptor import Interceptor
 from connectrpc.method import IdempotencyLevel, MethodInfo
 from connectrpc.request import RequestContext
 from connectrpc.server import ConnectASGIApplication, Endpoint
-import libresvip_tauri_pb2 as libresvip__tauri__pb2
+from . import libresvip_tauri_pb2 as libresvip__tauri__pb2
 
 
 class Conversion(Protocol):
