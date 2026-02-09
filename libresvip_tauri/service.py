@@ -171,8 +171,8 @@ def convert_one_group(
                     break
     if project is not None:
         group_path = fs / group.group_id
-        group_path.mkdir()
         if mode == ConversionMode.SPLIT:
+            group_path.mkdir()
             for i, sub_proj in enumerate(project.split_tracks(max_track_count)):
                 child_path = group_path / str(i)
                 try:
@@ -187,7 +187,7 @@ def convert_one_group(
             else:
                 result.completed = True
         else:
-            child_path = group_path / "0"
+            child_path = group_path
             try:
                 output_plugin.dump(child_path, project, output_options)
                 result.completed = True
@@ -317,12 +317,12 @@ class ConversionService(Conversion):
         output_dir = pathlib.Path(request.output_dir).absolute()
         output_dir.mkdir(parents=True, exist_ok=True)
         if (tmp_path := self._fs / request.group_id).exists():
-            result = MoveFileResponse(group_id=request.group_id, completed=True, error_message="", warning_messages=[])
+            result = MoveFileResponse(group_id=request.group_id, completed=True, error_message="")
             try:
                 if tmp_path.is_dir():
                     for i, child in enumerate(tmp_path.iterdir()):
                         output_path = (
-                            output_dir / f"{request.stem}_{child.name}"
+                            output_dir / f"{request.stem}_{child.name}.{request.output_format}"
                         )
                         if output_path.exists():
                             if request.force_overwrite or (
