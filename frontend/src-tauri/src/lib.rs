@@ -38,8 +38,18 @@ fn start_sidecar() -> Result<Child, std::io::Error> {
 #[tauri::command]
 fn start_sidecar_command() -> Result<(), String> {
     if let Ok(mut guard) = SIDECAR_PROCESS.lock() {
-        if let Some(mut child) = guard.take() {
-            Err(format!("Sidecar is already running (PID: {})", child.id()))
+        if let Some(child) = guard.as_ref() {
+            if child.try_wait().is_ok_and(|status| status.is_none()) {
+                Err(format!("Sidecar is already running (PID: {})", child.id()))
+            } else {
+                match start_sidecar() {
+                    Ok(child) => {
+                        *guard = Some(child);
+                        Ok(())
+                    }
+                    Err(e) => Err(format!("Failed to start sidecar: {}", e)),
+                }
+            }
         } else {
             match start_sidecar() {
                 Ok(child) => {
