@@ -39,6 +39,13 @@
     "windows": {
       "nsis": {
         "displayLanguageSelector": true,
+        "languages": [
+          "English",
+          "Korean",
+          "Japanese",
+          "SimpChinese",
+          "TradChinese"
+        ],
         "installerIcon": "icons/icon.ico"
       }
     }
