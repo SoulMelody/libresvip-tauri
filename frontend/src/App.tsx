@@ -221,6 +221,11 @@ export function App(props: Props) {
       }
     })
 
+    const startServer = async () => {
+      await invoke("start_sidecar_command");
+    }
+    startServer();
+
     const getAppVersion = async () => {
       try {
         let appVersionRes = await client.version({}, {timeoutMs: 1000});
