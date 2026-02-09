@@ -77,10 +77,6 @@ fn stop_sidecar() {
 }
 
 pub fn run() {
-    ctrlc::set_handler(|| {
-        println!("[LibreSVIP] Ctrl-C pressed, stopping sidecar...");
-        stop_sidecar();
-    });
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_dialog::init())
