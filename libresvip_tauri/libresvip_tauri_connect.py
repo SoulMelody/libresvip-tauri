@@ -5,26 +5,29 @@
 from collections.abc import AsyncGenerator, AsyncIterator, Iterable
 from typing import Protocol
 
+import libresvip_tauri_pb2 as libresvip__tauri__pb2
 from connectrpc.code import Code
 from connectrpc.errors import ConnectError
 from connectrpc.interceptor import Interceptor
 from connectrpc.method import IdempotencyLevel, MethodInfo
 from connectrpc.request import RequestContext
-from connectrpc.server import ConnectASGIApplication, Endpoint
-from . import libresvip_tauri_pb2 as libresvip__tauri__pb2
+from connectrpc.server import (
+    ConnectASGIApplication,
+    Endpoint,
+)
 
 
 class Conversion(Protocol):
     async def plugin_infos(self, request: libresvip__tauri__pb2.PluginInfosRequest, ctx: RequestContext) -> libresvip__tauri__pb2.PluginInfosResponse:
         raise ConnectError(Code.UNIMPLEMENTED, "Not implemented")
 
-    async def convert(self, request: libresvip__tauri__pb2.ConversionRequest, ctx: RequestContext) -> AsyncIterator[libresvip__tauri__pb2.SingleConversionResult]:
+    def convert(self, request: libresvip__tauri__pb2.ConversionRequest, ctx: RequestContext) -> AsyncIterator[libresvip__tauri__pb2.SingleConversionResult]:
         raise ConnectError(Code.UNIMPLEMENTED, "Not implemented")
 
     async def version(self, request: libresvip__tauri__pb2.VersionRequest, ctx: RequestContext) -> libresvip__tauri__pb2.VersionResponse:
         raise ConnectError(Code.UNIMPLEMENTED, "Not implemented")
 
-    async def move_file(self, request: libresvip__tauri__pb2.MoveFileRequest, ctx: RequestContext) -> AsyncIterator[libresvip__tauri__pb2.MoveFileResponse]:
+    def move_file(self, request: libresvip__tauri__pb2.MoveFileRequest, ctx: RequestContext) -> AsyncIterator[libresvip__tauri__pb2.MoveFileResponse]:
         raise ConnectError(Code.UNIMPLEMENTED, "Not implemented")
 
 

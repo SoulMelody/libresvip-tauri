@@ -45,7 +45,8 @@ import {
   Wand20Regular,
 } from '@fluentui/react-icons';
 import { getCurrentWebview } from "@tauri-apps/api/webview";
-import { open } from '@tauri-apps/plugin-dialog';
+import { ask, open } from '@tauri-apps/plugin-dialog';
+import { revealItemInDir } from '@tauri-apps/plugin-opener';
 import { useEffect } from 'react';
 import { useConverterStore } from './store/ConverterStore';
 import { ConversionTask } from './ApiTypes';
@@ -63,11 +64,9 @@ import i18n from './i18n';
 import { nanoid } from 'nanoid';
 import HoverPopover from 'material-ui-popup-state/HoverPopover';
 import PopupState, { bindHover, bindPopover, bindTrigger } from 'material-ui-popup-state';
-// import { pyInvoke } from 'tauri-plugin-pytauri-api';
 import { stat } from '@tauri-apps/plugin-fs';
 import { client } from './client';
-import { ConversionMode, ConversionRequest } from './libresvip_tauri_pb';
-
+import { ConflictPolicy, ConversionMode, ConversionRequest, MoveFileRequest } from './libresvip_tauri_pb';
 
 export const ConverterPage = () => {
   const { t } = useTranslation();
@@ -133,29 +132,104 @@ export const ConverterPage = () => {
     }
   )(i18n.language)]);
 
+  const moveFile = async (request: MoveFileRequest) => {
+    for await (const res of client.moveFile(request)) {
+      if (res.completed){
+        let taskUpdated = {
+          success: res.success,
+          outputPath: res.outputPath,
+          error: res.errorMessage,
+        };
+        updateConversionTask(res.groupId, taskUpdated);
+        if (taskUpdated.outputPath !== null && revealFileOnFinish) {
+          revealItemInDir(taskUpdated.outputPath);
+        }
+        increaseFinishedCount();
+      } else {
+        if (
+          request.conflictPolicy === ConflictPolicy.SKIP
+        ) {
+          updateConversionTask(res.groupId, {
+            success: true,
+            warning: t("converter.skip_file"),
+          });
+          increaseFinishedCount();
+        } else {
+          let shouldOverwrite = await ask(
+            t("converter.overwrite_file", {
+              "file": res.outputPath,
+            }),
+            {
+              kind: "warning",
+              title: "LibreSVIP",
+              okLabel: t("window.ok"),
+              cancelLabel: t("window.cancel"),
+            }
+          );
+          if (shouldOverwrite) {
+            let task = conversionTasks.find((t) => t.id === res.groupId);
+            if (task) {
+              await moveFile({
+                groupId: res.groupId,
+                forceOverwrite: true,
+                outputDir: outputDirectory,
+                stem: task.outputStem,
+                outputFormat: outputFormat ?? "",
+                conflictPolicy: {
+                  "rename": ConflictPolicy.RENAME,
+                  "overwrite": ConflictPolicy.OVERWRITE,
+                  "prompt": ConflictPolicy.PROMPT,
+                  "skip": ConflictPolicy.SKIP,
+                  }[conflictPolicy],
+                "$typeName": "LibreSVIP.MoveFileRequest",
+              })
+            } else {
+              updateConversionTask(res.groupId, {
+                success: true,
+                warning: t("converter.skip_file"),
+              });
+              increaseFinishedCount();
+            }
+          }
+        }
+      }
+    }
+  }
+
   const startConversion = async (request: ConversionRequest) => {
     for await (const res of client.convert(request)) {
-      let task = {
-        id: res.groupId,
+      let taskUpdated = {
         running: res.running,
         success: res.completed,
         error: res.errorMessage,
         warning: res.warningMessages.join("\n"),
       }
-      updateConversionTask(task.id, task);
-      if (!task.running) {
-        if (task.success !== false) {
-          console.log(task);
-          // pyInvoke("move_file", {
-          //   "id": task.id,
-          //   "forceOverwrite": false
-          // })
-        } else {
-          showMessage(
-            t("converter.conversion_failed"),
-            'error'
-          );
-          increaseFinishedCount();
+      updateConversionTask(res.groupId, taskUpdated);
+      if (!taskUpdated.running) {
+        let task = conversionTasks.find((t) => t.id === res.groupId);
+        if (task) {
+          if (task.success !== false) {
+            await moveFile({
+              groupId: task.id,
+              forceOverwrite: false,
+              outputDir: outputDirectory,
+              stem: task.outputStem,
+              outputFormat: outputFormat ?? "",
+              conflictPolicy: {
+                "rename": ConflictPolicy.RENAME,
+                "overwrite": ConflictPolicy.OVERWRITE,
+                "prompt": ConflictPolicy.PROMPT,
+                "skip": ConflictPolicy.SKIP,
+              }[conflictPolicy],
+              "$typeName": "LibreSVIP.MoveFileRequest",
+            });
+          } else {
+            showMessage(
+              t("converter.conversion_failed"),
+              'error'
+            );
+            increaseFinishedCount();
+          }
         }
       }
     }

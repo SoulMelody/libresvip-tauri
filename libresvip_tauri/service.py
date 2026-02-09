@@ -34,9 +34,12 @@ from upath import UPath
 
 from .libresvip_tauri_connect import Conversion, ConversionASGIApplication
 from .libresvip_tauri_pb2 import (
+    ConflictPolicy,
     ConversionGroup,
     ConversionMode,
     ConversionRequest,
+    MoveFileRequest,
+    MoveFileResponse,
     PluginCategory,
     PluginInfo,
     PluginInfosRequest,
@@ -309,6 +312,90 @@ class ConversionService(Conversion):
             futures.append(asyncio.create_task(coro))
         for future in asyncio.as_completed(futures):
             yield (await future)
+
+    async def move_file(self, request: MoveFileRequest, ctx: RequestContext) -> AsyncIterator[MoveFileResponse]:
+        output_dir = pathlib.Path(request.output_dir).absolute()
+        output_dir.mkdir(parents=True, exist_ok=True)
+        if (tmp_path := self._fs / request.group_id).exists():
+            result = MoveFileResponse(group_id=request.group_id, completed=True, error_message="", warning_messages=[])
+            try:
+                if tmp_path.is_dir():
+                    for i, child in enumerate(tmp_path.iterdir()):
+                        output_path = (
+                            output_dir / f"{request.stem}_{child.name}"
+                        )
+                        if output_path.exists():
+                            if request.force_overwrite or (
+                                request.conflict_policy == ConflictPolicy.OVERWRITE
+                            ):
+                                output_path.write_bytes(tmp_path.read_bytes())
+                            elif request.conflict_policy == ConflictPolicy.RENAME:
+                                output_path = (
+                                    output_dir
+                                    / f"{request.stem}_{child.name}_{i}.{request.output_format}"
+                                )
+                                output_path.write_bytes(tmp_path.read_bytes())
+                            elif request.conflict_policy == ConflictPolicy.PROMPT:
+                                yield MoveFileResponse(
+                                    group_id=request.group_id,
+                                    completed=False,
+                                    output_path=str(output_path),
+                                    conflict_policy=request.conflict_policy,
+                                )
+                                return
+                            else:
+                                yield MoveFileResponse(
+                                    group_id=request.group_id,
+                                    completed=False,
+                                    output_path=str(output_path),
+                                    conflict_policy=request.conflict_policy,
+                                )
+                                return
+                        else:
+                            output_path.write_bytes(child.read_bytes())
+                        result.output_path = str(output_path)
+                        child.unlink()
+                    tmp_path.rmdir()
+                else:
+                    output_path = (
+                        output_dir / f"{request.stem}.{request.output_format}"
+                    )
+                    if output_path.exists():
+                        if request.force_overwrite or (
+                            request.conflict_policy == ConflictPolicy.OVERWRITE
+                        ):
+                            output_path.write_bytes(tmp_path.read_bytes())
+                        elif request.conflict_policy == ConflictPolicy.RENAME:
+                            output_path = (
+                                output_dir
+                                / f"{request.stem}_{i}.{request.output_format}"
+                            )
+                            output_path.write_bytes(tmp_path.read_bytes())
+                        elif request.conflict_policy == ConflictPolicy.PROMPT:
+                            yield MoveFileResponse(
+                                group_id=request.group_id,
+                                completed=False,
+                                output_path=str(output_path),
+                                conflict_policy=request.conflict_policy,
+                            )
+                            return
+                        else:
+                            yield MoveFileResponse(
+                                group_id=request.group_id,
+                                completed=False,
+                                output_path=str(output_path),
+                                conflict_policy=request.conflict_policy,
+                            )
+                            return
+                    else:
+                        output_path.write_bytes(tmp_path.read_bytes())
+                    tmp_path.unlink()
+                    result.output_path = str(output_path)
+                result.success = True
+            except Exception:
+                result.success = False
+                result.error_message = traceback.format_exc()
+            yield result
 
 
 app = Starlette()

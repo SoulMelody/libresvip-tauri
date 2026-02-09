@@ -17,6 +17,8 @@ enum ConversionMode {
 enum ConflictPolicy {
   SKIP = 0;
   PROMPT = 1;
+  OVERWRITE = 2;
+  RENAME = 3;
 }
 
 message PluginInfo {
@@ -79,7 +81,10 @@ message VersionResponse {
 message MoveFileRequest {
   string group_id = 1;
   string output_dir = 2;
-  bool force_overwrite = 3;
+  string stem = 3;
+  string output_format = 4;
+  ConflictPolicy conflict_policy = 5;
+  bool force_overwrite = 6;
 }
 
 message MoveFileResponse {
@@ -87,7 +92,8 @@ message MoveFileResponse {
   string output_path = 2;
   ConflictPolicy conflict_policy = 3;
   bool completed = 4;
-  string error_message = 5;
+  bool success = 5;
+  string error_message = 6;
 }
 
 service Conversion {

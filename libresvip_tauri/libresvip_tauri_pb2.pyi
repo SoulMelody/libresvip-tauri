@@ -23,6 +23,8 @@ class ConflictPolicy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     SKIP: _ClassVar[ConflictPolicy]
     PROMPT: _ClassVar[ConflictPolicy]
+    OVERWRITE: _ClassVar[ConflictPolicy]
+    RENAME: _ClassVar[ConflictPolicy]
 INPUT: PluginCategory
 OUTPUT: PluginCategory
 MIDDLEWARE: PluginCategory
@@ -31,6 +33,8 @@ SPLIT: ConversionMode
 MERGE: ConversionMode
 SKIP: ConflictPolicy
 PROMPT: ConflictPolicy
+OVERWRITE: ConflictPolicy
+RENAME: ConflictPolicy
 
 class PluginInfo(_message.Message):
     __slots__ = ()
@@ -139,11 +143,17 @@ class MoveFileRequest(_message.Message):
     __slots__ = ()
     GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     OUTPUT_DIR_FIELD_NUMBER: _ClassVar[int]
+    STEM_FIELD_NUMBER: _ClassVar[int]
+    OUTPUT_FORMAT_FIELD_NUMBER: _ClassVar[int]
+    CONFLICT_POLICY_FIELD_NUMBER: _ClassVar[int]
     FORCE_OVERWRITE_FIELD_NUMBER: _ClassVar[int]
     group_id: str
     output_dir: str
+    stem: str
+    output_format: str
+    conflict_policy: ConflictPolicy
     force_overwrite: bool
-    def __init__(self, group_id: _Optional[str] = ..., output_dir: _Optional[str] = ..., force_overwrite: _Optional[bool] = ...) -> None: ...
+    def __init__(self, group_id: _Optional[str] = ..., output_dir: _Optional[str] = ..., stem: _Optional[str] = ..., output_format: _Optional[str] = ..., conflict_policy: _Optional[_Union[ConflictPolicy, str]] = ..., force_overwrite: _Optional[bool] = ...) -> None: ...
 
 class MoveFileResponse(_message.Message):
     __slots__ = ()
@@ -151,10 +161,12 @@ class MoveFileResponse(_message.Message):
     OUTPUT_PATH_FIELD_NUMBER: _ClassVar[int]
     CONFLICT_POLICY_FIELD_NUMBER: _ClassVar[int]
     COMPLETED_FIELD_NUMBER: _ClassVar[int]
+    SUCCESS_FIELD_NUMBER: _ClassVar[int]
     ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     group_id: str
     output_path: str
     conflict_policy: ConflictPolicy
     completed: bool
+    success: bool
     error_message: str
-    def __init__(self, group_id: _Optional[str] = ..., output_path: _Optional[str] = ..., conflict_policy: _Optional[_Union[ConflictPolicy, str]] = ..., completed: _Optional[bool] = ..., error_message: _Optional[str] = ...) -> None: ...
+    def __init__(self, group_id: _Optional[str] = ..., output_path: _Optional[str] = ..., conflict_policy: _Optional[_Union[ConflictPolicy, str]] = ..., completed: _Optional[bool] = ..., success: _Optional[bool] = ..., error_message: _Optional[str] = ...) -> None: ...

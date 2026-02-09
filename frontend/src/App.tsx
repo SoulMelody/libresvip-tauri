@@ -68,16 +68,13 @@ import { useTranslation } from 'react-i18next';
 import { AboutPage } from "./AboutPage";
 import { ConverterPage } from "./ConverterPage";
 import { path } from '@tauri-apps/api';
-import { listen } from "@tauri-apps/api/event";
-import { ask, open } from '@tauri-apps/plugin-dialog';
+import { open } from '@tauri-apps/plugin-dialog';
 import { writeText } from '@tauri-apps/plugin-clipboard-manager';
-import { revealItemInDir } from '@tauri-apps/plugin-opener';
-// import { pyInvoke } from 'tauri-plugin-pytauri-api';
 import { invoke } from '@tauri-apps/api/core';
 import { useSettingStore } from './store/SettingStore';
 import { useWindowStore } from './store/WindowStore';
 import { useConverterStore } from "./store/ConverterStore";
-import { ConversionTask, MoveCallbackParams } from './ApiTypes';
+import { ConversionTask } from './ApiTypes';
 import { parsePath, useMessage } from './Utils';
 import { ControlledMenu, MenuItem, MenuRadioGroup, SubMenu } from '@szhsin/react-menu';
 import { nanoid } from 'nanoid';
@@ -150,58 +147,12 @@ export function App(props: Props) {
     setCurTaskListPage,
   } = useConverterStore();
   const {
-    showMessage,
     MessageSnackbar,
   } = useMessage();
 
   const handleDrawerToggle = toggledrawerOpen;
 
   useEffect(() => {
-    const unlistenMoveResult = listen('move_result', (event) => {
-      let task = event.payload as ConversionTask;
-      updateConversionTask(task.id, task);
-      if (task.outputPath !== null && revealFileOnFinish) {
-        revealItemInDir(task.outputPath);
-      }
-      increaseFinishedCount();
-    })
-    const unlistenMoveCallback = listen('move_callback', async (event) => {
-      let payload = event.payload as MoveCallbackParams;
-      if (
-        payload.conflictPolicy === "skip"
-      ) {
-        updateConversionTask(payload.id, {
-          success: true,
-          warning: t("converter.skip_file"),
-        });
-        increaseFinishedCount();
-      } else {
-        let shouldOverwrite = await ask(
-          t("converter.overwrite_file", {
-            "file": payload.outputPath,
-          }),
-          {
-            kind: "warning",
-            title: "LibreSVIP",
-            okLabel: t("window.ok"),
-            cancelLabel: t("window.cancel"),
-          }
-        );
-        if (shouldOverwrite) {
-          await pyInvoke("move_file", {
-            "id": payload.id,
-            "forceOverwrite": true
-          })
-        } else {
-          updateConversionTask(payload.id, {
-            success: true,
-            warning: t("converter.skip_file"),
-          });
-          increaseFinishedCount();
-        }
-      }
-    })
-
     const startServer = async () => {
       await invoke("start_sidecar_command");
     }
@@ -270,8 +221,6 @@ export function App(props: Props) {
     return () => {
       mediaQuery.removeEventListener('change', handleSystemThemeChange);
       document.removeEventListener('contextmenu', handleContextMenu);
-      unlistenMoveResult.then((unsub) => unsub());
-      unlistenMoveCallback.then((unsub) => unsub());
       unsubConversionTasks();
       unsubInputFormat();
       unsubOutputFormat();
