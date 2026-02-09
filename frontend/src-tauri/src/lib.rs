@@ -37,14 +37,17 @@ fn start_sidecar() -> Result<Child, std::io::Error> {
 
 #[tauri::command]
 fn start_sidecar_command() -> Result<(), String> {
-    match start_sidecar() {
-        Ok(child) => {
-            if let Ok(mut guard) = SIDECAR_PROCESS.lock() {
-                *guard = Some(child);
+    if let Ok(mut guard) = SIDECAR_PROCESS.lock() {
+        if let Some(mut child) = guard.take() {
+        } else {
+            match start_sidecar() {
+                Ok(child) => {
+                    *guard = Some(child);
+                    Ok(())
+                }
+                Err(e) => Err(format!("Failed to start sidecar: {}", e)),
             }
-            Ok(())
         }
-        Err(e) => Err(format!("Failed to start sidecar: {}", e)),
     }
 }
 

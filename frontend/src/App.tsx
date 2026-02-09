@@ -230,6 +230,13 @@ export function App(props: Props) {
         let appVersionRes = await client.version({}, {timeoutMs: 1000});
         setAppVersion(appVersionRes.version);
         clearInterval(appVersionIntervalId);
+        loadMiddlewareSchemas(language);
+        if (inputFormat !== null) {
+          loadInputFormatSchema(inputFormat, language);
+        }
+        if (outputFormat !== null) {
+          loadOutputFormatSchema(outputFormat, language);
+        }
       } catch (e) {
         console.error(e);
       }
@@ -268,12 +275,6 @@ export function App(props: Props) {
         loadOutputFormatSchema(outputFormat, i18n.language);
       }
     });
-    if (inputFormat !== null) {
-      loadInputFormatSchema(inputFormat, language);
-    }
-    if (outputFormat !== null) {
-      loadOutputFormatSchema(outputFormat, language);
-    }
 
     const unsubLanguage = useSettingStore.subscribe((state) => state.language, (language, prevLanguage) => {
       if (language !== prevLanguage) {
@@ -281,8 +282,6 @@ export function App(props: Props) {
         loadMiddlewareSchemas(language);
       }
     });
-
-    loadMiddlewareSchemas(language);
 
     mediaQuery.addEventListener('change', handleSystemThemeChange);
     document.addEventListener('contextmenu', handleContextMenu);
