@@ -177,7 +177,6 @@ def convert_one_group(
                         output_plugin.dump(child_path, sub_proj, output_options)
                     if w.output:
                         result.warning_messages.append(w.output)
-                    result.file_contents.append(child_path.read_bytes())
                 except Exception:
                     result.completed = False
                     result.error_message = traceback.format_exc()
@@ -188,7 +187,6 @@ def convert_one_group(
             child_path = group_path / "0"
             try:
                 output_plugin.dump(child_path, project, output_options)
-                result.file_contents.append(child_path.read_bytes())
                 result.completed = True
             except Exception:
                 result.completed = False
