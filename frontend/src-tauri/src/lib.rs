@@ -39,6 +39,7 @@ fn start_sidecar() -> Result<Child, std::io::Error> {
 fn start_sidecar_command() -> Result<(), String> {
     if let Ok(mut guard) = SIDECAR_PROCESS.lock() {
         if let Some(mut child) = guard.take() {
+            Err(format!("Sidecar is already running (PID: {})", child.id()))
         } else {
             match start_sidecar() {
                 Ok(child) => {
