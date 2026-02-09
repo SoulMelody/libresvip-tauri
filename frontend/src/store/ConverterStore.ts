@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { subscribeWithSelector } from 'zustand/middleware';
-// import { pyInvoke } from 'tauri-plugin-pytauri-api';
+import { client } from '@/client';
+import { PluginCategory } from '@/libresvip_tauri_pb';
 import { ConversionTask, PluginInfo, SchemaConfig } from '@/ApiTypes';
 
 
@@ -29,8 +30,7 @@ interface ConverterStore {
   setCurTaskListPage: (page: number) => void;
   setOptionTab: (tab: number) => void;
   setSelectedMiddlewares: (middlewares: string[]) => void;
-  loadMiddlewareSchema: (id: string, language: string) => Promise<void>;
-  setMiddlewareIds: (ids: string[]) => void;
+  loadMiddlewareSchemas: (language: string) => Promise<void>;
   setMiddlewareFormData: (id: string, formData: {[k: string]: any}) => void;
 }
 
@@ -70,20 +70,23 @@ export const useConverterStore = create<ConverterStore>()(
       setOptionTab: (tab) => set({ optionTab: tab }),
       setCurTaskListPage: (page) => set({ curTaskListPage: page }),
       setSelectedMiddlewares: (middlewares) => set({ selectedMiddlewares: middlewares }),
-      loadMiddlewareSchema: async (id, language) => {
-        const response: SchemaConfig = await pyInvoke('option_schema', {
-          identifier: id,
-          category: "process",
+      loadMiddlewareSchemas: async (language) => {
+        const response = await client.pluginInfos({
+          category: PluginCategory.MIDDLEWARE,
           language: language
         })
         set((state) => ({
           middlewareSchemas: {
             ...state.middlewareSchemas,
-            [id]: response
-          }
+            ...Object.fromEntries(response.values.map((p) => [p.identifier, {
+              json_schema: JSON.parse(p.jsonSchema),
+              ui_schema: JSON.parse(p.uiJsonSchema),
+              default_value: JSON.parse(p.defaultJsonValue),
+            }]))
+          },
+          middlewareIds: response.values.map((p) => p.identifier),
         }))
       },
-      setMiddlewareIds: (ids) => set({ middlewareIds: ids }),
       setMiddlewareFormData: (id, formData) => set((state) => ({
         middlewareFormDatas: {
           ...state.middlewareFormDatas,

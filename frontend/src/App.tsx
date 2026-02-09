@@ -138,14 +138,13 @@ export function App(props: Props) {
   const {
     conversionTasks,
     curTaskListPage,
-    middlewareIds,
     inputPluginInfos,
     addConversionTasks,
     updateConversionTask,
     removeConversionTask,
     filterConversionTasksByInputFormat,
     clearConversionTasks,
-    loadMiddlewareSchema,
+    loadMiddlewareSchemas,
     setActiveStep,
     increaseFinishedCount,
     setCurTaskListPage,
@@ -279,15 +278,11 @@ export function App(props: Props) {
     const unsubLanguage = useSettingStore.subscribe((state) => state.language, (language, prevLanguage) => {
       if (language !== prevLanguage) {
         i18n.changeLanguage(language);
-        for (const middlewareId of middlewareIds) {
-          loadMiddlewareSchema(middlewareId, language);
-        }
+        loadMiddlewareSchemas(language);
       }
     });
 
-    for (const middlewareId of middlewareIds) {
-      loadMiddlewareSchema(middlewareId, language);
-    }
+    loadMiddlewareSchemas(language);
 
     mediaQuery.addEventListener('change', handleSystemThemeChange);
     document.addEventListener('contextmenu', handleContextMenu);
