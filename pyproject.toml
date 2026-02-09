@@ -8,6 +8,7 @@ dependencies = [
     "connect-python>=0.8.1",
     "hypercorn>=0.18.0",
     "libresvip[crypto,lxml,yaml12,zstd]>=2.1.2",
+    "psutil>=7.2.2",
     "starlette>=0.52.1",
 ]
 

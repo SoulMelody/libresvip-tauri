@@ -1,5 +1,6 @@
 mod plugins;
 
+use std::process;
 use std::process::{Child, Command, Stdio};
 use std::sync::Mutex;
 use tauri::Manager;
@@ -13,6 +14,8 @@ fn start_sidecar() -> Result<Child, std::io::Error> {
         use std::os::windows::process::CommandExt;
         const CREATE_NO_WINDOW: u32 = 0x08000000;
         Command::new("libresvip-tauri-server.exe")
+            .arg("--parent-pid")
+            .arg(process::id().to_string())
             .current_dir(".")
             .creation_flags(CREATE_NO_WINDOW)
             .spawn()
@@ -20,6 +23,8 @@ fn start_sidecar() -> Result<Child, std::io::Error> {
 
     #[cfg(not(windows))]
     let result = Command::new("libresvip-tauri-server")
+        .arg("--parent-pid")
+        .arg(process::id().to_string())
         .current_dir(".")
         .spawn();
 
