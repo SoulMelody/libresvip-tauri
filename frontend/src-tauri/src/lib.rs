@@ -58,7 +58,7 @@ fn start_sidecar_command() -> Result<(), String> {
                     ctrlc::set_handler(|| {
                         println!("[LibreSVIP] Ctrl-C pressed, stopping sidecar...");
                         stop_sidecar();
-                    });
+                    }).expect("Error setting Ctrl-C handler");
                     Ok(())
                 }
                 Err(e) => Err(format!("Failed to start sidecar: {}", e)),
