@@ -3,6 +3,8 @@ import importlib.metadata
 from pydantic import BaseModel
 from pydantic._internal._core_utils import CoreSchemaOrField
 from pydantic.json_schema import GenerateJsonSchema, JsonSchemaValue
+from starlette.middleware.cors import CORSMiddleware
+from starlette.applications import Starlette
 from typing_extensions import override
 
 from libresvip.core.compat import json
@@ -104,5 +106,13 @@ class ConversionService(Conversion):
     async def version(self, request: VersionRequest, ctx: RequestContext) -> VersionResponse:
         return VersionResponse(version=importlib.metadata.version("libresvip"))
 
-# Create ASGI app
-app = ConversionASGIApplication(ConversionService())
+app = Starlette()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+conversion_app = ConversionASGIApplication(ConversionService())
+app.mount("/", conversion_app)
