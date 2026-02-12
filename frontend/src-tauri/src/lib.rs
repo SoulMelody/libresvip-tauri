@@ -5,6 +5,10 @@ use std::process::{Child, Command, Stdio};
 use std::sync::Mutex;
 use tauri::Manager;
 use tauri_plugin_decorum::WebviewWindowExt;
+use tauri_plugin_prevent_default;
+
+#[cfg(target_os = "windows")]
+use tauri_plugin_prevent_default::PlatformOptions;
 
 static SIDECAR_PROCESS: Mutex<Option<Child>> = Mutex::new(None);
 
@@ -81,6 +85,33 @@ fn stop_sidecar() {
     }
 }
 
+#[cfg(debug_assertions)]
+fn prevent_default() -> tauri::plugin::TauriPlugin<tauri::Wry> {
+    tauri_plugin_prevent_default::debug()
+}
+
+#[cfg(not(debug_assertions))]
+fn prevent_default() -> tauri::plugin::TauriPlugin<tauri::Wry> {
+    use tauri_plugin_prevent_default::Flags;
+
+    let mut builder = tauri_plugin_prevent_default::Builder::new().with_flags(Flags::all());
+
+    #[cfg(target_os = "windows")]
+    {
+        use tauri_plugin_prevent_default::PlatformOptions;
+        builder = tauri_plugin_prevent_default::Builder::new().platform(
+            PlatformOptions::new()
+                .general_autofill(false)
+                .password_autosave(false)
+                .browser_accelerator_keys(false)
+                .default_context_menus(false)
+                .default_script_dialogs(false),
+        );
+    }
+
+    builder.build()
+}
+
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
@@ -89,6 +120,7 @@ pub fn run() {
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_clipboard_manager::init())
 		.plugin(tauri_plugin_decorum::init())
+        .plugin(prevent_default())
         .on_window_event(|_window, event| {
             if let tauri::WindowEvent::CloseRequested { .. } = event {
                 println!("[LibreSVIP] Window close requested, stopping sidecar...");
