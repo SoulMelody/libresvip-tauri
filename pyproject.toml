@@ -14,12 +14,12 @@ dependencies = [
 
 [dependency-groups]
 nodejs = [
-    "nodejs-wheel>=24.13.0",
+    "nodejs-wheel>=24.13.1",
     "pydantic-to-typescript>=2.0.0",
 ]
 packaging = [
-    "pillow>=12.1.0",
-    "pyinstaller>=6.18.0",
+    "pillow>=12.1.1",
+    "pyinstaller>=6.19.0",
     "shellingham<2.0.0,>=1.5.4",
 ]
 protobuf = [
