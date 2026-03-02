@@ -1,20 +1,20 @@
 [project]
 name = "libresvip-tauri"
-version = "2.2.0"
+version = "2.3.0"
 description = ""
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "connect-python>=0.8.1",
     "hypercorn>=0.18.0",
-    "libresvip[crypto,lxml,yaml12,zstd]>=2.2.0",
+    "libresvip[crypto,lxml,yaml12,zstd]>=2.3.0",
     "psutil>=7.2.2",
     "starlette>=0.52.1",
 ]
 
 [dependency-groups]
 nodejs = [
-    "nodejs-wheel>=24.13.1",
+    "nodejs-wheel>=24.14.0",
     "pydantic-to-typescript>=2.0.0",
 ]
 packaging = [
