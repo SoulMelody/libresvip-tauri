@@ -23,8 +23,9 @@ packaging = [
     "shellingham<2.0.0,>=1.5.4",
 ]
 protobuf = [
+    "buf-bin>=1.66.1",
     "protoc-gen-connect-python>=0.8.1",
-    "protoc-wrapper>=33.0.0",
+    "protobuf-protoc-bin>=34.0",
 ]
 
 [tool.uv.build-backend]

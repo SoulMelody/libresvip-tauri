@@ -1,6 +1,6 @@
 version: v2
 plugins:
-  - local: protoc-gen-es
+  - local: ./node_modules/.bin/protoc-gen-es
     out: src
     include_imports: true
     opt: target=ts
