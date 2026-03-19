@@ -39,3 +39,4 @@ if __name__ == "__main__":
     server_thread.start()
     if check_thread is not None:
         check_thread.join()
+    server_thread.join()

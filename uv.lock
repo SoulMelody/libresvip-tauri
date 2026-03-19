@@ -382,15 +382,15 @@ wheels = [
 
 [[package]]
 name = "connect-python"
-version = "0.8.1"
+version = "0.9.0"
 source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
 dependencies = [
     { name = "protobuf" },
     { name = "pyqwest" },
 ]
-sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/8f/8d/e04954dacc3c32c2f858a115b2b989ed6cccefc3835fb440bb12dcb468c2/connect_python-0.8.1.tar.gz", hash = "sha256:0d36c9cfe050661f8f167afcfff8df622805a4f348961d0d8fab630c96f0bdab", size = 39292, upload-time = "2026-01-27T05:00:02.751Z" }
+sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/74/fc/0e4798c53e2754f5de36ecf4d198706cb23711d603df6c008f6e7b5b21ae/connect_python-0.9.0.tar.gz", hash = "sha256:a188ec843b0f5953b7e1b88061af50ad91c9aaa2e982d7a89a63ae5c1fff932e", size = 46094, upload-time = "2026-03-19T02:40:42.279Z" }
 wheels = [
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/7d/e4/e36a6d0450493e2b940086ebe94394381803b2b09c97e8f8e34230bcaa99/connect_python-0.8.1-py3-none-any.whl", hash = "sha256:bfe31fb3d90c2a6715fc2996fa4bd5c98dfdccd81e47ac232c9d03aadd666be1", size = 54902, upload-time = "2026-01-27T05:00:01.18Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/4c/15/5b42df2d9d34e5103f2b69e4f6a4aeb47c52589eaac8d53eb5b0a40eabaa/connect_python-0.9.0-py3-none-any.whl", hash = "sha256:896171fa7236d4e1557e3f7eee76daa8c9dd762f2c21662515f2060f1b542574", size = 63381, upload-time = "2026-03-19T02:40:40.743Z" },
 ]
 
 [[package]]
@@ -653,7 +653,7 @@ protobuf = [
 
 [package.metadata]
 requires-dist = [
-    { name = "connect-python", specifier = ">=0.8.1" },
+    { name = "connect-python", specifier = ">=0.9.0" },
     { name = "hypercorn", specifier = ">=0.18.0" },
     { name = "libresvip", extras = ["crypto", "lxml", "yaml12", "zstd"], specifier = ">=2.3.0" },
     { name = "psutil", specifier = ">=7.2.2" },
@@ -673,7 +673,7 @@ packaging = [
 protobuf = [
     { name = "buf-bin", specifier = ">=1.66.1" },
     { name = "protobuf-protoc-bin", specifier = ">=34.0" },
-    { name = "protoc-gen-connect-python", specifier = ">=0.8.1" },
+    { name = "protoc-gen-connect-python", specifier = ">=0.9.0" },
 ]
 
 [[package]]
@@ -1301,15 +1301,15 @@ wheels = [
 
 [[package]]
 name = "protoc-gen-connect-python"
-version = "0.8.1"
+version = "0.9.0"
 source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
 wheels = [
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/26/18/61737bae921b83c82a3191bad58d44f814e59e201973a71d866fd7b6e5ae/protoc_gen_connect_python-0.8.1-py3-none-macosx_11_0_arm64.whl", hash = "sha256:11d06710d256af4ce2c7d6bc5ff47e9605692ef74e90042900681fd98a24a0c5", size = 1827152, upload-time = "2026-01-27T05:00:11.177Z" },
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/c5/17/16bd1b44aac28659a39f69cb3b58d2fa32bb9b05ac3eb8ffa90e71c2a3ff/protoc_gen_connect_python-0.8.1-py3-none-macosx_11_0_x86_64.whl", hash = "sha256:60ea034d17c8cb3ec889c0f759f79757c8952186cdde97f0e186df4d3e5b442b", size = 1950959, upload-time = "2026-01-27T05:00:13.242Z" },
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/e4/15/08068c55366c25a5559ecf6ad643f7989d29f3acfd65a1a8e6f8f88b62b0/protoc_gen_connect_python-0.8.1-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.musllinux_1_1_aarch64.whl", hash = "sha256:e6bf9d7e96d92b0c2af89ba62de9951db622c74614401a949facba5948309b69", size = 1761388, upload-time = "2026-01-27T05:00:15.06Z" },
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/7f/dd/357c6134ac438d6fb6b393e2a2ef1e1aa0ab61c726b5b39c55c33a9ff295/protoc_gen_connect_python-0.8.1-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.musllinux_1_1_x86_64.whl", hash = "sha256:f206ec49aa82c0b5bf22b623b6df5a954f296e0f4f07812ecf9a3590ec5c9a52", size = 1928422, upload-time = "2026-01-27T05:00:16.904Z" },
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/ca/26/d4423db8a59aedd750b876dd1201aae1a7fc7e488c4688089d546247ea93/protoc_gen_connect_python-0.8.1-py3-none-win_amd64.whl", hash = "sha256:4cf8ce5c98aaf3f33505e335b9451bae3583a30e8eba1d546ebf0514711f684b", size = 1988042, upload-time = "2026-01-27T05:00:18.421Z" },
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/30/39/d7816afa15ce638dce0f406402042a87d01bae10b66d0322f6ea0524de3d/protoc_gen_connect_python-0.8.1-py3-none-win_arm64.whl", hash = "sha256:1d280ef7ea991f9864d18f66e27b3a3a2e55d7b2bc1e56bc333394b2f29b1bb0", size = 1793387, upload-time = "2026-01-27T05:00:19.843Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/4a/c3/216e30a2153eba4141f373e1266ff372107009674095a60ea718909736b4/protoc_gen_connect_python-0.9.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:821c9023e02db313b88c037f9a425316c01c2de58b3e3947c001ff1f060d4cac", size = 1876792, upload-time = "2026-03-19T02:40:51.527Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/6e/61/a577047b2b2832eb331777e6ce9a1fddffe09ea760023f0586f56019d5c5/protoc_gen_connect_python-0.9.0-py3-none-macosx_11_0_x86_64.whl", hash = "sha256:507f1c6a9de6c6d2442f6d1bf1c639cc699c510c5abacb1b63535c578c5fe3ae", size = 2021337, upload-time = "2026-03-19T02:40:53.697Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/30/01/c4f798f586fc82fdb794ce0504651f9c68dff716343d028bdcecb8f88c29/protoc_gen_connect_python-0.9.0-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.musllinux_1_1_aarch64.whl", hash = "sha256:3ffb917bce4a5d8af0af804711b24fc627e06843faefca3b5c6f700b7bd7307e", size = 1822549, upload-time = "2026-03-19T02:40:55.216Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/43/b3/8c6bac0e73c7c837297f078d0025fc1dbfa72834dfa8c78a1453cd123837/protoc_gen_connect_python-0.9.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.musllinux_1_1_x86_64.whl", hash = "sha256:7d563196a2d43797b1a72edfa7fdf2aa00dccefa9ca969e19466f7928049f1cf", size = 2011338, upload-time = "2026-03-19T02:40:56.818Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/0c/48/4adb0616be7617c8f2bdbec490e1086640c6eb9b4ece35ad6228cdc26c51/protoc_gen_connect_python-0.9.0-py3-none-win_amd64.whl", hash = "sha256:bd83efaff9d2eb703b69d057e95569755eec875a3728ce2f4944acb6f03538f6", size = 2062026, upload-time = "2026-03-19T02:40:58.416Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/e1/ea/7a4522f935f6b6c156054e283d0d00431ae52a5d677c5148a174e92aa6f0/protoc_gen_connect_python-0.9.0-py3-none-win_arm64.whl", hash = "sha256:0f6d7e11ccd82009f951da2f2770ef817fd1dc5664de8fedbef60372ef6ab256", size = 1843570, upload-time = "2026-03-19T02:40:59.991Z" },
 ]
 
 [[package]]
