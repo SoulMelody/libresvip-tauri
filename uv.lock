@@ -381,16 +381,16 @@ wheels = [
 ]
 
 [[package]]
-name = "connect-python"
+name = "connectrpc"
 version = "0.9.0"
 source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
 dependencies = [
     { name = "protobuf" },
     { name = "pyqwest" },
 ]
-sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/74/fc/0e4798c53e2754f5de36ecf4d198706cb23711d603df6c008f6e7b5b21ae/connect_python-0.9.0.tar.gz", hash = "sha256:a188ec843b0f5953b7e1b88061af50ad91c9aaa2e982d7a89a63ae5c1fff932e", size = 46094, upload-time = "2026-03-19T02:40:42.279Z" }
+sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/47/00/cdbf963d9a572ee4b8ab0e3a88dd8cb9e8fd468299f460b4904b215a8947/connectrpc-0.9.0.tar.gz", hash = "sha256:da7e827ca6a69b483fd3001f87ee80e93ac505bdd9e0441593e33622d88680a8", size = 46092, upload-time = "2026-03-19T14:41:31.247Z" }
 wheels = [
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/4c/15/5b42df2d9d34e5103f2b69e4f6a4aeb47c52589eaac8d53eb5b0a40eabaa/connect_python-0.9.0-py3-none-any.whl", hash = "sha256:896171fa7236d4e1557e3f7eee76daa8c9dd762f2c21662515f2060f1b542574", size = 63381, upload-time = "2026-03-19T02:40:40.743Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/06/50/4c3b06527c185003c1b8c1445606c41ea7d82261550e56c96453c2f0a916/connectrpc-0.9.0-py3-none-any.whl", hash = "sha256:c4fac80b2177f80cc786aa082fa17b4fbc73adf814ddee5f77ad03a5d9e9bdff", size = 63317, upload-time = "2026-03-19T14:41:29.838Z" },
 ]
 
 [[package]]
@@ -628,7 +628,7 @@ name = "libresvip-tauri"
 version = "2.3.0"
 source = { editable = "." }
 dependencies = [
-    { name = "connect-python" },
+    { name = "connectrpc" },
     { name = "hypercorn" },
     { name = "libresvip", extra = ["crypto", "lxml", "yaml12", "zstd"] },
     { name = "psutil" },
@@ -648,12 +648,12 @@ packaging = [
 protobuf = [
     { name = "buf-bin" },
     { name = "protobuf-protoc-bin" },
-    { name = "protoc-gen-connect-python" },
+    { name = "protoc-gen-connectrpc" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "connect-python", specifier = ">=0.9.0" },
+    { name = "connectrpc", specifier = ">=0.9.0" },
     { name = "hypercorn", specifier = ">=0.18.0" },
     { name = "libresvip", extras = ["crypto", "lxml", "yaml12", "zstd"], specifier = ">=2.3.0" },
     { name = "psutil", specifier = ">=7.2.2" },
@@ -673,7 +673,7 @@ packaging = [
 protobuf = [
     { name = "buf-bin", specifier = ">=1.66.1" },
     { name = "protobuf-protoc-bin", specifier = ">=34.0" },
-    { name = "protoc-gen-connect-python", specifier = ">=0.9.0" },
+    { name = "protoc-gen-connectrpc", specifier = ">=0.9.0" },
 ]
 
 [[package]]
@@ -1300,16 +1300,16 @@ wheels = [
 ]
 
 [[package]]
-name = "protoc-gen-connect-python"
+name = "protoc-gen-connectrpc"
 version = "0.9.0"
 source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
 wheels = [
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/4a/c3/216e30a2153eba4141f373e1266ff372107009674095a60ea718909736b4/protoc_gen_connect_python-0.9.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:821c9023e02db313b88c037f9a425316c01c2de58b3e3947c001ff1f060d4cac", size = 1876792, upload-time = "2026-03-19T02:40:51.527Z" },
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/6e/61/a577047b2b2832eb331777e6ce9a1fddffe09ea760023f0586f56019d5c5/protoc_gen_connect_python-0.9.0-py3-none-macosx_11_0_x86_64.whl", hash = "sha256:507f1c6a9de6c6d2442f6d1bf1c639cc699c510c5abacb1b63535c578c5fe3ae", size = 2021337, upload-time = "2026-03-19T02:40:53.697Z" },
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/30/01/c4f798f586fc82fdb794ce0504651f9c68dff716343d028bdcecb8f88c29/protoc_gen_connect_python-0.9.0-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.musllinux_1_1_aarch64.whl", hash = "sha256:3ffb917bce4a5d8af0af804711b24fc627e06843faefca3b5c6f700b7bd7307e", size = 1822549, upload-time = "2026-03-19T02:40:55.216Z" },
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/43/b3/8c6bac0e73c7c837297f078d0025fc1dbfa72834dfa8c78a1453cd123837/protoc_gen_connect_python-0.9.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.musllinux_1_1_x86_64.whl", hash = "sha256:7d563196a2d43797b1a72edfa7fdf2aa00dccefa9ca969e19466f7928049f1cf", size = 2011338, upload-time = "2026-03-19T02:40:56.818Z" },
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/0c/48/4adb0616be7617c8f2bdbec490e1086640c6eb9b4ece35ad6228cdc26c51/protoc_gen_connect_python-0.9.0-py3-none-win_amd64.whl", hash = "sha256:bd83efaff9d2eb703b69d057e95569755eec875a3728ce2f4944acb6f03538f6", size = 2062026, upload-time = "2026-03-19T02:40:58.416Z" },
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/e1/ea/7a4522f935f6b6c156054e283d0d00431ae52a5d677c5148a174e92aa6f0/protoc_gen_connect_python-0.9.0-py3-none-win_arm64.whl", hash = "sha256:0f6d7e11ccd82009f951da2f2770ef817fd1dc5664de8fedbef60372ef6ab256", size = 1843570, upload-time = "2026-03-19T02:40:59.991Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/09/e2/459a7d043a5cdd631237e776ffd33ed46083332c8cb5d0364498ab78c232/protoc_gen_connectrpc-0.9.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:c3d267cadce70dc8d4b88f22eb5a44ad36fe109426d2803a6c9168e3bafb3fe4", size = 1876744, upload-time = "2026-03-19T14:41:39.563Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/6e/a5/52f10b793f2f0baead296aeddc2d088ae7b2b82a99028c7fddf39f0d7571/protoc_gen_connectrpc-0.9.0-py3-none-macosx_11_0_x86_64.whl", hash = "sha256:ca04b291907bba9b11ba7cec2262e1a572712347c938106010cf08eeb2a6cd71", size = 2021284, upload-time = "2026-03-19T14:41:41.434Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/76/a9/ab1a60bb699654d32f518faafbfccc320ce5d8dd1fa8a30bb1b6e8359b00/protoc_gen_connectrpc-0.9.0-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.musllinux_1_1_aarch64.whl", hash = "sha256:6b57e186dd8bba85b1e7d3ce8a550e15ad2dba642d217992400bd225716e8ac3", size = 1822512, upload-time = "2026-03-19T14:41:42.969Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/d6/87/201db1797cfb1b86587aa89bcd0f6a1f030050e90c7581f8d2b45a93ffe1/protoc_gen_connectrpc-0.9.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.musllinux_1_1_x86_64.whl", hash = "sha256:d11e17c884975c8a7b3e6ef509776ae3eb1f9c92da324899e88c8374ae6ce0ca", size = 2011286, upload-time = "2026-03-19T14:41:44.38Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/2c/0f/9ac625249fd9aade996e46f456223784912a339a0661d36465740c3a60a9/protoc_gen_connectrpc-0.9.0-py3-none-win_amd64.whl", hash = "sha256:ebca9c062bf9dccab3cd7241c020339de0ee25ff20efe4f400574f308412a677", size = 2061973, upload-time = "2026-03-19T14:41:46.123Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/42/0e/3e36b3fd795dd3dbff188d2d23dd594cee7f449a9f3b22857be37f0875ce/protoc_gen_connectrpc-0.9.0-py3-none-win_arm64.whl", hash = "sha256:5ada58900958fe323f200ca1e11f276c152aeb103aedca2c2189b81ff3dc7d73", size = 1843520, upload-time = "2026-03-19T14:41:47.529Z" },
 ]
 
 [[package]]
@@ -1699,11 +1699,11 @@ wheels = [
 
 [[package]]
 name = "pysubs2"
-version = "1.8.0"
+version = "1.8.1"
 source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
-sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/31/4a/becf78d9d3df56e6c4a9c50b83794e5436b6c5ab6dd8a3f934e94c89338c/pysubs2-1.8.0.tar.gz", hash = "sha256:3397bb58a4a15b1325ba2ae3fd4d7c214e2c0ddb9f33190d6280d783bb433b20", size = 1130048, upload-time = "2024-12-24T12:39:47.769Z" }
+sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/c4/73/eff32fcc4babb32b76d7fce6d74995de2d04201f7b43c9a7764554d6ab49/pysubs2-1.8.1.tar.gz", hash = "sha256:af3a288643da87db6bb13dbde70e94c9570765cc8f6423b1c21de11f16d734da", size = 1153150, upload-time = "2026-03-19T17:25:01.941Z" }
 wheels = [
-    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/99/09/0fc0719162e5ad723f71d41cf336f18b6b5054d70dc0fe42ace6b4d2bdc9/pysubs2-1.8.0-py3-none-any.whl", hash = "sha256:05716f5039a9ebe32cd4d7673f923cf36204f3a3e99987f823ab83610b7035a0", size = 43516, upload-time = "2024-12-24T12:39:44.469Z" },
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/0b/bb/0dc8b9a38609701ca3f107dc516300b317641bed9b2ef1c964a9ad37ae9e/pysubs2-1.8.1-py3-none-any.whl", hash = "sha256:eb5d8872b7f87208070dd6f0d85fc110b7ad6cc2a7ec422f5b12363e9194e4e4", size = 44269, upload-time = "2026-03-19T17:24:59.953Z" },
 ]
 
 [[package]]

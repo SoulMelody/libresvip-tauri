@@ -8,5 +8,5 @@ plugins:
     out: ../libresvip_tauri
   - protoc_builtin: pyi
     out: ../libresvip_tauri
-  - local: protoc-gen-connect-python
+  - local: protoc-gen-connectrpc
     out: ../libresvip_tauri
