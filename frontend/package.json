@@ -50,7 +50,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "json-schema-to-typescript": "^15.0.4",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.0"
   },
   "trustedDependencies": [
     "@cloudworxx/tauri-plugin-mac-rounded-corners"
