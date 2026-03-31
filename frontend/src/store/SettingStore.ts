@@ -44,7 +44,12 @@ export const useSettingStore = create<SettingState>()(
     (set, get) => ({
       darkMode: 'system',
       actualTheme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
-      language: 'en_US',
+      language: (() => {switch (navigator.language) {
+        case 'zh-CN':
+          return 'zh_CN';
+        default:
+          return 'en_US';
+      }})(),
       inputFormat: null,
       outputFormat: null,
       conversionMode: 'direct',
