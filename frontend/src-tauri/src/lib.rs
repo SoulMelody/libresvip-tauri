@@ -1,5 +1,6 @@
 mod plugins;
 
+use std::env;
 use std::process;
 use std::process::{Child, Command, Stdio};
 use std::sync::Mutex;
@@ -20,7 +21,7 @@ fn start_sidecar() -> Result<Child, std::io::Error> {
         Command::new("libresvip-tauri-server.exe")
             .arg("--parent-pid")
             .arg(process::id().to_string())
-            .current_dir(".")
+            .current_dir(env::current_dir().unwrap())
             .creation_flags(CREATE_NO_WINDOW)
             .spawn()
     };
@@ -29,7 +30,7 @@ fn start_sidecar() -> Result<Child, std::io::Error> {
     let result = Command::new("libresvip-tauri-server")
         .arg("--parent-pid")
         .arg(process::id().to_string())
-        .current_dir(".")
+        .current_dir(env::current_dir().unwrap())
         .spawn();
 
     match result {
