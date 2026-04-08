@@ -49,7 +49,6 @@ a = Analysis(
         "pydantic_extra_types.color",
         "pypinyin",
         "pysubs2",
-        "pytauri_wheel.ext_mod",
         "pyzipper",
         "fsspec.implementations.memory",
         "upath.implementations.memory",
