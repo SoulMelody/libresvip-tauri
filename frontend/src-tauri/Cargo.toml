@@ -32,3 +32,9 @@ tauri-plugin-prevent-default = { version = "4.0.3", features = ["platform-window
 [target.'cfg(target_os = "macos")'.dependencies]
 cocoa = "0.26"
 objc = "0.2.7"
+
+[lints.rust]
+unused-assignments = "warn"
+unused-imports = "warn"
+unused-variables = "warn"
+dead-code = "warn"
