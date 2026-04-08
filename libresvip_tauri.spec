@@ -5,11 +5,14 @@ block_cipher = None
 import contextlib
 import os
 import platform
+import re
 import sys
+import subprocess
 sys.modules['FixTk'] = None
 
 import shellingham
 from PyInstaller.utils.hooks import collect_data_files, collect_entry_point, copy_metadata
+from uv import find_uv_bin
 
 with contextlib.suppress(Exception):
     if (
@@ -68,22 +71,6 @@ a = Analysis(
         'pywintypes', 'pythoncom',
         'numpy', "pandas", "pandas.plotting", 'pandas.io.formats.style',
         'jedi', 'IPython', 'parso', 'plotly', 'matplotlib', 'matplotlib.backends', 'PIL', 'PIL.Image', 'zmq',
-        'PySide6',
-        'PySide6.QtCore',
-        'PySide6.QtDataVisualization',
-        'PySide6.QtGui',
-        'PySide6.QtNetwork',
-        'PySide6.QtOpenGL',
-        'PySide6.QtOpenGLWidgets',
-        'PySide6.QtWebChannel',
-        'PySide6.QtWebEngineCore',
-        'PySide6.QtWebEngineWidgets',
-        'PySide6.QtWidgets',
-        'PySide6.QtPositioning',
-        'PySide6.QtPrintSupport',
-        'PySide6.QtQuick',
-        'PySide6.QtQuickWidgets',
-        'PySide6.QtQml',
     ],
     win_no_prefer_redirects=False,
     win_private_assemblies=False,
@@ -92,12 +79,20 @@ a = Analysis(
 )
 pyz = PYZ(a.pure, cipher=block_cipher)
 
+uv_bin = find_uv_bin()
+uv_version = subprocess.run([uv_bin, "-V"], capture_output=True, text=True)
+match = re.search(r"([^\s]+)\)", uv_version.stdout)
+if match is not None:
+    rust_target = match.group(1)
+else:
+    raise ValueError("Unknown rust target")
+
 exe = EXE(
     pyz,
     a.scripts,
     [],
     exclude_binaries=True,
-    name='libresvip-tauri-server',
+    name=f'libresvip-tauri-server-{rust_target}',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

@@ -1,2 +1,2 @@
-index-url = "https://repo.huaweicloud.com/repository/pypi/simple"
+index-url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
 python-install-mirror = "https://mirror.nju.edu.cn/github-release/astral-sh/python-build-standalone"

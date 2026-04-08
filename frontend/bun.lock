@@ -11,18 +11,18 @@
         "@emotion/styled": "^11.14.1",
         "@fluentui/react-icons": "^2.0.316",
         "@mui/material": "^7.3.9",
-        "@rjsf/core": "^6.4.1",
-        "@rjsf/mui": "^6.4.1",
-        "@rjsf/utils": "^6.4.1",
-        "@rjsf/validator-ajv8": "^6.4.1",
+        "@rjsf/core": "^6.4.2",
+        "@rjsf/mui": "^6.4.2",
+        "@rjsf/utils": "^6.4.2",
+        "@rjsf/validator-ajv8": "^6.4.2",
         "@szhsin/react-menu": "^4.5.1",
         "@tauri-apps/api": "^2.10.1",
         "@tauri-apps/plugin-clipboard-manager": "^2.3.2",
-        "@tauri-apps/plugin-dialog": "^2.6.0",
-        "@tauri-apps/plugin-fs": "^2.4.5",
+        "@tauri-apps/plugin-dialog": "^2.7.0",
+        "@tauri-apps/plugin-fs": "^2.5.0",
         "@tauri-apps/plugin-opener": "^2.5.3",
         "ajv-i18n": "^4.2.0",
-        "i18next": "^26.0.0",
+        "i18next": "^26.0.3",
         "i18next-browser-languagedetector": "^8.2.1",
         "material-ui-popup-state": "^5.3.6",
         "nanoid": "^5.1.7",
@@ -30,8 +30,8 @@
         "react": "^19.2.4",
         "react-dom": "^19.2.4",
         "react-hotkeys-hook": "^5.2.4",
-        "react-i18next": "^17.0.0",
-        "react-router": "^7.13.1",
+        "react-i18next": "^17.0.2",
+        "react-router": "^7.14.0",
         "zustand": "^5.0.12",
       },
       "devDependencies": {
@@ -41,7 +41,7 @@
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
         "json-schema-to-typescript": "^15.0.4",
-        "typescript": "^6.0.0",
+        "typescript": "^6.0.2",
       },
     },
   },
@@ -149,13 +149,13 @@
 
     "@rc-component/mini-decimal": ["@rc-component/mini-decimal@1.1.0", "https://registry.npmmirror.com/@rc-component/mini-decimal/-/mini-decimal-1.1.0.tgz", { "dependencies": { "@babel/runtime": "^7.18.0" } }, "sha512-jS4E7T9Li2GuYwI6PyiVXmxTiM6b07rlD9Ge8uGZSCz3WlzcG5ZK7g5bbuKNeZ9pgUuPK/5guV781ujdVpm4HQ=="],
 
-    "@rjsf/core": ["@rjsf/core@6.4.1", "https://registry.npmmirror.com/@rjsf/core/-/core-6.4.1.tgz", { "dependencies": { "lodash": "^4.17.23", "lodash-es": "^4.17.23", "markdown-to-jsx": "^8.0.0", "prop-types": "^15.8.1" }, "peerDependencies": { "@rjsf/utils": "^6.4.x", "react": ">=18" } }, "sha512-+QaiSgQnOuO6ghIsohH2u/QcylkN+Da2968a75g/i4oARYJRYVxXDm2u3JR5aXndpMb4t4jTFrYyG8cNIv6oEg=="],
+    "@rjsf/core": ["@rjsf/core@6.4.2", "https://registry.npmmirror.com/@rjsf/core/-/core-6.4.2.tgz", { "dependencies": { "lodash": "^4.17.23", "lodash-es": "^4.17.23", "markdown-to-jsx": "^8.0.0", "prop-types": "^15.8.1" }, "peerDependencies": { "@rjsf/utils": "^6.4.x", "react": ">=18" } }, "sha512-TsN2PNqsO92d6/Tt+Sq4XgXtpXgzNRShL/pYYrnAluwf3n87TvE1huJpHgH6c/wD7eRFOYT4e7I0GxqiVos/VQ=="],
 
-    "@rjsf/mui": ["@rjsf/mui@6.4.1", "https://registry.npmmirror.com/@rjsf/mui/-/mui-6.4.1.tgz", { "peerDependencies": { "@emotion/react": "^11.7.0", "@emotion/styled": "^11.6.0", "@mui/icons-material": "^7.0.0", "@mui/material": "^7.0.0", "@rjsf/core": "^6.4.x", "@rjsf/utils": "^6.4.x", "react": ">=18" } }, "sha512-1oz5INDZ7/rEwGaCn52ZMt+EqROeHNAI5kL6us2AMl7yKc3D6K1/X3H5quHdnr0dnh9Y8ivpOXroGy1ka4IBsA=="],
+    "@rjsf/mui": ["@rjsf/mui@6.4.2", "https://registry.npmmirror.com/@rjsf/mui/-/mui-6.4.2.tgz", { "peerDependencies": { "@emotion/react": "^11.7.0", "@emotion/styled": "^11.6.0", "@mui/icons-material": "^7.0.0", "@mui/material": "^7.0.0", "@rjsf/core": "^6.4.x", "@rjsf/utils": "^6.4.x", "react": ">=18" } }, "sha512-xAUUrfKK+v6aNuTpMEgESQuS2TMMuZ9uaENFVQqcBphN2Yw4u99J587KjoRBFwTOM0k3QN984mQfP3AOuQ3vqQ=="],
 
-    "@rjsf/utils": ["@rjsf/utils@6.4.1", "https://registry.npmmirror.com/@rjsf/utils/-/utils-6.4.1.tgz", { "dependencies": { "@x0k/json-schema-merge": "^1.0.2", "fast-uri": "^3.1.0", "jsonpointer": "^5.0.1", "lodash": "^4.17.23", "lodash-es": "^4.17.23", "react-is": "^18.3.1" }, "peerDependencies": { "react": ">=18" } }, "sha512-5NL3jwt3rIS5/WRTrKt++y40FS/ScKGVwYJ3jIrHSQHSwBdLnd4cHf2zcnA97L1Klj8I6tvS/ugh+blf/Diwuw=="],
+    "@rjsf/utils": ["@rjsf/utils@6.4.2", "https://registry.npmmirror.com/@rjsf/utils/-/utils-6.4.2.tgz", { "dependencies": { "@x0k/json-schema-merge": "^1.0.2", "fast-uri": "^3.1.0", "jsonpointer": "^5.0.1", "lodash": "^4.17.23", "lodash-es": "^4.17.23", "react-is": "^18.3.1" }, "peerDependencies": { "react": ">=18" } }, "sha512-d8Td5Ui5VjxOV7uQq4QmoJQtjESvr78TPbgzJ/WN+/rihDK/4j/i1/s43egQFyRw1fEQzYIMNr2Dk8F0WviSZw=="],
 
-    "@rjsf/validator-ajv8": ["@rjsf/validator-ajv8@6.4.1", "https://registry.npmmirror.com/@rjsf/validator-ajv8/-/validator-ajv8-6.4.1.tgz", { "dependencies": { "ajv": "^8.17.1", "ajv-formats": "^2.1.1", "lodash": "^4.17.23", "lodash-es": "^4.17.23" }, "peerDependencies": { "@rjsf/utils": "^6.4.x" } }, "sha512-Gx28sRIV7E4CYs2c7BxOGLX44p5IlJE+IaD7GbVk1S+6TxDATqFBSYYZukLB+/vNk3urpndQMreQLKW3W7POHQ=="],
+    "@rjsf/validator-ajv8": ["@rjsf/validator-ajv8@6.4.2", "https://registry.npmmirror.com/@rjsf/validator-ajv8/-/validator-ajv8-6.4.2.tgz", { "dependencies": { "ajv": "^8.17.1", "ajv-formats": "^2.1.1", "lodash": "^4.17.23", "lodash-es": "^4.17.23" }, "peerDependencies": { "@rjsf/utils": "^6.4.x" } }, "sha512-zbLuT5nlgjrw2GkDqp+BtCeNQS/okM8oa5ltc3wiuoEqjVqskl1+WvHidQ6Uu4qAU/VfHCh8MwZg9sIsj89YiQ=="],
 
     "@szhsin/react-menu": ["@szhsin/react-menu@4.5.1", "https://registry.npmmirror.com/@szhsin/react-menu/-/react-menu-4.5.1.tgz", { "dependencies": { "react-transition-state": "^2.3.1" }, "peerDependencies": { "react": ">=16.14.0", "react-dom": ">=16.14.0" } }, "sha512-kRTS7Pq0YdkucQexXVy5HkpzKsJdXbAhpmzve0wPokpsaG+4Ca3cphEn6WkRCWXfn1gZXosxcZCeb34ocmUPDw=="],
 
@@ -187,9 +187,9 @@
 
     "@tauri-apps/plugin-clipboard-manager": ["@tauri-apps/plugin-clipboard-manager@2.3.2", "https://registry.npmmirror.com/@tauri-apps/plugin-clipboard-manager/-/plugin-clipboard-manager-2.3.2.tgz", { "dependencies": { "@tauri-apps/api": "^2.8.0" } }, "sha512-CUlb5Hqi2oZbcZf4VUyUH53XWPPdtpw43EUpCza5HWZJwxEoDowFzNUDt1tRUXA8Uq+XPn17Ysfptip33sG4eQ=="],
 
-    "@tauri-apps/plugin-dialog": ["@tauri-apps/plugin-dialog@2.6.0", "https://registry.npmmirror.com/@tauri-apps/plugin-dialog/-/plugin-dialog-2.6.0.tgz", { "dependencies": { "@tauri-apps/api": "^2.8.0" } }, "sha512-q4Uq3eY87TdcYzXACiYSPhmpBA76shgmQswGkSVio4C82Sz2W4iehe9TnKYwbq7weHiL88Yw19XZm7v28+Micg=="],
+    "@tauri-apps/plugin-dialog": ["@tauri-apps/plugin-dialog@2.7.0", "https://registry.npmmirror.com/@tauri-apps/plugin-dialog/-/plugin-dialog-2.7.0.tgz", { "dependencies": { "@tauri-apps/api": "^2.10.1" } }, "sha512-4nS/hfGMGCXiAS3LtVjH9AgsSAPJeG/7R+q8agTFqytjnMa4Zq95Bq8WzVDkckpanX+yyRHXnRtrKXkANKDHvw=="],
 
-    "@tauri-apps/plugin-fs": ["@tauri-apps/plugin-fs@2.4.5", "https://registry.npmmirror.com/@tauri-apps/plugin-fs/-/plugin-fs-2.4.5.tgz", { "dependencies": { "@tauri-apps/api": "^2.8.0" } }, "sha512-dVxWWGE6VrOxC7/jlhyE+ON/Cc2REJlM35R3PJX3UvFw2XwYhLGQVAIyrehenDdKjotipjYEVc4YjOl3qq90fA=="],
+    "@tauri-apps/plugin-fs": ["@tauri-apps/plugin-fs@2.5.0", "https://registry.npmmirror.com/@tauri-apps/plugin-fs/-/plugin-fs-2.5.0.tgz", { "dependencies": { "@tauri-apps/api": "^2.10.1" } }, "sha512-c83kbz61AK+rKjhS+je9+stIO27nXj7p9cqeg36TwkIUtxpCFTttlHHtqon6h6FN54cXjyAjlMPOJcW3mwE5XQ=="],
 
     "@tauri-apps/plugin-opener": ["@tauri-apps/plugin-opener@2.5.3", "https://registry.npmmirror.com/@tauri-apps/plugin-opener/-/plugin-opener-2.5.3.tgz", { "dependencies": { "@tauri-apps/api": "^2.8.0" } }, "sha512-CCcUltXMOfUEArbf3db3kCE7Ggy1ExBEBl51Ko2ODJ6GDYHRp1nSNlQm5uNCFY5k7/ufaK5Ib3Du/Zir19IYQQ=="],
 
@@ -265,7 +265,7 @@
 
     "html-parse-stringify": ["html-parse-stringify@3.0.1", "https://registry.npmmirror.com/html-parse-stringify/-/html-parse-stringify-3.0.1.tgz", { "dependencies": { "void-elements": "3.1.0" } }, "sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg=="],
 
-    "i18next": ["i18next@26.0.1", "", { "dependencies": { "@babel/runtime": "^7.29.2" }, "peerDependencies": { "typescript": "^5 || ^6" }, "optionalPeers": ["typescript"] }, "sha512-vtz5sXU4+nkCm8yEU+JJ6yYIx0mkg9e68W0G0PXpnOsmzLajNsW5o28DJMqbajxfsfq0gV3XdrBudsDQnwxfsQ=="],
+    "i18next": ["i18next@26.0.3", "https://registry.npmmirror.com/i18next/-/i18next-26.0.3.tgz", { "dependencies": { "@babel/runtime": "^7.29.2" }, "peerDependencies": { "typescript": "^5 || ^6" }, "optionalPeers": ["typescript"] }, "sha512-1571kXINxHKY7LksWp8wP+zP0YqHSSpl/OW0Y0owFEf2H3s8gCAffWaZivcz14rMkOvn3R/psiQxVsR9t2Nafg=="],
 
     "i18next-browser-languagedetector": ["i18next-browser-languagedetector@8.2.1", "https://registry.npmmirror.com/i18next-browser-languagedetector/-/i18next-browser-languagedetector-8.2.1.tgz", { "dependencies": { "@babel/runtime": "^7.23.2" } }, "sha512-bZg8+4bdmaOiApD7N7BPT9W8MLZG+nPTOFlLiJiT8uzKXFjhxw4v2ierCXOwB5sFDMtuA5G4kgYZ0AznZxQ/cw=="],
 
@@ -341,11 +341,11 @@
 
     "react-hotkeys-hook": ["react-hotkeys-hook@5.2.4", "https://registry.npmmirror.com/react-hotkeys-hook/-/react-hotkeys-hook-5.2.4.tgz", { "peerDependencies": { "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-BgKg+A1+TawkYluh5Bo4cTmcgMN5L29uhJbDUQdHwPX+qgXRjIPYU5kIDHyxnAwCkCBiu9V5OpB2mpyeluVF2A=="],
 
-    "react-i18next": ["react-i18next@17.0.1", "", { "dependencies": { "@babel/runtime": "^7.29.2", "html-parse-stringify": "^3.0.1", "use-sync-external-store": "^1.6.0" }, "peerDependencies": { "i18next": ">= 26.0.1", "react": ">= 16.8.0", "typescript": "^5 || ^6" }, "optionalPeers": ["typescript"] }, "sha512-iG65FGnFHcYyHNuT01ukffYWCOBFTWSdVD8EZd/dCVWgtjFPObcSsvYYNwcsokO/rDcTb5d6D8Acv8MrOdm6Hw=="],
+    "react-i18next": ["react-i18next@17.0.2", "https://registry.npmmirror.com/react-i18next/-/react-i18next-17.0.2.tgz", { "dependencies": { "@babel/runtime": "^7.29.2", "html-parse-stringify": "^3.0.1", "use-sync-external-store": "^1.6.0" }, "peerDependencies": { "i18next": ">= 26.0.1", "react": ">= 16.8.0", "typescript": "^5 || ^6" }, "optionalPeers": ["typescript"] }, "sha512-shBftH2vaTWK2Bsp7FiL+cevx3xFJlvFxmsDFQSrJc+6twHkP0tv/bGa01VVWzpreUVVwU+3Hev5iFqRg65RwA=="],
 
     "react-is": ["react-is@19.2.3", "https://registry.npmmirror.com/react-is/-/react-is-19.2.3.tgz", {}, "sha512-qJNJfu81ByyabuG7hPFEbXqNcWSU3+eVus+KJs+0ncpGfMyYdvSmxiJxbWR65lYi1I+/0HBcliO029gc4F+PnA=="],
 
-    "react-router": ["react-router@7.13.1", "https://registry.npmmirror.com/react-router/-/react-router-7.13.1.tgz", { "dependencies": { "cookie": "^1.0.1", "set-cookie-parser": "^2.6.0" }, "peerDependencies": { "react": ">=18", "react-dom": ">=18" }, "optionalPeers": ["react-dom"] }, "sha512-td+xP4X2/6BJvZoX6xw++A2DdEi++YypA69bJUV5oVvqf6/9/9nNlD70YO1e9d3MyamJEBQFEzk6mbfDYbqrSA=="],
+    "react-router": ["react-router@7.14.0", "https://registry.npmmirror.com/react-router/-/react-router-7.14.0.tgz", { "dependencies": { "cookie": "^1.0.1", "set-cookie-parser": "^2.6.0" }, "peerDependencies": { "react": ">=18", "react-dom": ">=18" }, "optionalPeers": ["react-dom"] }, "sha512-m/xR9N4LQLmAS0ZhkY2nkPA1N7gQ5TUVa5n8TgANuDTARbn1gt+zLPXEm7W0XDTbrQ2AJSJKhoa6yx1D8BcpxQ=="],
 
     "react-transition-group": ["react-transition-group@4.4.5", "https://registry.npmmirror.com/react-transition-group/-/react-transition-group-4.4.5.tgz", { "dependencies": { "@babel/runtime": "^7.5.5", "dom-helpers": "^5.0.1", "loose-envify": "^1.4.0", "prop-types": "^15.6.2" }, "peerDependencies": { "react": ">=16.6.0", "react-dom": ">=16.6.0" } }, "sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g=="],
 
@@ -408,8 +408,6 @@
     "@rjsf/validator-ajv8/lodash": ["lodash@4.17.23", "https://registry.npmmirror.com/lodash/-/lodash-4.17.23.tgz", {}, "sha512-LgVTMpQtIopCi79SJeDiP0TfWi5CNEc/L/aRdTh3yIvmZXTnheWpKjSZhnvMl8iXbC1tFg9gdHHDMLoV7CnG+w=="],
 
     "@tauri-apps/plugin-clipboard-manager/@tauri-apps/api": ["@tauri-apps/api@2.9.1", "https://registry.npmmirror.com/@tauri-apps/api/-/api-2.9.1.tgz", {}, "sha512-IGlhP6EivjXHepbBic618GOmiWe4URJiIeZFlB7x3czM0yDHHYviH1Xvoiv4FefdkQtn6v7TuwWCRfOGdnVUGw=="],
-
-    "@tauri-apps/plugin-fs/@tauri-apps/api": ["@tauri-apps/api@2.9.1", "https://registry.npmmirror.com/@tauri-apps/api/-/api-2.9.1.tgz", {}, "sha512-IGlhP6EivjXHepbBic618GOmiWe4URJiIeZFlB7x3czM0yDHHYviH1Xvoiv4FefdkQtn6v7TuwWCRfOGdnVUGw=="],
 
     "@tauri-apps/plugin-opener/@tauri-apps/api": ["@tauri-apps/api@2.9.1", "https://registry.npmmirror.com/@tauri-apps/api/-/api-2.9.1.tgz", {}, "sha512-IGlhP6EivjXHepbBic618GOmiWe4URJiIeZFlB7x3czM0yDHHYviH1Xvoiv4FefdkQtn6v7TuwWCRfOGdnVUGw=="],
 

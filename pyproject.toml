@@ -14,16 +14,17 @@ dependencies = [
 
 [dependency-groups]
 nodejs = [
-    "nodejs-wheel>=24.14.0",
+    "nodejs-wheel>=24.14.1",
     "pydantic-to-typescript>=2.0.0",
 ]
 packaging = [
-    "pillow>=12.1.1",
+    "pillow>=12.2.0",
     "pyinstaller>=6.19.0",
     "shellingham<2.0.0,>=1.5.4",
+    "uv>=0.11.4",
 ]
 protobuf = [
-    "buf-bin>=1.66.1",
+    "buf-bin>=1.67.0",
     "protoc-gen-connectrpc>=0.9.0",
     "protobuf-protoc-bin>=34.1",
 ]
