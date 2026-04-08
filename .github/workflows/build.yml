@@ -53,7 +53,7 @@ jobs:
         with:
           tagName: libresvip-tauri-v__VERSION__
           releaseName: 'LibreSVIP Tauri v__VERSION__'
-          releaseDraft: true
+          releaseDraft: false
           prerelease: false
           args: ${{ matrix.args }}
           projectPath: './frontend'
