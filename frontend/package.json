@@ -19,7 +19,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@fluentui/react-icons": "^2.0.316",
-    "@mui/material": "^7.3.9",
+    "@mui/material": "^9.0.0",
     "@rjsf/core": "^6.4.2",
     "@rjsf/mui": "^6.4.2",
     "@rjsf/utils": "^6.4.2",
