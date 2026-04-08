@@ -37,6 +37,7 @@ jobs:
       - name: Setup rust
         uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
+          rustflags: ""
           rust-src-dir: "frontend/src-tauri"
 
       - name: Install frontend dependencies
