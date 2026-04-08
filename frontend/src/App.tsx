@@ -123,7 +123,6 @@ export function App(props: Props) {
     inputFormat,
     outputFormat,
     conversionMode,
-    revealFileOnFinish,
     loadInputFormatSchema,
     loadOutputFormatSchema,
     toggleTheme,
@@ -143,7 +142,6 @@ export function App(props: Props) {
     clearConversionTasks,
     loadMiddlewareSchemas,
     setActiveStep,
-    increaseFinishedCount,
     setCurTaskListPage,
   } = useConverterStore();
   const {
@@ -156,6 +154,7 @@ export function App(props: Props) {
     const startServer = async () => {
       await invoke("start_sidecar_command");
     }
+    i18n.changeLanguage(language);
     startServer();
 
     const getAppVersion = async () => {

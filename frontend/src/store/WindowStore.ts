@@ -22,7 +22,6 @@ export const useWindowStore = create<WindowState>()(
     drawerOpen: false,
     snackbarOpen: false,
     snackbarMessage: '',
-    language: 'en_US',
     appVersion: '',
     setIsMaximized: (maximized) => set({ isMaximized: maximized }),
     setdrawerOpen: (open) => set({ drawerOpen: open }),
