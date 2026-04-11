@@ -30,6 +30,7 @@ fn start_sidecar() -> Result<Child, std::io::Error> {
     #[cfg(not(windows))]
     let server_path = fs::canonicalize("libresvip-tauri-server").unwrap();
     let result = Command::new(server_path.to_str())
+        .arg("--parent-pid")
         .arg(process::id().to_string())
         .spawn();
 
