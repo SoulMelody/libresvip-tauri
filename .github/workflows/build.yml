@@ -10,18 +10,36 @@ jobs:
     strategy:
       matrix:
         include:
-          - { platform: windows-latest, args: "-b nsis", target: "x86_64-pc-windows-msvc", python_version: "cpython-3.14.4-windows-x86_64-none" }
+          - { platform: windows-latest, args: "-b nsis", target: "x86_64-pc-windows-msvc", python_version: "" }
+          - { platform: windows-11-arm, args: "-b nsis", target: "aarch64-pc-windows-msvc", python_version: "" }
           - { platform: windows-latest, args: "-b nsis --target=i686-pc-windows-msvc", target: "i686-pc-windows-msvc", python_version: "cpython-3.14.4-windows-x86-none" }
-          - { platform: windows-11-arm, args: "-b nsis", target: "aarch64-pc-windows-msvc", python_version: "cpython-3.14.4-windows-aarch64-none" }
+          - { platform: ubuntu-latest, args: "", target: "x86_64-unknown-linux-gnu", python_version: "" }
+          - { platform: ubuntu-24.04-arm, args: "", target: "aarch64-unknown-linux-gnu", python_version: "" }
+          - { platform: macos-latest, args: "--target aarch64-apple-darwin", target: "aarch64-apple-darwin", python_version: "cpython-3.14.4-macos-aarch64-none" }
+          - { platform: macos-13.4-arm, args: "--target x86_64-apple-darwin", target: "x86_64-apple-darwin", python_version: "cpython-3.14.4-macos-x86_64-none" }
     steps:
       - uses: actions/checkout@v6
 
+      - name: Install system dependencies (Ubuntu)
+        if: matrix.platform == 'ubuntu-latest' || matrix.platform == 'ubuntu-24.04-arm'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            librsvg2-dev \
+            patchelf \
+            libssl-dev \
+            libgtk-3-dev
+
       - name: Setup rust
-        uses: actions-rust-lang/setup-rust-toolchain@v1
+        uses: dtolnay/rust-toolchain@stable
         with:
-          rustflags: ""
-          rust-src-dir: "frontend/src-tauri"
-          target: ${{ matrix.target }}
+          targets: ${{ matrix.target }}
+
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: 'frontend/src-tauri -> target'
 
       - name: Setup uv
         uses: astral-sh/setup-uv@v8.0.0
@@ -30,8 +48,7 @@ jobs:
           python-version: ${{ matrix.python_version }}
 
       - name: Install Python dependencies
-        run: |
-          uv sync --group packaging
+        run: uv sync --group packaging
 
       - name: Build sidecar package
         shell: bash -el {0}
@@ -46,9 +63,8 @@ jobs:
 
       - name: Install frontend dependencies
         shell: bash -el {0}
-        run: |
-          cd frontend
-          bun install
+        working-directory: './frontend'
+        run: bun install
 
       - name: Build tauri package
         uses: tauri-apps/tauri-action@v0
