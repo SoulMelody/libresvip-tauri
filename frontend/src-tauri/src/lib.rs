@@ -4,7 +4,6 @@ use std::fs;
 use std::process;
 use std::process::{Child, Command};
 use std::sync::Mutex;
-use tauri::Manager;
 use tauri_plugin_decorum::WebviewWindowExt;
 use tauri_plugin_prevent_default;
 
@@ -14,9 +13,9 @@ use tauri_plugin_prevent_default::PlatformOptions;
 static SIDECAR_PROCESS: Mutex<Option<Child>> = Mutex::new(None);
 
 fn start_sidecar() -> Result<Child, std::io::Error> {
-    server_path.push("dist");
     #[cfg(windows)]
     let server_path = fs::canonicalize("libresvip-tauri-server.exe").unwrap();
+    #[cfg(windows)]
     let result = {
         use std::os::windows::process::CommandExt;
         const CREATE_NO_WINDOW: u32 = 0x08000000;
@@ -29,6 +28,7 @@ fn start_sidecar() -> Result<Child, std::io::Error> {
 
     #[cfg(not(windows))]
     let server_path = fs::canonicalize("libresvip-tauri-server").unwrap();
+    #[cfg(not(windows))]
     let result = Command::new(server_path.to_str())
         .arg("--parent-pid")
         .arg(process::id().to_string())
