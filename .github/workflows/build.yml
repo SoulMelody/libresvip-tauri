@@ -16,7 +16,7 @@ jobs:
           - { platform: ubuntu-latest, args: "", target: "x86_64-unknown-linux-gnu", python_version: "" }
           - { platform: ubuntu-24.04-arm, args: "", target: "aarch64-unknown-linux-gnu", python_version: "" }
           - { platform: macos-latest, args: "--target aarch64-apple-darwin", target: "aarch64-apple-darwin", python_version: "cpython-3.14.4-macos-aarch64-none" }
-          - { platform: macos-13.4-arm, args: "--target x86_64-apple-darwin", target: "x86_64-apple-darwin", python_version: "cpython-3.14.4-macos-x86_64-none" }
+          - { platform: macos-latest, args: "--target x86_64-apple-darwin", target: "x86_64-apple-darwin", python_version: "cpython-3.14.4-macos-x86_64-none" }
     steps:
       - uses: actions/checkout@v6
 
