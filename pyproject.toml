@@ -21,7 +21,7 @@ packaging = [
     "pillow>=12.2.0",
     "pyinstaller>=6.19.0",
     "shellingham<2.0.0,>=1.5.4",
-    "uv>=0.11.4",
+    "uv>=0.11.6",
 ]
 protobuf = [
     "buf-bin>=1.67.0",
