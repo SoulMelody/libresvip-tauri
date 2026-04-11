@@ -15,8 +15,8 @@ jobs:
           - { platform: windows-latest, args: "-b nsis --target=i686-pc-windows-msvc", target: "i686-pc-windows-msvc", python_version: "cpython-3.14.4-windows-x86-none" }
           - { platform: ubuntu-latest, args: "-b appimage", target: "x86_64-unknown-linux-gnu", python_version: "" }
           - { platform: ubuntu-24.04-arm, args: "-b appimage", target: "aarch64-unknown-linux-gnu", python_version: "" }
-          - { platform: macos-latest, args: "--target aarch64-apple-darwin", target: "aarch64-apple-darwin", python_version: "cpython-3.14.4-macos-aarch64-none" }
-          - { platform: macos-latest, args: "--target x86_64-apple-darwin", target: "x86_64-apple-darwin", python_version: "cpython-3.14.4-macos-x86_64-none" }
+          - { platform: macos-latest, args: "-b dmg --target aarch64-apple-darwin", target: "aarch64-apple-darwin", python_version: "cpython-3.14.4-macos-aarch64-none" }
+          - { platform: macos-latest, args: "-b dmg --target x86_64-apple-darwin", target: "x86_64-apple-darwin", python_version: "cpython-3.14.4-macos-x86_64-none" }
     steps:
       - uses: actions/checkout@v6
 
