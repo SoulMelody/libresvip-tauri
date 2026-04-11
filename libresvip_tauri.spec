@@ -80,7 +80,7 @@ pyz = PYZ(a.pure, cipher=block_cipher)
 
 uv_bin = find_uv_bin()
 uv_version = subprocess.run([uv_bin, "-V"], capture_output=True, text=True)
-match = re.search(r"([^\s]+)\)", uv_version.stdout)
+match = re.search(r"([^\s\(]+)\)", uv_version.stdout)
 if match is not None:
     rust_target = match.group(1)
 else:
