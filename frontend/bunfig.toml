@@ -1,3 +1,2 @@
 [serve.static]
 env = "BUN_PUBLIC_*"
-registry = "https://registry.npmjs.org/"

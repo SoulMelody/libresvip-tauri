@@ -1,30 +1,30 @@
 [project]
 name = "libresvip-tauri"
-version = "2.3.1"
+version = "2.4.0"
 description = ""
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "connectrpc>=0.9.0",
     "hypercorn>=0.18.0",
-    "libresvip[crypto,lxml,yaml12,zstd]>=2.3.1",
+    "libresvip[crypto,lxml,yaml12]>=2.4.0",
     "psutil>=7.2.2",
     "starlette>=1.0.0",
 ]
 
 [dependency-groups]
 nodejs = [
-    "nodejs-wheel>=24.14.1",
+    "nodejs-wheel>=24.15.0",
     "pydantic-to-typescript>=2.0.0",
 ]
 packaging = [
     "pillow>=12.2.0",
     "pyinstaller>=6.19.0",
     "shellingham<2.0.0,>=1.5.4",
-    "uv>=0.11.6",
+    "uv>=0.11.7",
 ]
 protobuf = [
-    "buf-bin>=1.67.0",
+    "buf-bin>=1.68.3",
     "protoc-gen-connectrpc>=0.9.0",
     "protobuf-protoc-bin>=34.1",
 ]
