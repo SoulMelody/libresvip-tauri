@@ -526,7 +526,7 @@ export function App(props: Props) {
                               }, ...Object.entries(inputPluginInfos).map(([identifier, info]) => {
                                 return {
                                   name: t(`plugin.${identifier}.file_format`),
-                                  extensions: [info.suffix],
+                                  extensions: info.suffixes || [info.suffix],
                                 }
                               }).flat()],
                             });
@@ -537,7 +537,9 @@ export function App(props: Props) {
                                   file = file.replace(/\\/g, '/');
                                 }
                                 let parsed = await parsePath(file);
-                                let detectedInputFormat = parsed.ext.toLowerCase() in inputPluginInfos ? parsed.ext.toLowerCase() : inputFormat;
+                                let detectedInputFormat = Object.entries(inputPluginInfos).find(([key, info]) =>
+                                  (info.suffixes || [info.suffix]).includes(parsed.ext.toLowerCase())
+                                )?.[0] ?? inputFormat;
                                 if (detectedInputFormat === null) {
                                   continue;
                                 }

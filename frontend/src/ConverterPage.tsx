@@ -447,7 +447,9 @@ export const ConverterPage = () => {
             file = file.replace(/\\/g, '/');
           }
           let parsed = await parsePath(file)
-          let detectedInputFormat = parsed.ext.toLowerCase() in inputPluginInfos ? parsed.ext.toLowerCase() : inputFormat;
+          let detectedInputFormat = Object.entries(inputPluginInfos).find(([key, info]) =>
+            (info.suffixes || [info.suffix]).includes(parsed.ext.toLowerCase())
+          )?.[0] ?? inputFormat;
           if (detectedInputFormat === null) {
             continue;
           }
@@ -656,7 +658,7 @@ export const ConverterPage = () => {
                   >
                     {Object.values(inputPluginInfos).map((info) => {
                       return (
-                        <MenuItem value={info.identifier}>{t(`plugin.${info.identifier}.file_format`)} {`(*.${info.suffix})`}</MenuItem>
+                        <MenuItem value={info.identifier}>{t(`plugin.${info.identifier}.file_format`)} {`(${(info.suffixes || [info.suffix]).map(s => `*.${s}`).join(', ')})`}</MenuItem>
                       )
                     })}
                   </Select>
@@ -704,7 +706,7 @@ export const ConverterPage = () => {
                                       onDelete={() => {}}
                                     />
                                   </Box>
-                                  <Chip icon={<DocumentRegular/>} label={t(`plugin.${inputFormat}.file_format`) + " " + `(*.${inputPluginInfos[inputFormat].suffix})`} sx={{ m: 1 }}/>
+                                  <Chip icon={<DocumentRegular/>} label={t(`plugin.${inputFormat}.file_format`) + " " + `(${((inputPluginInfos[inputFormat].suffixes || [inputPluginInfos[inputFormat].suffix]) as string[]).map(s => `*.${s}`).join(', ')})`} sx={{ m: 1 }}/>
                                 </Box>
                               </Box>
                               <Divider />
@@ -727,7 +729,7 @@ export const ConverterPage = () => {
                       }, ...Object.entries(inputPluginInfos).map(([identifier, info]) => {
                         return {
                           name: t(`plugin.${identifier}.file_format`),
-                          extensions: [info.suffix],
+                          extensions: info.suffixes || [info.suffix],
                         }
                       }).flat()],
                     });
@@ -738,7 +740,9 @@ export const ConverterPage = () => {
                           file = file.replace(/\\/g, '/');
                         }
                         let parsed = await parsePath(file)
-                        let detectedInputFormat = parsed.ext.toLowerCase() in inputPluginInfos ? parsed.ext.toLowerCase() : inputFormat;
+                        let detectedInputFormat = Object.entries(inputPluginInfos).find(([key, info]) =>
+                          (info.suffixes || [info.suffix]).includes(parsed.ext.toLowerCase())
+                        )?.[0] ?? inputFormat;
                         if (detectedInputFormat === null)
                           continue;
                         let task: ConversionTask = {

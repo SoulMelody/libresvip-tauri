@@ -21,6 +21,7 @@ export interface PluginInfo {
   identifier: string;
   version: string;
   suffix: string;
+  suffixes?: string[];
   icon_base64?: string | null;
   website?: string | null;
   categories: string[];
