@@ -242,7 +242,7 @@ class ConversionService(Conversion):
                             website=plugin.info.website,
                             version=plugin.version,
                             file_format=translator.gettext(plugin.info.file_format),
-                            suffixes=plugin.info.suffixes,
+                            suffixes=[plugin.info.suffix],
                             icon_base64=plugin.info.icon_base64 or "",
                             json_schema=json_schema,
                             ui_json_schema=ui_schema,
