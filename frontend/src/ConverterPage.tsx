@@ -50,7 +50,7 @@ import { revealItemInDir } from '@tauri-apps/plugin-opener';
 import { useEffect } from 'react';
 import { useConverterStore } from './store/ConverterStore';
 import { ConversionTask } from './ApiTypes';
-import { useSettingStore } from './store/SettingStore';
+import { useSettingStore, toLyricsReplacementGroups } from './store/SettingStore';
 import { useTranslation } from 'react-i18next';
 import { path } from '@tauri-apps/api';
 import { parsePath, useMessage } from './Utils';
@@ -115,6 +115,7 @@ export const ConverterPage = () => {
     setMaxTrackCount,
     setInputFormatFormData,
     setOutputFormatFormData,
+    lyricReplaceRules,
   } = useSettingStore();
   const {
     showMessage,
@@ -393,10 +394,33 @@ export const ConverterPage = () => {
     if (schema === undefined) {
       return <Box/>;
     }
-  
+
+    let patchedJsonSchema = schema.json_schema;
+    let patchedUiSchema = schema.ui_schema;
+    if (identifier === 'replace_lyric') {
+      const presetNames = Object.keys(lyricReplaceRules);
+      patchedJsonSchema = {
+        ...schema.json_schema,
+        properties: {
+          ...schema.json_schema.properties,
+          lyric_replacement_preset_name: {
+            ...schema.json_schema.properties?.lyric_replacement_preset_name,
+            enum: presetNames,
+          },
+        },
+      };
+      patchedUiSchema = {
+        ...schema.ui_schema,
+        lyric_replacement_preset_name: {
+          ...schema.ui_schema?.lyric_replacement_preset_name,
+          'ui:widget': 'select',
+        },
+      };
+    }
+
     return (
-      <Form schema={schema.json_schema} validator={validator}
-        uiSchema={schema.ui_schema} templates={{
+      <Form schema={patchedJsonSchema} validator={validator}
+        uiSchema={patchedUiSchema} templates={{
           DescriptionFieldTemplate: CustomDescriptionFieldTemplate,
           FieldTemplate: CustomFieldTemplate
         }} widgets={widgets} onChange={(e) => {
@@ -430,6 +454,13 @@ export const ConverterPage = () => {
         formData={outputFormatFormData} liveValidate={true}/>
     );
   }
+
+  useEffect(() => {
+    const currentFormData = middlewareFormDatas['replace_lyric'];
+    if (currentFormData?.lyric_replacement_preset_name && !(currentFormData.lyric_replacement_preset_name in lyricReplaceRules)) {
+      setMiddlewareFormData('replace_lyric', { ...currentFormData, lyric_replacement_preset_name: 'default' });
+    }
+  }, [lyricReplaceRules]);
 
   useEffect(() => {
     const handleDragDrop = async (event: any) => {
@@ -593,6 +624,7 @@ export const ConverterPage = () => {
                     inputOptions: JSON.stringify(curInputFormatFormData),
                     outputOptions: JSON.stringify(curOutputFormatFormData),
                     middlewareOptions: curMiddlewareFormDatas,
+                    lyricReplaceRules: toLyricsReplacementGroups(lyricReplaceRules),
                     "$typeName": "LibreSVIP.ConversionRequest",
                   }
                 );

@@ -21,6 +21,27 @@ enum ConflictPolicy {
   RENAME = 3;
 }
 
+enum LyricsReplaceMode {
+  FULL = 0;
+  ALPHABETIC = 1;
+  NON_ALPHABETIC = 2;
+  REGEX = 3;
+}
+
+message LyricsReplacement {
+  LyricsReplaceMode mode = 1;
+  string replacement = 2;
+  string pattern_main = 3;
+  string pattern_prefix = 4;
+  string pattern_suffix = 5;
+  int32 flags = 6;
+}
+
+message LyricsReplacementGroup {
+  string preset_name = 1;
+  repeated LyricsReplacement rules = 2;
+}
+
 message PluginInfo {
   string identifier = 1;
   string name = 2;
@@ -61,6 +82,7 @@ message ConversionRequest {
   string output_options = 7;
   map<string, string> middleware_options = 8;
   string language = 9;
+  repeated LyricsReplacementGroup lyric_replace_rules = 10;
 }
 
 message SingleConversionResult {

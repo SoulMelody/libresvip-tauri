@@ -68,6 +68,29 @@
     "skip_file": "Target file already exists, skip conversion",
     "overwrite_file": "Target file {{file}} already exists, overwrite it?"
   },
+  "lyric_rules": {
+    "title": "Lyric Replace Rules",
+    "preset": "Preset",
+    "add_preset": "Add Preset",
+    "remove_preset": "Remove Preset",
+    "preset_exists": "Preset already exists",
+    "preset_name": "Preset name",
+    "add_rule": "Add Rule",
+    "mode": "Mode",
+    "replacement": "Replacement",
+    "pattern_main": "Pattern",
+    "pattern_prefix": "Prefix",
+    "pattern_suffix": "Suffix",
+    "flags": "Flags",
+    "actions": "Actions",
+    "full": "Full Match",
+    "alphabetic": "Alphabetic",
+    "non_alphabetic": "Non-Alphabetic",
+    "regex": "Regex",
+    "ignore_case": "Ignore Case",
+    "multiline": "Multiline",
+    "dotall": "Dot All"
+  },
   "middleware": {
     "pitch_shift": {
       "name": "Pitch shift",

@@ -62,11 +62,13 @@ import {
   WrenchScrewdriver24Regular,
   Clipboard24Regular,
   ClipboardCheckmark24Regular,
+  TextBulletListSquareEdit20Regular,
 } from '@fluentui/react-icons';
 import i18n from './i18n';
 import { useTranslation } from 'react-i18next';
 import { AboutPage } from "./AboutPage";
 import { ConverterPage } from "./ConverterPage";
+import { LyricReplaceRulesPanel } from "./components/LyricReplaceRulesPanel";
 import { path } from '@tauri-apps/api';
 import { open } from '@tauri-apps/plugin-dialog';
 import { writeText } from '@tauri-apps/plugin-clipboard-manager';
@@ -240,6 +242,8 @@ export function App(props: Props) {
 
   const languageSubmenuRef = useRef(null);
   useHotkeys('ctrl+l', () => languageSubmenuRef.current.openMenu());
+
+  const [lyricRulesOpen, setLyricRulesOpen] = useState(false);
 
   interface ErrorDialogProps {
     popupId: string,
@@ -840,6 +844,14 @@ export function App(props: Props) {
                 </MenuItem>
               </MenuRadioGroup>
             </SubMenu>
+            <MenuItem onClick={() => { setMenuOpen(false); setLyricRulesOpen(true); }}>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <TextBulletListSquareEdit20Regular/>
+                <Typography>
+                  {t('lyric_rules.title')}
+                </Typography>
+              </Box>
+            </MenuItem>
           </ControlledMenu>
           <Divider orientation="vertical" flexItem sx={{ marginLeft: '16px', marginRight: '16px' }}/>
           <div 
@@ -938,6 +950,15 @@ export function App(props: Props) {
         <Route index path="" element={<ConverterPage/>}></Route>
         <Route path='about' element={<AboutPage/>}></Route>
       </Routes>
+      <Dialog open={lyricRulesOpen} onClose={() => setLyricRulesOpen(false)} maxWidth="lg" fullWidth>
+        <DialogTitle>{t('lyric_rules.title')}</DialogTitle>
+        <DialogContent>
+          <LyricReplaceRulesPanel />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setLyricRulesOpen(false)}>{t('window.close')}</Button>
+        </DialogActions>
+      </Dialog>
     </ThemeProvider>
   );
 }

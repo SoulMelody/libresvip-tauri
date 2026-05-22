@@ -68,6 +68,29 @@
     "skip_file": "目标文件已存在，跳过",
     "overwrite_file": "目标文件 {{file}} 已存在，要覆盖吗？"
   },
+  "lyric_rules": {
+    "title": "歌词替换规则",
+    "preset": "预设",
+    "add_preset": "新增预设",
+    "remove_preset": "删除预设",
+    "preset_exists": "预设已存在",
+    "preset_name": "预设名称",
+    "add_rule": "新增规则",
+    "mode": "模式",
+    "replacement": "替换为",
+    "pattern_main": "匹配模式",
+    "pattern_prefix": "前缀",
+    "pattern_suffix": "后缀",
+    "flags": "标志",
+    "actions": "操作",
+    "full": "完整匹配",
+    "alphabetic": "字母匹配",
+    "non_alphabetic": "非字母匹配",
+    "regex": "正则表达式",
+    "ignore_case": "忽略大小写",
+    "multiline": "多行",
+    "dotall": "点号匹配换行"
+  },
   "middleware": {
     "pitch_shift": {
       "name": "音高变调",

@@ -3,6 +3,7 @@ import enum
 import gettext
 import importlib.metadata
 import pathlib
+import re
 import traceback
 from collections.abc import AsyncIterator
 from functools import partial
@@ -10,6 +11,13 @@ from typing import get_args, get_type_hints
 
 from connectrpc.request import RequestContext
 from libresvip.core.compat import json
+from libresvip.core.config import (
+    LYRIC_REPLACE_MODE_PREFIX_SUFFIX,
+    LibreSVIPSettingsContainer,
+    LibreSvipBaseUISettings,
+    LyricsReplacement,
+    LyricsReplaceMode,
+)
 from libresvip.core.warning_types import CatchWarnings
 from libresvip.extension.base import (
     OptionsDict,
@@ -48,6 +56,42 @@ from .libresvip_tauri_pb2 import (
     VersionRequest,
     VersionResponse,
 )
+
+_PROTO_MODE_TO_ENUM = {
+    0: LyricsReplaceMode.FULL,
+    1: LyricsReplaceMode.ALPHABETIC,
+    2: LyricsReplaceMode.NON_ALPHABETIC,
+    3: LyricsReplaceMode.REGEX,
+}
+
+_DEFAULT_SETTINGS = LibreSvipBaseUISettings.model_construct(
+    lyric_replace_rules={"default": []},
+)
+
+
+def _request_to_settings(request: ConversionRequest) -> LibreSvipBaseUISettings:
+    rules: dict[str, list[LyricsReplacement]] = {}
+    for group in request.lyric_replace_rules:
+        group_rules: list[LyricsReplacement] = []
+        for r in group.rules:
+            mode = _PROTO_MODE_TO_ENUM.get(r.mode, LyricsReplaceMode.FULL)
+            prefix = r.pattern_prefix
+            suffix = r.pattern_suffix
+            if not prefix and not suffix and mode.value in LYRIC_REPLACE_MODE_PREFIX_SUFFIX:
+                prefix, suffix = LYRIC_REPLACE_MODE_PREFIX_SUFFIX[mode.value]
+            group_rules.append(
+                LyricsReplacement(
+                    mode=mode,
+                    replacement=r.replacement,
+                    pattern_main=r.pattern_main,
+                    pattern_prefix=prefix,
+                    pattern_suffix=suffix,
+                    flags=re.RegexFlag(r.flags) if r.flags else re.IGNORECASE,
+                )
+            )
+        rules[group.preset_name] = group_rules
+    rules.setdefault("default", [])
+    return LibreSvipBaseUISettings.model_construct(lyric_replace_rules=rules)
 
 
 class GettextGenerateJsonSchema(GenerateJsonSchema):
@@ -202,127 +246,166 @@ class ConversionService(Conversion):
         self._fs = UPath("memory://")
 
     async def plugin_infos(self, request: PluginInfosRequest, ctx: RequestContext) -> PluginInfosResponse:
-        if request.language not in translators_cache:
-            translator = get_translation(request.language)
-            translators_cache[request.language] = translator
-        translator = translators_cache[request.language]
-        plugin_infos: list[PluginInfo] = []
-        match request.category:
-            case PluginCategory.MIDDLEWARE:
-                plugins = middleware_manager.plugins.get("middleware", {})
-                for identifier, plugin in plugins.items():
-                    json_schema, ui_schema, default_value = option_schema(plugin.process_option_cls, translator)
-                    plugin_infos.append(
-                        PluginInfo(
-                            identifier=identifier,
-                            name=plugin.info.name,
-                            author=translator.gettext(plugin.info.author),
-                            description=translator.gettext(plugin.info.description),
-                            website=plugin.info.website,
-                            version=plugin.version,
-                            json_schema=json_schema,
-                            ui_json_schema=ui_schema,
-                            default_json_value=default_value,
+        async with LibreSVIPSettingsContainer.state.override_context(_DEFAULT_SETTINGS):
+            if request.language not in translators_cache:
+                translator = get_translation(request.language)
+                translators_cache[request.language] = translator
+            translator = translators_cache[request.language]
+            plugin_infos: list[PluginInfo] = []
+            match request.category:
+                case PluginCategory.MIDDLEWARE:
+                    plugins = middleware_manager.plugins.get("middleware", {})
+                    for identifier, plugin in plugins.items():
+                        json_schema, ui_schema, default_value = option_schema(plugin.process_option_cls, translator)
+                        plugin_infos.append(
+                            PluginInfo(
+                                identifier=identifier,
+                                name=plugin.info.name,
+                                author=translator.gettext(plugin.info.author),
+                                description=translator.gettext(plugin.info.description),
+                                website=plugin.info.website,
+                                version=plugin.version,
+                                json_schema=json_schema,
+                                ui_json_schema=ui_schema,
+                                default_json_value=default_value,
+                            )
                         )
-                    )
-            case PluginCategory.OUTPUT:
-                plugins = {
-                    identifier: plugin
-                    for identifier, plugin in plugin_manager.plugins.get("svs", {}).items()
-                    if not issubclass(plugin, ReadOnlyConverterMixin)
-                }
-                for identifier, plugin in plugins.items():
-                    json_schema, ui_schema, default_value = option_schema(plugin.output_option_cls, translator)
-                    plugin_infos.append(
-                        PluginInfo(
-                            identifier=identifier,
-                            name=plugin.info.name,
-                            author=translator.gettext(plugin.info.author),
-                            description=translator.gettext(plugin.info.description),
-                            website=plugin.info.website,
-                            version=plugin.version,
-                            file_format=translator.gettext(plugin.info.file_format),
-                            suffixes=[plugin.info.suffix],
-                            icon_base64=plugin.info.icon_base64 or "",
-                            json_schema=json_schema,
-                            ui_json_schema=ui_schema,
-                            default_json_value=default_value,
+                case PluginCategory.OUTPUT:
+                    plugins = {
+                        identifier: plugin
+                        for identifier, plugin in plugin_manager.plugins.get("svs", {}).items()
+                        if not issubclass(plugin, ReadOnlyConverterMixin)
+                    }
+                    for identifier, plugin in plugins.items():
+                        json_schema, ui_schema, default_value = option_schema(plugin.output_option_cls, translator)
+                        plugin_infos.append(
+                            PluginInfo(
+                                identifier=identifier,
+                                name=plugin.info.name,
+                                author=translator.gettext(plugin.info.author),
+                                description=translator.gettext(plugin.info.description),
+                                website=plugin.info.website,
+                                version=plugin.version,
+                                file_format=translator.gettext(plugin.info.file_format),
+                                suffixes=[plugin.info.suffix],
+                                icon_base64=plugin.info.icon_base64 or "",
+                                json_schema=json_schema,
+                                ui_json_schema=ui_schema,
+                                default_json_value=default_value,
+                            )
                         )
-                    )
-            case _:
-                plugins = {
-                    identifier: plugin
-                    for identifier, plugin in plugin_manager.plugins.get("svs", {}).items()
-                    if not issubclass(plugin, WriteOnlyConverterMixin)
-                }
-                for identifier, plugin in plugins.items():
-                    json_schema, ui_schema, default_value = option_schema(plugin.input_option_cls, translator)
-                    plugin_infos.append(
-                        PluginInfo(
-                            identifier=identifier,
-                            name=plugin.info.name,
-                            author=translator.gettext(plugin.info.author),
-                            description=translator.gettext(plugin.info.description),
-                            website=plugin.info.website,
-                            version=plugin.version,
-                            file_format=translator.gettext(plugin.info.file_format),
-                            suffixes=plugin.info.suffixes,
-                            icon_base64=plugin.info.icon_base64 or "",
-                            json_schema=json_schema,    
-                            ui_json_schema=ui_schema,
-                            default_json_value=default_value,
+                case _:
+                    plugins = {
+                        identifier: plugin
+                        for identifier, plugin in plugin_manager.plugins.get("svs", {}).items()
+                        if not issubclass(plugin, WriteOnlyConverterMixin)
+                    }
+                    for identifier, plugin in plugins.items():
+                        json_schema, ui_schema, default_value = option_schema(plugin.input_option_cls, translator)
+                        plugin_infos.append(
+                            PluginInfo(
+                                identifier=identifier,
+                                name=plugin.info.name,
+                                author=translator.gettext(plugin.info.author),
+                                description=translator.gettext(plugin.info.description),
+                                website=plugin.info.website,
+                                version=plugin.version,
+                                file_format=translator.gettext(plugin.info.file_format),
+                                suffixes=plugin.info.suffixes,
+                                icon_base64=plugin.info.icon_base64 or "",
+                                json_schema=json_schema,
+                                ui_json_schema=ui_schema,
+                                default_json_value=default_value,
+                            )
                         )
-                    )
-        return PluginInfosResponse(values=plugin_infos)
+            return PluginInfosResponse(values=plugin_infos)
 
     async def version(self, request: VersionRequest, ctx: RequestContext) -> VersionResponse:
         return VersionResponse(version=importlib.metadata.version("libresvip"))
 
     async def convert(self, request: ConversionRequest, ctx: RequestContext) -> AsyncIterator[SingleConversionResult]:
-        futures = []
-        input_plugin = plugin_manager.plugins.get("svs", {})[request.input_format]
-        output_plugin = plugin_manager.plugins.get("svs", {})[request.output_format]
-        try:
-            input_options = input_plugin.input_option_cls.model_validate_json(
-                request.input_options
-            )
-        except ValidationError:
-            input_options = input_plugin.input_option_cls()
-        try:
-            output_options = output_plugin.output_option_cls.model_validate_json(
-                request.output_options
-            )
-        except ValidationError:
-            output_options = output_plugin.output_option_cls()
-        for group in request.groups:
-            yield SingleConversionResult(group_id=group.group_id, running=True, error_message="", warning_messages=[])
-            coro = asyncio.to_thread(
-                convert_one_group,
-                self._fs,
-                request.mode,
-                request.max_track_count,
-                group,
-                input_plugin,
-                output_plugin,
-                input_options.model_dump(),
-                output_options.model_dump(),
-                request.middleware_options,
-                request.language,
-            )
-            futures.append(asyncio.create_task(coro))
-        for future in asyncio.as_completed(futures):
-            yield (await future)
+        async with LibreSVIPSettingsContainer.state.override_context(_request_to_settings(request)):
+            futures = []
+            input_plugin = plugin_manager.plugins.get("svs", {})[request.input_format]
+            output_plugin = plugin_manager.plugins.get("svs", {})[request.output_format]
+            try:
+                input_options = input_plugin.input_option_cls.model_validate_json(
+                    request.input_options
+                )
+            except ValidationError:
+                input_options = input_plugin.input_option_cls()
+            try:
+                output_options = output_plugin.output_option_cls.model_validate_json(
+                    request.output_options
+                )
+            except ValidationError:
+                output_options = output_plugin.output_option_cls()
+            for group in request.groups:
+                yield SingleConversionResult(group_id=group.group_id, running=True, error_message="", warning_messages=[])
+                coro = asyncio.to_thread(
+                    convert_one_group,
+                    self._fs,
+                    request.mode,
+                    request.max_track_count,
+                    group,
+                    input_plugin,
+                    output_plugin,
+                    input_options.model_dump(),
+                    output_options.model_dump(),
+                    request.middleware_options,
+                    request.language,
+                )
+                futures.append(asyncio.create_task(coro))
+            for future in asyncio.as_completed(futures):
+                yield (await future)
 
     async def move_file(self, request: MoveFileRequest, ctx: RequestContext) -> AsyncIterator[MoveFileResponse]:
-        output_dir = pathlib.Path(request.output_dir).absolute()
-        output_dir.mkdir(parents=True, exist_ok=True)
-        if (tmp_path := self._fs / request.group_id).exists():
-            result = MoveFileResponse(group_id=request.group_id, completed=True, error_message="")
-            try:
-                if tmp_path.is_dir():
-                    for i, child in enumerate(tmp_path.iterdir()):
+        async with LibreSVIPSettingsContainer.state.override_context(_DEFAULT_SETTINGS):
+            output_dir = pathlib.Path(request.output_dir).absolute()
+            output_dir.mkdir(parents=True, exist_ok=True)
+            if (tmp_path := self._fs / request.group_id).exists():
+                result = MoveFileResponse(group_id=request.group_id, completed=True, error_message="")
+                try:
+                    if tmp_path.is_dir():
+                        for i, child in enumerate(tmp_path.iterdir()):
+                            output_path = (
+                                output_dir / f"{request.stem}_{child.name}.{request.output_format}"
+                            )
+                            if output_path.exists():
+                                if request.force_overwrite or (
+                                    request.conflict_policy == ConflictPolicy.OVERWRITE
+                                ):
+                                    output_path.write_bytes(tmp_path.read_bytes())
+                                elif request.conflict_policy == ConflictPolicy.RENAME:
+                                    output_path = (
+                                        output_dir
+                                        / f"{request.stem}_{child.name}_{i}.{request.output_format}"
+                                    )
+                                    output_path.write_bytes(tmp_path.read_bytes())
+                                elif request.conflict_policy == ConflictPolicy.PROMPT:
+                                    yield MoveFileResponse(
+                                        group_id=request.group_id,
+                                        completed=False,
+                                        output_path=str(output_path),
+                                        conflict_policy=request.conflict_policy,
+                                    )
+                                    return
+                                else:
+                                    yield MoveFileResponse(
+                                        group_id=request.group_id,
+                                        completed=False,
+                                        output_path=str(output_path),
+                                        conflict_policy=request.conflict_policy,
+                                    )
+                                    return
+                            else:
+                                output_path.write_bytes(child.read_bytes())
+                            result.output_path = str(output_path)
+                            child.unlink()
+                        tmp_path.rmdir()
+                    else:
                         output_path = (
-                            output_dir / f"{request.stem}_{child.name}.{request.output_format}"
+                            output_dir / f"{request.stem}.{request.output_format}"
                         )
                         if output_path.exists():
                             if request.force_overwrite or (
@@ -332,7 +415,7 @@ class ConversionService(Conversion):
                             elif request.conflict_policy == ConflictPolicy.RENAME:
                                 output_path = (
                                     output_dir
-                                    / f"{request.stem}_{child.name}_{i}.{request.output_format}"
+                                    / f"{request.stem}_{i}.{request.output_format}"
                                 )
                                 output_path.write_bytes(tmp_path.read_bytes())
                             elif request.conflict_policy == ConflictPolicy.PROMPT:
@@ -352,50 +435,14 @@ class ConversionService(Conversion):
                                 )
                                 return
                         else:
-                            output_path.write_bytes(child.read_bytes())
+                            output_path.write_bytes(tmp_path.read_bytes())
+                        tmp_path.unlink()
                         result.output_path = str(output_path)
-                        child.unlink()
-                    tmp_path.rmdir()
-                else:
-                    output_path = (
-                        output_dir / f"{request.stem}.{request.output_format}"
-                    )
-                    if output_path.exists():
-                        if request.force_overwrite or (
-                            request.conflict_policy == ConflictPolicy.OVERWRITE
-                        ):
-                            output_path.write_bytes(tmp_path.read_bytes())
-                        elif request.conflict_policy == ConflictPolicy.RENAME:
-                            output_path = (
-                                output_dir
-                                / f"{request.stem}_{i}.{request.output_format}"
-                            )
-                            output_path.write_bytes(tmp_path.read_bytes())
-                        elif request.conflict_policy == ConflictPolicy.PROMPT:
-                            yield MoveFileResponse(
-                                group_id=request.group_id,
-                                completed=False,
-                                output_path=str(output_path),
-                                conflict_policy=request.conflict_policy,
-                            )
-                            return
-                        else:
-                            yield MoveFileResponse(
-                                group_id=request.group_id,
-                                completed=False,
-                                output_path=str(output_path),
-                                conflict_policy=request.conflict_policy,
-                            )
-                            return
-                    else:
-                        output_path.write_bytes(tmp_path.read_bytes())
-                    tmp_path.unlink()
-                    result.output_path = str(output_path)
-                result.success = True
-            except Exception:
-                result.success = False
-                result.error_message = traceback.format_exc()
-            yield result
+                    result.success = True
+                except Exception:
+                    result.success = False
+                    result.error_message = traceback.format_exc()
+                yield result
 
 
 app = Starlette()

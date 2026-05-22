@@ -4,6 +4,8 @@ import os
 import threading
 import time
 
+os.environ.setdefault("LIBRESVIP_SETTINGS_BACKEND", "remote")
+
 import psutil
 from hypercorn.config import Config
 from hypercorn.asyncio import serve
