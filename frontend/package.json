@@ -18,7 +18,7 @@
     "@connectrpc/connect-web": "^2.1.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@fluentui/react-icons": "^2.0.326",
+    "@fluentui/react-icons": "^2.0.328",
     "@mui/material": "^9.0.1",
     "@rjsf/core": "^6.5.3",
     "@rjsf/mui": "^6.5.3",
@@ -47,7 +47,7 @@
     "@bufbuild/protoc-gen-es": "^2.12.0",
     "@tauri-apps/cli": "^2.11.2",
     "@types/bun": "latest",
-    "@types/react": "^19.2.14",
+    "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
     "json-schema-to-typescript": "^15.0.4",
     "typescript": "^6.0.3"

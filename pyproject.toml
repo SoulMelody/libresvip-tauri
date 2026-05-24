@@ -1,15 +1,15 @@
 [project]
 name = "libresvip-tauri"
-version = "2.5.1"
+version = "2.5.2"
 description = ""
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "connectrpc>=0.10.0",
     "hypercorn>=0.18.0",
-    "libresvip[crypto,lxml,yaml12]>=2.5.1",
+    "libresvip[crypto,lxml,yaml12]>=2.5.2",
     "psutil>=7.2.2",
-    "starlette>=1.0.0",
+    "starlette>=1.1.0",
 ]
 
 [dependency-groups]
@@ -26,7 +26,7 @@ packaging = [
 protobuf = [
     "buf-bin>=1.69.0",
     "protoc-gen-connectrpc>=0.10.0",
-    "protobuf-protoc-bin>=34.1",
+    "protobuf-protoc-bin>=35.0",
 ]
 
 [tool.uv.build-backend]
