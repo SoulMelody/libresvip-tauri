@@ -77,8 +77,6 @@ export function LyricReplaceRulesPanel() {
 
   return (
     <Box sx={{ p: 2, minWidth: 700 }}>
-      <Typography variant="h6" gutterBottom>{t('lyric_rules.title')}</Typography>
-
       <Toolbar disableGutters sx={{ gap: 1, flexWrap: 'wrap' }}>
         <Select
           size="small"

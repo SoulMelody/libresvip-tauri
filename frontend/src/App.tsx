@@ -950,7 +950,7 @@ export function App(props: Props) {
         <Route index path="" element={<ConverterPage/>}></Route>
         <Route path='about' element={<AboutPage/>}></Route>
       </Routes>
-      <Dialog open={lyricRulesOpen} onClose={() => setLyricRulesOpen(false)} maxWidth="lg" fullWidth>
+      <Dialog fullScreen open={lyricRulesOpen} onClose={() => setLyricRulesOpen(false)} fullWidth>
         <DialogTitle>{t('lyric_rules.title')}</DialogTitle>
         <DialogContent>
           <LyricReplaceRulesPanel />
