@@ -4,8 +4,123 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LibreSVIP Tauri</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --boot-bg: #f4f1ea;
+        --boot-panel: rgba(255, 255, 255, 0.82);
+        --boot-text: #1f1f1f;
+        --boot-muted: #6a675f;
+        --boot-accent: #c66b2d;
+        --boot-shadow: 0 18px 40px rgba(76, 58, 43, 0.12);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --boot-bg: #1b1916;
+          --boot-panel: rgba(36, 33, 29, 0.88);
+          --boot-text: #f3eee6;
+          --boot-muted: #c1b6a7;
+          --boot-accent: #f0a25b;
+          --boot-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+        }
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background:
+          radial-gradient(circle at top, rgba(240, 162, 91, 0.18), transparent 34%),
+          linear-gradient(180deg, var(--boot-bg), var(--boot-bg));
+      }
+
+      body {
+        overflow: hidden;
+        font-family: "Segoe UI", "Microsoft YaHei UI", sans-serif;
+      }
+
+      #root {
+        min-height: 100vh;
+      }
+
+      #boot-splash {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: transparent;
+        transition: opacity 180ms ease;
+        z-index: 9999;
+      }
+
+      #boot-splash.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .boot-card {
+        width: min(360px, calc(100vw - 48px));
+        padding: 28px 24px;
+        border-radius: 24px;
+        background: var(--boot-panel);
+        box-shadow: var(--boot-shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .boot-brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .boot-mark {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, var(--boot-accent), #f4c089);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      }
+
+      .boot-title {
+        margin: 0;
+        color: var(--boot-text);
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .boot-ring {
+        margin-top: 24px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 3px solid rgba(128, 128, 128, 0.18);
+        border-top-color: var(--boot-accent);
+        border-right-color: var(--boot-accent);
+        animation: boot-ring 0.85s linear infinite;
+      }
+
+      @keyframes boot-ring {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body>
+    <div id="boot-splash" aria-hidden="true">
+      <div class="boot-card">
+        <div class="boot-brand">
+          <div class="boot-mark"></div>
+          <div>
+            <h1 class="boot-title">LibreSVIP</h1>
+          </div>
+        </div>
+        <div class="boot-ring" aria-hidden="true"></div>
+      </div>
+    </div>
     <div id="root"></div>
     <script type="module" src="./frontend.tsx"></script>
   </body>

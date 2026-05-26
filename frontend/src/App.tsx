@@ -1,6 +1,6 @@
 import "./index.css";
 
-import { useEffect } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import {
   Badge,
   Box,
@@ -66,9 +66,6 @@ import {
 } from '@fluentui/react-icons';
 import i18n from './i18n';
 import { useTranslation } from 'react-i18next';
-import { AboutPage } from "./AboutPage";
-import { ConverterPage } from "./ConverterPage";
-import { LyricReplaceRulesPanel } from "./components/LyricReplaceRulesPanel";
 import { path } from '@tauri-apps/api';
 import { open } from '@tauri-apps/plugin-dialog';
 import { writeText } from '@tauri-apps/plugin-clipboard-manager';
@@ -106,6 +103,53 @@ const navItems = [
   { path: '/'  },
   { path: '/about' },
 ];
+
+const ConverterPage = lazy(() =>
+  import("./ConverterPage").then((module) => ({ default: module.ConverterPage }))
+);
+const AboutPage = lazy(() =>
+  import("./AboutPage").then((module) => ({ default: module.AboutPage }))
+);
+const LyricReplaceRulesPanel = lazy(() =>
+  import("./components/LyricReplaceRulesPanel").then((module) => ({
+    default: module.LyricReplaceRulesPanel,
+  }))
+);
+
+function PageFallback() {
+  return (
+    <Box
+      sx={{
+        minHeight: "calc(100vh - 52px)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 2,
+        bgcolor: "background.default",
+      }}
+    >
+      <CircularProgress size={28} />
+    </Box>
+  );
+}
+
+function DialogFallback() {
+  return (
+    <Box
+      sx={{
+        minHeight: 240,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 2,
+      }}
+    >
+      <CircularProgress size={24} />
+    </Box>
+  );
+}
 
 export function App(props: Props) {
 	const snapOverlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -946,14 +990,18 @@ export function App(props: Props) {
         </Drawer>
       </Box>
       <MessageSnackbar/>
-      <Routes>
-        <Route index path="" element={<ConverterPage/>}></Route>
-        <Route path='about' element={<AboutPage/>}></Route>
-      </Routes>
+      <Suspense fallback={<PageFallback />}>
+        <Routes>
+          <Route index path="" element={<ConverterPage/>}></Route>
+          <Route path='about' element={<AboutPage/>}></Route>
+        </Routes>
+      </Suspense>
       <Dialog fullScreen open={lyricRulesOpen} onClose={() => setLyricRulesOpen(false)} fullWidth>
         <DialogTitle>{t('lyric_rules.title')}</DialogTitle>
         <DialogContent>
-          <LyricReplaceRulesPanel />
+          <Suspense fallback={<DialogFallback />}>
+            <LyricReplaceRulesPanel />
+          </Suspense>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setLyricRulesOpen(false)}>{t('window.close')}</Button>
