@@ -1,9 +1,11 @@
 mod plugins;
 
-use std::fs;
+use std::io;
+use std::path::PathBuf;
 use std::process;
 use std::process::{Child, Command};
 use std::sync::Mutex;
+use tauri::{AppHandle, Manager};
 use tauri_plugin_decorum::WebviewWindowExt;
 use tauri_plugin_prevent_default;
 
@@ -12,12 +14,40 @@ use tauri_plugin_prevent_default::PlatformOptions;
 
 static SIDECAR_PROCESS: Mutex<Option<Child>> = Mutex::new(None);
 
-fn start_sidecar() -> Result<Child, std::io::Error> {
+#[cfg(windows)]
+fn sidecar_filename() -> &'static str {
+    "libresvip-tauri-server.exe"
+}
+
+#[cfg(not(windows))]
+fn sidecar_filename() -> &'static str {
+    "libresvip-tauri-server"
+}
+
+fn resolve_sidecar_path(app: &AppHandle) -> Result<PathBuf, io::Error> {
+    let resource_dir = app
+        .path()
+        .resource_dir()
+        .map_err(|e| io::Error::other(format!("failed to resolve resource directory: {e}")))?;
+    let sidecar_path = resource_dir.join(sidecar_filename());
+    if sidecar_path.is_file() {
+        Ok(sidecar_path)
+    } else {
+        Err(io::Error::new(
+            io::ErrorKind::NotFound,
+            format!("sidecar not found at {}", sidecar_path.display()),
+        ))
+    }
+}
+
+fn start_sidecar(app: &AppHandle) -> Result<Child, std::io::Error> {
+    let sidecar_path = resolve_sidecar_path(app)?;
+
     #[cfg(windows)]
     let result = {
         use std::os::windows::process::CommandExt;
         const CREATE_NO_WINDOW: u32 = 0x08000000;
-        Command::new(fs::canonicalize("libresvip-tauri-server.exe").unwrap())
+        Command::new(&sidecar_path)
             .arg("--parent-pid")
             .arg(process::id().to_string())
             .creation_flags(CREATE_NO_WINDOW)
@@ -25,7 +55,7 @@ fn start_sidecar() -> Result<Child, std::io::Error> {
     };
 
     #[cfg(not(windows))]
-    let result = Command::new(fs::canonicalize("libresvip-tauri-server").unwrap())
+    let result = Command::new(&sidecar_path)
         .arg("--parent-pid")
         .arg(process::id().to_string())
         .spawn();
@@ -43,13 +73,13 @@ fn start_sidecar() -> Result<Child, std::io::Error> {
 }
 
 #[tauri::command]
-fn start_sidecar_command() -> Result<(), String> {
+fn start_sidecar_command(app: AppHandle) -> Result<(), String> {
     if let Ok(mut guard) = SIDECAR_PROCESS.lock() {
         if let Some(child) = guard.as_mut() {
             if child.try_wait().is_ok_and(|status| status.is_none()) {
                 Err(format!("Sidecar is already running (PID: {})", child.id()))
             } else {
-                match start_sidecar() {
+                match start_sidecar(&app) {
                     Ok(child) => {
                         *guard = Some(child);
                         Ok(())
@@ -58,7 +88,7 @@ fn start_sidecar_command() -> Result<(), String> {
                 }
             }
         } else {
-            match start_sidecar() {
+            match start_sidecar(&app) {
                 Ok(child) => {
                     *guard = Some(child);
                     Ok(())
