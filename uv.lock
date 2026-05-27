@@ -596,7 +596,7 @@ wheels = [
 
 [[package]]
 name = "libresvip"
-version = "2.6.0"
+version = "2.6.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aristaproto" },
@@ -634,9 +634,9 @@ dependencies = [
     { name = "zhon" },
     { name = "zstandard", marker = "python_full_version < '3.14' and platform_python_implementation == 'CPython' and sys_platform != 'darwin' and sys_platform != 'linux' and sys_platform != 'win32'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8a/b7/695ff7e1c909cbedc51f8278b5dff6cefea38c3f504c84d0a3e39f7dd3f6/libresvip-2.6.0.tar.gz", hash = "sha256:300f12c0d57b7f0c6a3df562d41251fd239637216f0fe72df79c5f583502b0ff", size = 1289971, upload-time = "2026-05-26T01:26:42.014Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/76/99/b4631e7127d0e5923b9f409fe44dc2849dcbce14f06d4f3961db4d348b92/libresvip-2.6.1.tar.gz", hash = "sha256:1f790f2ff446e75c613790a21884527979324838563cd78470e13e2004d8d8a7", size = 1291411, upload-time = "2026-05-26T23:22:14.99Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/2c/96/3fcf18f875b94a9f1fcc5d94f69db4e3fd9ed30a4be0f4607a077206c7c2/libresvip-2.6.0-py3-none-any.whl", hash = "sha256:b114cd7b7f70fec8addf9f18118b8ab85546d0fcfe1ede98bba9c6ffdb8c2eb9", size = 1392072, upload-time = "2026-05-26T01:26:39.785Z" },
+    { url = "https://files.pythonhosted.org/packages/b3/c0/fd5f0da69aeef49ff5ed5573e4904bb050404f8bd4ce265a824f58970177/libresvip-2.6.1-py3-none-any.whl", hash = "sha256:23a2c8f5c775e0f0ed39da02e1ee685c870518a6ab39102c888322c2b38d6478", size = 1393238, upload-time = "2026-05-26T23:22:16.818Z" },
 ]
 
 [package.optional-dependencies]
@@ -654,7 +654,7 @@ yaml12 = [
 
 [[package]]
 name = "libresvip-tauri"
-version = "2.6.0"
+version = "2.6.1"
 source = { editable = "." }
 dependencies = [
     { name = "connectrpc" },
@@ -685,7 +685,7 @@ protobuf = [
 requires-dist = [
     { name = "connectrpc", specifier = ">=0.10.0" },
     { name = "hypercorn", specifier = ">=0.18.0" },
-    { name = "libresvip", extras = ["crypto", "lxml", "yaml12"], specifier = ">=2.6.0" },
+    { name = "libresvip", extras = ["crypto", "lxml", "yaml12"], specifier = ">=2.6.1" },
     { name = "psutil", specifier = ">=7.2.2" },
     { name = "starlette", specifier = ">=1.1.0" },
 ]
