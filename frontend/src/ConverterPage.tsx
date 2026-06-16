@@ -52,8 +52,7 @@ import { useConverterStore } from './store/ConverterStore';
 import { ConversionTask } from './ApiTypes';
 import { useSettingStore, toLyricsReplacementGroups } from './store/SettingStore';
 import { useTranslation } from 'react-i18next';
-import { path } from '@tauri-apps/api';
-import { parsePath, useMessage } from './Utils';
+import { createConversionTasksFromPaths, useMessage } from './Utils';
 import InputNumber from 'rc-input-number';
 import 'rc-input-number/assets/index.css';
 import Form from '@rjsf/mui';
@@ -61,7 +60,6 @@ import { DescriptionFieldProps, FieldTemplateProps, RegistryWidgetsType, WidgetP
 import { customizeValidator } from '@rjsf/validator-ajv8';
 import localizer from 'ajv-i18n';
 import i18n from './i18n';
-import { nanoid } from 'nanoid';
 import HoverPopover from 'material-ui-popup-state/HoverPopover';
 import PopupState, { bindHover, bindPopover, bindTrigger } from 'material-ui-popup-state';
 import { stat } from '@tauri-apps/plugin-fs';
@@ -465,39 +463,14 @@ export const ConverterPage = () => {
   useEffect(() => {
     const handleDragDrop = async (event: any) => {
       if (event.event === "tauri://drag-drop"){
-        const files = event.payload.paths;
-        let addedFiles: ConversionTask[] = [];
-        for (let file of files) {
-          let statResult = await stat(file);
-          if (
-            statResult.isDirectory
-          ) {
-            continue;
+        const files: string[] = [];
+        for (const filePath of event.payload.paths) {
+          const statResult = await stat(filePath);
+          if (!statResult.isDirectory) {
+            files.push(filePath);
           }
-          if (path.sep() === '\\') {
-            file = file.replace(/\\/g, '/');
-          }
-          let parsed = await parsePath(file)
-          let detectedInputFormat = Object.entries(inputPluginInfos).find(([key, info]) =>
-            (info.suffixes || [info.suffix]).includes(parsed.ext.toLowerCase())
-          )?.[0] ?? inputFormat;
-          if (detectedInputFormat === null) {
-            continue;
-          }
-          let task: ConversionTask = {
-            id: nanoid(),
-            inputPath: file,
-            baseName: parsed.name,
-            outputStem: parsed.stem,
-            inputFormat: detectedInputFormat,
-            running: false,
-            success: null,
-            error: null,
-            outputPath: null,
-            warning: null,
-          }
-          addedFiles.push(task);
         }
+        const addedFiles = await createConversionTasksFromPaths(files, inputPluginInfos, inputFormat);
         if (addedFiles.length > 0) {
           addConversionTasks(addedFiles);
           setInputFormat(addedFiles[addedFiles.length - 1].inputFormat);
@@ -765,32 +738,8 @@ export const ConverterPage = () => {
                         }
                       }).flat()],
                     });
-                    let addedFiles: ConversionTask[] = [];
                     if (selected) {
-                      for (let file of selected) {
-                        if (path.sep() === '\\') {
-                          file = file.replace(/\\/g, '/');
-                        }
-                        let parsed = await parsePath(file)
-                        let detectedInputFormat = Object.entries(inputPluginInfos).find(([key, info]) =>
-                          (info.suffixes || [info.suffix]).includes(parsed.ext.toLowerCase())
-                        )?.[0] ?? inputFormat;
-                        if (detectedInputFormat === null)
-                          continue;
-                        let task: ConversionTask = {
-                          id: nanoid(),
-                          inputPath: file,
-                          baseName: parsed.name,
-                          outputStem: parsed.stem,
-                          inputFormat: detectedInputFormat,
-                          running: false,
-                          success: null,
-                          error: null,
-                          outputPath: null,
-                          warning: null,
-                        }
-                        addedFiles.push(task);
-                      }
+                      const addedFiles = await createConversionTasksFromPaths(selected, inputPluginInfos, inputFormat);
                       if (addedFiles.length > 0) {
                         addConversionTasks(addedFiles);
                         setInputFormat(addedFiles[addedFiles.length - 1].inputFormat);

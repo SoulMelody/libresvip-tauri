@@ -375,13 +375,13 @@ class ConversionService(Conversion):
                                 if request.force_overwrite or (
                                     request.conflict_policy == ConflictPolicy.OVERWRITE
                                 ):
-                                    output_path.write_bytes(tmp_path.read_bytes())
+                                    output_path.write_bytes(child.read_bytes())
                                 elif request.conflict_policy == ConflictPolicy.RENAME:
                                     output_path = (
                                         output_dir
                                         / f"{request.stem}_{child.name}_{i}.{request.output_format}"
                                     )
-                                    output_path.write_bytes(tmp_path.read_bytes())
+                                    output_path.write_bytes(child.read_bytes())
                                 elif request.conflict_policy == ConflictPolicy.PROMPT:
                                     yield MoveFileResponse(
                                         group_id=request.group_id,
@@ -415,7 +415,7 @@ class ConversionService(Conversion):
                             elif request.conflict_policy == ConflictPolicy.RENAME:
                                 output_path = (
                                     output_dir
-                                    / f"{request.stem}_{i}.{request.output_format}"
+                                    / f"{request.stem}_1.{request.output_format}"
                                 )
                                 output_path.write_bytes(tmp_path.read_bytes())
                             elif request.conflict_policy == ConflictPolicy.PROMPT:
