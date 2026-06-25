@@ -172,3 +172,12 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Agents
+.claude/
+.codex/
+.kilocode/
+.opencode/
+.trae/
+openspec/
+.slim/deepwork/

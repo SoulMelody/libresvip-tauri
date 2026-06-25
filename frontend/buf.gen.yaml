@@ -4,9 +4,8 @@ plugins:
     out: src
     include_imports: true
     opt: target=ts
-  - protoc_builtin: python
-    out: ../libresvip_tauri
-  - protoc_builtin: pyi
+  - local: protoc-gen-py
     out: ../libresvip_tauri
   - local: protoc-gen-connectrpc
     out: ../libresvip_tauri
+    opt: protobuf=py,io=async
