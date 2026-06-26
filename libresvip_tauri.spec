@@ -33,7 +33,6 @@ a = Analysis(
         collect_data_files("jyutping") + collect_data_files("xsdata") + collect_entry_point("xsdata.plugins.class_types")[0]
     ),
     hiddenimports=[
-        "aristaproto",
         "backports.zstd",
         "bidict",
         "cbor2",
@@ -45,8 +44,7 @@ a = Analysis(
         "ko_pron",
         "tatsu",
         "portion",
-        "protobuf.wkt._gen.any_pb",
-        "protobuf_ext._protobuf_ext",
+        "protobuf",
         "pydantic_extra_types.color",
         "pypinyin",
         "pysubs2",
