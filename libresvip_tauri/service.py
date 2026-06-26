@@ -41,7 +41,7 @@ from typing_extensions import override
 from upath import UPath
 
 from .libresvip_tauri_connect import Conversion, ConversionASGIApplication
-from .libresvip_tauri_pb2 import (
+from .libresvip_tauri_pb import (
     ConflictPolicy,
     ConversionGroup,
     ConversionMode,
