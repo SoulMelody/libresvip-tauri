@@ -43,7 +43,7 @@ jobs:
           workspaces: 'frontend/src-tauri -> target'
 
       - name: Setup uv
-        uses: astral-sh/setup-uv@v8.2.0
+        uses: astral-sh/setup-uv@v8.3.1
         with:
           version: "latest"
           python-version: ${{ matrix.python_version }}
