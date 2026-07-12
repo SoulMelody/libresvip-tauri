@@ -34,7 +34,7 @@
     "i18next": "^26.3.4",
     "i18next-browser-languagedetector": "^8.2.1",
     "material-ui-popup-state": "^5.3.7",
-    "nanoid": "^5.1.16",
+    "nanoid": "^6.0.0",
     "rc-input-number": "^9.5.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
