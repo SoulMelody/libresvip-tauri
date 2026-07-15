@@ -126,6 +126,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RUST_LOG: ${{ matrix.rust_log }}
+          STRACE_MODE: ${{ matrix.selection == 'linux-arm64' && '0' || '' }}
         with:
           tagName: libresvip-tauri-v__VERSION__
           releaseName: 'LibreSVIP Tauri v__VERSION__'
