@@ -17,7 +17,7 @@ crate-type = ["staticlib", "cdylib", "rlib"]
 tauri-build = { git = "https://github.com/tauri-apps/tauri", rev = "f2c75b9071991907b0c79498b0fa654804e3cb24", features = [] }
 
 [dependencies]
-tauri = { git = "https://github.com/tauri-apps/tauri", rev = "f2c75b9071991907b0c79498b0fa654804e3cb24", default-features = false, features = ["compression", "common-controls-v6", "dynamic-acl"] }
+tauri = { git = "https://github.com/tauri-apps/tauri", rev = "6d4643e942b9b3ad3ce1ce19f20494b6a35676a6", default-features = false, features = ["compression", "common-controls-v6", "dynamic-acl"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 tauri-plugin-dialog = "2.6.0"
