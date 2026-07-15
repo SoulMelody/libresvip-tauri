@@ -5034,7 +5034,7 @@ checksum = "61c41af27dd6d1e27b1b16b489db798443478cef1f06a660c96db617ba5de3b1"
 [[package]]
 name = "tauri"
 version = "2.11.3"
-source = "git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
+source = "git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
 dependencies = [
  "anyhow",
  "bytes",
@@ -5071,7 +5071,7 @@ dependencies = [
  "tauri-runtime",
  "tauri-runtime-cef",
  "tauri-runtime-wry",
- "tauri-utils 2.9.3 (git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24)",
+ "tauri-utils 2.9.3 (git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24)",
  "thiserror 2.0.18",
  "tokio",
  "tray-icon",
@@ -5085,7 +5085,7 @@ dependencies = [
 [[package]]
 name = "tauri-build"
 version = "2.6.3"
-source = "git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
+source = "git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
 dependencies = [
  "anyhow",
  "cargo_toml",
@@ -5097,7 +5097,7 @@ dependencies = [
  "semver",
  "serde",
  "serde_json",
- "tauri-utils 2.9.3 (git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24)",
+ "tauri-utils 2.9.3 (git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24)",
  "tauri-winres",
  "walkdir",
 ]
@@ -5105,7 +5105,7 @@ dependencies = [
 [[package]]
 name = "tauri-codegen"
 version = "2.6.3"
-source = "git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
+source = "git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
 dependencies = [
  "base64 0.22.1",
  "brotli",
@@ -5120,7 +5120,7 @@ dependencies = [
  "serde_json",
  "sha2",
  "syn 2.0.119",
- "tauri-utils 2.9.3 (git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24)",
+ "tauri-utils 2.9.3 (git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24)",
  "thiserror 2.0.18",
  "time",
  "url",
@@ -5131,14 +5131,14 @@ dependencies = [
 [[package]]
 name = "tauri-macros"
 version = "2.6.3"
-source = "git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
+source = "git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
 dependencies = [
  "heck 0.5.0",
  "proc-macro2",
  "quote",
  "syn 2.0.119",
  "tauri-codegen",
- "tauri-utils 2.9.3 (git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24)",
+ "tauri-utils 2.9.3 (git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24)",
 ]
 
 [[package]]
@@ -5293,7 +5293,7 @@ dependencies = [
 [[package]]
 name = "tauri-runtime"
 version = "2.11.3"
-source = "git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
+source = "git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
 dependencies = [
  "cookie",
  "dpi",
@@ -5305,7 +5305,7 @@ dependencies = [
  "raw-window-handle",
  "serde",
  "serde_json",
- "tauri-utils 2.9.3 (git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24)",
+ "tauri-utils 2.9.3 (git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24)",
  "thiserror 2.0.18",
  "url",
  "windows 0.61.3",
@@ -5314,7 +5314,7 @@ dependencies = [
 [[package]]
 name = "tauri-runtime-cef"
 version = "0.1.0"
-source = "git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
+source = "git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
 dependencies = [
  "base64 0.22.1",
  "cef",
@@ -5339,7 +5339,7 @@ dependencies = [
  "sha2",
  "softbuffer",
  "tauri-runtime",
- "tauri-utils 2.9.3 (git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24)",
+ "tauri-utils 2.9.3 (git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24)",
  "url",
  "windows 0.61.3",
  "winit",
@@ -5349,7 +5349,7 @@ dependencies = [
 [[package]]
 name = "tauri-runtime-wry"
 version = "2.11.3"
-source = "git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
+source = "git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
 dependencies = [
  "gtk",
  "http",
@@ -5364,7 +5364,7 @@ dependencies = [
  "softbuffer",
  "tao",
  "tauri-runtime",
- "tauri-utils 2.9.3 (git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24)",
+ "tauri-utils 2.9.3 (git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24)",
  "url",
  "webkit2gtk",
  "webview2-com",
@@ -5411,7 +5411,7 @@ dependencies = [
 [[package]]
 name = "tauri-utils"
 version = "2.9.3"
-source = "git+https://ghfast.top/github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
+source = "git+https://github.com/tauri-apps/tauri?rev=f2c75b9071991907b0c79498b0fa654804e3cb24#f2c75b9071991907b0c79498b0fa654804e3cb24"
 dependencies = [
  "anyhow",
  "brotli",
