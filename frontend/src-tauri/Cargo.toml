@@ -14,10 +14,10 @@ name = "libresvip_tauri_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
-tauri-build = { git = "https://github.com/tauri-apps/tauri", rev = "f2c75b9071991907b0c79498b0fa654804e3cb24", features = [] }
+tauri-build = { version = "2", features = [] }
 
 [dependencies]
-tauri = { git = "https://github.com/tauri-apps/tauri", rev = "f2c75b9071991907b0c79498b0fa654804e3cb24", default-features = false, features = ["compression", "common-controls-v6", "dynamic-acl"] }
+tauri = { version = "2", default-features = false, features = ["compression", "common-controls-v6", "dynamic-acl"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 tauri-plugin-dialog = "2.6.0"
@@ -38,8 +38,8 @@ wry = ["tauri/wry", "tauri/x11", "tauri/dbus"]
 cef = ["tauri/cef"]
 
 [patch.crates-io]
-tauri = { git = "https://github.com/tauri-apps/tauri", rev = "f2c75b9071991907b0c79498b0fa654804e3cb24" }
-tauri-build = { git = "https://github.com/tauri-apps/tauri", rev = "f2c75b9071991907b0c79498b0fa654804e3cb24" }
+tauri = { git = "https://ghfast.top/github.com/tauri-apps/tauri", rev = "f2c75b9071991907b0c79498b0fa654804e3cb24" }
+tauri-build = { git = "https://ghfast.top/github.com/tauri-apps/tauri", rev = "f2c75b9071991907b0c79498b0fa654804e3cb24" }
 
 [lints.rust]
 unused-assignments = "warn"
