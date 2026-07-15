@@ -5,7 +5,7 @@ description = ""
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "connectrpc>=0.11.0",
+    "connectrpc>=0.11.1",
     "hypercorn>=0.18.0",
     "libresvip[crypto,lxml,ujson,yaml12]>=2.7.3",
     "psutil>=7.2.2",
@@ -21,11 +21,11 @@ packaging = [
     "pillow>=12.3.0",
     "pyinstaller>=6.21.0",
     "shellingham<2.0.0,>=1.5.4",
-    "uv>=0.11.27",
+    "uv>=0.11.28",
 ]
 protobuf = [
     "buf-bin>=1.71.0",
-    "protoc-gen-connectrpc>=0.11.0",
+    "protoc-gen-connectrpc>=0.11.1",
     "protoc-gen-py>=0.1.1",
 ]
 

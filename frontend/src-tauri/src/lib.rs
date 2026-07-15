@@ -5,7 +5,7 @@ use std::path::PathBuf;
 use std::process;
 use std::process::{Child, Command};
 use std::sync::Mutex;
-use tauri::{AppHandle, Manager};
+use tauri::{AppHandle, Manager, Runtime};
 use tauri_plugin_decorum::WebviewWindowExt;
 use tauri_plugin_prevent_default;
 
@@ -13,6 +13,14 @@ use tauri_plugin_prevent_default;
 use tauri_plugin_prevent_default::PlatformOptions;
 
 static SIDECAR_PROCESS: Mutex<Option<Child>> = Mutex::new(None);
+
+#[cfg(not(any(feature = "cef", feature = "wry")))]
+compile_error!("Enable one Tauri runtime feature: `cef` or `wry`.");
+
+#[cfg(feature = "cef")]
+type TauriRuntime = tauri::Cef;
+#[cfg(all(not(feature = "cef"), feature = "wry"))]
+type TauriRuntime = tauri::Wry;
 
 #[cfg(windows)]
 fn sidecar_filename() -> &'static str {
@@ -24,7 +32,7 @@ fn sidecar_filename() -> &'static str {
     "libresvip-tauri-server"
 }
 
-fn resolve_sidecar_path(app: &AppHandle) -> Result<PathBuf, io::Error> {
+fn resolve_sidecar_path<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf, io::Error> {
     let resource_dir = app
         .path()
         .resource_dir()
@@ -40,7 +48,7 @@ fn resolve_sidecar_path(app: &AppHandle) -> Result<PathBuf, io::Error> {
     }
 }
 
-fn start_sidecar(app: &AppHandle) -> Result<Child, std::io::Error> {
+fn start_sidecar<R: Runtime>(app: &AppHandle<R>) -> Result<Child, std::io::Error> {
     let sidecar_path = resolve_sidecar_path(app)?;
 
     #[cfg(windows)]
@@ -73,7 +81,7 @@ fn start_sidecar(app: &AppHandle) -> Result<Child, std::io::Error> {
 }
 
 #[tauri::command]
-fn start_sidecar_command(app: AppHandle) -> Result<(), String> {
+fn start_sidecar_command<R: Runtime>(app: AppHandle<R>) -> Result<(), String> {
     if let Ok(mut guard) = SIDECAR_PROCESS.lock() {
         if let Some(child) = guard.as_mut() {
             if child.try_wait().is_ok_and(|status| status.is_none()) {
@@ -114,12 +122,12 @@ fn stop_sidecar() {
 }
 
 #[cfg(debug_assertions)]
-fn prevent_default() -> tauri::plugin::TauriPlugin<tauri::Wry> {
+fn prevent_default<R: Runtime>() -> tauri::plugin::TauriPlugin<R> {
     tauri_plugin_prevent_default::debug()
 }
 
 #[cfg(not(debug_assertions))]
-fn prevent_default() -> tauri::plugin::TauriPlugin<tauri::Wry> {
+fn prevent_default<R: Runtime>() -> tauri::plugin::TauriPlugin<R> {
     use tauri_plugin_prevent_default::Flags;
 
     let mut builder = tauri_plugin_prevent_default::Builder::new().with_flags(Flags::all());
@@ -140,14 +148,15 @@ fn prevent_default() -> tauri::plugin::TauriPlugin<tauri::Wry> {
     builder.build()
 }
 
+#[cfg_attr(feature = "cef", tauri::cef_entry_point)]
 pub fn run() {
-    tauri::Builder::default()
+    tauri::Builder::<TauriRuntime>::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_clipboard_manager::init())
-		.plugin(tauri_plugin_decorum::init())
+        .plugin(tauri_plugin_decorum::init())
         .plugin(prevent_default())
         .on_window_event(|_window, event| {
             if let tauri::WindowEvent::CloseRequested { .. } = event {
