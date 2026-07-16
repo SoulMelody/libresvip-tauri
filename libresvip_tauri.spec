@@ -88,8 +88,11 @@ else:
 exe = EXE(
     pyz,
     a.scripts,
+    a.binaries,
+    a.zipfiles,
+    a.datas,
     [],
-    exclude_binaries=True,
+    exclude_binaries=False,
     name=f'libresvip-tauri-server-{rust_target}',
     debug=False,
     bootloader_ignore_signals=False,
@@ -102,14 +105,4 @@ exe = EXE(
     codesign_identity=None,
     entitlements_file=None,
     icon=['frontend/src/assets/libresvip.png'],
-)
-coll = COLLECT(
-    exe,
-    a.binaries,
-    a.zipfiles,
-    a.datas,
-    strip=False,
-    upx=False,
-    upx_exclude=[],
-    name='libresvip-tauri-server',
 )

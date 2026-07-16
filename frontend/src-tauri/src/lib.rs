@@ -32,6 +32,60 @@ fn sidecar_filename() -> &'static str {
     "libresvip-tauri-server"
 }
 
+#[cfg(unix)]
+fn resolve_sidecar_path<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf, io::Error> {
+    let mut candidates = Vec::new();
+
+    match std::env::current_exe() {
+        Ok(current_exe) => {
+            if let Some(executable_dir) = current_exe.parent() {
+                let candidate = executable_dir.join(sidecar_filename());
+                println!(
+                    "[LibreSVIP] Checking sidecar candidate: {}",
+                    candidate.display()
+                );
+                if candidate.is_file() {
+                    return Ok(candidate);
+                }
+                candidates.push(candidate);
+            } else {
+                eprintln!(
+                    "[LibreSVIP] Failed to resolve executable directory from {}",
+                    current_exe.display()
+                );
+            }
+        }
+        Err(error) => eprintln!("[LibreSVIP] Failed to resolve current executable: {error}"),
+    }
+
+    let resource_dir = app
+        .path()
+        .resource_dir()
+        .map_err(|e| io::Error::other(format!("failed to resolve resource directory: {e}")))?;
+    let candidate = resource_dir.join(sidecar_filename());
+    println!(
+        "[LibreSVIP] Checking sidecar candidate: {}",
+        candidate.display()
+    );
+    if candidate.is_file() {
+        return Ok(candidate);
+    }
+    candidates.push(candidate);
+
+    Err(io::Error::new(
+        io::ErrorKind::NotFound,
+        format!(
+            "sidecar not found at any candidate: {}",
+            candidates
+                .iter()
+                .map(|candidate| candidate.display().to_string())
+                .collect::<Vec<_>>()
+                .join(", ")
+        ),
+    ))
+}
+
+#[cfg(not(unix))]
 fn resolve_sidecar_path<R: Runtime>(app: &AppHandle<R>) -> Result<PathBuf, io::Error> {
     let resource_dir = app
         .path()

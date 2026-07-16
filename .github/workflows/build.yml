@@ -13,8 +13,8 @@ jobs:
           - { platform: windows-latest, args: "-b nsis", target: "x86_64-pc-windows-msvc", python_version: "" }
           - { platform: windows-11-arm, args: "-b nsis", target: "aarch64-pc-windows-msvc", python_version: "" }
           - { platform: windows-latest, args: "-b nsis --target=i686-pc-windows-msvc", target: "i686-pc-windows-msvc", python_version: "cpython-3.14.4-windows-x86-none" }
-          - { platform: ubuntu-latest, args: "-b appimage --config '{\"build\":{\"features\":[\"cef\"]}}'", target: "x86_64-unknown-linux-gnu", python_version: "" }
-          - { platform: ubuntu-24.04-arm, args: "-b appimage --config '{\"build\":{\"features\":[\"cef\"]}}'", target: "aarch64-unknown-linux-gnu", python_version: "" }
+          - { platform: ubuntu-latest, args: "-b appimage", target: "x86_64-unknown-linux-gnu", python_version: "" }
+          - { platform: ubuntu-24.04-arm, args: "-b appimage", target: "aarch64-unknown-linux-gnu", python_version: "" }
           - { platform: macos-latest, args: "-b dmg --target aarch64-apple-darwin", target: "aarch64-apple-darwin", python_version: "cpython-3.14.4-macos-aarch64-none" }
           - { platform: macos-latest, args: "-b dmg --target x86_64-apple-darwin", target: "x86_64-apple-darwin", python_version: "cpython-3.14.4-macos-x86_64-none" }
     steps:
@@ -27,7 +27,7 @@ jobs:
           sudo apt-get install -y \
             cmake \
             ninja-build \
-            libwebkit2gtk-4.1-dev \
+            libwebkit2gtk-6.0-dev \
             librsvg2-dev \
             patchelf \
             libssl-dev \
@@ -64,7 +64,7 @@ jobs:
         shell: bash -el {0}
         run: |
           uv run pyinstaller libresvip_tauri.spec
-          mv dist/libresvip-tauri-server/* ./frontend/src-tauri/
+          cp dist/libresvip-tauri-server-* ./frontend/src-tauri/
 
       - name: Setup bun
         uses: oven-sh/setup-bun@v2

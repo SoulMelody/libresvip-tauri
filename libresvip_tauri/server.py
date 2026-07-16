@@ -1,6 +1,7 @@
 import asyncio
 import argparse
 import os
+import sys
 import threading
 import time
 
@@ -20,7 +21,7 @@ def check_parent_pid(parent_pid: int):
         if not psutil.pid_exists(parent_pid):
             print(f"[LibreSVIP] Parent PID {parent_pid} not found, exiting...")
             shutdown_event.set()
-            exit(1)
+            sys.exit(1)
         time.sleep(1)
 
 

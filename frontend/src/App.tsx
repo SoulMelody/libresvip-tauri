@@ -37,6 +37,7 @@ import { useConverterStore } from "./store/ConverterStore";
 import { useMessage } from './Utils';
 import "@szhsin/react-menu/dist/index.css";
 import { ListItemProps } from '@mui/material/ListItem';
+import type { MouseEvent } from 'react';
 import {
   Link as RouterLink,
   Route,
@@ -141,33 +142,53 @@ export function App(props: Props) {
 
   // Sidecar startup + version polling (runs once on mount)
   useEffect(() => {
-    const startServer = async () => {
-      await invoke("start_sidecar_command");
-    }
-    i18n.changeLanguage(language);
-    startServer();
+    let cancelled = false;
 
-    const getAppVersion = async () => {
+    const startServer = async () => {
       try {
-        let appVersionRes = await client.version({}, {timeoutMs: 1000});
-        setAppVersion(appVersionRes.version);
-        clearInterval(appVersionIntervalId);
-        loadMiddlewareSchemas(language);
-        if (inputFormat !== null) {
-          loadInputFormatSchema(inputFormat, language);
-        }
-        if (outputFormat !== null) {
-          loadOutputFormatSchema(outputFormat, language);
-        }
+        await invoke("start_sidecar_command");
       } catch (e) {
-        console.error(e);
+        console.error("Failed to start sidecar:", e);
+        return;
+      }
+
+      const readinessDeadline = Date.now() + 30000;
+      let lastError: unknown;
+
+      while (!cancelled && Date.now() < readinessDeadline) {
+        try {
+          const appVersionRes = await client.version({}, {timeoutMs: 2000});
+          if (cancelled) {
+            return;
+          }
+          setAppVersion(appVersionRes.version);
+          loadMiddlewareSchemas(language);
+          if (inputFormat !== null) {
+            loadInputFormatSchema(inputFormat, language);
+          }
+          if (outputFormat !== null) {
+            loadOutputFormatSchema(outputFormat, language);
+          }
+          return;
+        } catch (e) {
+          lastError = e;
+        }
+
+        if (!cancelled && Date.now() < readinessDeadline) {
+          await new Promise((resolve) => setTimeout(resolve, 1500));
+        }
+      }
+
+      if (!cancelled) {
+        console.error("Timed out waiting for sidecar readiness:", lastError);
       }
     }
 
-    let appVersionIntervalId = setInterval(getAppVersion, 2000);
+    i18n.changeLanguage(language);
+    startServer();
 
     return () => {
-      clearInterval(appVersionIntervalId);
+      cancelled = true;
     };
   }, []);
 
@@ -293,12 +314,11 @@ export function App(props: Props) {
     </Box>
   );
 
-  const handleStartDragging = async (
-    event: React.DragEvent<HTMLDivElement>
-  ) => {
+  const handleStartDragging = async (event: MouseEvent<HTMLDivElement>) => {
+    if (event.button !== 0 || event.detail > 1) return;
     event.preventDefault();
     await invoke("plugin:window|start_dragging");
-  }
+  };
 
   const handleMaximize = async () => {
     await invoke("plugin:window|toggle_maximize");
@@ -309,7 +329,7 @@ export function App(props: Props) {
   return (
     <ThemeProvider theme={theme}>
       <AppBar position="static">
-        <Toolbar onDoubleClick={handleMaximize} draggable={true} onDragStart={handleStartDragging} sx={{
+        <Toolbar sx={{
           paddingLeft: "16px !important",
           paddingRight: "0px !important",
           minHeight: "40px !important",
@@ -331,6 +351,11 @@ export function App(props: Props) {
             setMenuOpen={setMenuOpen}
             menuRef={menuRef}
             onLyricRulesOpen={() => setLyricRulesOpen(true)}
+          />
+          <Box
+            onMouseDown={handleStartDragging}
+            onDoubleClick={handleMaximize}
+            sx={{ alignSelf: 'stretch', flexGrow: 1 }}
           />
           <TitleBarButtons />
         </Toolbar>
