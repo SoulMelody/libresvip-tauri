@@ -36,7 +36,7 @@ jobs:
         run: |
           matrix='{"include":[
             {"selection":"linux-arm64","platform":"ubuntu-24.04-arm","args":"-b appimage","target":"aarch64-unknown-linux-gnu","python_version":"","rust_log":"debug","verbose":""},
-            {"selection":"linux-x64","platform":"ubuntu-latest","args":"-b appimage","target":"x86_64-unknown-linux-gnu","python_version":"","rust_log":"","verbose":""},
+            {"selection":"linux-x64","platform":"ubuntu-24.04","args":"-b appimage","target":"x86_64-unknown-linux-gnu","python_version":"","rust_log":"","verbose":""},
             {"selection":"windows-arm64","platform":"windows-11-arm","args":"-b nsis","target":"aarch64-pc-windows-msvc","python_version":"","rust_log":"","verbose":""},
             {"selection":"windows-x64","platform":"windows-latest","args":"-b nsis","target":"x86_64-pc-windows-msvc","python_version":"","rust_log":"","verbose":""},
             {"selection":"windows-x86","platform":"windows-latest","args":"-b nsis --target=i686-pc-windows-msvc","target":"i686-pc-windows-msvc","python_version":"cpython-3.14.4-windows-x86-none","rust_log":"","verbose":""},
@@ -61,13 +61,14 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: Install system dependencies (Ubuntu)
-        if: matrix.platform == 'ubuntu-latest' || matrix.platform == 'ubuntu-24.04-arm'
+        if: matrix.platform == 'ubuntu-24.04' || matrix.platform == 'ubuntu-24.04-arm'
         run: |
           sudo apt-get update
           sudo apt-get install -y \
             cmake \
             ninja-build \
-            libwebkit2gtk-6.0-dev \
+            libicu74 \
+            libwebkit2gtk-4.1-dev \
             librsvg2-dev \
             patchelf \
             libssl-dev \
@@ -76,15 +77,14 @@ jobs:
             libfuse2 \
             build-essential \
             file \
-            wget \
             xdg-utils
       
-      - name: Cache CEF (Linux only)
-        if: matrix.platform == 'ubuntu-latest' || matrix.platform == 'ubuntu-24.04-arm'
-        uses: actions/cache@v6
-        with:
-          path: ~/.cache/tauri-cef
-          key: cef-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('frontend/src-tauri/Cargo.lock') }}
+      # - name: Cache CEF (Linux only)
+      #   if: matrix.platform == 'ubuntu-24.04' || matrix.platform == 'ubuntu-24.04-arm'
+      #   uses: actions/cache@v6
+      #   with:
+      #     path: ~/.cache/tauri-cef
+      #     key: cef-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('frontend/src-tauri/Cargo.lock') }}
 
       - name: Setup rust
         uses: dtolnay/rust-toolchain@stable
