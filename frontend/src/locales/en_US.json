@@ -144,6 +144,12 @@
       "file_format": "DiffSinger parameters file",
       "description": "DiffSinger plugin."
     },
+    "dspx": {
+      "name": "DSPX",
+      "author": "OpenVPI",
+      "file_format": "DiffScope Project Exchange Format",
+      "description": "Conversion plugin for DSPX project files"
+    },
     "dv": {
       "name": "DeepVocal",
       "author": "Oxygen Dioxide",

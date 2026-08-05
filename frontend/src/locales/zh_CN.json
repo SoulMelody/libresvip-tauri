@@ -144,6 +144,12 @@
       "file_format": "DiffSinger参数文件",
       "description": "DiffSinger 参数格式转换插件。"
     },
+    "dspx": {
+      "name": "DSPX",
+      "author": "OpenVPI",
+      "file_format": "DiffScope 工程交换格式",
+      "description": "DSPX 工程文件转换插件"
+    },
     "dv": {
       "name": "DeepVocal",
       "author": "Oxygen Dioxide",
