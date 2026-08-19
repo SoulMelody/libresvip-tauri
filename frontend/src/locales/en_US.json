@@ -114,6 +114,12 @@
     }
   },
   "plugin": {
+    "ace": {
+      "name": "ACE Virtual Singer",
+      "author": "vocoder712",
+      "file_format": "ACE Virtual Singer project",
+      "description": "Conversion plugin for the raw JSON project files used by ACE Virtual Singer"
+    },
     "acep": {
       "name": "ACE Studio",
       "author": "yqzhishen",
