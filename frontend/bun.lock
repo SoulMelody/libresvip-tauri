@@ -36,7 +36,7 @@
       },
       "devDependencies": {
         "@bufbuild/protoc-gen-es": "^2.14.0",
-        "@tauri-apps/cli": "npm:@tauri-apps/cli-cef@3.0.0-alpha.7",
+        "@tauri-apps/cli": "npm:@tauri-apps/cli-cef@3.0.0-alpha.26",
         "@types/bun": "^1.3.14",
         "@types/react": "^19.2.18",
         "@types/react-dom": "^19.2.4",
@@ -161,29 +161,29 @@
 
     "@tauri-apps/api": ["@tauri-apps/api@2.11.1", "", {}, "sha512-M2FPuYND2m+wh5hfW9ZpSdxMPdEJovPBWwoHJmwUpysTYNHaOkVFN419m/K0LIgjb/7KU2vBgsUepJWugQCvAA=="],
 
-    "@tauri-apps/cli": ["@tauri-apps/cli-cef@3.0.0-alpha.7", "", { "optionalDependencies": { "@tauri-apps/cli-cef-darwin-arm64": "3.0.0-alpha.7", "@tauri-apps/cli-cef-darwin-x64": "3.0.0-alpha.7", "@tauri-apps/cli-cef-linux-arm-gnueabihf": "3.0.0-alpha.7", "@tauri-apps/cli-cef-linux-arm64-gnu": "3.0.0-alpha.7", "@tauri-apps/cli-cef-linux-arm64-musl": "3.0.0-alpha.7", "@tauri-apps/cli-cef-linux-riscv64-gnu": "3.0.0-alpha.7", "@tauri-apps/cli-cef-linux-x64-gnu": "3.0.0-alpha.7", "@tauri-apps/cli-cef-linux-x64-musl": "3.0.0-alpha.7", "@tauri-apps/cli-cef-win32-arm64-msvc": "3.0.0-alpha.7", "@tauri-apps/cli-cef-win32-ia32-msvc": "3.0.0-alpha.7", "@tauri-apps/cli-cef-win32-x64-msvc": "3.0.0-alpha.7" }, "bin": { "tauri": "tauri.js" } }, "sha512-miY4ZKTHMcHQa260RYTSxSDuhOSTjLHZAy3HCtL9Ld31GvP4/UooFMfd5y3TpKyubNg2EQ8keXSzWTwKWWWBnA=="],
+    "@tauri-apps/cli": ["@tauri-apps/cli-cef@3.0.0-alpha.26", "", { "optionalDependencies": { "@tauri-apps/cli-cef-darwin-arm64": "3.0.0-alpha.26", "@tauri-apps/cli-cef-darwin-x64": "3.0.0-alpha.26", "@tauri-apps/cli-cef-linux-arm-gnueabihf": "3.0.0-alpha.26", "@tauri-apps/cli-cef-linux-arm64-gnu": "3.0.0-alpha.26", "@tauri-apps/cli-cef-linux-arm64-musl": "3.0.0-alpha.26", "@tauri-apps/cli-cef-linux-riscv64-gnu": "3.0.0-alpha.26", "@tauri-apps/cli-cef-linux-x64-gnu": "3.0.0-alpha.26", "@tauri-apps/cli-cef-linux-x64-musl": "3.0.0-alpha.26", "@tauri-apps/cli-cef-win32-arm64-msvc": "3.0.0-alpha.26", "@tauri-apps/cli-cef-win32-ia32-msvc": "3.0.0-alpha.26", "@tauri-apps/cli-cef-win32-x64-msvc": "3.0.0-alpha.26" }, "bin": { "tauri": "tauri.js" } }, "sha512-lq+RJ7EE9sNj0OaWr6dFg+Z4KyC9k6z0maofjmWXNZ9A9O1YC9upN1EZ0EORZUnhDCxvW/3BVC4hlNfkEvACCA=="],
 
-    "@tauri-apps/cli-cef-darwin-arm64": ["@tauri-apps/cli-cef-darwin-arm64@3.0.0-alpha.7", "", { "os": "darwin", "cpu": "arm64" }, "sha512-BdefvrNVAdbJglgdBwvvv5MGmOUMQgBr8VAXmsWTzsbB1L679ej0ZguUTG573vCeuFc8bwh8252w8S1Xp7lIfQ=="],
+    "@tauri-apps/cli-cef-darwin-arm64": ["@tauri-apps/cli-cef-darwin-arm64@3.0.0-alpha.26", "", { "os": "darwin", "cpu": "arm64" }, "sha512-sWXvfZN8iYQtthXDJTUaVBzcToO+pBtkpeDGwWYpbIF+q4HXnNYEiATnqo3Ze8x1FZ+hOPNKwQMcr8OBE1SCIQ=="],
 
-    "@tauri-apps/cli-cef-darwin-x64": ["@tauri-apps/cli-cef-darwin-x64@3.0.0-alpha.7", "", { "os": "darwin", "cpu": "x64" }, "sha512-Li2yitYVBo9KVph/7RHYfC/1HuhBRxJx9AcuqBsrxzx9jH87yIzA7byG8IdnBflZlxNvMLK4xndEUYmI5ZEi/Q=="],
+    "@tauri-apps/cli-cef-darwin-x64": ["@tauri-apps/cli-cef-darwin-x64@3.0.0-alpha.26", "", { "os": "darwin", "cpu": "x64" }, "sha512-a5FLB6a8TQoxnhvBrKk9MUDF8DdHiZLQHAvN4d7srUknTbJZcCH27h2drj7i6MZVjOIKEw87qwWgDuvhediIyg=="],
 
-    "@tauri-apps/cli-cef-linux-arm-gnueabihf": ["@tauri-apps/cli-cef-linux-arm-gnueabihf@3.0.0-alpha.7", "", { "os": "linux", "cpu": "arm" }, "sha512-/5f2YmxpleoOHamCAx4IFJxijfgSq5gHal2WULpzp8lmAmxxyBkfUjvdJAuIUKN7Jvd+n2V01+m6BXzDwYCYng=="],
+    "@tauri-apps/cli-cef-linux-arm-gnueabihf": ["@tauri-apps/cli-cef-linux-arm-gnueabihf@3.0.0-alpha.26", "", { "os": "linux", "cpu": "arm" }, "sha512-X0y1AHOabWxwAKeA1OtnQ0AWe0gma5ccaI66gkeUTo0/dqBtA97hRMKc/wEpuEZio3QONPWjkaBMX6/1p5tExg=="],
 
-    "@tauri-apps/cli-cef-linux-arm64-gnu": ["@tauri-apps/cli-cef-linux-arm64-gnu@3.0.0-alpha.7", "", { "os": "linux", "cpu": "arm64" }, "sha512-PgHbygI8DETBAukFbgJzD8fAd7f9IXRb9/Ez4PVnxxE2yUf6Ve05crAvyEGX9ab63zI4seBoj0ZcWIfnUOouFQ=="],
+    "@tauri-apps/cli-cef-linux-arm64-gnu": ["@tauri-apps/cli-cef-linux-arm64-gnu@3.0.0-alpha.26", "", { "os": "linux", "cpu": "arm64" }, "sha512-hUqQEl8OP34iPUh3i09Qrq3qtM8ICMf7Lku0jllWNgS4BW8N8G3yor63sGMZ9mUX3/rSPVEd/tjZUo3qCGQ9Jw=="],
 
-    "@tauri-apps/cli-cef-linux-arm64-musl": ["@tauri-apps/cli-cef-linux-arm64-musl@3.0.0-alpha.7", "", { "os": "linux", "cpu": "arm64" }, "sha512-RBlD/Ed2j+S7jixM9+owc8QobynLrfikJy5kPwRSMtxoaHCuHzZrOQH5hJeT7DZGdDQMnvllkmAuFjsEJrJOiQ=="],
+    "@tauri-apps/cli-cef-linux-arm64-musl": ["@tauri-apps/cli-cef-linux-arm64-musl@3.0.0-alpha.26", "", { "os": "linux", "cpu": "arm64" }, "sha512-QsP3A/ev6HjA56k0YitmKwHkMEi6SHOPov24fWUDYXdaD8y8h1cA2+6a+R7KC+5fYr+stAxD6FW4pd6EIbrlkg=="],
 
-    "@tauri-apps/cli-cef-linux-riscv64-gnu": ["@tauri-apps/cli-cef-linux-riscv64-gnu@3.0.0-alpha.7", "", { "os": "linux", "cpu": "none" }, "sha512-1CknhJSJCf3hYU5jm76ZXIw8tofJZqqETU8zsTOk0QqxVUcZgsYeTG80DbtE0aGLUUqDVCUma+Bpmwdn6nacKQ=="],
+    "@tauri-apps/cli-cef-linux-riscv64-gnu": ["@tauri-apps/cli-cef-linux-riscv64-gnu@3.0.0-alpha.26", "", { "os": "linux", "cpu": "none" }, "sha512-R4WeEtlfm7kWuxcRXYLF7B87ffohLnA0Vg7Z7gi580NcVjIcDfBnT8xZow1r/xSqfLXihUaDcviOG5N3CVBvZw=="],
 
-    "@tauri-apps/cli-cef-linux-x64-gnu": ["@tauri-apps/cli-cef-linux-x64-gnu@3.0.0-alpha.7", "", { "os": "linux", "cpu": "x64" }, "sha512-sje2yv1kJQy7wkOe2hnGGkzoOSXA+JFL7D93TtnhaVxXiG4myxzWJNvq16BljQp+abKeYSemAIp3M3mMe6usOQ=="],
+    "@tauri-apps/cli-cef-linux-x64-gnu": ["@tauri-apps/cli-cef-linux-x64-gnu@3.0.0-alpha.26", "", { "os": "linux", "cpu": "x64" }, "sha512-U5jjc1nc5MueTN9kbaGZ7VawUd0MOM996eINQdNdAuX6qI7VOzyntk+adqklqIXRa4iyczB7tvS0xZvmkncSzA=="],
 
-    "@tauri-apps/cli-cef-linux-x64-musl": ["@tauri-apps/cli-cef-linux-x64-musl@3.0.0-alpha.7", "", { "os": "linux", "cpu": "x64" }, "sha512-L5sq1Hk33f+CJmtmxczbqNDfpk1/P37ih+HKUYy4uDppCoZ2d3ztHuH2xzTIwLTXSu1Bsx6hTIh9/ruyl0/rSw=="],
+    "@tauri-apps/cli-cef-linux-x64-musl": ["@tauri-apps/cli-cef-linux-x64-musl@3.0.0-alpha.26", "", { "os": "linux", "cpu": "x64" }, "sha512-xMYOhtx3D9YDHbhAj0OE4BmkGbAPmuPc9g3tku6FSOKDDj5zM5e4wMjcZ+0GNF2wkQMySlWUXqOmztdubzfIgw=="],
 
-    "@tauri-apps/cli-cef-win32-arm64-msvc": ["@tauri-apps/cli-cef-win32-arm64-msvc@3.0.0-alpha.7", "", { "os": "win32", "cpu": "arm64" }, "sha512-CItQZapE0oC9sqgGZA9BWj1hI+DH/Xr7NVaBMDqg8RBK9LS+dyH7XVEhlU1jUBUGcYcdiebPOJb5x6tZJhVj/Q=="],
+    "@tauri-apps/cli-cef-win32-arm64-msvc": ["@tauri-apps/cli-cef-win32-arm64-msvc@3.0.0-alpha.26", "", { "os": "win32", "cpu": "arm64" }, "sha512-s0A7DPVAFvp9a3RjoMFCY9Bw1PNpnyEZYaklD0HDRqb0sALoxZLQ4zHcOxg00LaGKMkb9dsa5qn7OxIrYhly9Q=="],
 
-    "@tauri-apps/cli-cef-win32-ia32-msvc": ["@tauri-apps/cli-cef-win32-ia32-msvc@3.0.0-alpha.7", "", { "os": "win32", "cpu": "ia32" }, "sha512-JZCIXrbORQj8XbeT5weONfoOWPq0vpmCoOK/nrl/J7i/x327iyQak9rigwULwnnbUOJzSDHZWX3IhPSXeJ+puQ=="],
+    "@tauri-apps/cli-cef-win32-ia32-msvc": ["@tauri-apps/cli-cef-win32-ia32-msvc@3.0.0-alpha.26", "", { "os": "win32", "cpu": "ia32" }, "sha512-vFRIGfhgI5+RBRv2Wf+Ivkij7n+Jtwd2DJNDhwEsTvhuxlw31FUk02ypuroe/PMEsDthmBXRPpZpeQE56oRPTw=="],
 
-    "@tauri-apps/cli-cef-win32-x64-msvc": ["@tauri-apps/cli-cef-win32-x64-msvc@3.0.0-alpha.7", "", { "os": "win32", "cpu": "x64" }, "sha512-knFDdwRY4aUfQ3vd8EDMFFAzhJPLPHX68SnsVBU9VQECWkaoV0nNGOFmos3oApSOpRJcuYPd/zRtSAeX5gH3Fw=="],
+    "@tauri-apps/cli-cef-win32-x64-msvc": ["@tauri-apps/cli-cef-win32-x64-msvc@3.0.0-alpha.26", "", { "os": "win32", "cpu": "x64" }, "sha512-miNXdUbDNkhu/uysLD5X+8v80wjxj9NqSUIUFWC3Udpxqa/Tl4Lpuv7eVqdB1mtLuvJz3AZVydv1h63Hls3Pag=="],
 
     "@tauri-apps/plugin-clipboard-manager": ["@tauri-apps/plugin-clipboard-manager@2.3.2", "https://registry.npmmirror.com/@tauri-apps/plugin-clipboard-manager/-/plugin-clipboard-manager-2.3.2.tgz", { "dependencies": { "@tauri-apps/api": "^2.8.0" } }, "sha512-CUlb5Hqi2oZbcZf4VUyUH53XWPPdtpw43EUpCza5HWZJwxEoDowFzNUDt1tRUXA8Uq+XPn17Ysfptip33sG4eQ=="],
 
