@@ -15,23 +15,26 @@ dependencies = [
 
 [dependency-groups]
 nodejs = [
-    "nodejs-wheel>=24.16.0",
+    "nodejs-wheel>=24.19.0",
     "pydantic-to-typescript>=2.0.0",
 ]
 packaging = [
     "pillow>=12.3.0",
-    "pyinstaller>=6.21.0",
+    "pyinstaller>=6.22.2",
     "shellingham<2.0.0,>=1.5.4",
-    "uv>=0.12.1",
+    "uv>=0.12.9",
 ]
 protobuf = [
     "buf-bin>=1.72.0",
     "protoc-gen-connectrpc>=0.11.1",
-    "protoc-gen-py>=0.1.1",
+    "protoc-gen-py>=0.4.0",
 ]
 
 [tool.uv]
-override-dependencies = ["protobuf-py == 0.1.1"]
+override-dependencies = [
+  "connectrpc == 0.12.0",
+  "protobuf-py == 0.4.0"
+]
 
 [tool.uv.build-backend]
 module-name = "libresvip_tauri"

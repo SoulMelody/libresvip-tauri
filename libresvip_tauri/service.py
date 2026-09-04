@@ -453,5 +453,5 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-conversion_app = ConversionASGIApplication(ConversionService())
+conversion_app = ConversionASGIApplication(ConversionService(), read_max_bytes=None)
 app.mount("/", conversion_app)
