@@ -29,7 +29,7 @@ tauri-plugin-decorum = "1.1.1"
 tauri-plugin-prevent-default = { version = "5.0.0", default-features = false, features = ["platform-windows"] }
 
 [target.'cfg(target_os = "macos")'.dependencies]
-cocoa = "0.26"
+cocoa = "0.27"
 objc = "0.2.7"
 
 [features]
