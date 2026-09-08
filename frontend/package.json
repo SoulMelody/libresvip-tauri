@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@bufbuild/protoc-gen-es": "^2.14.1",
-    "@tauri-apps/cli": "npm:@tauri-apps/cli-cef@3.0.0-alpha.26",
+    "@tauri-apps/cli": "npm:@tauri-apps/cli-cef@3.0.0-alpha.27",
     "@types/bun": "^1.4.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
