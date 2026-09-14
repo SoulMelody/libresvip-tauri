@@ -14,19 +14,19 @@ name = "libresvip_tauri_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
-tauri-build = { version = "2", features = [] }
+tauri-build = { version = "3.0.0-alpha.0", features = [] }
 
 [dependencies]
-tauri = { version = "2", default-features = false, features = ["compression", "common-controls-v6", "dynamic-acl"] }
+tauri = { version = "3.0.0-alpha.0", default-features = false, features = ["compression", "common-controls-v6", "dynamic-acl"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-tauri-plugin-dialog = "2.6.0"
-tauri-plugin-fs = "2.4.5"
-tauri-plugin-clipboard-manager = "2.3.2"
-tauri-plugin-opener = "2"
-tauri-plugin-shell = "2.3.5"
+tauri-plugin-dialog = "3.0.0-alpha.0"
+tauri-plugin-fs = "3.0.0-alpha.0"
+tauri-plugin-clipboard-manager = "3.0.0-alpha.0"
+tauri-plugin-opener = "3.0.0-alpha.0"
+tauri-plugin-shell = "3.0.0-alpha.0"
 tauri-plugin-decorum = "1.1.1"
-tauri-plugin-prevent-default = { version = "5.0.0", default-features = false, features = ["platform-windows"] }
+tauri-plugin-prevent-default = { version = "5.0.2", default-features = false, features = ["platform-windows"] }
 
 [target.'cfg(target_os = "macos")'.dependencies]
 cocoa = "0.27"
@@ -36,10 +36,6 @@ objc = "0.2.7"
 default = ["wry"]
 wry = ["tauri/wry", "tauri/x11", "tauri/dbus"]
 cef = ["tauri/cef"]
-
-[patch.crates-io]
-tauri = { git = "https://github.com/tauri-apps/tauri", rev = "d9bc695c18d9a25baec21d8a5f36d72e3a14ee53" }
-tauri-build = { git = "https://github.com/tauri-apps/tauri", rev = "d9bc695c18d9a25baec21d8a5f36d72e3a14ee53" }
 
 [lints.rust]
 unused-assignments = "warn"
