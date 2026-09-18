@@ -74,7 +74,7 @@ jobs:
             libssl-dev \
             libgtk-3-dev \
             libayatana-appindicator3-dev \
-            libfuse2 \
+            libfuse2t64 \
             build-essential \
             file \
             xdg-utils
