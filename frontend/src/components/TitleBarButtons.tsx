@@ -11,6 +11,8 @@ import {
   Subtract20Regular,
 } from '@fluentui/react-icons';
 import { invoke } from '@tauri-apps/api/core';
+import { getCurrentWindow } from '@tauri-apps/api/window';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useWindowStore } from '../store/WindowStore';
 
@@ -28,9 +30,24 @@ export const TitleBarButtons = () => {
   const { isMaximized, setIsMaximized } = useWindowStore();
   const snapOverlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Querying is_maximized right after toggle_maximize races with the window
+  // manager on Linux (Wayland), so sync the state from resize events instead.
+  useEffect(() => {
+    const currentWindow = getCurrentWindow();
+    let unlisten: (() => void) | undefined;
+
+    const syncMaximized = async () => {
+      setIsMaximized(await currentWindow.isMaximized());
+    };
+
+    currentWindow.onResized(syncMaximized).then((fn) => { unlisten = fn; });
+    void syncMaximized();
+
+    return () => { unlisten?.(); };
+  }, [setIsMaximized]);
+
   const handleMaximize = async () => {
     await invoke("plugin:window|toggle_maximize");
-    setIsMaximized(await invoke("plugin:window|is_maximized"));
   };
 
   const handleMinimize = async () => {

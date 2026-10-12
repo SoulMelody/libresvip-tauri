@@ -68,7 +68,6 @@ jobs:
             cmake \
             ninja-build \
             libicu74 \
-            libwebkit2gtk-4.1-dev \
             librsvg2-dev \
             patchelf \
             libssl-dev \
@@ -78,6 +77,19 @@ jobs:
             build-essential \
             file \
             xdg-utils
+          # Pin libwebkit2gtk to 2.44.0-2: newer versions bundle wayland libs
+          # that break EGL on rolling distros (Arch) with the error
+          # "Could not create default EGL display: EGL_BAD_PARAMETER" (white screen).
+          # See https://github.com/gitbutlerapp/gitbutler/issues/5282 and
+          # https://github.com/zmkfirmware/zmk-studio/pull/92
+          webkit_version='2.44.0-2'
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-0="$webkit_version" \
+            libwebkit2gtk-4.1-dev="$webkit_version" \
+            libjavascriptcoregtk-4.1-0="$webkit_version" \
+            libjavascriptcoregtk-4.1-dev="$webkit_version" \
+            gir1.2-javascriptcoregtk-4.1="$webkit_version" \
+            gir1.2-webkit2-4.1="$webkit_version"
       
       # - name: Cache CEF (Linux only)
       #   if: matrix.platform == 'ubuntu-24.04' || matrix.platform == 'ubuntu-24.04-arm'

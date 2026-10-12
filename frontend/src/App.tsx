@@ -210,7 +210,7 @@ export function App(props: Props) {
 
   // Disable context menu
   useEffect(() => {
-    const handleContextMenu = (e: MouseEvent) => {
+    const handleContextMenu = (e: globalThis.MouseEvent) => {
       e.preventDefault();
     };
 
@@ -261,7 +261,7 @@ export function App(props: Props) {
 
   const { t } = useTranslation();
 
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLButtonElement>(null);
   const [isMenuOpen, setMenuOpen] = useState(false);
   useHotkeys('ctrl+m', () => setMenuOpen(!isMenuOpen), [isMenuOpen]);
 
