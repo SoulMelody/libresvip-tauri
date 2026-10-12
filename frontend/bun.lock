@@ -1,5 +1,5 @@
 {
-  "lockfileVersion": 1,
+  "lockfileVersion": 2,
   "configVersion": 1,
   "workspaces": {
     "": {
@@ -16,11 +16,11 @@
         "@rjsf/utils": "^6.11.0",
         "@rjsf/validator-ajv8": "^6.11.0",
         "@szhsin/react-menu": "^4.5.2",
-        "@tauri-apps/api": "^3.0.0-alpha.2",
-        "@tauri-apps/plugin-clipboard-manager": "^3.0.0-alpha.2",
-        "@tauri-apps/plugin-dialog": "^3.0.0-alpha.3",
-        "@tauri-apps/plugin-fs": "^3.0.0-alpha.2",
-        "@tauri-apps/plugin-opener": "^3.0.0-alpha.2",
+        "@tauri-apps/api": "^2.12.3",
+        "@tauri-apps/plugin-clipboard-manager": "^2.4.2",
+        "@tauri-apps/plugin-dialog": "^2.8.2",
+        "@tauri-apps/plugin-fs": "^2.7.0",
+        "@tauri-apps/plugin-opener": "^2.7.1",
         "ajv-i18n": "^4.2.0",
         "i18next": "^26.4.3",
         "i18next-browser-languagedetector": "^8.2.1",
@@ -36,7 +36,7 @@
       },
       "devDependencies": {
         "@bufbuild/protoc-gen-es": "^2.16.0",
-        "@tauri-apps/cli": "npm:@tauri-apps/cli-cef@3.0.0-alpha.27",
+        "@tauri-apps/cli": "2.12.2",
         "@types/bun": "^1.4.2",
         "@types/react": "^19.3.0",
         "@types/react-dom": "^19.3.0",
@@ -49,29 +49,29 @@
     "@cloudworxx/tauri-plugin-mac-rounded-corners",
   ],
   "packages": {
-    "@apidevtools/json-schema-ref-parser": ["@apidevtools/json-schema-ref-parser@11.9.3", "https://registry.npmmirror.com/@apidevtools/json-schema-ref-parser/-/json-schema-ref-parser-11.9.3.tgz", { "dependencies": { "@jsdevtools/ono": "^7.1.3", "@types/json-schema": "^7.0.15", "js-yaml": "^4.1.0" } }, "sha512-60vepv88RwcJtSHrD6MjIL6Ta3SOYbgfnkHb+ppAVK+o9mXprRtulx7VlRl3lN3bbvysAfCS7WMVfhUYemB0IQ=="],
+    "@apidevtools/json-schema-ref-parser": ["@apidevtools/json-schema-ref-parser@11.9.3", "https://mirrors.cloud.tencent.com/npm/@apidevtools/json-schema-ref-parser/-/json-schema-ref-parser-11.9.3.tgz", { "dependencies": { "@jsdevtools/ono": "^7.1.3", "@types/json-schema": "^7.0.15", "js-yaml": "^4.1.0" } }, "sha512-60vepv88RwcJtSHrD6MjIL6Ta3SOYbgfnkHb+ppAVK+o9mXprRtulx7VlRl3lN3bbvysAfCS7WMVfhUYemB0IQ=="],
 
-    "@babel/code-frame": ["@babel/code-frame@7.29.7", "https://registry.npmmirror.com/@babel/code-frame/-/code-frame-7.29.7.tgz", { "dependencies": { "@babel/helper-validator-identifier": "^7.29.7", "js-tokens": "^4.0.0", "picocolors": "^1.1.1" } }, "sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw=="],
+    "@babel/code-frame": ["@babel/code-frame@7.29.7", "https://mirrors.cloud.tencent.com/npm/@babel/code-frame/-/code-frame-7.29.7.tgz", { "dependencies": { "@babel/helper-validator-identifier": "^7.29.7", "js-tokens": "^4.0.0", "picocolors": "^1.1.1" } }, "sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw=="],
 
-    "@babel/generator": ["@babel/generator@7.29.8", "https://registry.npmmirror.com/@babel/generator/-/generator-7.29.8.tgz", { "dependencies": { "@babel/parser": "^7.29.8", "@babel/types": "^7.29.8", "@jridgewell/gen-mapping": "^0.3.12", "@jridgewell/trace-mapping": "^0.3.28", "jsesc": "^3.0.2" } }, "sha512-gZbepsdh3WDtgZKWL+vTPh71LSBrm/Y4/QDZBVCcYfmeTEEuoOYwlSy+G1StfJg+/Zy550u/3TATbm7qDbbMtg=="],
+    "@babel/generator": ["@babel/generator@7.29.8", "https://mirrors.cloud.tencent.com/npm/@babel/generator/-/generator-7.29.8.tgz", { "dependencies": { "@babel/parser": "^7.29.8", "@babel/types": "^7.29.8", "@jridgewell/gen-mapping": "^0.3.12", "@jridgewell/trace-mapping": "^0.3.28", "jsesc": "^3.0.2" } }, "sha512-gZbepsdh3WDtgZKWL+vTPh71LSBrm/Y4/QDZBVCcYfmeTEEuoOYwlSy+G1StfJg+/Zy550u/3TATbm7qDbbMtg=="],
 
-    "@babel/helper-globals": ["@babel/helper-globals@7.29.7", "https://registry.npmmirror.com/@babel/helper-globals/-/helper-globals-7.29.7.tgz", {}, "sha512-3nQVUAtvkKH9zahfWgw96Jc/uFOmjACE1kQz82E2lqWmHBgjzbNlsC22nuQTfahmWeQtTq5nQ/4Nnd2A1wj4zA=="],
+    "@babel/helper-globals": ["@babel/helper-globals@7.29.7", "https://mirrors.cloud.tencent.com/npm/@babel/helper-globals/-/helper-globals-7.29.7.tgz", {}, "sha512-3nQVUAtvkKH9zahfWgw96Jc/uFOmjACE1kQz82E2lqWmHBgjzbNlsC22nuQTfahmWeQtTq5nQ/4Nnd2A1wj4zA=="],
 
-    "@babel/helper-module-imports": ["@babel/helper-module-imports@7.29.7", "https://registry.npmmirror.com/@babel/helper-module-imports/-/helper-module-imports-7.29.7.tgz", { "dependencies": { "@babel/traverse": "^7.29.7", "@babel/types": "^7.29.7" } }, "sha512-ejHwrQQYcm9xnTivShn2IDOlIzInN34AXskvq9QicvCtEzq1Vzclu/tKF8Jq1Cg8JG2GL6/EmjgsCT7lXepE3g=="],
+    "@babel/helper-module-imports": ["@babel/helper-module-imports@7.29.7", "https://mirrors.cloud.tencent.com/npm/@babel/helper-module-imports/-/helper-module-imports-7.29.7.tgz", { "dependencies": { "@babel/traverse": "^7.29.7", "@babel/types": "^7.29.7" } }, "sha512-ejHwrQQYcm9xnTivShn2IDOlIzInN34AXskvq9QicvCtEzq1Vzclu/tKF8Jq1Cg8JG2GL6/EmjgsCT7lXepE3g=="],
 
-    "@babel/helper-string-parser": ["@babel/helper-string-parser@7.29.7", "https://registry.npmmirror.com/@babel/helper-string-parser/-/helper-string-parser-7.29.7.tgz", {}, "sha512-Pb5ijPrZ89GDH8223L4UP8i6QApWxs04RbPQJTeWDV0/keR2E36MeKnyr6LYmUUvqRRI+Iv87SuF1W6ErINzYw=="],
+    "@babel/helper-string-parser": ["@babel/helper-string-parser@7.29.7", "https://mirrors.cloud.tencent.com/npm/@babel/helper-string-parser/-/helper-string-parser-7.29.7.tgz", {}, "sha512-Pb5ijPrZ89GDH8223L4UP8i6QApWxs04RbPQJTeWDV0/keR2E36MeKnyr6LYmUUvqRRI+Iv87SuF1W6ErINzYw=="],
 
-    "@babel/helper-validator-identifier": ["@babel/helper-validator-identifier@7.29.7", "https://registry.npmmirror.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.29.7.tgz", {}, "sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg=="],
+    "@babel/helper-validator-identifier": ["@babel/helper-validator-identifier@7.29.7", "https://mirrors.cloud.tencent.com/npm/@babel/helper-validator-identifier/-/helper-validator-identifier-7.29.7.tgz", {}, "sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg=="],
 
     "@babel/parser": ["@babel/parser@7.29.9", "https://mirrors.cloud.tencent.com/npm/@babel/parser/-/parser-7.29.9.tgz", { "dependencies": { "@babel/types": "^7.29.8" }, "bin": "./bin/babel-parser.js" }, "sha512-CjXrNHTnvqBVqHgdBysY3vk2T8tpJHb5/RMeHJBTyVa9xgugCB0CJTx/3oO8RV2QRQP391RWpB7D6hLjm8V9uA=="],
 
     "@babel/runtime": ["@babel/runtime@7.29.10", "https://mirrors.cloud.tencent.com/npm/@babel/runtime/-/runtime-7.29.10.tgz", {}, "sha512-NpugTzbKgGrNe45Ui32cN8vCFFMxVtP/9rtfwv0nP5FRDAjvYBxJcLVpYA9mr1jxP6cnIT7x9LUzuDTbWYYNRA=="],
 
-    "@babel/template": ["@babel/template@7.29.7", "https://registry.npmmirror.com/@babel/template/-/template-7.29.7.tgz", { "dependencies": { "@babel/code-frame": "^7.29.7", "@babel/parser": "^7.29.7", "@babel/types": "^7.29.7" } }, "sha512-puq+Gf35oI24FeN11LkoUQFqv9uwNeWpxXZi/Ji3rRIoKAzKnxRaZ+Gkj0vKS9ZCiTESfng1N9LyOyXvo+m+Gg=="],
+    "@babel/template": ["@babel/template@7.29.7", "https://mirrors.cloud.tencent.com/npm/@babel/template/-/template-7.29.7.tgz", { "dependencies": { "@babel/code-frame": "^7.29.7", "@babel/parser": "^7.29.7", "@babel/types": "^7.29.7" } }, "sha512-puq+Gf35oI24FeN11LkoUQFqv9uwNeWpxXZi/Ji3rRIoKAzKnxRaZ+Gkj0vKS9ZCiTESfng1N9LyOyXvo+m+Gg=="],
 
     "@babel/traverse": ["@babel/traverse@7.29.10", "https://mirrors.cloud.tencent.com/npm/@babel/traverse/-/traverse-7.29.10.tgz", { "dependencies": { "@babel/code-frame": "^7.29.7", "@babel/generator": "^7.29.8", "@babel/helper-globals": "^7.29.7", "@babel/parser": "^7.29.9", "@babel/template": "^7.29.7", "@babel/types": "^7.29.8", "debug": "^4.3.1" } }, "sha512-B3lYAs2nkKskbgQ1nfy8Ma9ao9Q1rntTAQHrzzyDuj+TSO+X3le6PfWwqDvodsb+OumE10eMFfuMCTQSQ5iuIQ=="],
 
-    "@babel/types": ["@babel/types@7.29.8", "https://registry.npmmirror.com/@babel/types/-/types-7.29.8.tgz", { "dependencies": { "@babel/helper-string-parser": "^7.29.7", "@babel/helper-validator-identifier": "^7.29.7" } }, "sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg=="],
+    "@babel/types": ["@babel/types@7.29.8", "https://mirrors.cloud.tencent.com/npm/@babel/types/-/types-7.29.8.tgz", { "dependencies": { "@babel/helper-string-parser": "^7.29.7", "@babel/helper-validator-identifier": "^7.29.7" } }, "sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg=="],
 
     "@bufbuild/protobuf": ["@bufbuild/protobuf@2.16.0", "https://mirrors.cloud.tencent.com/npm/@bufbuild/protobuf/-/protobuf-2.16.0.tgz", {}, "sha512-FWa0sPlqYGJgpTs6OxBRcL/AW4JT0OIO+W1ajerluoTVh8CV0B7XM1qsNCRgnkSCkRCgOICKHRQlY17jrsm0+Q=="],
 
@@ -79,37 +79,37 @@
 
     "@bufbuild/protoplugin": ["@bufbuild/protoplugin@2.16.0", "https://mirrors.cloud.tencent.com/npm/@bufbuild/protoplugin/-/protoplugin-2.16.0.tgz", { "dependencies": { "@bufbuild/protobuf": "2.16.0", "@typescript/vfs": "^1.6.2", "typescript": "5.4.5" } }, "sha512-3FdYJys34VhFnBQsjiV9wurBkX/DBACQAkAk+nCKdO1p8ROVNi7gmaRAcba+4qq8hQq8rYVukuutwvGCvd4kJA=="],
 
-    "@cloudworxx/tauri-plugin-mac-rounded-corners": ["@cloudworxx/tauri-plugin-mac-rounded-corners@1.1.1", "https://registry.npmmirror.com/@cloudworxx/tauri-plugin-mac-rounded-corners/-/tauri-plugin-mac-rounded-corners-1.1.1.tgz", { "peerDependencies": { "@tauri-apps/api": "^2" }, "bin": { "tauri-plugin-mac-rounded-corners": "scripts/install.js" } }, "sha512-oF75CsaetpvqzMlbULMqGjpg4Y3GqdIIqU4+gbjtPEuLb2AYWGGprjL3UQfIm6Ew75pDFFgVxnL7rJBr5uttgg=="],
+    "@cloudworxx/tauri-plugin-mac-rounded-corners": ["@cloudworxx/tauri-plugin-mac-rounded-corners@1.1.1", "https://mirrors.cloud.tencent.com/npm/@cloudworxx/tauri-plugin-mac-rounded-corners/-/tauri-plugin-mac-rounded-corners-1.1.1.tgz", { "peerDependencies": { "@tauri-apps/api": "^2" }, "bin": { "tauri-plugin-mac-rounded-corners": "scripts/install.js" } }, "sha512-oF75CsaetpvqzMlbULMqGjpg4Y3GqdIIqU4+gbjtPEuLb2AYWGGprjL3UQfIm6Ew75pDFFgVxnL7rJBr5uttgg=="],
 
-    "@connectrpc/connect": ["@connectrpc/connect@2.2.0", "https://registry.npmmirror.com/@connectrpc/connect/-/connect-2.2.0.tgz", { "peerDependencies": { "@bufbuild/protobuf": "^2.7.0" } }, "sha512-M63OQ1ZFcPUm85CuewJ9G9CMV8LjzGR9935xOnXNQGSazAbwMb3x2W7vXBYM1zqrP7XFD8uxp/dUAhirclgwnQ=="],
+    "@connectrpc/connect": ["@connectrpc/connect@2.2.0", "https://mirrors.cloud.tencent.com/npm/@connectrpc/connect/-/connect-2.2.0.tgz", { "peerDependencies": { "@bufbuild/protobuf": "^2.7.0" } }, "sha512-M63OQ1ZFcPUm85CuewJ9G9CMV8LjzGR9935xOnXNQGSazAbwMb3x2W7vXBYM1zqrP7XFD8uxp/dUAhirclgwnQ=="],
 
-    "@connectrpc/connect-web": ["@connectrpc/connect-web@2.2.0", "https://registry.npmmirror.com/@connectrpc/connect-web/-/connect-web-2.2.0.tgz", { "peerDependencies": { "@bufbuild/protobuf": "^2.7.0", "@connectrpc/connect": "2.2.0" } }, "sha512-uuBUcBTYfb/r1o98LzCCZk1H90yx0vmZ5m21dpw/q4EUwsKwkCDGI8H0aEdjcZld+Q2jJ5A5ADvPqfb6lzQ/sg=="],
+    "@connectrpc/connect-web": ["@connectrpc/connect-web@2.2.0", "https://mirrors.cloud.tencent.com/npm/@connectrpc/connect-web/-/connect-web-2.2.0.tgz", { "peerDependencies": { "@bufbuild/protobuf": "^2.7.0", "@connectrpc/connect": "2.2.0" } }, "sha512-uuBUcBTYfb/r1o98LzCCZk1H90yx0vmZ5m21dpw/q4EUwsKwkCDGI8H0aEdjcZld+Q2jJ5A5ADvPqfb6lzQ/sg=="],
 
-    "@emotion/babel-plugin": ["@emotion/babel-plugin@11.13.5", "https://registry.npmmirror.com/@emotion/babel-plugin/-/babel-plugin-11.13.5.tgz", { "dependencies": { "@babel/helper-module-imports": "^7.16.7", "@babel/runtime": "^7.18.3", "@emotion/hash": "^0.9.2", "@emotion/memoize": "^0.9.0", "@emotion/serialize": "^1.3.3", "babel-plugin-macros": "^3.1.0", "convert-source-map": "^1.5.0", "escape-string-regexp": "^4.0.0", "find-root": "^1.1.0", "source-map": "^0.5.7", "stylis": "4.2.0" } }, "sha512-pxHCpT2ex+0q+HH91/zsdHkw/lXd468DIN2zvfvLtPKLLMo6gQj7oLObq8PhkrxOZb/gGCq03S3Z7PDhS8pduQ=="],
+    "@emotion/babel-plugin": ["@emotion/babel-plugin@11.13.5", "https://mirrors.cloud.tencent.com/npm/@emotion/babel-plugin/-/babel-plugin-11.13.5.tgz", { "dependencies": { "@babel/helper-module-imports": "^7.16.7", "@babel/runtime": "^7.18.3", "@emotion/hash": "^0.9.2", "@emotion/memoize": "^0.9.0", "@emotion/serialize": "^1.3.3", "babel-plugin-macros": "^3.1.0", "convert-source-map": "^1.5.0", "escape-string-regexp": "^4.0.0", "find-root": "^1.1.0", "source-map": "^0.5.7", "stylis": "4.2.0" } }, "sha512-pxHCpT2ex+0q+HH91/zsdHkw/lXd468DIN2zvfvLtPKLLMo6gQj7oLObq8PhkrxOZb/gGCq03S3Z7PDhS8pduQ=="],
 
-    "@emotion/cache": ["@emotion/cache@11.14.0", "https://registry.npmmirror.com/@emotion/cache/-/cache-11.14.0.tgz", { "dependencies": { "@emotion/memoize": "^0.9.0", "@emotion/sheet": "^1.4.0", "@emotion/utils": "^1.4.2", "@emotion/weak-memoize": "^0.4.0", "stylis": "4.2.0" } }, "sha512-L/B1lc/TViYk4DcpGxtAVbx0ZyiKM5ktoIyafGkH6zg/tj+mA+NE//aPYKG0k8kCHSHVJrpLpcAlOBEXQ3SavA=="],
+    "@emotion/cache": ["@emotion/cache@11.14.0", "https://mirrors.cloud.tencent.com/npm/@emotion/cache/-/cache-11.14.0.tgz", { "dependencies": { "@emotion/memoize": "^0.9.0", "@emotion/sheet": "^1.4.0", "@emotion/utils": "^1.4.2", "@emotion/weak-memoize": "^0.4.0", "stylis": "4.2.0" } }, "sha512-L/B1lc/TViYk4DcpGxtAVbx0ZyiKM5ktoIyafGkH6zg/tj+mA+NE//aPYKG0k8kCHSHVJrpLpcAlOBEXQ3SavA=="],
 
-    "@emotion/hash": ["@emotion/hash@0.9.2", "https://registry.npmmirror.com/@emotion/hash/-/hash-0.9.2.tgz", {}, "sha512-MyqliTZGuOm3+5ZRSaaBGP3USLw6+EGykkwZns2EPC5g8jJ4z9OrdZY9apkl3+UP9+sdz76YYkwCKP5gh8iY3g=="],
+    "@emotion/hash": ["@emotion/hash@0.9.2", "https://mirrors.cloud.tencent.com/npm/@emotion/hash/-/hash-0.9.2.tgz", {}, "sha512-MyqliTZGuOm3+5ZRSaaBGP3USLw6+EGykkwZns2EPC5g8jJ4z9OrdZY9apkl3+UP9+sdz76YYkwCKP5gh8iY3g=="],
 
-    "@emotion/is-prop-valid": ["@emotion/is-prop-valid@1.4.0", "https://registry.npmmirror.com/@emotion/is-prop-valid/-/is-prop-valid-1.4.0.tgz", { "dependencies": { "@emotion/memoize": "^0.9.0" } }, "sha512-QgD4fyscGcbbKwJmqNvUMSE02OsHUa+lAWKdEUIJKgqe5IwRSKd7+KhibEWdaKwgjLj0DRSHA9biAIqGBk05lw=="],
+    "@emotion/is-prop-valid": ["@emotion/is-prop-valid@1.4.0", "https://mirrors.cloud.tencent.com/npm/@emotion/is-prop-valid/-/is-prop-valid-1.4.0.tgz", { "dependencies": { "@emotion/memoize": "^0.9.0" } }, "sha512-QgD4fyscGcbbKwJmqNvUMSE02OsHUa+lAWKdEUIJKgqe5IwRSKd7+KhibEWdaKwgjLj0DRSHA9biAIqGBk05lw=="],
 
-    "@emotion/memoize": ["@emotion/memoize@0.9.0", "https://registry.npmmirror.com/@emotion/memoize/-/memoize-0.9.0.tgz", {}, "sha512-30FAj7/EoJ5mwVPOWhAyCX+FPfMDrVecJAM+Iw9NRoSl4BBAQeqj4cApHHUXOVvIPgLVDsCFoz/hGD+5QQD1GQ=="],
+    "@emotion/memoize": ["@emotion/memoize@0.9.0", "https://mirrors.cloud.tencent.com/npm/@emotion/memoize/-/memoize-0.9.0.tgz", {}, "sha512-30FAj7/EoJ5mwVPOWhAyCX+FPfMDrVecJAM+Iw9NRoSl4BBAQeqj4cApHHUXOVvIPgLVDsCFoz/hGD+5QQD1GQ=="],
 
-    "@emotion/react": ["@emotion/react@11.14.0", "https://registry.npmmirror.com/@emotion/react/-/react-11.14.0.tgz", { "dependencies": { "@babel/runtime": "^7.18.3", "@emotion/babel-plugin": "^11.13.5", "@emotion/cache": "^11.14.0", "@emotion/serialize": "^1.3.3", "@emotion/use-insertion-effect-with-fallbacks": "^1.2.0", "@emotion/utils": "^1.4.2", "@emotion/weak-memoize": "^0.4.0", "hoist-non-react-statics": "^3.3.1" }, "peerDependencies": { "react": ">=16.8.0" } }, "sha512-O000MLDBDdk/EohJPFUqvnp4qnHeYkVP5B0xEG0D/L7cOKP9kefu2DXn8dj74cQfsEzUqh+sr1RzFqiL1o+PpA=="],
+    "@emotion/react": ["@emotion/react@11.14.0", "https://mirrors.cloud.tencent.com/npm/@emotion/react/-/react-11.14.0.tgz", { "dependencies": { "@babel/runtime": "^7.18.3", "@emotion/babel-plugin": "^11.13.5", "@emotion/cache": "^11.14.0", "@emotion/serialize": "^1.3.3", "@emotion/use-insertion-effect-with-fallbacks": "^1.2.0", "@emotion/utils": "^1.4.2", "@emotion/weak-memoize": "^0.4.0", "hoist-non-react-statics": "^3.3.1" }, "peerDependencies": { "@types/react": "*", "react": ">=16.8.0" }, "optionalPeers": ["@types/react"] }, "sha512-O000MLDBDdk/EohJPFUqvnp4qnHeYkVP5B0xEG0D/L7cOKP9kefu2DXn8dj74cQfsEzUqh+sr1RzFqiL1o+PpA=="],
 
-    "@emotion/serialize": ["@emotion/serialize@1.3.3", "https://registry.npmmirror.com/@emotion/serialize/-/serialize-1.3.3.tgz", { "dependencies": { "@emotion/hash": "^0.9.2", "@emotion/memoize": "^0.9.0", "@emotion/unitless": "^0.10.0", "@emotion/utils": "^1.4.2", "csstype": "^3.0.2" } }, "sha512-EISGqt7sSNWHGI76hC7x1CksiXPahbxEOrC5RjmFRJTqLyEK9/9hZvBbiYn70dw4wuwMKiEMCUlR6ZXTSWQqxA=="],
+    "@emotion/serialize": ["@emotion/serialize@1.3.3", "https://mirrors.cloud.tencent.com/npm/@emotion/serialize/-/serialize-1.3.3.tgz", { "dependencies": { "@emotion/hash": "^0.9.2", "@emotion/memoize": "^0.9.0", "@emotion/unitless": "^0.10.0", "@emotion/utils": "^1.4.2", "csstype": "^3.0.2" } }, "sha512-EISGqt7sSNWHGI76hC7x1CksiXPahbxEOrC5RjmFRJTqLyEK9/9hZvBbiYn70dw4wuwMKiEMCUlR6ZXTSWQqxA=="],
 
-    "@emotion/sheet": ["@emotion/sheet@1.4.0", "https://registry.npmmirror.com/@emotion/sheet/-/sheet-1.4.0.tgz", {}, "sha512-fTBW9/8r2w3dXWYM4HCB1Rdp8NLibOw2+XELH5m5+AkWiL/KqYX6dc0kKYlaYyKjrQ6ds33MCdMPEwgs2z1rqg=="],
+    "@emotion/sheet": ["@emotion/sheet@1.4.0", "https://mirrors.cloud.tencent.com/npm/@emotion/sheet/-/sheet-1.4.0.tgz", {}, "sha512-fTBW9/8r2w3dXWYM4HCB1Rdp8NLibOw2+XELH5m5+AkWiL/KqYX6dc0kKYlaYyKjrQ6ds33MCdMPEwgs2z1rqg=="],
 
-    "@emotion/styled": ["@emotion/styled@11.14.1", "https://registry.npmmirror.com/@emotion/styled/-/styled-11.14.1.tgz", { "dependencies": { "@babel/runtime": "^7.18.3", "@emotion/babel-plugin": "^11.13.5", "@emotion/is-prop-valid": "^1.3.0", "@emotion/serialize": "^1.3.3", "@emotion/use-insertion-effect-with-fallbacks": "^1.2.0", "@emotion/utils": "^1.4.2" }, "peerDependencies": { "@emotion/react": "^11.0.0-rc.0", "react": ">=16.8.0" } }, "sha512-qEEJt42DuToa3gurlH4Qqc1kVpNq8wO8cJtDzU46TjlzWjDlsVyevtYCRijVq3SrHsROS+gVQ8Fnea108GnKzw=="],
+    "@emotion/styled": ["@emotion/styled@11.14.1", "https://mirrors.cloud.tencent.com/npm/@emotion/styled/-/styled-11.14.1.tgz", { "dependencies": { "@babel/runtime": "^7.18.3", "@emotion/babel-plugin": "^11.13.5", "@emotion/is-prop-valid": "^1.3.0", "@emotion/serialize": "^1.3.3", "@emotion/use-insertion-effect-with-fallbacks": "^1.2.0", "@emotion/utils": "^1.4.2" }, "peerDependencies": { "@emotion/react": "^11.0.0-rc.0", "@types/react": "*", "react": ">=16.8.0" }, "optionalPeers": ["@types/react"] }, "sha512-qEEJt42DuToa3gurlH4Qqc1kVpNq8wO8cJtDzU46TjlzWjDlsVyevtYCRijVq3SrHsROS+gVQ8Fnea108GnKzw=="],
 
-    "@emotion/unitless": ["@emotion/unitless@0.10.0", "https://registry.npmmirror.com/@emotion/unitless/-/unitless-0.10.0.tgz", {}, "sha512-dFoMUuQA20zvtVTuxZww6OHoJYgrzfKM1t52mVySDJnMSEa08ruEvdYQbhvyu6soU+NeLVd3yKfTfT0NeV6qGg=="],
+    "@emotion/unitless": ["@emotion/unitless@0.10.0", "https://mirrors.cloud.tencent.com/npm/@emotion/unitless/-/unitless-0.10.0.tgz", {}, "sha512-dFoMUuQA20zvtVTuxZww6OHoJYgrzfKM1t52mVySDJnMSEa08ruEvdYQbhvyu6soU+NeLVd3yKfTfT0NeV6qGg=="],
 
-    "@emotion/use-insertion-effect-with-fallbacks": ["@emotion/use-insertion-effect-with-fallbacks@1.2.0", "https://registry.npmmirror.com/@emotion/use-insertion-effect-with-fallbacks/-/use-insertion-effect-with-fallbacks-1.2.0.tgz", { "peerDependencies": { "react": ">=16.8.0" } }, "sha512-yJMtVdH59sxi/aVJBpk9FQq+OR8ll5GT8oWd57UpeaKEVGab41JWaCFA7FRLoMLloOZF/c/wsPoe+bfGmRKgDg=="],
+    "@emotion/use-insertion-effect-with-fallbacks": ["@emotion/use-insertion-effect-with-fallbacks@1.2.0", "https://mirrors.cloud.tencent.com/npm/@emotion/use-insertion-effect-with-fallbacks/-/use-insertion-effect-with-fallbacks-1.2.0.tgz", { "peerDependencies": { "react": ">=16.8.0" } }, "sha512-yJMtVdH59sxi/aVJBpk9FQq+OR8ll5GT8oWd57UpeaKEVGab41JWaCFA7FRLoMLloOZF/c/wsPoe+bfGmRKgDg=="],
 
-    "@emotion/utils": ["@emotion/utils@1.4.2", "https://registry.npmmirror.com/@emotion/utils/-/utils-1.4.2.tgz", {}, "sha512-3vLclRofFziIa3J2wDh9jjbkUz9qk5Vi3IZ/FSTKViB0k+ef0fPV7dYrUIugbgupYDx7v9ud/SjrtEP8Y4xLoA=="],
+    "@emotion/utils": ["@emotion/utils@1.4.2", "https://mirrors.cloud.tencent.com/npm/@emotion/utils/-/utils-1.4.2.tgz", {}, "sha512-3vLclRofFziIa3J2wDh9jjbkUz9qk5Vi3IZ/FSTKViB0k+ef0fPV7dYrUIugbgupYDx7v9ud/SjrtEP8Y4xLoA=="],
 
-    "@emotion/weak-memoize": ["@emotion/weak-memoize@0.4.0", "https://registry.npmmirror.com/@emotion/weak-memoize/-/weak-memoize-0.4.0.tgz", {}, "sha512-snKqtPW01tN0ui7yu9rGv69aJXr/a/Ywvl11sUjNtEcRc+ng/mQriFL0wLXMef74iHa/EkftbDzU9F8iFbH+zg=="],
+    "@emotion/weak-memoize": ["@emotion/weak-memoize@0.4.0", "https://mirrors.cloud.tencent.com/npm/@emotion/weak-memoize/-/weak-memoize-0.4.0.tgz", {}, "sha512-snKqtPW01tN0ui7yu9rGv69aJXr/a/Ywvl11sUjNtEcRc+ng/mQriFL0wLXMef74iHa/EkftbDzU9F8iFbH+zg=="],
 
     "@fluentui/react-icons": ["@fluentui/react-icons@2.0.344", "https://mirrors.cloud.tencent.com/npm/@fluentui/react-icons/-/react-icons-2.0.344.tgz", { "dependencies": { "@griffel/react": "^1.6.1", "tslib": "^2.1.0" }, "peerDependencies": { "react": ">=16.8.0 <20.0.0" } }, "sha512-pvEVFOUrrtmIglqdfhDVX6XT80a5z9kX+Tso6NAzgmkko8nlURhOzNwvZZlsCK4yQseH/4NQdYoN8ijO7IHdNw=="],
 
@@ -119,15 +119,15 @@
 
     "@griffel/style-types": ["@griffel/style-types@1.4.3", "https://mirrors.cloud.tencent.com/npm/@griffel/style-types/-/style-types-1.4.3.tgz", { "dependencies": { "csstype": "^3.2.3" } }, "sha512-sFxMK19oFUPQSmyCKT1Pvj5Nu/ODvhMczqhGjVAoksDTXUj1za40WA0CXqV3o+xxKWPec+K/rbS78jJLmomsQA=="],
 
-    "@jridgewell/gen-mapping": ["@jridgewell/gen-mapping@0.3.13", "https://registry.npmmirror.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.13.tgz", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.0", "@jridgewell/trace-mapping": "^0.3.24" } }, "sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA=="],
+    "@jridgewell/gen-mapping": ["@jridgewell/gen-mapping@0.3.13", "https://mirrors.cloud.tencent.com/npm/@jridgewell/gen-mapping/-/gen-mapping-0.3.13.tgz", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.0", "@jridgewell/trace-mapping": "^0.3.24" } }, "sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA=="],
 
-    "@jridgewell/resolve-uri": ["@jridgewell/resolve-uri@3.1.2", "https://registry.npmmirror.com/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz", {}, "sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw=="],
+    "@jridgewell/resolve-uri": ["@jridgewell/resolve-uri@3.1.2", "https://mirrors.cloud.tencent.com/npm/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz", {}, "sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw=="],
 
-    "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.6.0", "https://registry.npmmirror.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.6.0.tgz", {}, "sha512-T7jf+5zgsZHwNJ4lvQ7/aezbyk0nNX+zJVWpmHA7VYsEx7a7qr5Rg5IbtJFqkgze5Y2sruq1RUY8Q837Od7iFw=="],
+    "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.6.0", "https://mirrors.cloud.tencent.com/npm/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.6.0.tgz", {}, "sha512-T7jf+5zgsZHwNJ4lvQ7/aezbyk0nNX+zJVWpmHA7VYsEx7a7qr5Rg5IbtJFqkgze5Y2sruq1RUY8Q837Od7iFw=="],
 
-    "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "https://registry.npmmirror.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
+    "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "https://mirrors.cloud.tencent.com/npm/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
 
-    "@jsdevtools/ono": ["@jsdevtools/ono@7.1.3", "https://registry.npmmirror.com/@jsdevtools/ono/-/ono-7.1.3.tgz", {}, "sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg=="],
+    "@jsdevtools/ono": ["@jsdevtools/ono@7.1.3", "https://mirrors.cloud.tencent.com/npm/@jsdevtools/ono/-/ono-7.1.3.tgz", {}, "sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg=="],
 
     "@mui/core-downloads-tracker": ["@mui/core-downloads-tracker@9.5.0", "https://mirrors.cloud.tencent.com/npm/@mui/core-downloads-tracker/-/core-downloads-tracker-9.5.0.tgz", {}, "sha512-PErEpl3Lp+1ZqWYKI7GQU8XSiciAFmLbUAZ7IoaUL598HLy1UAFuEUMEJu8yAS1v8vkXYzWprMVZzky4UwXoOA=="],
 
@@ -145,9 +145,9 @@
 
     "@mui/utils": ["@mui/utils@9.5.0", "https://mirrors.cloud.tencent.com/npm/@mui/utils/-/utils-9.5.0.tgz", { "dependencies": { "@babel/runtime": "^7.29.7 || ^8.0.5", "@mui/types": "^9.5.0", "@types/prop-types": "^15.7.15", "clsx": "^2.1.1", "prop-types": "^15.8.1", "react-is": "^19.3.0" }, "peerDependencies": { "@types/react": "^17.0.0 || ^18.0.0 || ^19.0.0", "react": "^17.0.0 || ^18.0.0 || ^19.0.0" }, "optionalPeers": ["@types/react"] }, "sha512-8m0LfSgE2pj58znY3kZ+anwRKbnBkcu/7AJPA8L/77wEjN0QnpX4/zRAccyplp1VEUnMsUBADeTRin5Mkf7epA=="],
 
-    "@popperjs/core": ["@popperjs/core@2.11.8", "https://registry.npmmirror.com/@popperjs/core/-/core-2.11.8.tgz", {}, "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A=="],
+    "@popperjs/core": ["@popperjs/core@2.11.8", "https://mirrors.cloud.tencent.com/npm/@popperjs/core/-/core-2.11.8.tgz", {}, "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A=="],
 
-    "@rc-component/mini-decimal": ["@rc-component/mini-decimal@1.1.4", "https://registry.npmmirror.com/@rc-component/mini-decimal/-/mini-decimal-1.1.4.tgz", { "dependencies": { "@babel/runtime": "^7.18.0" } }, "sha512-xiuXcaCwyOWpD8a8scdExFl+bntNphAW8XeenL1ig2en0AAZY0Pcp4pC0dI22qJ+NvxKn9RoNIoRdqYU3BLH4w=="],
+    "@rc-component/mini-decimal": ["@rc-component/mini-decimal@1.1.4", "https://mirrors.cloud.tencent.com/npm/@rc-component/mini-decimal/-/mini-decimal-1.1.4.tgz", { "dependencies": { "@babel/runtime": "^7.18.0" } }, "sha512-xiuXcaCwyOWpD8a8scdExFl+bntNphAW8XeenL1ig2en0AAZY0Pcp4pC0dI22qJ+NvxKn9RoNIoRdqYU3BLH4w=="],
 
     "@remix-run/route-pattern": ["@remix-run/route-pattern@0.22.1", "https://mirrors.cloud.tencent.com/npm/@remix-run/route-pattern/-/route-pattern-0.22.1.tgz", {}, "sha512-czdGJWh09Lapvcqt7Vb09KlrU2PhRJ8xQaI+AItTuD9aDJ5MAgxnS38lnys6Ll+6RJEqPiaUqTwIQhVLwFvv+w=="],
 
@@ -159,282 +159,296 @@
 
     "@rjsf/validator-ajv8": ["@rjsf/validator-ajv8@6.11.0", "https://mirrors.cloud.tencent.com/npm/@rjsf/validator-ajv8/-/validator-ajv8-6.11.0.tgz", { "dependencies": { "ajv": "^8.20.0", "ajv-formats": "^2.1.1" }, "peerDependencies": { "@rjsf/utils": "^6.11.0" } }, "sha512-pTzuYODewEE3qkTC5UwGvVvG0eetq72/h+rP9PsjPhF1lp2KZ5WrR44a29ipSnMTP2vorO80AvC/O9AXvBfVYw=="],
 
-    "@szhsin/react-menu": ["@szhsin/react-menu@4.5.2", "https://registry.npmmirror.com/@szhsin/react-menu/-/react-menu-4.5.2.tgz", { "dependencies": { "react-transition-state": "^2.4.0" }, "peerDependencies": { "react": ">=16.14.0", "react-dom": ">=16.14.0" } }, "sha512-VIfCFGq997iHhDBR5Wrgx5XqwzLQj0Lj1PQV9XSrT/ymvdI4GE/oAKx81dXWfeXiZgyXTicDCfeGrjlAzjoYlQ=="],
+    "@szhsin/react-menu": ["@szhsin/react-menu@4.5.2", "https://mirrors.cloud.tencent.com/npm/@szhsin/react-menu/-/react-menu-4.5.2.tgz", { "dependencies": { "react-transition-state": "^2.4.0" }, "peerDependencies": { "react": ">=16.14.0", "react-dom": ">=16.14.0" } }, "sha512-VIfCFGq997iHhDBR5Wrgx5XqwzLQj0Lj1PQV9XSrT/ymvdI4GE/oAKx81dXWfeXiZgyXTicDCfeGrjlAzjoYlQ=="],
 
-    "@tauri-apps/api": ["@tauri-apps/api@3.0.0-alpha.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/api/-/api-3.0.0-alpha.2.tgz", {}, "sha512-W5MTTRAsbNqxSO5hf6U6gHwtTfW0ZnEyIWkmn9L6XYWFcSi0n1JtVQAIsJ6EZHLpJkchGEFwSeVBy+IcrtXl4g=="],
+    "@tauri-apps/api": ["@tauri-apps/api@2.12.3", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/api/-/api-2.12.3.tgz", {}, "sha512-9s0PKw0p4r3kFq92jhpivYSp+cSht15o0gXpZxuQd0+dV9KCexEVkNaLELVoLdJWyoH4KlfQo5h3W2LIM8siJg=="],
 
-    "@tauri-apps/cli": ["@tauri-apps/cli-cef@3.0.0-alpha.27", "https://registry.npmmirror.com/@tauri-apps/cli-cef/-/cli-cef-3.0.0-alpha.27.tgz", { "optionalDependencies": { "@tauri-apps/cli-cef-darwin-arm64": "3.0.0-alpha.27", "@tauri-apps/cli-cef-darwin-x64": "3.0.0-alpha.27", "@tauri-apps/cli-cef-linux-arm-gnueabihf": "3.0.0-alpha.27", "@tauri-apps/cli-cef-linux-arm64-gnu": "3.0.0-alpha.27", "@tauri-apps/cli-cef-linux-arm64-musl": "3.0.0-alpha.27", "@tauri-apps/cli-cef-linux-riscv64-gnu": "3.0.0-alpha.27", "@tauri-apps/cli-cef-linux-x64-gnu": "3.0.0-alpha.27", "@tauri-apps/cli-cef-linux-x64-musl": "3.0.0-alpha.27", "@tauri-apps/cli-cef-win32-arm64-msvc": "3.0.0-alpha.27", "@tauri-apps/cli-cef-win32-ia32-msvc": "3.0.0-alpha.27", "@tauri-apps/cli-cef-win32-x64-msvc": "3.0.0-alpha.27" }, "bin": { "tauri": "tauri.js" } }, "sha512-QpctOrG3dDvhKhSWqgFTADywQgUaPBBM3nmi688Pr1tC1RxAGMrGewABjdrEpyAxWnNKZ+NmyhcDupkjmFDeLg=="],
+    "@tauri-apps/cli": ["@tauri-apps/cli@2.12.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/cli/-/cli-2.12.2.tgz", { "optionalDependencies": { "@tauri-apps/cli-darwin-arm64": "2.12.2", "@tauri-apps/cli-darwin-x64": "2.12.2", "@tauri-apps/cli-linux-arm-gnueabihf": "2.12.2", "@tauri-apps/cli-linux-arm64-gnu": "2.12.2", "@tauri-apps/cli-linux-arm64-musl": "2.12.2", "@tauri-apps/cli-linux-riscv64-gnu": "2.12.2", "@tauri-apps/cli-linux-x64-gnu": "2.12.2", "@tauri-apps/cli-linux-x64-musl": "2.12.2", "@tauri-apps/cli-win32-arm64-msvc": "2.12.2", "@tauri-apps/cli-win32-ia32-msvc": "2.12.2", "@tauri-apps/cli-win32-x64-msvc": "2.12.2" }, "bin": { "tauri": "tauri.js" } }, "sha512-PMSppzAnlT+BvZtRKuidxjRSm2r5t8kDpJ/czmmQUa0AtDNTwrjLE8vApK3phCWGg7isfnYL46Dl1jB4ArI0hA=="],
 
-    "@tauri-apps/cli-cef-darwin-arm64": ["@tauri-apps/cli-cef-darwin-arm64@3.0.0-alpha.27", "https://registry.npmmirror.com/@tauri-apps/cli-cef-darwin-arm64/-/cli-cef-darwin-arm64-3.0.0-alpha.27.tgz", { "os": "darwin", "cpu": "arm64" }, "sha512-Hj4XC9pgVXSuVTNIq8caODSae/c94y1pC0k+vNu2ioh3pBimLDW/Jj0ZUAtSbQiiuzpRrx7xijvg5LCyCey+OQ=="],
+    "@tauri-apps/cli-darwin-arm64": ["@tauri-apps/cli-darwin-arm64@2.12.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/cli-darwin-arm64/-/cli-darwin-arm64-2.12.2.tgz", { "os": "darwin", "cpu": "arm64" }, "sha512-Lk3zaBTfzNvA7670Al5PNgo2M/95uaDPe1yp+ILJeDOmol87XiYuK5E5+FUbK5e6U6OORx9qpZdOo2U+5tETtQ=="],
 
-    "@tauri-apps/cli-cef-darwin-x64": ["@tauri-apps/cli-cef-darwin-x64@3.0.0-alpha.27", "https://registry.npmmirror.com/@tauri-apps/cli-cef-darwin-x64/-/cli-cef-darwin-x64-3.0.0-alpha.27.tgz", { "os": "darwin", "cpu": "x64" }, "sha512-SAzdZP4QfDTb4uTXnTWh2cqM5nx/L9qY1erOcW7dJvKGEaPZ8X/jmW3kfq8jcnV1v0AJ2lbS3h51/EFt0Ycrzw=="],
+    "@tauri-apps/cli-darwin-x64": ["@tauri-apps/cli-darwin-x64@2.12.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/cli-darwin-x64/-/cli-darwin-x64-2.12.2.tgz", { "os": "darwin", "cpu": "x64" }, "sha512-2CyYjJ833JB3sKRz4B0W/Tv4oOVC16ws1bxdSCWj1XvrmanWwvZi99e5tNIoCHwHhcOm0jh+sh0PCGQyls6Z+w=="],
 
-    "@tauri-apps/cli-cef-linux-arm-gnueabihf": ["@tauri-apps/cli-cef-linux-arm-gnueabihf@3.0.0-alpha.27", "https://registry.npmmirror.com/@tauri-apps/cli-cef-linux-arm-gnueabihf/-/cli-cef-linux-arm-gnueabihf-3.0.0-alpha.27.tgz", { "os": "linux", "cpu": "arm" }, "sha512-8/2sjXmp1/eVmG/HiDoKyjwtYBwWP5v4T4TDh064vW4BT4aSgopA4xnTPiRRQGpBaAAYcOH4xMLe36fdy4NCxQ=="],
+    "@tauri-apps/cli-linux-arm-gnueabihf": ["@tauri-apps/cli-linux-arm-gnueabihf@2.12.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/cli-linux-arm-gnueabihf/-/cli-linux-arm-gnueabihf-2.12.2.tgz", { "os": "linux", "cpu": "arm" }, "sha512-uvt2xbone4JftKarelssi86Kqnl7JiG1Smh5+Ae+nZmtM+JUhTGmqkcqfUPXRW8Ygwog92POZvd4oGDN9j8eXQ=="],
 
-    "@tauri-apps/cli-cef-linux-arm64-gnu": ["@tauri-apps/cli-cef-linux-arm64-gnu@3.0.0-alpha.27", "https://registry.npmmirror.com/@tauri-apps/cli-cef-linux-arm64-gnu/-/cli-cef-linux-arm64-gnu-3.0.0-alpha.27.tgz", { "os": "linux", "cpu": "arm64" }, "sha512-k0w68h69XkpcoMbpc0kHyryIhlWC9P+fQefVNWzvScYjd4LuZri8RclssCJPHKTVmlP8b/76wjbNeaREQv1JUA=="],
+    "@tauri-apps/cli-linux-arm64-gnu": ["@tauri-apps/cli-linux-arm64-gnu@2.12.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/cli-linux-arm64-gnu/-/cli-linux-arm64-gnu-2.12.2.tgz", { "os": "linux", "cpu": "arm64" }, "sha512-DZlDJ24u3tlocKOYqzR+b2M+Qr+5WFcoMBZ7EfdhHN5j3ZXwBBpms4G4gyNvPCrak5vMzmdZ65ecBXPJcC+5sA=="],
 
-    "@tauri-apps/cli-cef-linux-arm64-musl": ["@tauri-apps/cli-cef-linux-arm64-musl@3.0.0-alpha.27", "https://registry.npmmirror.com/@tauri-apps/cli-cef-linux-arm64-musl/-/cli-cef-linux-arm64-musl-3.0.0-alpha.27.tgz", { "os": "linux", "cpu": "arm64" }, "sha512-0NMDvjk6JLhfJedJCA03Xcq9K+pOR1vt/7pzDrqdvJu4+MF8FFKMVSEXdJV8T6YUX8TS9tqkHoCI5wu8jaLPug=="],
+    "@tauri-apps/cli-linux-arm64-musl": ["@tauri-apps/cli-linux-arm64-musl@2.12.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/cli-linux-arm64-musl/-/cli-linux-arm64-musl-2.12.2.tgz", { "os": "linux", "cpu": "arm64" }, "sha512-pb+RTZUYH/p0gR4j4ecCCq+FNfz3W3eKuUQvVEBn7MQZx6DzfLO7FaYzt2NyDKWpdNN3lP10mdzOvw3R5P5aAQ=="],
 
-    "@tauri-apps/cli-cef-linux-riscv64-gnu": ["@tauri-apps/cli-cef-linux-riscv64-gnu@3.0.0-alpha.27", "https://registry.npmmirror.com/@tauri-apps/cli-cef-linux-riscv64-gnu/-/cli-cef-linux-riscv64-gnu-3.0.0-alpha.27.tgz", { "os": "linux", "cpu": "none" }, "sha512-gb9oRA16KnqS44fJAyCpqGFfAZDZHd4eRH4h+SG9inzdDrMDA2aT1ZYv96TNRVsM9IZO0EtG3229YadAqC3Jzw=="],
+    "@tauri-apps/cli-linux-riscv64-gnu": ["@tauri-apps/cli-linux-riscv64-gnu@2.12.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/cli-linux-riscv64-gnu/-/cli-linux-riscv64-gnu-2.12.2.tgz", { "os": "linux", "cpu": "none" }, "sha512-nidEvDUJyHYNbIv9MUk6KiEix8IXfRh4Wj2G2SA5g8nFmgbBCwazUNWYiG/LhNeNbfZpBMLerRBUtoQ5K0GidA=="],
 
-    "@tauri-apps/cli-cef-linux-x64-gnu": ["@tauri-apps/cli-cef-linux-x64-gnu@3.0.0-alpha.27", "https://registry.npmmirror.com/@tauri-apps/cli-cef-linux-x64-gnu/-/cli-cef-linux-x64-gnu-3.0.0-alpha.27.tgz", { "os": "linux", "cpu": "x64" }, "sha512-p5sDXwRuszREVrlhW7Cpzk3nz5nqFCFkP0yBawOrtiDkUDztYg00nVFEhMrEbqJSHgJVN6B2w8hCB3eQk4vfrw=="],
+    "@tauri-apps/cli-linux-x64-gnu": ["@tauri-apps/cli-linux-x64-gnu@2.12.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/cli-linux-x64-gnu/-/cli-linux-x64-gnu-2.12.2.tgz", { "os": "linux", "cpu": "x64" }, "sha512-gkXyYn3w+Xfc8nz/DleEbkm1M7bBuU2cejqUXNmI98cA2P5kp+oPmS4ALTorb1FaNWjpsKoYZBWsbS9BXxYFkQ=="],
 
-    "@tauri-apps/cli-cef-linux-x64-musl": ["@tauri-apps/cli-cef-linux-x64-musl@3.0.0-alpha.27", "https://registry.npmmirror.com/@tauri-apps/cli-cef-linux-x64-musl/-/cli-cef-linux-x64-musl-3.0.0-alpha.27.tgz", { "os": "linux", "cpu": "x64" }, "sha512-c2ZCggUQnrGLs34WADtBJrzuesgIQBQaSYsavbTMvY1IWK+8vGccQJd9wsFDg1OUcDVdxDf5OtrhwdWi6GtCoA=="],
+    "@tauri-apps/cli-linux-x64-musl": ["@tauri-apps/cli-linux-x64-musl@2.12.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/cli-linux-x64-musl/-/cli-linux-x64-musl-2.12.2.tgz", { "os": "linux", "cpu": "x64" }, "sha512-MrjgoZ09s8Hsn99XvxSNvK8NQTZxi7XiyK3FxxytzfHgz2jb3qUT69CZtsokRkN/zdi9rCgrMtq+w9XNICjcfQ=="],
 
-    "@tauri-apps/cli-cef-win32-arm64-msvc": ["@tauri-apps/cli-cef-win32-arm64-msvc@3.0.0-alpha.27", "https://registry.npmmirror.com/@tauri-apps/cli-cef-win32-arm64-msvc/-/cli-cef-win32-arm64-msvc-3.0.0-alpha.27.tgz", { "os": "win32", "cpu": "arm64" }, "sha512-s1t/4l/q8Ytd6vFlfJ+sCCwYUXHLEVitGxl4r57zYWH5UTmGVAhfUccsMXIbJU7/rZ1FR5Id6DQZmpUkIE6+tg=="],
+    "@tauri-apps/cli-win32-arm64-msvc": ["@tauri-apps/cli-win32-arm64-msvc@2.12.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/cli-win32-arm64-msvc/-/cli-win32-arm64-msvc-2.12.2.tgz", { "os": "win32", "cpu": "arm64" }, "sha512-BR+CYM7iF3lkfyTtVkwMQU/s9hwegLpj3UqDjaxKCPmixQCa1csBBPy3C75V+FhLtOjIXNna4Gt6Vm9oxbV+qA=="],
 
-    "@tauri-apps/cli-cef-win32-ia32-msvc": ["@tauri-apps/cli-cef-win32-ia32-msvc@3.0.0-alpha.27", "https://registry.npmmirror.com/@tauri-apps/cli-cef-win32-ia32-msvc/-/cli-cef-win32-ia32-msvc-3.0.0-alpha.27.tgz", { "os": "win32", "cpu": "ia32" }, "sha512-objaZU1HvpCtDLPeFaH2TM2YKTCfcMja8esRwf10Q9M7GXIEayMqIVN7VeF+i/q/jbnsd/dc1loxKbm0zr8Vdg=="],
+    "@tauri-apps/cli-win32-ia32-msvc": ["@tauri-apps/cli-win32-ia32-msvc@2.12.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/cli-win32-ia32-msvc/-/cli-win32-ia32-msvc-2.12.2.tgz", { "os": "win32", "cpu": "ia32" }, "sha512-zODJo9l3TbNBM+GrO/yPqGeELNMK5cjIc+QHh1WQc3l8tD+jDZGTQyYuAxViCsM6Uh5uWJ//RnCZG9LXrvsXww=="],
 
-    "@tauri-apps/cli-cef-win32-x64-msvc": ["@tauri-apps/cli-cef-win32-x64-msvc@3.0.0-alpha.27", "https://registry.npmmirror.com/@tauri-apps/cli-cef-win32-x64-msvc/-/cli-cef-win32-x64-msvc-3.0.0-alpha.27.tgz", { "os": "win32", "cpu": "x64" }, "sha512-ZL58FhDr1uE/NBh3Nya90fQjNpfN266tA9y+CcRNzLr8kPIl5Y8Nq/Xwiy25rI2o8l65abGMzTGfGV3nH47pCw=="],
+    "@tauri-apps/cli-win32-x64-msvc": ["@tauri-apps/cli-win32-x64-msvc@2.12.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/cli-win32-x64-msvc/-/cli-win32-x64-msvc-2.12.2.tgz", { "os": "win32", "cpu": "x64" }, "sha512-cQXI2ZaZmwBDt0XATCqASVanYizxkEE3ceQVlVHXaQ51HzsQUWA04c9Nz7LrrY2lgAu3jFMyat+8Yz3Z2R2qBA=="],
 
-    "@tauri-apps/plugin-clipboard-manager": ["@tauri-apps/plugin-clipboard-manager@3.0.0-alpha.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/plugin-clipboard-manager/-/plugin-clipboard-manager-3.0.0-alpha.2.tgz", { "dependencies": { "@tauri-apps/api": "^3.0.0-alpha.1" } }, "sha512-87oq7PUtHZk0PZgvIp5KWsXWOIJtUz3qEiL+PFvV/dC4T4EByi+dx4/hZ+/BMiX7lchknPmA6WTmmx+530Xjgw=="],
+    "@tauri-apps/plugin-clipboard-manager": ["@tauri-apps/plugin-clipboard-manager@2.4.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/plugin-clipboard-manager/-/plugin-clipboard-manager-2.4.2.tgz", { "dependencies": { "@tauri-apps/api": "^2.12.0" } }, "sha512-bpQ6ONK2jcCVraBVtazdQ2X7bRK6P/vdi+D4jFDOJ9IbqR4cC8D6K3YGHR+c+cgZf2HQOE7hBEkRlybEVnCNPg=="],
 
-    "@tauri-apps/plugin-dialog": ["@tauri-apps/plugin-dialog@3.0.0-alpha.3", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/plugin-dialog/-/plugin-dialog-3.0.0-alpha.3.tgz", { "dependencies": { "@tauri-apps/api": "^3.0.0-alpha.2" } }, "sha512-LjP/CwCaQ/uVhIjFbMG1JM9MY9+gvNchoRsQoOQpm1+y8dWKCb4/VFFXv+RuH6XbR11eIU6G+yL34hggc7iw2Q=="],
+    "@tauri-apps/plugin-dialog": ["@tauri-apps/plugin-dialog@2.8.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/plugin-dialog/-/plugin-dialog-2.8.2.tgz", { "dependencies": { "@tauri-apps/api": "^2.12.0" } }, "sha512-LFqp8OTx0bHOwhKRhMMDyRDlo/2IO5XxoOclpf8+yvjAfM2ytVdbB6tk63dBlicsR8pRw38maj/GxrU6cW8mXw=="],
 
-    "@tauri-apps/plugin-fs": ["@tauri-apps/plugin-fs@3.0.0-alpha.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/plugin-fs/-/plugin-fs-3.0.0-alpha.2.tgz", { "dependencies": { "@tauri-apps/api": "^3.0.0-alpha.1" } }, "sha512-w/pmQ5swWqEgQhWMabreK5eMIiAHXHFKdb/SWGrZF4tTpVky/dUAyScFl7XiFRKpfr5cHSDiZAP/dsg0Ud9p9w=="],
+    "@tauri-apps/plugin-fs": ["@tauri-apps/plugin-fs@2.7.0", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/plugin-fs/-/plugin-fs-2.7.0.tgz", { "dependencies": { "@tauri-apps/api": "^2.12.0" } }, "sha512-8RQbPkuYuLZ2r/IRkmmEoBMbtNA01dknnVSh+tw27/CHvaZkJdk9yfPez3XPaT3pJ81SRqukiGdKJVqDokyDgQ=="],
 
-    "@tauri-apps/plugin-opener": ["@tauri-apps/plugin-opener@3.0.0-alpha.2", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/plugin-opener/-/plugin-opener-3.0.0-alpha.2.tgz", { "dependencies": { "@tauri-apps/api": "^3.0.0-alpha.1" } }, "sha512-T3Y7Y/m+XybZqB2cI6SZD8St47GBONPTbFp+hSYFLHy5Lh0eNh0sv9TRyi7MElzUtUx0NWZltAOHuHzeo2UfWA=="],
+    "@tauri-apps/plugin-opener": ["@tauri-apps/plugin-opener@2.7.1", "https://mirrors.cloud.tencent.com/npm/@tauri-apps/plugin-opener/-/plugin-opener-2.7.1.tgz", { "dependencies": { "@tauri-apps/api": "^2.12.0" } }, "sha512-XkXdt30rontti9TII/gBBxFRXWfj8DiprFW7RgBFRBj1OhdfjBNVcFqSEWkkZ4hXafHnuEnB7F1sFsmu6uyywQ=="],
 
-    "@types/bun": ["@types/bun@1.4.2", "https://registry.npmmirror.com/@types/bun/-/bun-1.4.2.tgz", { "dependencies": { "bun-types": "1.4.2" } }, "sha512-GimotNn7+ZV0uVArItBbriZsR1oNf0+WTzPkdcFrzShI7k2norL0uzEaJT8T33dWr7O/c9ZDuAFQrctKCi72oQ=="],
+    "@types/bun": ["@types/bun@1.4.2", "https://mirrors.cloud.tencent.com/npm/@types/bun/-/bun-1.4.2.tgz", { "dependencies": { "bun-types": "1.4.2" } }, "sha512-GimotNn7+ZV0uVArItBbriZsR1oNf0+WTzPkdcFrzShI7k2norL0uzEaJT8T33dWr7O/c9ZDuAFQrctKCi72oQ=="],
 
-    "@types/json-schema": ["@types/json-schema@7.0.15", "https://registry.npmmirror.com/@types/json-schema/-/json-schema-7.0.15.tgz", {}, "sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA=="],
+    "@types/json-schema": ["@types/json-schema@7.0.15", "https://mirrors.cloud.tencent.com/npm/@types/json-schema/-/json-schema-7.0.15.tgz", {}, "sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA=="],
 
     "@types/lodash": ["@types/lodash@4.17.26", "https://mirrors.cloud.tencent.com/npm/@types/lodash/-/lodash-4.17.26.tgz", {}, "sha512-48NWfiY6oNcKOh47Z4h+sIvwcQR91h6KPhaYKgeMIrkT2jV82Gy90SErj60vW8jQbeMSOSbhIv3bZ7JoqPPVhA=="],
 
     "@types/node": ["@types/node@26.6.5", "https://mirrors.cloud.tencent.com/npm/@types/node/-/node-26.6.5.tgz", { "dependencies": { "undici-types": "~8.9.0" } }, "sha512-uMzsv9stDdofIZBx4UGh4Z9ZgXnGC9seRDscilBcTHAeOFk67MZg/k9bWVfO+bk4qZmG+l52hRnLwUiH2LnJTg=="],
 
-    "@types/parse-json": ["@types/parse-json@4.0.2", "https://registry.npmmirror.com/@types/parse-json/-/parse-json-4.0.2.tgz", {}, "sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw=="],
+    "@types/parse-json": ["@types/parse-json@4.0.2", "https://mirrors.cloud.tencent.com/npm/@types/parse-json/-/parse-json-4.0.2.tgz", {}, "sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw=="],
 
-    "@types/prop-types": ["@types/prop-types@15.7.15", "https://registry.npmmirror.com/@types/prop-types/-/prop-types-15.7.15.tgz", {}, "sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw=="],
+    "@types/prop-types": ["@types/prop-types@15.7.15", "https://mirrors.cloud.tencent.com/npm/@types/prop-types/-/prop-types-15.7.15.tgz", {}, "sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw=="],
 
-    "@types/react": ["@types/react@19.3.0", "https://registry.npmmirror.com/@types/react/-/react-19.3.0.tgz", { "dependencies": { "csstype": "^3.2.2" } }, "sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg=="],
+    "@types/react": ["@types/react@19.3.0", "https://mirrors.cloud.tencent.com/npm/@types/react/-/react-19.3.0.tgz", { "dependencies": { "csstype": "^3.2.2" } }, "sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg=="],
 
-    "@types/react-dom": ["@types/react-dom@19.3.0", "https://registry.npmmirror.com/@types/react-dom/-/react-dom-19.3.0.tgz", { "peerDependencies": { "@types/react": "^19.3.0" } }, "sha512-ZI7bU42mZXXKHn/qNLEw2IrbiINU7X5+vfgdixBHkCNpYWXjKgfQ/P+uyGb5CjOLB9UcnTeg3rylQtV2hym44Q=="],
+    "@types/react-dom": ["@types/react-dom@19.3.0", "https://mirrors.cloud.tencent.com/npm/@types/react-dom/-/react-dom-19.3.0.tgz", { "peerDependencies": { "@types/react": "^19.3.0" } }, "sha512-ZI7bU42mZXXKHn/qNLEw2IrbiINU7X5+vfgdixBHkCNpYWXjKgfQ/P+uyGb5CjOLB9UcnTeg3rylQtV2hym44Q=="],
 
-    "@types/react-transition-group": ["@types/react-transition-group@4.4.12", "https://registry.npmmirror.com/@types/react-transition-group/-/react-transition-group-4.4.12.tgz", { "peerDependencies": { "@types/react": "*" } }, "sha512-8TV6R3h2j7a91c+1DXdJi3Syo69zzIZbz7Lg5tORM5LEJG7X/E6a1V3drRyBRZq7/utz7A+c4OgYLiLcYGHG6w=="],
+    "@types/react-transition-group": ["@types/react-transition-group@4.4.12", "https://mirrors.cloud.tencent.com/npm/@types/react-transition-group/-/react-transition-group-4.4.12.tgz", { "peerDependencies": { "@types/react": "*" } }, "sha512-8TV6R3h2j7a91c+1DXdJi3Syo69zzIZbz7Lg5tORM5LEJG7X/E6a1V3drRyBRZq7/utz7A+c4OgYLiLcYGHG6w=="],
 
-    "@typescript/typescript-aix-ppc64": ["@typescript/typescript-aix-ppc64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-aix-ppc64/-/typescript-aix-ppc64-7.0.2.tgz", { "os": "aix", "cpu": "ppc64" }, "sha512-MTKKkWB7p/0E9xi1d1tHtZ5PiLkGEMIq88pK2CubZjOsLtYTLqhgIgi6zepFa+9GHZ6h05NMCkQxGKiPXMxXtQ=="],
+    "@typescript/typescript-aix-ppc64": ["@typescript/typescript-aix-ppc64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-aix-ppc64/-/typescript-aix-ppc64-7.0.2.tgz", { "os": "aix", "cpu": "ppc64" }, "sha512-MTKKkWB7p/0E9xi1d1tHtZ5PiLkGEMIq88pK2CubZjOsLtYTLqhgIgi6zepFa+9GHZ6h05NMCkQxGKiPXMxXtQ=="],
 
-    "@typescript/typescript-darwin-arm64": ["@typescript/typescript-darwin-arm64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-darwin-arm64/-/typescript-darwin-arm64-7.0.2.tgz", { "os": "darwin", "cpu": "arm64" }, "sha512-gowzar9MwS/aRWp6f3a4KUqzRjAZjOsmGNCM6LcTgXum+dBfgsBVMN+AgvOCCbguXyick6LJhpBszxMebJ8syA=="],
+    "@typescript/typescript-darwin-arm64": ["@typescript/typescript-darwin-arm64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-darwin-arm64/-/typescript-darwin-arm64-7.0.2.tgz", { "os": "darwin", "cpu": "arm64" }, "sha512-gowzar9MwS/aRWp6f3a4KUqzRjAZjOsmGNCM6LcTgXum+dBfgsBVMN+AgvOCCbguXyick6LJhpBszxMebJ8syA=="],
 
-    "@typescript/typescript-darwin-x64": ["@typescript/typescript-darwin-x64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-darwin-x64/-/typescript-darwin-x64-7.0.2.tgz", { "os": "darwin", "cpu": "x64" }, "sha512-SZ9xZInqApNlNGc9s0W1VSsktYSOe9cFqNOIqmN1Gs8SmkjKZYFt017G4VwPxASInODuAdbTW7sXiFUf893RgA=="],
+    "@typescript/typescript-darwin-x64": ["@typescript/typescript-darwin-x64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-darwin-x64/-/typescript-darwin-x64-7.0.2.tgz", { "os": "darwin", "cpu": "x64" }, "sha512-SZ9xZInqApNlNGc9s0W1VSsktYSOe9cFqNOIqmN1Gs8SmkjKZYFt017G4VwPxASInODuAdbTW7sXiFUf893RgA=="],
 
-    "@typescript/typescript-freebsd-arm64": ["@typescript/typescript-freebsd-arm64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-freebsd-arm64/-/typescript-freebsd-arm64-7.0.2.tgz", { "os": "freebsd", "cpu": "arm64" }, "sha512-W5NH4y/J0plIIS5b2xvTEkU7JFxyqdMAOgf+Ilhl0vHQXKO5dZoxd+C/jEtq56c4F3wk71RB4BMRQ2XdI+bwYQ=="],
+    "@typescript/typescript-freebsd-arm64": ["@typescript/typescript-freebsd-arm64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-freebsd-arm64/-/typescript-freebsd-arm64-7.0.2.tgz", { "os": "freebsd", "cpu": "arm64" }, "sha512-W5NH4y/J0plIIS5b2xvTEkU7JFxyqdMAOgf+Ilhl0vHQXKO5dZoxd+C/jEtq56c4F3wk71RB4BMRQ2XdI+bwYQ=="],
 
-    "@typescript/typescript-freebsd-x64": ["@typescript/typescript-freebsd-x64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-freebsd-x64/-/typescript-freebsd-x64-7.0.2.tgz", { "os": "freebsd", "cpu": "x64" }, "sha512-UMGDx5sTpzNw3WiPebH7l90IWfJggEd+egHt/q6p7/Cm3zqoV7VxkGXt+3DxPIw8CcmvAB0j3sVVfbhX+M4Tpw=="],
+    "@typescript/typescript-freebsd-x64": ["@typescript/typescript-freebsd-x64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-freebsd-x64/-/typescript-freebsd-x64-7.0.2.tgz", { "os": "freebsd", "cpu": "x64" }, "sha512-UMGDx5sTpzNw3WiPebH7l90IWfJggEd+egHt/q6p7/Cm3zqoV7VxkGXt+3DxPIw8CcmvAB0j3sVVfbhX+M4Tpw=="],
 
-    "@typescript/typescript-linux-arm": ["@typescript/typescript-linux-arm@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-linux-arm/-/typescript-linux-arm-7.0.2.tgz", { "os": "linux", "cpu": "arm" }, "sha512-gffT3xPz9sR7j/YJExkyPntrI0P2EP9XbOyWzth2/Gs0RstK+90RBcO0ncXoXy/beYll1SXw846Nf2zdnEz0QQ=="],
+    "@typescript/typescript-linux-arm": ["@typescript/typescript-linux-arm@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-linux-arm/-/typescript-linux-arm-7.0.2.tgz", { "os": "linux", "cpu": "arm" }, "sha512-gffT3xPz9sR7j/YJExkyPntrI0P2EP9XbOyWzth2/Gs0RstK+90RBcO0ncXoXy/beYll1SXw846Nf2zdnEz0QQ=="],
 
-    "@typescript/typescript-linux-arm64": ["@typescript/typescript-linux-arm64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-linux-arm64/-/typescript-linux-arm64-7.0.2.tgz", { "os": "linux", "cpu": "arm64" }, "sha512-Qh4eU4/y3yDjnfjjyPYihMj5/ODIlmt+Bzu17OI+fiSRDW57QmU5SiN63exPRNJPKUzcc1INa1NXdrJ+MqHjUQ=="],
+    "@typescript/typescript-linux-arm64": ["@typescript/typescript-linux-arm64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-linux-arm64/-/typescript-linux-arm64-7.0.2.tgz", { "os": "linux", "cpu": "arm64" }, "sha512-Qh4eU4/y3yDjnfjjyPYihMj5/ODIlmt+Bzu17OI+fiSRDW57QmU5SiN63exPRNJPKUzcc1INa1NXdrJ+MqHjUQ=="],
 
-    "@typescript/typescript-linux-loong64": ["@typescript/typescript-linux-loong64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-linux-loong64/-/typescript-linux-loong64-7.0.2.tgz", { "os": "linux", "cpu": "none" }, "sha512-uEHck9i8hoAzXPiYRib1O7miOnz23SxIeVl6F4LXox+qov1K35jHcEW6VHKvZI+pyvl7fZEP4MCU5LYvIq1GuQ=="],
+    "@typescript/typescript-linux-loong64": ["@typescript/typescript-linux-loong64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-linux-loong64/-/typescript-linux-loong64-7.0.2.tgz", { "os": "linux", "cpu": "none" }, "sha512-uEHck9i8hoAzXPiYRib1O7miOnz23SxIeVl6F4LXox+qov1K35jHcEW6VHKvZI+pyvl7fZEP4MCU5LYvIq1GuQ=="],
 
-    "@typescript/typescript-linux-mips64el": ["@typescript/typescript-linux-mips64el@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-linux-mips64el/-/typescript-linux-mips64el-7.0.2.tgz", { "os": "linux", "cpu": "none" }, "sha512-R4KvAMnE43W5Qeqb0Ly56O3mWMWIAgsMyz36DCaycd5nbg/9kzm0liw3JocfRqyJY0KPmzFjbswozXyW0DnIYA=="],
+    "@typescript/typescript-linux-mips64el": ["@typescript/typescript-linux-mips64el@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-linux-mips64el/-/typescript-linux-mips64el-7.0.2.tgz", { "os": "linux", "cpu": "none" }, "sha512-R4KvAMnE43W5Qeqb0Ly56O3mWMWIAgsMyz36DCaycd5nbg/9kzm0liw3JocfRqyJY0KPmzFjbswozXyW0DnIYA=="],
 
-    "@typescript/typescript-linux-ppc64": ["@typescript/typescript-linux-ppc64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-linux-ppc64/-/typescript-linux-ppc64-7.0.2.tgz", { "os": "linux", "cpu": "ppc64" }, "sha512-DORx5b3sd/4S7eayxm4FQv+A7CrkUIGRaHiwI8oiHTAI1fAPWhF4J0vAlkC8biAlHSVVwxMQ3tjZ2/DVbnQiiA=="],
+    "@typescript/typescript-linux-ppc64": ["@typescript/typescript-linux-ppc64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-linux-ppc64/-/typescript-linux-ppc64-7.0.2.tgz", { "os": "linux", "cpu": "ppc64" }, "sha512-DORx5b3sd/4S7eayxm4FQv+A7CrkUIGRaHiwI8oiHTAI1fAPWhF4J0vAlkC8biAlHSVVwxMQ3tjZ2/DVbnQiiA=="],
 
-    "@typescript/typescript-linux-riscv64": ["@typescript/typescript-linux-riscv64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-linux-riscv64/-/typescript-linux-riscv64-7.0.2.tgz", { "os": "linux", "cpu": "none" }, "sha512-wf0jqEDOjrPRnKwYRyyJDRo11KMbvMFrU+q4zqKyChODBzvlkbhNQfKvLxQCcwTpdDaXSHZTVuh0JoCrKCUMHQ=="],
+    "@typescript/typescript-linux-riscv64": ["@typescript/typescript-linux-riscv64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-linux-riscv64/-/typescript-linux-riscv64-7.0.2.tgz", { "os": "linux", "cpu": "none" }, "sha512-wf0jqEDOjrPRnKwYRyyJDRo11KMbvMFrU+q4zqKyChODBzvlkbhNQfKvLxQCcwTpdDaXSHZTVuh0JoCrKCUMHQ=="],
 
-    "@typescript/typescript-linux-s390x": ["@typescript/typescript-linux-s390x@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-linux-s390x/-/typescript-linux-s390x-7.0.2.tgz", { "os": "linux", "cpu": "s390x" }, "sha512-IkwJc3L7yhytWd/ewjyxNDfOmswCm9GWMJT/ue/dU4aZNbwZeYAetq42VyLmsmSjvoX7z74X6ZaYCtzAr0EuGw=="],
+    "@typescript/typescript-linux-s390x": ["@typescript/typescript-linux-s390x@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-linux-s390x/-/typescript-linux-s390x-7.0.2.tgz", { "os": "linux", "cpu": "s390x" }, "sha512-IkwJc3L7yhytWd/ewjyxNDfOmswCm9GWMJT/ue/dU4aZNbwZeYAetq42VyLmsmSjvoX7z74X6ZaYCtzAr0EuGw=="],
 
-    "@typescript/typescript-linux-x64": ["@typescript/typescript-linux-x64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-linux-x64/-/typescript-linux-x64-7.0.2.tgz", { "os": "linux", "cpu": "x64" }, "sha512-EYdf2cNg7rgCWJnxCdJ+F3V39O8ihb37eHAu1LK8oAFizgTQbPOK7zHHXbPt8rX24COqODXeI3sIf0fCXG7H/A=="],
+    "@typescript/typescript-linux-x64": ["@typescript/typescript-linux-x64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-linux-x64/-/typescript-linux-x64-7.0.2.tgz", { "os": "linux", "cpu": "x64" }, "sha512-EYdf2cNg7rgCWJnxCdJ+F3V39O8ihb37eHAu1LK8oAFizgTQbPOK7zHHXbPt8rX24COqODXeI3sIf0fCXG7H/A=="],
 
-    "@typescript/typescript-netbsd-arm64": ["@typescript/typescript-netbsd-arm64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-netbsd-arm64/-/typescript-netbsd-arm64-7.0.2.tgz", { "os": "none", "cpu": "arm64" }, "sha512-+polYF4MF04aPpO5FTkHran9yUQDSXqy5GiSDKpsll5jy3l3+g9QLhpf39T+ePtefhXLOGrLl0QIjkQP6VnelA=="],
+    "@typescript/typescript-netbsd-arm64": ["@typescript/typescript-netbsd-arm64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-netbsd-arm64/-/typescript-netbsd-arm64-7.0.2.tgz", { "os": "none", "cpu": "arm64" }, "sha512-+polYF4MF04aPpO5FTkHran9yUQDSXqy5GiSDKpsll5jy3l3+g9QLhpf39T+ePtefhXLOGrLl0QIjkQP6VnelA=="],
 
-    "@typescript/typescript-netbsd-x64": ["@typescript/typescript-netbsd-x64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-netbsd-x64/-/typescript-netbsd-x64-7.0.2.tgz", { "os": "none", "cpu": "x64" }, "sha512-8YIT0EHM/3dq10ZOVF/A7pc/YSMtbcecct4rWtexrnSCHOPcpC2KTLXfTCR6vDpnSiY12heNb1GiN/wu+T/FyA=="],
+    "@typescript/typescript-netbsd-x64": ["@typescript/typescript-netbsd-x64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-netbsd-x64/-/typescript-netbsd-x64-7.0.2.tgz", { "os": "none", "cpu": "x64" }, "sha512-8YIT0EHM/3dq10ZOVF/A7pc/YSMtbcecct4rWtexrnSCHOPcpC2KTLXfTCR6vDpnSiY12heNb1GiN/wu+T/FyA=="],
 
-    "@typescript/typescript-openbsd-arm64": ["@typescript/typescript-openbsd-arm64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-openbsd-arm64/-/typescript-openbsd-arm64-7.0.2.tgz", { "os": "openbsd", "cpu": "arm64" }, "sha512-APT8+ClYnuYm1u9+kgGXoMj2VzWzcymwh2gNSQVySHfkRDGOTVkoWLjCmOQSaO+PoqQ57B0flRp9SA+7GnnkzQ=="],
+    "@typescript/typescript-openbsd-arm64": ["@typescript/typescript-openbsd-arm64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-openbsd-arm64/-/typescript-openbsd-arm64-7.0.2.tgz", { "os": "openbsd", "cpu": "arm64" }, "sha512-APT8+ClYnuYm1u9+kgGXoMj2VzWzcymwh2gNSQVySHfkRDGOTVkoWLjCmOQSaO+PoqQ57B0flRp9SA+7GnnkzQ=="],
 
-    "@typescript/typescript-openbsd-x64": ["@typescript/typescript-openbsd-x64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-openbsd-x64/-/typescript-openbsd-x64-7.0.2.tgz", { "os": "openbsd", "cpu": "x64" }, "sha512-yX7s+Q0Dln0Dt9tEzZsAjXXR/+ytBM7AlglaqyeMPxQszJ1JhlJdZ6jLA+IzldHtflX81em7lDao1xXu+aRRkg=="],
+    "@typescript/typescript-openbsd-x64": ["@typescript/typescript-openbsd-x64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-openbsd-x64/-/typescript-openbsd-x64-7.0.2.tgz", { "os": "openbsd", "cpu": "x64" }, "sha512-yX7s+Q0Dln0Dt9tEzZsAjXXR/+ytBM7AlglaqyeMPxQszJ1JhlJdZ6jLA+IzldHtflX81em7lDao1xXu+aRRkg=="],
 
-    "@typescript/typescript-sunos-x64": ["@typescript/typescript-sunos-x64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-sunos-x64/-/typescript-sunos-x64-7.0.2.tgz", { "os": "sunos", "cpu": "x64" }, "sha512-dLJDGaLZ1D4HPQn62u1n8mBDkJREwMsAkCdkwd4Ieqw+x3TUyTsqY0YiBCtE6H6OzzgGk3iuZ3vFWRS+E8/d1g=="],
+    "@typescript/typescript-sunos-x64": ["@typescript/typescript-sunos-x64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-sunos-x64/-/typescript-sunos-x64-7.0.2.tgz", { "os": "sunos", "cpu": "x64" }, "sha512-dLJDGaLZ1D4HPQn62u1n8mBDkJREwMsAkCdkwd4Ieqw+x3TUyTsqY0YiBCtE6H6OzzgGk3iuZ3vFWRS+E8/d1g=="],
 
-    "@typescript/typescript-win32-arm64": ["@typescript/typescript-win32-arm64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-win32-arm64/-/typescript-win32-arm64-7.0.2.tgz", { "os": "win32", "cpu": "arm64" }, "sha512-Gyl1Vy6OsWesLzmq+EP0Fb7b4Nid5232AvcA2SFcdYreldpNtYFFofPjnt62y9hQy7VTaZp65ICJjuAQRaVcIQ=="],
+    "@typescript/typescript-win32-arm64": ["@typescript/typescript-win32-arm64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-win32-arm64/-/typescript-win32-arm64-7.0.2.tgz", { "os": "win32", "cpu": "arm64" }, "sha512-Gyl1Vy6OsWesLzmq+EP0Fb7b4Nid5232AvcA2SFcdYreldpNtYFFofPjnt62y9hQy7VTaZp65ICJjuAQRaVcIQ=="],
 
-    "@typescript/typescript-win32-x64": ["@typescript/typescript-win32-x64@7.0.2", "https://registry.npmmirror.com/@typescript/typescript-win32-x64/-/typescript-win32-x64-7.0.2.tgz", { "os": "win32", "cpu": "x64" }, "sha512-0BQ3HkAHHlKLSp1qRvf3SUhGpGsDuhB/jgFw75guyqbxJqEaS0Cw/VFO8i2nHglJUzQCRtMMR/IBAKE3ETMC4g=="],
+    "@typescript/typescript-win32-x64": ["@typescript/typescript-win32-x64@7.0.2", "https://mirrors.cloud.tencent.com/npm/@typescript/typescript-win32-x64/-/typescript-win32-x64-7.0.2.tgz", { "os": "win32", "cpu": "x64" }, "sha512-0BQ3HkAHHlKLSp1qRvf3SUhGpGsDuhB/jgFw75guyqbxJqEaS0Cw/VFO8i2nHglJUzQCRtMMR/IBAKE3ETMC4g=="],
 
     "@typescript/vfs": ["@typescript/vfs@1.6.5", "https://mirrors.cloud.tencent.com/npm/@typescript/vfs/-/vfs-1.6.5.tgz", { "dependencies": { "debug": "^4.4.3" }, "peerDependencies": { "typescript": "*" } }, "sha512-gobLHQLmvQGJInFk31NvgMd1uYzRXsd8qgnOssyLD055R2QPnw1ubRbBQ4+T+5qC7IQVuYXdvNDE2G7tMDVHgw=="],
 
     "@x0k/json-schema-merge": ["@x0k/json-schema-merge@1.1.0", "https://mirrors.cloud.tencent.com/npm/@x0k/json-schema-merge/-/json-schema-merge-1.1.0.tgz", { "dependencies": { "@types/json-schema": "^7.0.15" } }, "sha512-QA8fHqP7e+Lvi4ih8X9r1ZnITC2Lo0uhh5qpP8yM7l6HYs7KljtMfoljSRh52jfU55oXSyO4/GhMyjqh8rQjWQ=="],
 
-    "ajv": ["ajv@8.20.0", "https://registry.npmmirror.com/ajv/-/ajv-8.20.0.tgz", { "dependencies": { "fast-deep-equal": "^3.1.3", "fast-uri": "^3.0.1", "json-schema-traverse": "^1.0.0", "require-from-string": "^2.0.2" } }, "sha512-Thbli+OlOj+iMPYFBVBfJ3OmCAnaSyNn4M1vz9T6Gka5Jt9ba/HIR56joy65tY6kx/FCF5VXNB819Y7/GUrBGA=="],
+    "ajv": ["ajv@8.20.0", "https://mirrors.cloud.tencent.com/npm/ajv/-/ajv-8.20.0.tgz", { "dependencies": { "fast-deep-equal": "^3.1.3", "fast-uri": "^3.0.1", "json-schema-traverse": "^1.0.0", "require-from-string": "^2.0.2" } }, "sha512-Thbli+OlOj+iMPYFBVBfJ3OmCAnaSyNn4M1vz9T6Gka5Jt9ba/HIR56joy65tY6kx/FCF5VXNB819Y7/GUrBGA=="],
 
-    "ajv-formats": ["ajv-formats@2.1.1", "https://registry.npmmirror.com/ajv-formats/-/ajv-formats-2.1.1.tgz", { "dependencies": { "ajv": "^8.0.0" } }, "sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA=="],
+    "ajv-formats": ["ajv-formats@2.1.1", "https://mirrors.cloud.tencent.com/npm/ajv-formats/-/ajv-formats-2.1.1.tgz", { "dependencies": { "ajv": "^8.0.0" } }, "sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA=="],
 
-    "ajv-i18n": ["ajv-i18n@4.2.0", "https://registry.npmmirror.com/ajv-i18n/-/ajv-i18n-4.2.0.tgz", { "peerDependencies": { "ajv": "^8.0.0-beta.0" } }, "sha512-v/ei2UkCEeuKNXh8RToiFsUclmU+G57LO1Oo22OagNMENIw+Yb8eMwvHu7Vn9fmkjJyv6XclhJ8TbuigSglPkg=="],
+    "ajv-i18n": ["ajv-i18n@4.2.0", "https://mirrors.cloud.tencent.com/npm/ajv-i18n/-/ajv-i18n-4.2.0.tgz", { "peerDependencies": { "ajv": "^8.0.0-beta.0" } }, "sha512-v/ei2UkCEeuKNXh8RToiFsUclmU+G57LO1Oo22OagNMENIw+Yb8eMwvHu7Vn9fmkjJyv6XclhJ8TbuigSglPkg=="],
 
-    "argparse": ["argparse@2.0.1", "https://registry.npmmirror.com/argparse/-/argparse-2.0.1.tgz", {}, "sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q=="],
+    "argparse": ["argparse@2.0.1", "https://mirrors.cloud.tencent.com/npm/argparse/-/argparse-2.0.1.tgz", {}, "sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q=="],
 
-    "babel-plugin-macros": ["babel-plugin-macros@3.1.0", "https://registry.npmmirror.com/babel-plugin-macros/-/babel-plugin-macros-3.1.0.tgz", { "dependencies": { "@babel/runtime": "^7.12.5", "cosmiconfig": "^7.0.0", "resolve": "^1.19.0" } }, "sha512-Cg7TFGpIr01vOQNODXOOaGz2NpCU5gl8x1qJFbb6hbZxR7XrcE2vtbAsTAbJ7/xwJtUuJEw8K8Zr/AE0LHlesg=="],
+    "babel-plugin-macros": ["babel-plugin-macros@3.1.0", "https://mirrors.cloud.tencent.com/npm/babel-plugin-macros/-/babel-plugin-macros-3.1.0.tgz", { "dependencies": { "@babel/runtime": "^7.12.5", "cosmiconfig": "^7.0.0", "resolve": "^1.19.0" } }, "sha512-Cg7TFGpIr01vOQNODXOOaGz2NpCU5gl8x1qJFbb6hbZxR7XrcE2vtbAsTAbJ7/xwJtUuJEw8K8Zr/AE0LHlesg=="],
 
-    "bun-types": ["bun-types@1.4.2", "https://registry.npmmirror.com/bun-types/-/bun-types-1.4.2.tgz", { "dependencies": { "@types/node": "*" } }, "sha512-bxV1FgK7yBIzjRe5zBozIM4Bem11ZJcCXSrjWRG3YWLt8yFDePu4cLjpebO8OvPeIE9trbyPF4fuj3Cia4Fj3w=="],
+    "bun-types": ["bun-types@1.4.2", "https://mirrors.cloud.tencent.com/npm/bun-types/-/bun-types-1.4.2.tgz", { "dependencies": { "@types/node": "*" } }, "sha512-bxV1FgK7yBIzjRe5zBozIM4Bem11ZJcCXSrjWRG3YWLt8yFDePu4cLjpebO8OvPeIE9trbyPF4fuj3Cia4Fj3w=="],
 
-    "callsites": ["callsites@3.1.0", "https://registry.npmmirror.com/callsites/-/callsites-3.1.0.tgz", {}, "sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ=="],
+    "callsites": ["callsites@3.1.0", "https://mirrors.cloud.tencent.com/npm/callsites/-/callsites-3.1.0.tgz", {}, "sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ=="],
 
-    "classnames": ["classnames@2.5.1", "https://registry.npmmirror.com/classnames/-/classnames-2.5.1.tgz", {}, "sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow=="],
+    "classnames": ["classnames@2.5.1", "https://mirrors.cloud.tencent.com/npm/classnames/-/classnames-2.5.1.tgz", {}, "sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow=="],
 
-    "clsx": ["clsx@2.1.1", "https://registry.npmmirror.com/clsx/-/clsx-2.1.1.tgz", {}, "sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA=="],
+    "clsx": ["clsx@2.1.1", "https://mirrors.cloud.tencent.com/npm/clsx/-/clsx-2.1.1.tgz", {}, "sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA=="],
 
-    "convert-source-map": ["convert-source-map@1.9.0", "https://registry.npmmirror.com/convert-source-map/-/convert-source-map-1.9.0.tgz", {}, "sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A=="],
+    "convert-source-map": ["convert-source-map@1.9.0", "https://mirrors.cloud.tencent.com/npm/convert-source-map/-/convert-source-map-1.9.0.tgz", {}, "sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A=="],
 
-    "cookie-es": ["cookie-es@3.1.1", "https://registry.npmmirror.com/cookie-es/-/cookie-es-3.1.1.tgz", {}, "sha512-UaXxwISYJPTr9hwQxMFYZ7kNhSXboMXP+Z3TRX6f1/NyaGPfuNUZOWP1pUEb75B2HjfklIYLVRfWiFZJyC6Npg=="],
+    "cookie-es": ["cookie-es@3.1.1", "https://mirrors.cloud.tencent.com/npm/cookie-es/-/cookie-es-3.1.1.tgz", {}, "sha512-UaXxwISYJPTr9hwQxMFYZ7kNhSXboMXP+Z3TRX6f1/NyaGPfuNUZOWP1pUEb75B2HjfklIYLVRfWiFZJyC6Npg=="],
 
-    "cosmiconfig": ["cosmiconfig@7.1.0", "https://registry.npmmirror.com/cosmiconfig/-/cosmiconfig-7.1.0.tgz", { "dependencies": { "@types/parse-json": "^4.0.0", "import-fresh": "^3.2.1", "parse-json": "^5.0.0", "path-type": "^4.0.0", "yaml": "^1.10.0" } }, "sha512-AdmX6xUzdNASswsFtmwSt7Vj8po9IuqXm0UXz7QKPuEUmPB4XyjGfaAr2PSuELMwkRMVH1EpIkX5bTZGRB3eCA=="],
+    "cosmiconfig": ["cosmiconfig@7.1.0", "https://mirrors.cloud.tencent.com/npm/cosmiconfig/-/cosmiconfig-7.1.0.tgz", { "dependencies": { "@types/parse-json": "^4.0.0", "import-fresh": "^3.2.1", "parse-json": "^5.0.0", "path-type": "^4.0.0", "yaml": "^1.10.0" } }, "sha512-AdmX6xUzdNASswsFtmwSt7Vj8po9IuqXm0UXz7QKPuEUmPB4XyjGfaAr2PSuELMwkRMVH1EpIkX5bTZGRB3eCA=="],
 
-    "csstype": ["csstype@3.2.3", "https://registry.npmmirror.com/csstype/-/csstype-3.2.3.tgz", {}, "sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ=="],
+    "csstype": ["csstype@3.2.3", "https://mirrors.cloud.tencent.com/npm/csstype/-/csstype-3.2.3.tgz", {}, "sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ=="],
 
-    "debug": ["debug@4.4.3", "https://registry.npmmirror.com/debug/-/debug-4.4.3.tgz", { "dependencies": { "ms": "^2.1.3" } }, "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA=="],
+    "debug": ["debug@4.4.3", "https://mirrors.cloud.tencent.com/npm/debug/-/debug-4.4.3.tgz", { "dependencies": { "ms": "^2.1.3" }, "peerDependencies": { "supports-color": "*" }, "optionalPeers": ["supports-color"] }, "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA=="],
 
-    "dom-helpers": ["dom-helpers@5.2.1", "https://registry.npmmirror.com/dom-helpers/-/dom-helpers-5.2.1.tgz", { "dependencies": { "@babel/runtime": "^7.8.7", "csstype": "^3.0.2" } }, "sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA=="],
+    "dom-helpers": ["dom-helpers@5.2.1", "https://mirrors.cloud.tencent.com/npm/dom-helpers/-/dom-helpers-5.2.1.tgz", { "dependencies": { "@babel/runtime": "^7.8.7", "csstype": "^3.0.2" } }, "sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA=="],
 
-    "error-ex": ["error-ex@1.3.4", "https://registry.npmmirror.com/error-ex/-/error-ex-1.3.4.tgz", { "dependencies": { "is-arrayish": "^0.2.1" } }, "sha512-sqQamAnR14VgCr1A618A3sGrygcpK+HEbenA/HiEAkkUwcZIIB/tgWqHFxWgOyDh4nB4JCRimh79dR5Ywc9MDQ=="],
+    "error-ex": ["error-ex@1.3.4", "https://mirrors.cloud.tencent.com/npm/error-ex/-/error-ex-1.3.4.tgz", { "dependencies": { "is-arrayish": "^0.2.1" } }, "sha512-sqQamAnR14VgCr1A618A3sGrygcpK+HEbenA/HiEAkkUwcZIIB/tgWqHFxWgOyDh4nB4JCRimh79dR5Ywc9MDQ=="],
 
-    "es-errors": ["es-errors@1.3.0", "https://registry.npmmirror.com/es-errors/-/es-errors-1.3.0.tgz", {}, "sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw=="],
+    "es-errors": ["es-errors@1.3.0", "https://mirrors.cloud.tencent.com/npm/es-errors/-/es-errors-1.3.0.tgz", {}, "sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw=="],
 
-    "escape-string-regexp": ["escape-string-regexp@4.0.0", "https://registry.npmmirror.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz", {}, "sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA=="],
+    "escape-string-regexp": ["escape-string-regexp@4.0.0", "https://mirrors.cloud.tencent.com/npm/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz", {}, "sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA=="],
 
-    "fast-deep-equal": ["fast-deep-equal@3.1.3", "https://registry.npmmirror.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz", {}, "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q=="],
+    "fast-deep-equal": ["fast-deep-equal@3.1.3", "https://mirrors.cloud.tencent.com/npm/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz", {}, "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q=="],
 
     "fast-equals": ["fast-equals@6.1.1", "https://mirrors.cloud.tencent.com/npm/fast-equals/-/fast-equals-6.1.1.tgz", {}, "sha512-VA9UvhVec1yj1UqkCLBCXgFBLbd6Pww2RGLa9biAHfl+/aOU9jTeP3idEtLLFouJIGDeugAxD/GhzHpjOSq4oA=="],
 
     "fast-uri": ["fast-uri@4.2.2", "https://mirrors.cloud.tencent.com/npm/fast-uri/-/fast-uri-4.2.2.tgz", {}, "sha512-EwVpUMzLVNOmcWW0zi5G3JJwkopB6XXjnVvNBGfqrMMsVew2hkQWl5e/pe/CfYUeS6jt4cIO2MnamEW7v/7wPw=="],
 
-    "fdir": ["fdir@6.5.0", "https://registry.npmmirror.com/fdir/-/fdir-6.5.0.tgz", { "peerDependencies": { "picomatch": "^3 || ^4" }, "optionalPeers": ["picomatch"] }, "sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg=="],
+    "fdir": ["fdir@6.5.0", "https://mirrors.cloud.tencent.com/npm/fdir/-/fdir-6.5.0.tgz", { "peerDependencies": { "picomatch": "^3 || ^4" }, "optionalPeers": ["picomatch"] }, "sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg=="],
 
-    "find-root": ["find-root@1.1.0", "https://registry.npmmirror.com/find-root/-/find-root-1.1.0.tgz", {}, "sha512-NKfW6bec6GfKc0SGx1e07QZY9PE99u0Bft/0rzSD5k3sO/vwkVUpDUKVm5Gpp5Ue3YfShPFTX2070tDs5kB9Ng=="],
+    "find-root": ["find-root@1.1.0", "https://mirrors.cloud.tencent.com/npm/find-root/-/find-root-1.1.0.tgz", {}, "sha512-NKfW6bec6GfKc0SGx1e07QZY9PE99u0Bft/0rzSD5k3sO/vwkVUpDUKVm5Gpp5Ue3YfShPFTX2070tDs5kB9Ng=="],
 
-    "function-bind": ["function-bind@1.1.2", "https://registry.npmmirror.com/function-bind/-/function-bind-1.1.2.tgz", {}, "sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA=="],
+    "function-bind": ["function-bind@1.1.2", "https://mirrors.cloud.tencent.com/npm/function-bind/-/function-bind-1.1.2.tgz", {}, "sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA=="],
 
-    "hasown": ["hasown@2.0.4", "https://registry.npmmirror.com/hasown/-/hasown-2.0.4.tgz", { "dependencies": { "function-bind": "^1.1.2" } }, "sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A=="],
+    "hasown": ["hasown@2.0.4", "https://mirrors.cloud.tencent.com/npm/hasown/-/hasown-2.0.4.tgz", { "dependencies": { "function-bind": "^1.1.2" } }, "sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A=="],
 
-    "hoist-non-react-statics": ["hoist-non-react-statics@3.3.2", "https://registry.npmmirror.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz", { "dependencies": { "react-is": "^16.7.0" } }, "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw=="],
+    "hoist-non-react-statics": ["hoist-non-react-statics@3.3.2", "https://mirrors.cloud.tencent.com/npm/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz", { "dependencies": { "react-is": "^16.7.0" } }, "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw=="],
 
-    "html-parse-stringify": ["html-parse-stringify@4.0.1", "https://registry.npmmirror.com/html-parse-stringify/-/html-parse-stringify-4.0.1.tgz", {}, "sha512-0zHsZJrK7S3K2aucXWL6ycoYJ/iNtIcFHC/nYQgFklPtrv5LpJctIiSCroWZWeuoXvuyFdzp6KzjJQ+OT5MfFw=="],
+    "html-parse-stringify": ["html-parse-stringify@4.0.1", "https://mirrors.cloud.tencent.com/npm/html-parse-stringify/-/html-parse-stringify-4.0.1.tgz", {}, "sha512-0zHsZJrK7S3K2aucXWL6ycoYJ/iNtIcFHC/nYQgFklPtrv5LpJctIiSCroWZWeuoXvuyFdzp6KzjJQ+OT5MfFw=="],
 
     "i18next": ["i18next@26.4.3", "https://mirrors.cloud.tencent.com/npm/i18next/-/i18next-26.4.3.tgz", { "peerDependencies": { "typescript": "^5 || ^6 || ^7" }, "optionalPeers": ["typescript"] }, "sha512-QIIueUYS2giFVIY3hu/X5Dz7/qTzwcXE06H29m1DKVhUGVPCyT0wnsh14wEn/cTy9nZ/B6VhbDItdXotOKSO8A=="],
 
-    "i18next-browser-languagedetector": ["i18next-browser-languagedetector@8.2.1", "https://registry.npmmirror.com/i18next-browser-languagedetector/-/i18next-browser-languagedetector-8.2.1.tgz", { "dependencies": { "@babel/runtime": "^7.23.2" } }, "sha512-bZg8+4bdmaOiApD7N7BPT9W8MLZG+nPTOFlLiJiT8uzKXFjhxw4v2ierCXOwB5sFDMtuA5G4kgYZ0AznZxQ/cw=="],
+    "i18next-browser-languagedetector": ["i18next-browser-languagedetector@8.2.1", "https://mirrors.cloud.tencent.com/npm/i18next-browser-languagedetector/-/i18next-browser-languagedetector-8.2.1.tgz", { "dependencies": { "@babel/runtime": "^7.23.2" } }, "sha512-bZg8+4bdmaOiApD7N7BPT9W8MLZG+nPTOFlLiJiT8uzKXFjhxw4v2ierCXOwB5sFDMtuA5G4kgYZ0AznZxQ/cw=="],
 
-    "import-fresh": ["import-fresh@3.3.1", "https://registry.npmmirror.com/import-fresh/-/import-fresh-3.3.1.tgz", { "dependencies": { "parent-module": "^1.0.0", "resolve-from": "^4.0.0" } }, "sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ=="],
+    "import-fresh": ["import-fresh@3.3.1", "https://mirrors.cloud.tencent.com/npm/import-fresh/-/import-fresh-3.3.1.tgz", { "dependencies": { "parent-module": "^1.0.0", "resolve-from": "^4.0.0" } }, "sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ=="],
 
-    "is-arrayish": ["is-arrayish@0.2.1", "https://registry.npmmirror.com/is-arrayish/-/is-arrayish-0.2.1.tgz", {}, "sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg=="],
+    "is-arrayish": ["is-arrayish@0.2.1", "https://mirrors.cloud.tencent.com/npm/is-arrayish/-/is-arrayish-0.2.1.tgz", {}, "sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg=="],
 
     "is-core-module": ["is-core-module@2.17.0", "https://mirrors.cloud.tencent.com/npm/is-core-module/-/is-core-module-2.17.0.tgz", { "dependencies": { "hasown": "^2.0.4" } }, "sha512-J/vG0zBCbIKOQFfufSwyXdMrsohyJIUNkrnmo6WZGzoM7tr/lsbfW5b2BvisL6zsyMzK9UxV9L6c7AoFbyXHOA=="],
 
-    "js-tokens": ["js-tokens@4.0.0", "https://registry.npmmirror.com/js-tokens/-/js-tokens-4.0.0.tgz", {}, "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="],
+    "js-tokens": ["js-tokens@4.0.0", "https://mirrors.cloud.tencent.com/npm/js-tokens/-/js-tokens-4.0.0.tgz", {}, "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="],
 
     "js-yaml": ["js-yaml@5.4.3", "https://mirrors.cloud.tencent.com/npm/js-yaml/-/js-yaml-5.4.3.tgz", { "dependencies": { "argparse": "^2.0.1" }, "bin": { "js-yaml": "bin/js-yaml.mjs" } }, "sha512-yzzNtgczwgoVHNigCyKTXcQJU4Y8t/ikU4UxXW0BvrLfHTGWZhsNcOT2s/a7vn81/4KqVnNmHjaUEPlvWnNwVw=="],
 
-    "jsesc": ["jsesc@3.1.0", "https://registry.npmmirror.com/jsesc/-/jsesc-3.1.0.tgz", { "bin": { "jsesc": "bin/jsesc" } }, "sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA=="],
+    "jsesc": ["jsesc@3.1.0", "https://mirrors.cloud.tencent.com/npm/jsesc/-/jsesc-3.1.0.tgz", { "bin": { "jsesc": "bin/jsesc" } }, "sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA=="],
 
-    "json-parse-even-better-errors": ["json-parse-even-better-errors@2.3.1", "https://registry.npmmirror.com/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz", {}, "sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w=="],
+    "json-parse-even-better-errors": ["json-parse-even-better-errors@2.3.1", "https://mirrors.cloud.tencent.com/npm/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz", {}, "sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w=="],
 
-    "json-schema-to-typescript": ["json-schema-to-typescript@16.0.0", "https://registry.npmmirror.com/json-schema-to-typescript/-/json-schema-to-typescript-16.0.0.tgz", { "dependencies": { "@apidevtools/json-schema-ref-parser": "^11.9.3", "@types/json-schema": "^7.0.15", "@types/lodash": "^4.17.25", "js-yaml": "^5.2.3", "lodash": "^4.18.1", "minimist": "^1.2.8", "prettier": "^3.9.6", "tinyglobby": "^0.2.17" }, "bin": { "json2ts": "dist/src/cli.js" } }, "sha512-Ah6kK4q6SjlMzWBH1eNOQkdRh5Qhr5T/RCFwfjQqWZA7UDW+N47A8wfyoiN0L884s4L4bAEI54IjIuN3/u0B/A=="],
+    "json-schema-to-typescript": ["json-schema-to-typescript@16.0.0", "https://mirrors.cloud.tencent.com/npm/json-schema-to-typescript/-/json-schema-to-typescript-16.0.0.tgz", { "dependencies": { "@apidevtools/json-schema-ref-parser": "^11.9.3", "@types/json-schema": "^7.0.15", "@types/lodash": "^4.17.25", "js-yaml": "^5.2.3", "lodash": "^4.18.1", "minimist": "^1.2.8", "prettier": "^3.9.6", "tinyglobby": "^0.2.17" }, "bin": { "json2ts": "dist/src/cli.js" } }, "sha512-Ah6kK4q6SjlMzWBH1eNOQkdRh5Qhr5T/RCFwfjQqWZA7UDW+N47A8wfyoiN0L884s4L4bAEI54IjIuN3/u0B/A=="],
 
-    "json-schema-traverse": ["json-schema-traverse@1.0.0", "https://registry.npmmirror.com/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz", {}, "sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug=="],
+    "json-schema-traverse": ["json-schema-traverse@1.0.0", "https://mirrors.cloud.tencent.com/npm/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz", {}, "sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug=="],
 
-    "jsonpointer": ["jsonpointer@5.0.1", "https://registry.npmmirror.com/jsonpointer/-/jsonpointer-5.0.1.tgz", {}, "sha512-p/nXbhSEcu3pZRdkW1OfJhpsVtW1gd4Wa1fnQc9YLiTfAjn0312eMKimbdIQzuZl9aa9xUGaRlP9T/CJE/ditQ=="],
+    "jsonpointer": ["jsonpointer@5.0.1", "https://mirrors.cloud.tencent.com/npm/jsonpointer/-/jsonpointer-5.0.1.tgz", {}, "sha512-p/nXbhSEcu3pZRdkW1OfJhpsVtW1gd4Wa1fnQc9YLiTfAjn0312eMKimbdIQzuZl9aa9xUGaRlP9T/CJE/ditQ=="],
 
-    "lines-and-columns": ["lines-and-columns@1.2.4", "https://registry.npmmirror.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz", {}, "sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg=="],
+    "lines-and-columns": ["lines-and-columns@1.2.4", "https://mirrors.cloud.tencent.com/npm/lines-and-columns/-/lines-and-columns-1.2.4.tgz", {}, "sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg=="],
 
-    "lodash": ["lodash@4.18.1", "https://registry.npmmirror.com/lodash/-/lodash-4.18.1.tgz", {}, "sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q=="],
+    "lodash": ["lodash@4.18.1", "https://mirrors.cloud.tencent.com/npm/lodash/-/lodash-4.18.1.tgz", {}, "sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q=="],
 
-    "loose-envify": ["loose-envify@1.4.0", "https://registry.npmmirror.com/loose-envify/-/loose-envify-1.4.0.tgz", { "dependencies": { "js-tokens": "^3.0.0 || ^4.0.0" }, "bin": { "loose-envify": "cli.js" } }, "sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q=="],
+    "loose-envify": ["loose-envify@1.4.0", "https://mirrors.cloud.tencent.com/npm/loose-envify/-/loose-envify-1.4.0.tgz", { "dependencies": { "js-tokens": "^3.0.0 || ^4.0.0" }, "bin": { "loose-envify": "cli.js" } }, "sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q=="],
 
     "markdown-to-jsx": ["markdown-to-jsx@9.10.3", "https://mirrors.cloud.tencent.com/npm/markdown-to-jsx/-/markdown-to-jsx-9.10.3.tgz", { "peerDependencies": { "react": ">= 16.0.0", "react-native": "*", "solid-js": ">=1.0.0", "vue": ">=3.0.0" }, "optionalPeers": ["react", "react-native", "solid-js", "vue"] }, "sha512-J5/NCmNYQ0ExsnThzvF3F1fSzNYLgROcW2diUqRqoIoiyhoy8DSI06jLuMYk0c86SQd/FiVYJrV6tIgci9S2tQ=="],
 
-    "material-ui-popup-state": ["material-ui-popup-state@5.3.7", "https://registry.npmmirror.com/material-ui-popup-state/-/material-ui-popup-state-5.3.7.tgz", { "dependencies": { "@babel/runtime": "^7.26.0", "@types/prop-types": "^15.7.3", "classnames": "^2.2.6", "prop-types": "^15.7.2" }, "peerDependencies": { "@mui/material": ">=5 <10", "@types/react": "^16.8.0 || ^17 || ^18 || ^19", "react": ">=16.8.0 <20" }, "optionalPeers": ["@types/react"] }, "sha512-3ppRgNEfJ4pSEmVnRYeDDi/8L6RSGnsBrCP+WikozCeF7E21DyKAm80EOtBbeiOTooPCEQoeqrQ32uDKW2VYcw=="],
+    "material-ui-popup-state": ["material-ui-popup-state@5.3.7", "https://mirrors.cloud.tencent.com/npm/material-ui-popup-state/-/material-ui-popup-state-5.3.7.tgz", { "dependencies": { "@babel/runtime": "^7.26.0", "@types/prop-types": "^15.7.3", "classnames": "^2.2.6", "prop-types": "^15.7.2" }, "peerDependencies": { "@mui/material": ">=5 <10", "@types/react": "^16.8.0 || ^17 || ^18 || ^19", "react": ">=16.8.0 <20" }, "optionalPeers": ["@types/react"] }, "sha512-3ppRgNEfJ4pSEmVnRYeDDi/8L6RSGnsBrCP+WikozCeF7E21DyKAm80EOtBbeiOTooPCEQoeqrQ32uDKW2VYcw=="],
 
-    "minimist": ["minimist@1.2.8", "https://registry.npmmirror.com/minimist/-/minimist-1.2.8.tgz", {}, "sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA=="],
+    "minimist": ["minimist@1.2.8", "https://mirrors.cloud.tencent.com/npm/minimist/-/minimist-1.2.8.tgz", {}, "sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA=="],
 
-    "ms": ["ms@2.1.3", "https://registry.npmmirror.com/ms/-/ms-2.1.3.tgz", {}, "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="],
+    "ms": ["ms@2.1.3", "https://mirrors.cloud.tencent.com/npm/ms/-/ms-2.1.3.tgz", {}, "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="],
 
     "nanoid": ["nanoid@6.0.2", "https://mirrors.cloud.tencent.com/npm/nanoid/-/nanoid-6.0.2.tgz", { "bin": { "nanoid": "bin/nanoid.js" } }, "sha512-hIvVOb9Qr1p/9CNNLOe0OlWvgx/ziTsVwKN/GDSsuArN2K0wDiafP3s0SWmsm7o2BdnyS8Z9Z64NFBUbn6ziBg=="],
 
-    "object-assign": ["object-assign@4.1.1", "https://registry.npmmirror.com/object-assign/-/object-assign-4.1.1.tgz", {}, "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg=="],
+    "object-assign": ["object-assign@4.1.1", "https://mirrors.cloud.tencent.com/npm/object-assign/-/object-assign-4.1.1.tgz", {}, "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg=="],
 
-    "parent-module": ["parent-module@1.0.1", "https://registry.npmmirror.com/parent-module/-/parent-module-1.0.1.tgz", { "dependencies": { "callsites": "^3.0.0" } }, "sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g=="],
+    "parent-module": ["parent-module@1.0.1", "https://mirrors.cloud.tencent.com/npm/parent-module/-/parent-module-1.0.1.tgz", { "dependencies": { "callsites": "^3.0.0" } }, "sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g=="],
 
-    "parse-json": ["parse-json@5.2.0", "https://registry.npmmirror.com/parse-json/-/parse-json-5.2.0.tgz", { "dependencies": { "@babel/code-frame": "^7.0.0", "error-ex": "^1.3.1", "json-parse-even-better-errors": "^2.3.0", "lines-and-columns": "^1.1.6" } }, "sha512-ayCKvm/phCGxOkYRSCM82iDwct8/EonSEgCSxWxD7ve6jHggsFl4fZVQBPRNgQoKiuV/odhFrGzQXZwbifC8Rg=="],
+    "parse-json": ["parse-json@5.2.0", "https://mirrors.cloud.tencent.com/npm/parse-json/-/parse-json-5.2.0.tgz", { "dependencies": { "@babel/code-frame": "^7.0.0", "error-ex": "^1.3.1", "json-parse-even-better-errors": "^2.3.0", "lines-and-columns": "^1.1.6" } }, "sha512-ayCKvm/phCGxOkYRSCM82iDwct8/EonSEgCSxWxD7ve6jHggsFl4fZVQBPRNgQoKiuV/odhFrGzQXZwbifC8Rg=="],
 
-    "path-parse": ["path-parse@1.0.7", "https://registry.npmmirror.com/path-parse/-/path-parse-1.0.7.tgz", {}, "sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw=="],
+    "path-parse": ["path-parse@1.0.7", "https://mirrors.cloud.tencent.com/npm/path-parse/-/path-parse-1.0.7.tgz", {}, "sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw=="],
 
-    "path-type": ["path-type@4.0.0", "https://registry.npmmirror.com/path-type/-/path-type-4.0.0.tgz", {}, "sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw=="],
+    "path-type": ["path-type@4.0.0", "https://mirrors.cloud.tencent.com/npm/path-type/-/path-type-4.0.0.tgz", {}, "sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw=="],
 
-    "picocolors": ["picocolors@1.1.1", "https://registry.npmmirror.com/picocolors/-/picocolors-1.1.1.tgz", {}, "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA=="],
+    "picocolors": ["picocolors@1.1.1", "https://mirrors.cloud.tencent.com/npm/picocolors/-/picocolors-1.1.1.tgz", {}, "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA=="],
 
-    "picomatch": ["picomatch@4.0.7", "https://registry.npmmirror.com/picomatch/-/picomatch-4.0.7.tgz", {}, "sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA=="],
+    "picomatch": ["picomatch@4.0.7", "https://mirrors.cloud.tencent.com/npm/picomatch/-/picomatch-4.0.7.tgz", {}, "sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA=="],
 
     "prettier": ["prettier@3.9.10", "https://mirrors.cloud.tencent.com/npm/prettier/-/prettier-3.9.10.tgz", { "bin": { "prettier": "bin/prettier.cjs" } }, "sha512-skGHTH1Yb9QvaTC4hWnRTzEYtCpApF0UMBPz+t/0ZPzP8ihefo/btKd+QA7pUE0fEwA1SbS/NmhyEcstdXOIdA=="],
 
-    "prop-types": ["prop-types@15.8.1", "https://registry.npmmirror.com/prop-types/-/prop-types-15.8.1.tgz", { "dependencies": { "loose-envify": "^1.4.0", "object-assign": "^4.1.1", "react-is": "^16.13.1" } }, "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="],
+    "prop-types": ["prop-types@15.8.1", "https://mirrors.cloud.tencent.com/npm/prop-types/-/prop-types-15.8.1.tgz", { "dependencies": { "loose-envify": "^1.4.0", "object-assign": "^4.1.1", "react-is": "^16.13.1" } }, "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="],
 
-    "rc-input": ["rc-input@1.8.0", "https://registry.npmmirror.com/rc-input/-/rc-input-1.8.0.tgz", { "dependencies": { "@babel/runtime": "^7.11.1", "classnames": "^2.2.1", "rc-util": "^5.18.1" }, "peerDependencies": { "react": ">=16.0.0", "react-dom": ">=16.0.0" } }, "sha512-KXvaTbX+7ha8a/k+eg6SYRVERK0NddX8QX7a7AnRvUa/rEH0CNMlpcBzBkhI0wp2C8C4HlMoYl8TImSN+fuHKA=="],
+    "rc-input": ["rc-input@1.8.0", "https://mirrors.cloud.tencent.com/npm/rc-input/-/rc-input-1.8.0.tgz", { "dependencies": { "@babel/runtime": "^7.11.1", "classnames": "^2.2.1", "rc-util": "^5.18.1" }, "peerDependencies": { "react": ">=16.0.0", "react-dom": ">=16.0.0" } }, "sha512-KXvaTbX+7ha8a/k+eg6SYRVERK0NddX8QX7a7AnRvUa/rEH0CNMlpcBzBkhI0wp2C8C4HlMoYl8TImSN+fuHKA=="],
 
-    "rc-input-number": ["rc-input-number@9.5.0", "https://registry.npmmirror.com/rc-input-number/-/rc-input-number-9.5.0.tgz", { "dependencies": { "@babel/runtime": "^7.10.1", "@rc-component/mini-decimal": "^1.0.1", "classnames": "^2.2.5", "rc-input": "~1.8.0", "rc-util": "^5.40.1" }, "peerDependencies": { "react": ">=16.9.0", "react-dom": ">=16.9.0" } }, "sha512-bKaEvB5tHebUURAEXw35LDcnRZLq3x1k7GxfAqBMzmpHkDGzjAtnUL8y4y5N15rIFIg5IJgwr211jInl3cipag=="],
+    "rc-input-number": ["rc-input-number@9.5.0", "https://mirrors.cloud.tencent.com/npm/rc-input-number/-/rc-input-number-9.5.0.tgz", { "dependencies": { "@babel/runtime": "^7.10.1", "@rc-component/mini-decimal": "^1.0.1", "classnames": "^2.2.5", "rc-input": "~1.8.0", "rc-util": "^5.40.1" }, "peerDependencies": { "react": ">=16.9.0", "react-dom": ">=16.9.0" } }, "sha512-bKaEvB5tHebUURAEXw35LDcnRZLq3x1k7GxfAqBMzmpHkDGzjAtnUL8y4y5N15rIFIg5IJgwr211jInl3cipag=="],
 
-    "rc-util": ["rc-util@5.44.4", "https://registry.npmmirror.com/rc-util/-/rc-util-5.44.4.tgz", { "dependencies": { "@babel/runtime": "^7.18.3", "react-is": "^18.2.0" }, "peerDependencies": { "react": ">=16.9.0", "react-dom": ">=16.9.0" } }, "sha512-resueRJzmHG9Q6rI/DfK6Kdv9/Lfls05vzMs1Sk3M2P+3cJa+MakaZyWY8IPfehVuhPJFKrIY1IK4GqbiaiY5w=="],
+    "rc-util": ["rc-util@5.44.4", "https://mirrors.cloud.tencent.com/npm/rc-util/-/rc-util-5.44.4.tgz", { "dependencies": { "@babel/runtime": "^7.18.3", "react-is": "^18.2.0" }, "peerDependencies": { "react": ">=16.9.0", "react-dom": ">=16.9.0" } }, "sha512-resueRJzmHG9Q6rI/DfK6Kdv9/Lfls05vzMs1Sk3M2P+3cJa+MakaZyWY8IPfehVuhPJFKrIY1IK4GqbiaiY5w=="],
 
-    "react": ["react@19.3.0", "https://registry.npmmirror.com/react/-/react-19.3.0.tgz", {}, "sha512-E8LUcbtBWt20bbl2YoHfx4ZDBdxVTfOKtCZn9cDSJ4l6/nuoApcpIBcj47t2wZoVX8g2ZHuMHbiShgCR1T5Sog=="],
+    "react": ["react@19.3.0", "https://mirrors.cloud.tencent.com/npm/react/-/react-19.3.0.tgz", {}, "sha512-E8LUcbtBWt20bbl2YoHfx4ZDBdxVTfOKtCZn9cDSJ4l6/nuoApcpIBcj47t2wZoVX8g2ZHuMHbiShgCR1T5Sog=="],
 
-    "react-dom": ["react-dom@19.3.0", "https://registry.npmmirror.com/react-dom/-/react-dom-19.3.0.tgz", { "dependencies": { "scheduler": "^0.28.0" }, "peerDependencies": { "react": "^19.3.0" } }, "sha512-JDk8dgif51OjFoDE70+OT9ICyYr+69HlmihNwp1+Nsfbna3t5sIiCa9ZJktDmQ4/1b/rn26hIAR2uYXDMr5r0Q=="],
+    "react-dom": ["react-dom@19.3.0", "https://mirrors.cloud.tencent.com/npm/react-dom/-/react-dom-19.3.0.tgz", { "dependencies": { "scheduler": "^0.28.0" }, "peerDependencies": { "react": "^19.3.0" } }, "sha512-JDk8dgif51OjFoDE70+OT9ICyYr+69HlmihNwp1+Nsfbna3t5sIiCa9ZJktDmQ4/1b/rn26hIAR2uYXDMr5r0Q=="],
 
-    "react-hotkeys-hook": ["react-hotkeys-hook@5.3.3", "https://registry.npmmirror.com/react-hotkeys-hook/-/react-hotkeys-hook-5.3.3.tgz", { "peerDependencies": { "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-aswgyWUnE25hmhzHTfKDmKzsaSE5DJ4LKaU/o6rQSXkDd/1Bh9TfAFQbHkf6fLy11HvlYkp+cDDarGdhmCDhoQ=="],
+    "react-hotkeys-hook": ["react-hotkeys-hook@5.3.3", "https://mirrors.cloud.tencent.com/npm/react-hotkeys-hook/-/react-hotkeys-hook-5.3.3.tgz", { "peerDependencies": { "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-aswgyWUnE25hmhzHTfKDmKzsaSE5DJ4LKaU/o6rQSXkDd/1Bh9TfAFQbHkf6fLy11HvlYkp+cDDarGdhmCDhoQ=="],
 
     "react-i18next": ["react-i18next@17.0.16", "https://mirrors.cloud.tencent.com/npm/react-i18next/-/react-i18next-17.0.16.tgz", { "dependencies": { "@babel/runtime": "^7.29.7", "html-parse-stringify": "^4.0.1", "use-sync-external-store": "^1.6.0" }, "peerDependencies": { "i18next": ">= 26.2.0", "react": ">= 16.8.0", "react-dom": "*", "react-native": "*", "typescript": "^5 || ^6 || ^7" }, "optionalPeers": ["react-dom", "react-native", "typescript"] }, "sha512-7uImVD9hG5yUOaP5KHVied1x0A004Di/KU031ULR35Ma+9e9H5GdnNZHgQEIByyAz+IAXBkRDTedNVzjPUH8ZA=="],
 
-    "react-is": ["react-is@19.3.0", "https://registry.npmmirror.com/react-is/-/react-is-19.3.0.tgz", {}, "sha512-UpMYezM4v5/18F28aC66AEsjXIgE02kyEMH6yLdgLXu/UTfa1Ntwck/nNLrbqJsEXW7gPb0coNO9FQse9WTovA=="],
+    "react-is": ["react-is@19.3.0", "https://mirrors.cloud.tencent.com/npm/react-is/-/react-is-19.3.0.tgz", {}, "sha512-UpMYezM4v5/18F28aC66AEsjXIgE02kyEMH6yLdgLXu/UTfa1Ntwck/nNLrbqJsEXW7gPb0coNO9FQse9WTovA=="],
 
     "react-router": ["react-router@8.4.0", "https://mirrors.cloud.tencent.com/npm/react-router/-/react-router-8.4.0.tgz", { "dependencies": { "@remix-run/route-pattern": "^0.22.1", "cookie-es": "^3.1.1" }, "peerDependencies": { "react": ">=19.2.7", "react-dom": ">=19.2.7" }, "optionalPeers": ["react-dom"] }, "sha512-JtydAkBvU9UTEe5qNC+POhu+ZBNM7rlKY2IegwXc7Idj7xfRG16x5RZrw3mju+XlqBxfvb2ky9P3jUp9WyWC1g=="],
 
-    "react-transition-group": ["react-transition-group@4.4.5", "https://registry.npmmirror.com/react-transition-group/-/react-transition-group-4.4.5.tgz", { "dependencies": { "@babel/runtime": "^7.5.5", "dom-helpers": "^5.0.1", "loose-envify": "^1.4.0", "prop-types": "^15.6.2" }, "peerDependencies": { "react": ">=16.6.0", "react-dom": ">=16.6.0" } }, "sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g=="],
+    "react-transition-group": ["react-transition-group@4.4.5", "https://mirrors.cloud.tencent.com/npm/react-transition-group/-/react-transition-group-4.4.5.tgz", { "dependencies": { "@babel/runtime": "^7.5.5", "dom-helpers": "^5.0.1", "loose-envify": "^1.4.0", "prop-types": "^15.6.2" }, "peerDependencies": { "react": ">=16.6.0", "react-dom": ">=16.6.0" } }, "sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g=="],
 
-    "react-transition-state": ["react-transition-state@2.4.0", "https://registry.npmmirror.com/react-transition-state/-/react-transition-state-2.4.0.tgz", { "peerDependencies": { "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-d86g/nv4vsDBLBum8KSeb9S3aWDlptDQ4ydFvfCHk98ePFNILXq5Wu3tVgPXJrItxvMLtJ+XPjmGw0RmMyYMBg=="],
+    "react-transition-state": ["react-transition-state@2.4.0", "https://mirrors.cloud.tencent.com/npm/react-transition-state/-/react-transition-state-2.4.0.tgz", { "peerDependencies": { "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-d86g/nv4vsDBLBum8KSeb9S3aWDlptDQ4ydFvfCHk98ePFNILXq5Wu3tVgPXJrItxvMLtJ+XPjmGw0RmMyYMBg=="],
 
-    "require-from-string": ["require-from-string@2.0.2", "https://registry.npmmirror.com/require-from-string/-/require-from-string-2.0.2.tgz", {}, "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw=="],
+    "require-from-string": ["require-from-string@2.0.2", "https://mirrors.cloud.tencent.com/npm/require-from-string/-/require-from-string-2.0.2.tgz", {}, "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw=="],
 
     "resolve": ["resolve@1.22.13", "https://mirrors.cloud.tencent.com/npm/resolve/-/resolve-1.22.13.tgz", { "dependencies": { "es-errors": "^1.3.0", "is-core-module": "^2.17.0", "path-parse": "^1.0.7", "supports-preserve-symlinks-flag": "^1.0.0" }, "bin": { "resolve": "bin/resolve" } }, "sha512-Dj/cW9zBV2aRj6XzCxuGIs3ESZKv02jixne3q6jFZYZ3/Tg09gHHviSMDL4kObh9pqSahdRHEnDoaP2gn8YLhA=="],
 
-    "resolve-from": ["resolve-from@4.0.0", "https://registry.npmmirror.com/resolve-from/-/resolve-from-4.0.0.tgz", {}, "sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g=="],
+    "resolve-from": ["resolve-from@4.0.0", "https://mirrors.cloud.tencent.com/npm/resolve-from/-/resolve-from-4.0.0.tgz", {}, "sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g=="],
 
-    "rtl-css-js": ["rtl-css-js@1.16.1", "https://registry.npmmirror.com/rtl-css-js/-/rtl-css-js-1.16.1.tgz", { "dependencies": { "@babel/runtime": "^7.1.2" } }, "sha512-lRQgou1mu19e+Ya0LsTvKrVJ5TYUbqCVPAiImX3UfLTenarvPUl1QFdvu5Z3PYmHT9RCcwIfbjRQBntExyj3Zg=="],
+    "rtl-css-js": ["rtl-css-js@1.16.1", "https://mirrors.cloud.tencent.com/npm/rtl-css-js/-/rtl-css-js-1.16.1.tgz", { "dependencies": { "@babel/runtime": "^7.1.2" } }, "sha512-lRQgou1mu19e+Ya0LsTvKrVJ5TYUbqCVPAiImX3UfLTenarvPUl1QFdvu5Z3PYmHT9RCcwIfbjRQBntExyj3Zg=="],
 
-    "scheduler": ["scheduler@0.28.0", "https://registry.npmmirror.com/scheduler/-/scheduler-0.28.0.tgz", {}, "sha512-juorfCmIkIw8tT+p5BXSm6PJjQF/ycEYmKyzURCIt/RaZIhL+PulbQ9Yu2z1HdOJDdqDTlxA1+xKBmHXJsczAw=="],
+    "scheduler": ["scheduler@0.28.0", "https://mirrors.cloud.tencent.com/npm/scheduler/-/scheduler-0.28.0.tgz", {}, "sha512-juorfCmIkIw8tT+p5BXSm6PJjQF/ycEYmKyzURCIt/RaZIhL+PulbQ9Yu2z1HdOJDdqDTlxA1+xKBmHXJsczAw=="],
 
-    "source-map": ["source-map@0.5.7", "https://registry.npmmirror.com/source-map/-/source-map-0.5.7.tgz", {}, "sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ=="],
+    "source-map": ["source-map@0.5.7", "https://mirrors.cloud.tencent.com/npm/source-map/-/source-map-0.5.7.tgz", {}, "sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ=="],
 
-    "stylis": ["stylis@4.2.0", "https://registry.npmmirror.com/stylis/-/stylis-4.2.0.tgz", {}, "sha512-Orov6g6BB1sDfYgzWfTHDOxamtX1bE/zo104Dh9e6fqJ3PooipYyfJ0pUmrZO2wAvO8YbEyeFrkV91XTsGMSrw=="],
+    "stylis": ["stylis@4.2.0", "https://mirrors.cloud.tencent.com/npm/stylis/-/stylis-4.2.0.tgz", {}, "sha512-Orov6g6BB1sDfYgzWfTHDOxamtX1bE/zo104Dh9e6fqJ3PooipYyfJ0pUmrZO2wAvO8YbEyeFrkV91XTsGMSrw=="],
 
-    "supports-preserve-symlinks-flag": ["supports-preserve-symlinks-flag@1.0.0", "https://registry.npmmirror.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz", {}, "sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w=="],
+    "supports-preserve-symlinks-flag": ["supports-preserve-symlinks-flag@1.0.0", "https://mirrors.cloud.tencent.com/npm/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz", {}, "sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w=="],
 
-    "tinyglobby": ["tinyglobby@0.2.17", "https://registry.npmmirror.com/tinyglobby/-/tinyglobby-0.2.17.tgz", { "dependencies": { "fdir": "^6.5.0", "picomatch": "^4.0.4" } }, "sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g=="],
+    "tinyglobby": ["tinyglobby@0.2.17", "https://mirrors.cloud.tencent.com/npm/tinyglobby/-/tinyglobby-0.2.17.tgz", { "dependencies": { "fdir": "^6.5.0", "picomatch": "^4.0.4" } }, "sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g=="],
 
-    "tslib": ["tslib@2.8.1", "https://registry.npmmirror.com/tslib/-/tslib-2.8.1.tgz", {}, "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="],
+    "tslib": ["tslib@2.8.1", "https://mirrors.cloud.tencent.com/npm/tslib/-/tslib-2.8.1.tgz", {}, "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="],
 
-    "typescript": ["typescript@7.0.2", "https://registry.npmmirror.com/typescript/-/typescript-7.0.2.tgz", { "optionalDependencies": { "@typescript/typescript-aix-ppc64": "7.0.2", "@typescript/typescript-darwin-arm64": "7.0.2", "@typescript/typescript-darwin-x64": "7.0.2", "@typescript/typescript-freebsd-arm64": "7.0.2", "@typescript/typescript-freebsd-x64": "7.0.2", "@typescript/typescript-linux-arm": "7.0.2", "@typescript/typescript-linux-arm64": "7.0.2", "@typescript/typescript-linux-loong64": "7.0.2", "@typescript/typescript-linux-mips64el": "7.0.2", "@typescript/typescript-linux-ppc64": "7.0.2", "@typescript/typescript-linux-riscv64": "7.0.2", "@typescript/typescript-linux-s390x": "7.0.2", "@typescript/typescript-linux-x64": "7.0.2", "@typescript/typescript-netbsd-arm64": "7.0.2", "@typescript/typescript-netbsd-x64": "7.0.2", "@typescript/typescript-openbsd-arm64": "7.0.2", "@typescript/typescript-openbsd-x64": "7.0.2", "@typescript/typescript-sunos-x64": "7.0.2", "@typescript/typescript-win32-arm64": "7.0.2", "@typescript/typescript-win32-x64": "7.0.2" }, "bin": { "tsc": "bin/tsc" } }, "sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA=="],
+    "typescript": ["typescript@7.0.2", "https://mirrors.cloud.tencent.com/npm/typescript/-/typescript-7.0.2.tgz", { "optionalDependencies": { "@typescript/typescript-aix-ppc64": "7.0.2", "@typescript/typescript-darwin-arm64": "7.0.2", "@typescript/typescript-darwin-x64": "7.0.2", "@typescript/typescript-freebsd-arm64": "7.0.2", "@typescript/typescript-freebsd-x64": "7.0.2", "@typescript/typescript-linux-arm": "7.0.2", "@typescript/typescript-linux-arm64": "7.0.2", "@typescript/typescript-linux-loong64": "7.0.2", "@typescript/typescript-linux-mips64el": "7.0.2", "@typescript/typescript-linux-ppc64": "7.0.2", "@typescript/typescript-linux-riscv64": "7.0.2", "@typescript/typescript-linux-s390x": "7.0.2", "@typescript/typescript-linux-x64": "7.0.2", "@typescript/typescript-netbsd-arm64": "7.0.2", "@typescript/typescript-netbsd-x64": "7.0.2", "@typescript/typescript-openbsd-arm64": "7.0.2", "@typescript/typescript-openbsd-x64": "7.0.2", "@typescript/typescript-sunos-x64": "7.0.2", "@typescript/typescript-win32-arm64": "7.0.2", "@typescript/typescript-win32-x64": "7.0.2" }, "bin": { "tsc": "bin/tsc" } }, "sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA=="],
 
-    "undici-types": ["undici-types@8.9.0", "https://registry.npmmirror.com/undici-types/-/undici-types-8.9.0.tgz", {}, "sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg=="],
+    "undici-types": ["undici-types@8.9.0", "https://mirrors.cloud.tencent.com/npm/undici-types/-/undici-types-8.9.0.tgz", {}, "sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg=="],
 
-    "use-sync-external-store": ["use-sync-external-store@1.7.0", "https://registry.npmmirror.com/use-sync-external-store/-/use-sync-external-store-1.7.0.tgz", { "peerDependencies": { "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-6L+EeigHMQhdaIPNIFUKwfWJSwWFQ8gJbJ2DLOs5sDIegTwR9fRxvnM3uciHKjIZhFz+KAv2emhWMRvDmMcY8A=="],
+    "use-sync-external-store": ["use-sync-external-store@1.7.0", "https://mirrors.cloud.tencent.com/npm/use-sync-external-store/-/use-sync-external-store-1.7.0.tgz", { "peerDependencies": { "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-6L+EeigHMQhdaIPNIFUKwfWJSwWFQ8gJbJ2DLOs5sDIegTwR9fRxvnM3uciHKjIZhFz+KAv2emhWMRvDmMcY8A=="],
 
-    "yaml": ["yaml@1.10.3", "https://registry.npmmirror.com/yaml/-/yaml-1.10.3.tgz", {}, "sha512-vIYeF1u3CjlhAFekPPAk2h/Kv4T3mAkMox5OymRiJQB0spDP10LHvt+K7G9Ny6NuuMAb25/6n1qyUjAcGNf/AA=="],
+    "yaml": ["yaml@1.10.3", "https://mirrors.cloud.tencent.com/npm/yaml/-/yaml-1.10.3.tgz", {}, "sha512-vIYeF1u3CjlhAFekPPAk2h/Kv4T3mAkMox5OymRiJQB0spDP10LHvt+K7G9Ny6NuuMAb25/6n1qyUjAcGNf/AA=="],
 
-    "zustand": ["zustand@5.0.15", "https://registry.npmmirror.com/zustand/-/zustand-5.0.15.tgz", { "peerDependencies": { "@types/react": ">=18.0.0", "immer": ">=9.0.6", "react": ">=18.0.0", "use-sync-external-store": ">=1.2.0" }, "optionalPeers": ["@types/react", "immer", "react", "use-sync-external-store"] }, "sha512-MpSEjRiBkA9crSYeOUH32rJC7SVqAbm0Fqcqge/bUi2PPoLcBWKOsG+C8mevmpr8TwXHBVkChbbJiyvkE+i/3A=="],
+    "zustand": ["zustand@5.0.15", "https://mirrors.cloud.tencent.com/npm/zustand/-/zustand-5.0.15.tgz", { "peerDependencies": { "@types/react": ">=18.0.0", "immer": ">=9.0.6", "react": ">=18.0.0", "use-sync-external-store": ">=1.2.0" }, "optionalPeers": ["@types/react", "immer", "react", "use-sync-external-store"] }, "sha512-MpSEjRiBkA9crSYeOUH32rJC7SVqAbm0Fqcqge/bUi2PPoLcBWKOsG+C8mevmpr8TwXHBVkChbbJiyvkE+i/3A=="],
 
-    "@apidevtools/json-schema-ref-parser/js-yaml": ["js-yaml@4.3.2", "https://registry.npmmirror.com/js-yaml/-/js-yaml-4.3.2.tgz", { "dependencies": { "argparse": "^2.0.1" }, "bin": { "js-yaml": "bin/js-yaml.js" } }, "sha512-SFNOvSJ+Dgf/9An904Yx+CgSlIPCkIpao4qo51lpee25TIRejdH3rhR4EZMGoNx3/TP3O+wzWuiTFl4sqbltzA=="],
+    "@apidevtools/json-schema-ref-parser/js-yaml": ["js-yaml@4.3.2", "https://mirrors.cloud.tencent.com/npm/js-yaml/-/js-yaml-4.3.2.tgz", { "dependencies": { "argparse": "^2.0.1" }, "bin": { "js-yaml": "bin/js-yaml.js" } }, "sha512-SFNOvSJ+Dgf/9An904Yx+CgSlIPCkIpao4qo51lpee25TIRejdH3rhR4EZMGoNx3/TP3O+wzWuiTFl4sqbltzA=="],
 
-    "@bufbuild/protoplugin/typescript": ["typescript@5.4.5", "https://registry.npmmirror.com/typescript/-/typescript-5.4.5.tgz", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ=="],
+    "@bufbuild/protoplugin/typescript": ["typescript@5.4.5", "https://mirrors.cloud.tencent.com/npm/typescript/-/typescript-5.4.5.tgz", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ=="],
 
-    "@griffel/core/stylis": ["stylis@4.4.0", "https://registry.npmmirror.com/stylis/-/stylis-4.4.0.tgz", {}, "sha512-5Z9ZpRzfuH6l/UAvCPAPUo3665Nk2wLaZU3x+TLHKVzIz33+sbJqbtrYoC3KD4/uVOr2Zp+L0LySezP9OHV9yA=="],
+    "@griffel/core/stylis": ["stylis@4.4.0", "https://mirrors.cloud.tencent.com/npm/stylis/-/stylis-4.4.0.tgz", {}, "sha512-5Z9ZpRzfuH6l/UAvCPAPUo3665Nk2wLaZU3x+TLHKVzIz33+sbJqbtrYoC3KD4/uVOr2Zp+L0LySezP9OHV9yA=="],
 
-    "@rjsf/utils/react-is": ["react-is@18.3.1", "https://registry.npmmirror.com/react-is/-/react-is-18.3.1.tgz", {}, "sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg=="],
+    "@mui/icons-material/@babel/runtime": ["@babel/runtime@8.0.7", "https://mirrors.cloud.tencent.com/npm/@babel/runtime/-/runtime-8.0.7.tgz", {}, "sha512-k0hagDDq/6w4v+0Sp4wFvIz/yswH5O7Va6aRTnD7N62Tnborp4X+YB+H3XUcWVSR4aE47WPEXiIIZchBs0GmYg=="],
+
+    "@mui/material/@babel/runtime": ["@babel/runtime@8.0.7", "https://mirrors.cloud.tencent.com/npm/@babel/runtime/-/runtime-8.0.7.tgz", {}, "sha512-k0hagDDq/6w4v+0Sp4wFvIz/yswH5O7Va6aRTnD7N62Tnborp4X+YB+H3XUcWVSR4aE47WPEXiIIZchBs0GmYg=="],
+
+    "@mui/private-theming/@babel/runtime": ["@babel/runtime@8.0.7", "https://mirrors.cloud.tencent.com/npm/@babel/runtime/-/runtime-8.0.7.tgz", {}, "sha512-k0hagDDq/6w4v+0Sp4wFvIz/yswH5O7Va6aRTnD7N62Tnborp4X+YB+H3XUcWVSR4aE47WPEXiIIZchBs0GmYg=="],
+
+    "@mui/styled-engine/@babel/runtime": ["@babel/runtime@8.0.7", "https://mirrors.cloud.tencent.com/npm/@babel/runtime/-/runtime-8.0.7.tgz", {}, "sha512-k0hagDDq/6w4v+0Sp4wFvIz/yswH5O7Va6aRTnD7N62Tnborp4X+YB+H3XUcWVSR4aE47WPEXiIIZchBs0GmYg=="],
+
+    "@mui/system/@babel/runtime": ["@babel/runtime@8.0.7", "https://mirrors.cloud.tencent.com/npm/@babel/runtime/-/runtime-8.0.7.tgz", {}, "sha512-k0hagDDq/6w4v+0Sp4wFvIz/yswH5O7Va6aRTnD7N62Tnborp4X+YB+H3XUcWVSR4aE47WPEXiIIZchBs0GmYg=="],
+
+    "@mui/types/@babel/runtime": ["@babel/runtime@8.0.7", "https://mirrors.cloud.tencent.com/npm/@babel/runtime/-/runtime-8.0.7.tgz", {}, "sha512-k0hagDDq/6w4v+0Sp4wFvIz/yswH5O7Va6aRTnD7N62Tnborp4X+YB+H3XUcWVSR4aE47WPEXiIIZchBs0GmYg=="],
+
+    "@mui/utils/@babel/runtime": ["@babel/runtime@8.0.7", "https://mirrors.cloud.tencent.com/npm/@babel/runtime/-/runtime-8.0.7.tgz", {}, "sha512-k0hagDDq/6w4v+0Sp4wFvIz/yswH5O7Va6aRTnD7N62Tnborp4X+YB+H3XUcWVSR4aE47WPEXiIIZchBs0GmYg=="],
+
+    "@rjsf/utils/react-is": ["react-is@18.3.1", "https://mirrors.cloud.tencent.com/npm/react-is/-/react-is-18.3.1.tgz", {}, "sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg=="],
 
     "ajv/fast-uri": ["fast-uri@3.1.8", "https://mirrors.cloud.tencent.com/npm/fast-uri/-/fast-uri-3.1.8.tgz", {}, "sha512-GZMtZUTNRpOVIECoXwLNZS5xUGE+mVNbTB8h/7Rwh2TFWcBQiPzTgyZi05BF9UMZKkLJv8XBRJTlU7zg8+ZfMg=="],
 
-    "hoist-non-react-statics/react-is": ["react-is@16.13.1", "https://registry.npmmirror.com/react-is/-/react-is-16.13.1.tgz", {}, "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="],
+    "hoist-non-react-statics/react-is": ["react-is@16.13.1", "https://mirrors.cloud.tencent.com/npm/react-is/-/react-is-16.13.1.tgz", {}, "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="],
 
-    "prop-types/react-is": ["react-is@16.13.1", "https://registry.npmmirror.com/react-is/-/react-is-16.13.1.tgz", {}, "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="],
+    "prop-types/react-is": ["react-is@16.13.1", "https://mirrors.cloud.tencent.com/npm/react-is/-/react-is-16.13.1.tgz", {}, "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="],
 
-    "rc-util/react-is": ["react-is@18.3.1", "https://registry.npmmirror.com/react-is/-/react-is-18.3.1.tgz", {}, "sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg=="],
+    "rc-util/react-is": ["react-is@18.3.1", "https://mirrors.cloud.tencent.com/npm/react-is/-/react-is-18.3.1.tgz", {}, "sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg=="],
   }
 }
