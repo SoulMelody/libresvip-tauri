@@ -60,7 +60,7 @@ export const TaskListPopover = () => {
   return (
     <PopupState variant="popover" popupId="task-list-popover">
       {(popupState) => (
-        <Box sx={{ display: 'inline', ml: 'auto' }}>
+        <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
           <Tooltip title={t('window.task_list')} enterDelay={500}>
             <IconButton
               color="inherit"

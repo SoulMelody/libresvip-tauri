@@ -345,17 +345,17 @@ export function App(props: Props) {
             <PanelLeftExpandFilled />
           </IconButton>
 
+          <Box
+            onMouseDown={handleStartDragging}
+            onDoubleClick={handleMaximize}
+            sx={{ alignSelf: 'stretch', flex: '1 1 auto', minWidth: '8px' }}
+          />
           <TaskListPopover />
           <AppMenu
             isMenuOpen={isMenuOpen}
             setMenuOpen={setMenuOpen}
             menuRef={menuRef}
             onLyricRulesOpen={() => setLyricRulesOpen(true)}
-          />
-          <Box
-            onMouseDown={handleStartDragging}
-            onDoubleClick={handleMaximize}
-            sx={{ alignSelf: 'stretch', flexGrow: 1 }}
           />
           <TitleBarButtons />
         </Toolbar>
