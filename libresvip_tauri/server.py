@@ -1,5 +1,5 @@
-import asyncio
 import argparse
+import asyncio
 import os
 import sys
 import threading
@@ -8,11 +8,10 @@ import time
 os.environ.setdefault("LIBRESVIP_SETTINGS_BACKEND", "remote")
 
 import psutil
-from hypercorn.config import Config
 from hypercorn.asyncio import serve
+from hypercorn.config import Config
 
 from libresvip_tauri.service import app
-
 
 shutdown_event = asyncio.Event()
 
