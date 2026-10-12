@@ -46,7 +46,7 @@ import {
 } from '@fluentui/react-icons';
 import { getCurrentWebview } from "@tauri-apps/api/webview";
 import { ask, open } from '@tauri-apps/plugin-dialog';
-import { revealItemsInDir } from '@tauri-apps/plugin-opener';
+import { revealItemInDir } from '@tauri-apps/plugin-opener';
 import { useEffect } from 'react';
 import { useConverterStore } from './store/ConverterStore';
 import { ConversionTask } from './ApiTypes';
@@ -141,7 +141,7 @@ export const ConverterPage = () => {
         };
         updateConversionTask(res.groupId, taskUpdated);
         if (taskUpdated.outputPath !== null && revealFileOnFinish) {
-          revealItemsInDir(taskUpdated.outputPath);
+          revealItemInDir(taskUpdated.outputPath);
         }
         increaseFinishedCount();
       } else {
