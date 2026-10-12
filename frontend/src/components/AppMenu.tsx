@@ -17,6 +17,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { ControlledMenu, MenuItem, MenuRadioGroup, SubMenu } from '@szhsin/react-menu';
+import type { MenuInstance } from '@szhsin/react-menu';
 import { useSettingStore } from '../store/SettingStore';
 
 interface AppMenuProps {
@@ -38,11 +39,11 @@ export const AppMenu = (props: AppMenuProps) => {
     setDarkMode,
   } = useSettingStore();
 
-  const themeSubmenuRef = useRef(null);
-  useHotkeys('ctrl+t', () => themeSubmenuRef.current.openMenu());
+  const themeSubmenuRef = useRef<MenuInstance>(null);
+  useHotkeys('ctrl+t', () => themeSubmenuRef.current?.openMenu());
 
-  const languageSubmenuRef = useRef(null);
-  useHotkeys('ctrl+l', () => languageSubmenuRef.current.openMenu());
+  const languageSubmenuRef = useRef<MenuInstance>(null);
+  useHotkeys('ctrl+l', () => languageSubmenuRef.current?.openMenu());
 
   const kbdSx = {
     marginLeft: '10px',
@@ -81,7 +82,7 @@ export const AppMenu = (props: AppMenuProps) => {
       </Tooltip>
       <ControlledMenu
         state={isMenuOpen ? 'open' : 'closed'} onClose={() => setMenuOpen(false)}
-        anchorRef={menuRef} theming={actualTheme === 'dark' ? 'dark' : 'light'}>
+        anchorRef={menuRef as React.RefObject<Element>} theming={actualTheme === 'dark' ? 'dark' : 'light'}>
         <SubMenu label={
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Color20Regular/>

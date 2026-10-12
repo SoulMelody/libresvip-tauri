@@ -104,6 +104,10 @@
       "name": "Pronounciation conversion",
       "description": "Convert lyrics to the specified pronounciation format"
     },
+    "remove_lyric_symbols": {
+      "name": "Remove lyric symbols",
+      "description": "Remove numbers and punctuation"
+    },
     "remove_short_silences": {
       "name": "Remove short silences",
       "description": "Fill short rests"

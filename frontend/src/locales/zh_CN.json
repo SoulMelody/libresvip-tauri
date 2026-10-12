@@ -104,6 +104,10 @@
       "name": "歌词发音转换",
       "description": "将歌词转换为指定的发音格式"
     },
+    "remove_lyric_symbols": {
+      "name": "移除歌词符号",
+      "description": "移除数字与标点"
+    },
     "remove_short_silences": {
       "name": "移除短的无声间隙",
       "description": "填充短休止符"

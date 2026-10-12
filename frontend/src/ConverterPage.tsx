@@ -46,7 +46,7 @@ import {
 } from '@fluentui/react-icons';
 import { getCurrentWebview } from "@tauri-apps/api/webview";
 import { ask, open } from '@tauri-apps/plugin-dialog';
-import { revealItemInDir } from '@tauri-apps/plugin-opener';
+import { revealItemsInDir } from '@tauri-apps/plugin-opener';
 import { useEffect } from 'react';
 import { useConverterStore } from './store/ConverterStore';
 import { ConversionTask } from './ApiTypes';
@@ -141,7 +141,7 @@ export const ConverterPage = () => {
         };
         updateConversionTask(res.groupId, taskUpdated);
         if (taskUpdated.outputPath !== null && revealFileOnFinish) {
-          revealItemInDir(taskUpdated.outputPath);
+          revealItemsInDir(taskUpdated.outputPath);
         }
         increaseFinishedCount();
       } else {
@@ -244,8 +244,9 @@ export const ConverterPage = () => {
       displayLabel,
       hidden,
       label,
-      onDropPropertyClick,
-      onKeyChange,
+      onRemoveProperty,
+      onKeyRename,
+      onKeyRenameBlur,
       readonly,
       required,
       rawErrors = [],
@@ -274,8 +275,9 @@ export const ConverterPage = () => {
         disabled={disabled}
         id={id}
         label={label}
-        onDropPropertyClick={onDropPropertyClick}
-        onKeyChange={onKeyChange}
+        onRemoveProperty={onRemoveProperty}
+        onKeyRename={onKeyRename}
+        onKeyRenameBlur={onKeyRenameBlur}
         readonly={readonly}
         required={required}
         schema={schema}
@@ -397,20 +399,22 @@ export const ConverterPage = () => {
     let patchedUiSchema = schema.ui_schema;
     if (identifier === 'replace_lyric') {
       const presetNames = Object.keys(lyricReplaceRules);
+      const jsonProperties = (schema.json_schema.properties ?? {}) as Record<string, object>;
+      const uiProperties = (schema.ui_schema ?? {}) as Record<string, object>;
       patchedJsonSchema = {
         ...schema.json_schema,
         properties: {
-          ...schema.json_schema.properties,
+          ...jsonProperties,
           lyric_replacement_preset_name: {
-            ...schema.json_schema.properties?.lyric_replacement_preset_name,
+            ...jsonProperties.lyric_replacement_preset_name,
             enum: presetNames,
           },
         },
       };
       patchedUiSchema = {
-        ...schema.ui_schema,
+        ...uiProperties,
         lyric_replacement_preset_name: {
-          ...schema.ui_schema?.lyric_replacement_preset_name,
+          ...uiProperties.lyric_replacement_preset_name,
           'ui:widget': 'select',
         },
       };
