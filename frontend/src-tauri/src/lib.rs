@@ -163,14 +163,16 @@ fn start_sidecar_command<R: Runtime>(app: AppHandle<R>) -> Result<(), String> {
     }
 }
 
+fn stop_child(child: &mut Child) {
+    let _ = child.kill();
+    let _ = child.wait();
+}
+
 fn stop_sidecar() {
     if let Ok(mut guard) = SIDECAR_PROCESS.lock() {
         if let Some(mut child) = guard.take() {
             println!("[LibreSVIP] Stopping sidecar (PID: {})", child.id());
-            std::thread::spawn(move || {
-                let _ = child.kill();
-                let _ = child.wait();
-            });
+            stop_child(&mut child);
         }
     }
 }
@@ -229,4 +231,21 @@ pub fn run() {
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
+}
+
+#[cfg(all(test, unix))]
+mod tests {
+    use super::stop_child;
+    use std::process::Command;
+
+    #[test]
+    fn stop_child_waits_until_process_is_reaped() {
+        let mut child = Command::new("sh")
+            .args(["-c", "sleep 30"])
+            .spawn()
+            .expect("start test child");
+
+        stop_child(&mut child);
+        assert!(child.try_wait().expect("check child status").is_some());
+    }
 }
