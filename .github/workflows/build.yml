@@ -133,6 +133,10 @@ jobs:
         working-directory: './frontend'
         run: bun install
 
+      - name: Read app version
+        if: matrix.platform == 'ubuntu-24.04' || matrix.platform == 'ubuntu-24.04-arm'
+        run: echo "LINUXDEPLOY_OUTPUT_VERSION=$(jq -r .version frontend/src-tauri/tauri.conf.json)" >> "$GITHUB_ENV"
+
       - name: Build tauri package
         uses: tauri-apps/tauri-action@v1
         env:
